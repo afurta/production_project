@@ -1,0 +1,112 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "rules": {
+    "react-hooks/exhaustive-deps": 0,
+    "no-console": "warn", // Запретить использование консоли
+    "prefer-const": "warn", // Требовать объявления const для переменных, которые никогда не переназначаются после объявления
+    "max-len": [
+      "warn",
+      {
+        "code": 150,
+        "ignoreUrls": true
+      }
+    ], // Максимальная длина
+    "semi": [
+      "error",
+      "never"
+    ], // Требовать или запрещать точки с запятой вместо ASI
+    "space-before-function-paren": "error", // Обеспечить согласованный интервал перед открывающей круглой скобкой определения "функции"
+    "no-const-assign": "warn", // Запретить переназначение переменных const
+    "no-dupe-args": "warn", // Запрещает повторяющиеся аргументы в function определениях
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true
+      }
+    ], // Обеспечивает постоянный интервал до и после ключевых слов
+    "space-infix-ops": "error", // Требует пробелов вокруг инфиксных операторов
+    "comma-spacing": [
+      "warn",
+      {
+        "before": false,
+        "after": true
+      }
+    ], // Обеспечить согласованный интервал перед и после запятых
+    "eol-last": [
+      "error",
+      "always"
+    ], // Требовать или запрещать перевод строки в конце файлов
+    "@typescript-eslint/quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ], // Обеспечьте последовательное использование обратных, двойных или одинарных кавычек
+    "@typescript-eslint/no-empty-function": [
+      "warn"
+    ], // Запретить пустые функции
+    "@typescript-eslint/no-extra-semi": [
+      "error"
+    ], // Запретить ненужные точки с запятой
+    "@typescript-eslint/no-empty-interface": [
+      "warn",
+      {
+        "allowSingleExtends": false
+      }
+    ], // Запретить объявление пустых интерфейсов
+    "no-unused-vars": "off", // Запретитьнеиспользуемые переменные
+    "@typescript-eslint/no-unused-vars": "warn", // Запретить неиспользуемые переменные
+    "@typescript-eslint/ban-types": "off", // Запрещает использование определенных типов
+    "@typescript-eslint/no-inferrable-types": "warn", // Запрещает явные объявления типов для переменных или параметров, инициализированных числом, строкой или логическим значением
+    "@typescript-eslint/explicit-module-boundary-types": "off", // Требовать явного возвращаемого значения и типов аргументов в методах общедоступного класса экспортируемых функций и классов.
+    "@typescript-eslint/indent": [
+      "error",
+      2
+    ], // Обеспечьте постоянный отступ
+    "@typescript-eslint/no-non-null-assertion": "off", // Запрещает ненулевые утверждения с использованием Іпостфиксного оператора
+    "@typescript-eslint/interface-name-prefix": "off", // Префикс в интерфейсах
+    "@typescript-eslint/camelcase": "off", // camelcase
+    "@typescript-eslint/explicit-function-return-type": "off", // Требовать явных возвращаемых типов для функций и методов класса
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "markers": [
+          "/"
+        ]
+      }
+    ], // Обеспечьте согласованный интервал после "// или */* в комментарии
+    "@typescript-eslint/no-use-before-define": "off", // Запретить использование переменных до их определения
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "none",
+          "requireLast": false
+        },
+        "singleline": {
+          "delimiter": "comma",
+          "requireLast": false
+        }
+      }
+    ], // Требуется определенный стиль разделителя элементов для интерфейсов и литералов типов
+    "jsx-a11y/alt-text": "off"
+  }
+}

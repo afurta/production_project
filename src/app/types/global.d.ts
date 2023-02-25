@@ -2,7 +2,7 @@ declare module '*.scss' {
   interface IClassNames {
     [className: string]: string
   }
-  const classNames: IClassNames;
+  const classNames: IClassNames
   export = classNames;
 }
 
@@ -12,8 +12,8 @@ declare module '*.jpeg';
 declare module '*.gif';
 
 declare module '*.svg' {
-  const content: any;
-  export default content;
+  const content: any
+  export default content
 }
 
 declare const __IS_DEV: boolean

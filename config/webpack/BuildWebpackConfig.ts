@@ -1,13 +1,13 @@
-import { BuildPlugins } from "./BuildPlugins";
-import { BuildResolves } from "./BuildResolves";
-import { BuildLoaders } from "./BuildLoaders";
-import { IBuildOptions } from "./types/config";
-import { BuildDevServer } from "./BuildDevServer";
+import { BuildPlugins } from './BuildPlugins'
+import { BuildResolves } from './BuildResolves'
+import { BuildLoaders } from './BuildLoaders'
+import { IBuildOptions } from './types/config'
+import { BuildDevServer } from './BuildDevServer'
 
 export const buildWebpackConfig = (options: IBuildOptions)=>{
   const { mode, paths, port, isDev } = options
   
-  return{
+  return {
     mode,
     entry: paths.entry,
     output: {

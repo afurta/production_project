@@ -1,4 +1,4 @@
-import { IBuildOptions } from "./types/config"
+import { IBuildOptions } from './types/config'
 
 export const BuildDevServer = (options: IBuildOptions) => {
   return {
