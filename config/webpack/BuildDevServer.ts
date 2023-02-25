@@ -5,5 +5,6 @@ export const BuildDevServer = (options: IBuildOptions) => {
     open: true,
     port: options.port,
     historyApiFallback: true,
+    hot: true
   }
 }

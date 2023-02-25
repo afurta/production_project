@@ -4,6 +4,7 @@ export interface BuildPath{
   entry: string,
   output: string,
   html: string
+  src: string
 }
 
 export interface IBuildEnv{
@@ -13,7 +14,7 @@ export interface IBuildEnv{
 
 export interface IBuildOptions{
   mode: BuildMode,
-  path: BuildPath,
+  paths: BuildPath,
   isDev: boolean,
   port: number
 }
