@@ -5,6 +5,7 @@ import './styles/index.scss'
 import { AppRouter } from './providers/AppRouter'
 import { Navbar } from 'widgets/Navbar/ui/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
+import { PageLoader } from 'widgets/PageLoader/ui/PageLoader'
 
 const App = () => {
 
@@ -12,7 +13,7 @@ const App = () => {
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={''}>
         <Navbar />
         <div className="app-content">
           <Sidebar />

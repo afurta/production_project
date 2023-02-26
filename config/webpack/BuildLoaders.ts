@@ -42,9 +42,23 @@ export const BuildLoaders = ({isDev}: IBuildOptions):RuleSetRule[] => {
     ],
   }
 
+  const babelLoader =   {
+    test: /\.m?js$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: [
+          ['@babel/preset-env', { targets: 'defaults' }]
+        ]
+      }
+    }
+  }
+
   return [
     fileLoader,
     svgLoader,
+    babelLoader,
     tsLoader,
     cssLoader
   ]
