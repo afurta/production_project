@@ -11,6 +11,11 @@ const App = () => {
 
   const { theme } = useTheme()
 
+  if (Math.random() > 0.5) {
+    throw new Error
+  }
+
+
   return (
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback={''}>

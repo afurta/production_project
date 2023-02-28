@@ -2,5 +2,7 @@
   "Заголовок": "Title",
   "Язык": "English",
   "Главная страница": "Main Page",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "Сервис временно недоступен": "The service is temporarily unavailable",
+  "Обновить страницу": "Reload page"
 }

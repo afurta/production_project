@@ -1,0 +1,23 @@
+.NotFoundPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.modal {
+  width: 300px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--inverted-bg-color);
+  border-radius: 8px;
+}
+
+.modal_header {
+  margin-bottom: 20px;
+}
