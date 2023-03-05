@@ -1,3 +1,5 @@
+import path from 'path'
+
 export default {
   clearMocks: true,
   moduleFileExtensions: [
@@ -23,7 +25,14 @@ export default {
   transformIgnorePatterns: [
     '/node_modules/'
   ],
-
+  modulePaths: [
+    '<rootDir>src',
+  ],
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupJest.ts'],
+  moduleNameMapper: {
+    '\\.(s?css)$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+  },
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
   //   '/node_modules/'

@@ -15,6 +15,7 @@ export const LanguageSwitcher = ({ className }: LanguageSwitcherProps) => {
       theme={ThemeButton.CLEAR}
       onClick={__changeLanguage}
       className={className}
+      data-testid='language-switcher'
     >
       {t('Язык')}
     </Button>

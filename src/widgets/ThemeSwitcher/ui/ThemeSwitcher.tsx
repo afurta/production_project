@@ -6,13 +6,14 @@ interface ThemeSwitcherProps {
   className?: string
 }
 
-export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className }) => {
+export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme()
 
   return (
     <Button
       theme={ThemeButton.CLEAR}
       onClick={toggleTheme}
+      data-testid='theme-switcher'
     >
       {theme === Theme.LIGHT ? <ICONS.ThemeLight /> : <ICONS.ThemeDark />}
     </Button>

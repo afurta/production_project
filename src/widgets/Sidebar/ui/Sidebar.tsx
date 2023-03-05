@@ -17,10 +17,12 @@ export const Sidebar = ({ className }: SidebarProps) => {
   return (
     <div
       className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+      data-testid='sidebar'
     >
       <Button
         theme={ThemeButton.CLEAR}
         onClick={() => collapsedHandler()}
+        data-testid='sidebar-btn'
       >
         collapsed
       </Button>
