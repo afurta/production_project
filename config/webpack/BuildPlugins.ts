@@ -17,8 +17,6 @@ export const BuildPlugins = ({html}:BuildPath):WebpackPluginInstance[] => {
       __IS_DEV: JSON.stringify('true'),
     }),
     new ReactRefreshWebpackPlugin(),
-    new BundleAnalyzerPlugin({
-      
-    })
+    // new BundleAnalyzerPlugin({})
   ]
 }

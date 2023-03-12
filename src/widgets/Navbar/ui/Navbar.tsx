@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/ClassNames/classNames'
+import { classNames } from 'shared/lib/classNames/classnames'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import cls from './Navbar.module.scss'
 
@@ -12,14 +12,14 @@ export const Navbar = ({ className }: NavbarProps) => {
     <div className={classNames(cls.navbar, {}, [className])} >
       <div className={cls.links}>
         <AppLink
-          theme={AppLinkTheme.PRIMARY}
+          theme={AppLinkTheme.SECONDARY}
           to={'/'}
           className={cls.mainLink}
         >
           Главная страница
         </AppLink>
         <AppLink
-          theme={AppLinkTheme.PRIMARY}
+          theme={AppLinkTheme.SECONDARY}
           to={'/about'}
         >
           О нас

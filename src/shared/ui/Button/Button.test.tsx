@@ -6,7 +6,7 @@ const fn = jest.fn()
 describe('Button test', () => {
 
   it('Initial state', () => {
-    render(<Button>TEST</Button>)
+    render(<Button theme={ThemeButton.CLEAR}>TEST</Button>)
     expect(screen.getByText('TEST')).toBeInTheDocument()
   })
 

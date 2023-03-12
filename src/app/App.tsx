@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import { useTheme } from 'app/providers/ThemeProvider'
-import { classNames } from 'shared/lib/ClassNames/classNames'
+import { classNames } from 'shared/lib/classNames/classnames'
 import './styles/index.scss'
 import { AppRouter } from './providers/AppRouter'
 import { Navbar } from 'widgets/Navbar/ui/Navbar'
@@ -10,11 +10,6 @@ import { PageLoader } from 'widgets/PageLoader/ui/PageLoader'
 const App = () => {
 
   const { theme } = useTheme()
-
-  if (Math.random() > 0.5) {
-    throw new Error
-  }
-
 
   return (
     <div className={classNames('app', {}, [theme])}>

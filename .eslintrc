@@ -110,6 +110,16 @@
         }
       }
     ], // Требуется определенный стиль разделителя элементов для интерфейсов и литералов типов
-    "jsx-a11y/alt-text": "off"
+    "jsx-a11y/alt-text": "off",
+    "i18next/no-literal-string": [
+      "error",
+      {
+        "markupOnly": true,
+        "ignoreAllAttributes": [
+          "data-testid",
+          "to"
+        ]
+      },
+    ],
   }
 }
