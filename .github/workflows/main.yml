@@ -12,17 +12,17 @@ jobs:
       node: [12]
     steps:
       - name: Checkout Commit
-      uses: actions/checkout@v2
-      # - name: Use Node.js ${{ matrix.node }}
-      # uses: actions/setup-node@v1
-      # with:
-      #   node-version: ${{ matrix.node }}
-      # - name: Build project
-      # run: npm run build:prod
-      # - name: Linting ts
-      # run: npm run lint:ts
-      # - name: Linting style
-      # run: npm run lint:scss
-      # - name: Testing style
-      # run: npm run test:unit
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node }}
+      - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node }}
+      - name: Build project
+      run: npm run build:prod
+      - name: Linting ts
+      run: npm run lint:ts
+      - name: Linting style
+      run: npm run lint:scss
+      - name: Testing style
+      run: npm run test:unit
  
