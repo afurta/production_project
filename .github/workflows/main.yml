@@ -8,5 +8,5 @@ jobs:
       matrix:
         node: [ 17.x ]
     steps:
-      - name: Checkout Commit
-      run: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: Starting Node.js ${{ matrix.node - version }}
