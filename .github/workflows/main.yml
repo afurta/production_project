@@ -23,13 +23,17 @@ jobs:
 
       - name: Building app
         run: npm run build:prod
+        if: always()
 
       - name: Linting ts
         run: npm run lint:ts
+        if: always()
 
       - name: Linting scss
         run: npm run lint:scss
+        if: always()
 
       - name: Testing ts
         run: npm run test:unit
+        if: always()
 

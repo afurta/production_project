@@ -1,6 +1,6 @@
 import { Theme, useTheme } from 'app/providers/ThemeProvider'
 import { ICONS } from 'shared/assets'
-import { Button, ThemeButton } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 
 interface ThemeSwitcherProps {
   className?: string
@@ -11,7 +11,7 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
 
   return (
     <Button
-      theme={ThemeButton.CLEAR}
+      theme={ButtonTheme.CLEAR}
       onClick={toggleTheme}
       data-testid='theme-switcher'
     >

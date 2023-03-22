@@ -1,8 +1,11 @@
 {
-  "Заголовок": "Title",
-  "Язык": "English",
+  "throw error": "throw error",
+  "Главная": "Main",
   "Главная страница": "Main Page",
-  "Страница не найдена": "Page not found",
+  "О сайте": "About us",
+  "Обновить страницу": "Reload page",
   "Сервис временно недоступен": "The service is temporarily unavailable",
-  "Обновить страницу": "Reload page"
+  "Страница не найдена": "Page not found",
+  "Сокращение": "En",
+  "Язык": "English"
 }

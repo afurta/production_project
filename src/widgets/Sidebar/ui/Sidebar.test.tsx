@@ -1,13 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { withTranslation } from 'react-i18next'
-import { renderWithTranslation } from 'shared/lib/renderWithTranslation/renderWithTranslation'
+import { componentRender } from 'shared/lib/tests/componentRender/componentRender'
 import { Sidebar } from './Sidebar'
 
 
 describe('Sidebar test', () => {
 
   it('Initial state', () => {
-    renderWithTranslation(<Sidebar />)
+    componentRender(<Sidebar />)
 
     expect(screen.getByTestId('sidebar')).toBeInTheDocument()
     expect(screen.getByTestId('theme-switcher')).toBeInTheDocument()
@@ -15,7 +14,7 @@ describe('Sidebar test', () => {
   })
 
   it('Check collapse event', () => {
-    renderWithTranslation(<Sidebar />)
+    componentRender(<Sidebar />)
 
     expect(screen.queryByTestId('sidebar')).not.toHaveClass('Button')
 
