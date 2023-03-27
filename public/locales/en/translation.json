@@ -10,5 +10,7 @@
   "Язык": "English",
   "Войти": "Login",
   "Инкремент": "Increment",
-  "Декремент": "Decrement"
+  "Декремент": "Decrement",
+  "Введите username": "Enter username",
+  "Введите пароль": "Enter password"
 }
