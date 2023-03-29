@@ -5,9 +5,6 @@
   background: var(--inverted-bg-color);
   transition: 0.3s width;
 }
-
-
-
 .switchers {
   position: absolute;
   bottom: 20px;
@@ -16,55 +13,44 @@
   align-items: center;
   justify-content: center;
 }
-
 .lang {
   margin-left: 20px;
 }
-
 .collapseBtn {
   position: absolute;
-  bottom: 32px;
   right: -32px;
+  bottom: 32px;
 }
-
 .items {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-left: 20px;
-
   .icon {
-    fill: var(--inverted-primary-color);
     margin-right: 10px;
+    fill: var(--inverted-primary-color);
   }
-
   .item {
     margin-bottom: 10px;
   }
 }
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
-
   .switchers {
-    align-items: center;
     flex-direction: column;
-  }
-
-  .items {
-    margin-left: 0;
     align-items: center;
   }
-
+  .items {
+    align-items: center;
+    margin-left: 0;
+  }
   .icon {
     margin-right: 0;
   }
-
   .link {
     width: 0;
     opacity: 0;
   }
-
   .lang {
     margin-left: 0;
   }

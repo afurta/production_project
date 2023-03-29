@@ -1,54 +1,46 @@
 .modal {
+  position: fixed;
+  z-index: -1;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  position: fixed;
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0;
   color: var(--primary-color);
-
+  opacity: 0;
+  pointer-events: none;
   &.dark {
     --bg-color: #090949;
     --primary-color: #04ff04;
   }
 }
-
 .overlay {
+  display: flex;
   width: 100%;
   height: 100%;
-  background: var(--overlay-color);
-  display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--overlay-color);
 }
-
 .content {
-  padding: 20px;
-  background: var(--bg-color);
-  border-radius: 12px;
-
-  transition: 0.3s transform;
-  transform: scale(0.5);
   max-width: 60%;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--bg-color);
+  transform: scale(0.5);
+  transition: 0.3s transform;
 }
-
 .opened {
+  z-index: var(--z-index-modal);
   opacity: 1;
   pointer-events: auto;
-  z-index: var(--z-index-modal);
-
   .content {
     transform: scale(1);
   }
 }
-
 .isClosing {
+  z-index: var(--z-index-modal);
   opacity: 1;
   pointer-events: auto;
-  z-index: var(--z-index-modal);
-
   .content {
     transform: scale(0.2);
   }

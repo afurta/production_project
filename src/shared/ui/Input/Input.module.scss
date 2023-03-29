@@ -2,49 +2,42 @@
   display: flex;
   align-items: center;
 }
-
 .InputPlaceholder {
   margin-right: 5px;
 }
-
 .CaretWrapper {
   position: relative;
   flex-grow: 1;
 }
-
 .Input {
   bottom: none;
   overflow: none;
-  background: transparent;
-  border: none;
   width: 100%;
+  border: none;
+  background: transparent;
   color: transparent;
   text-shadow: 0 0 0 var(--primary-color);
-
   &:focus {
     outline: none;
   }
 }
-
 .Caret {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 3px;
   width: 9px;
-  background: var(--primary-color);
+  height: 3px;
   animation: blink 0.7s forwards infinite;
+  background: var(--primary-color);
 }
 
 @keyframes blink {
   0% {
     opacity: 0;
   }
-
   50% {
     opacity: 0.01;
   }
-
   100% {
     opacity: 1;
   }
