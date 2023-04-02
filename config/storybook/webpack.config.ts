@@ -1,6 +1,6 @@
 import { BuildCssLoader } from './../webpack/loaders/BuildCssLoader'
 import { BuildPath } from './../webpack/types/config'
-import webpack, { RuleSetRule } from 'webpack'
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack'
 import path from 'path'
 
 export default ({config}:{config:webpack.Configuration})=>{
@@ -23,6 +23,10 @@ export default ({config}:{config:webpack.Configuration})=>{
     }
     return rule
   })
+
+  config.plugins?.push(new DefinePlugin({
+    __IS_DEV: true
+  }))
 
   config.module?.rules?.push({
     test: /\.svg$/i,
