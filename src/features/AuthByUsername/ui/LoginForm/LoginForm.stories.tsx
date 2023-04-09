@@ -14,7 +14,7 @@ const Template: ComponentStory<typeof LoginForm> = (args) => <div style={{ width
 
 export const Light = Template.bind({})
 Light.args = {}
-Light.decorators = [StoreDecorator({ auth: { username: 'admin', password: '123' } })]
+Light.decorators = [StoreDecorator({ auth: { username: 'admin', password: '123' }, })]
 
 export const Dark = Template.bind({})
 Dark.args = {}
