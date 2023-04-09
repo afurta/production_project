@@ -1,8 +1,8 @@
-import { useTheme } from 'app/providers/ThemeProvider'
 import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classnames'
 import { Portal } from 'shared/ui/Portal/Portal'
 import cls from './Modal.module.scss'
+import { useTheme } from 'app/providers/ThemeProvider'
 
 interface ModalProps {
   className?: string
@@ -22,9 +22,10 @@ export const Modal = (props: ModalProps) => {
     lazy
   } = props
 
-  const [isMounted, setIsMounted] = useState<boolean>(false)
   const [isClosing, setIsClosing] = useState<boolean>(false)
+  const [isMounted, setIsMounted] = useState<boolean>(false)
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
+  const { theme } = useTheme()
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
@@ -65,13 +66,16 @@ export const Modal = (props: ModalProps) => {
     if (isOpen) setIsMounted(true)
   }, [isOpen])
 
-  if (lazy && isMounted) return null
+  if (lazy && !isMounted) return null
 
   return (
     <Portal>
-      <div className={classNames(cls.modal, mods, [className])}>
+      <div className={classNames(cls.modal, mods, [className, theme])}>
         <div className={classNames(cls.overlay, {}, [])} onClick={closeHandler}>
-          <div className={classNames(cls.content, {}, [])} onClick={preventEventHandler}>
+          <div
+            className={classNames(cls.content, {}, [])}
+            onClick={preventEventHandler}
+          >
             {children}
           </div>
         </div>

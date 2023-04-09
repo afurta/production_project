@@ -1,9 +1,17 @@
-import { Story } from '@storybook/api'
+import { Story } from '@storybook/react'
 import { StoreProvider, StoreSchema } from 'app/providers/StoreProvider'
-import { DeepPartial } from '@reduxjs/toolkit'
+import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit'
+import { AuthReducer } from 'features/AuthByUsername/model/slice/AuthSlice'
 
-export const StoreDecorator = (state: DeepPartial<StoreSchema>) => (StoryComponent: Story) => (
-  <StoreProvider initialStore={state}>
+const defaultAsyncReducers: DeepPartial<ReducersMapObject<StoreSchema>> = {
+  auth: AuthReducer
+}
+
+export const StoreDecorator = (
+  state: DeepPartial<StoreSchema>,
+  asyncReducers: DeepPartial<ReducersMapObject<StoreSchema>>
+) => (StoryComponent: Story) => (
+  <StoreProvider initialStore={state} asyncReducers={{ ...asyncReducers, ...defaultAsyncReducers }}>
     <StoryComponent />
   </StoreProvider>
 )
