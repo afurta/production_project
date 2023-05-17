@@ -5,7 +5,7 @@ import { IBuildOptions } from './types/config'
 import { BuildDevServer } from './BuildDevServer'
 
 export const buildWebpackConfig = (options: IBuildOptions)=>{
-  const { mode, paths, port, isDev } = options
+  const { mode, paths, isDev} = options
   
   return {
     mode,
@@ -19,7 +19,7 @@ export const buildWebpackConfig = (options: IBuildOptions)=>{
     module: {
       rules: BuildLoaders(options)
     },
-    plugins: BuildPlugins(paths, isDev),
+    plugins: BuildPlugins(options),
     devServer: isDev ? BuildDevServer(options) : undefined,
     devtool: isDev ? 'inline-source-map' : undefined,
   }

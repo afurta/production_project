@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit'
 import { StoreSchema } from 'app/providers/StoreProvider'
 import { getAuthIsError } from './getAuthIsError'
 
@@ -9,12 +8,13 @@ describe('GetAuthIsError selector', ()=>{
         error: 'error'
       }
     } 
-    expect(getAuthIsError(state)).toEqual('error')
+    expect(getAuthIsError(state as StoreSchema)).toEqual('error')
   })
 
   it('Check undefined filed', ()=>{
-    const state:DeepPartial<StoreSchema> = {} 
-    expect(getAuthIsError(state)).toEqual('')
+    const state:DeepPartial<StoreSchema> = {
+    }
+    expect(getAuthIsError(state as StoreSchema)).toEqual('')
   })
 
 })

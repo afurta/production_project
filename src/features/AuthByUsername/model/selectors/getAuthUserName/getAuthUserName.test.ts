@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit'
 import { StoreSchema } from 'app/providers/StoreProvider'
 import { getAuthUsername } from './getAuthUserName'
 
@@ -9,12 +8,12 @@ describe('GetAuthUsername selector', ()=>{
         username: 'username'
       }
     } 
-    expect(getAuthUsername(state)).toEqual('username')
+    expect(getAuthUsername(state as StoreSchema)).toEqual('username')
   })
 
   it('Check undefined filed', ()=>{
     const state:DeepPartial<StoreSchema> = {} 
-    expect(getAuthUsername(state)).toEqual('')
+    expect(getAuthUsername(state as StoreSchema)).toEqual('')
   })
 
 })

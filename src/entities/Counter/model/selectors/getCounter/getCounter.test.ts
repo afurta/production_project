@@ -1,5 +1,4 @@
 import { StoreSchema } from 'app/providers/StoreProvider/config/StoreSchema'
-import { DeepPartial } from '@reduxjs/toolkit'
 import { getCounter } from './getCounter'
 
 describe('GetCounter fn', ()=>{

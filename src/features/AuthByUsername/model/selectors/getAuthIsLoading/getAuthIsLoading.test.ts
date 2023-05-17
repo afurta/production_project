@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit'
 import { StoreSchema } from 'app/providers/StoreProvider'
 import { getAuthIsLoading } from './getAuthIsLoading'
 
@@ -9,12 +8,12 @@ describe('GetAuthIsLoading selector', ()=>{
         isLoading: true
       }
     } 
-    expect(getAuthIsLoading(state)).toEqual(true)
+    expect(getAuthIsLoading(state as StoreSchema)).toEqual(true)
   })
 
   it('Check undefined filed', ()=>{
     const state:DeepPartial<StoreSchema> = {} 
-    expect(getAuthIsLoading(state)).toEqual(false)
+    expect(getAuthIsLoading(state as StoreSchema)).toEqual(false)
   })
 
 })

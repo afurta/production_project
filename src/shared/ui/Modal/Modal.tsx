@@ -27,7 +27,7 @@ export const Modal = (props: ModalProps) => {
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
   const { theme } = useTheme()
 
-  const mods: Record<string, boolean> = {
+  const mods: Record<string, boolean | undefined> = {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing
   }

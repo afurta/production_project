@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 
@@ -6,7 +7,7 @@ interface LanguageSwitcherProps {
   isShorten: boolean
 }
 
-export const LanguageSwitcher = ({ className, isShorten }: LanguageSwitcherProps) => {
+export const LanguageSwitcher = memo(({ className, isShorten }: LanguageSwitcherProps) => {
   const { t, i18n } = useTranslation()
 
   const __changeLanguage = () => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
@@ -21,4 +22,4 @@ export const LanguageSwitcher = ({ className, isShorten }: LanguageSwitcherProps
       {t(isShorten ? 'Сокращение' : 'Язык')}
     </Button>
   )
-}
+})

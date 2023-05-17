@@ -1,0 +1,18 @@
+.icon {
+  margin-right: 10px;
+  fill: var(--inverted-primary-color);
+}
+.item {
+  margin-bottom: 10px;
+}
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+  .icon {
+    margin-right: 0;
+    margin-left: 25px;
+  }
+  .link {
+    width: 0;
+    opacity: 0;
+  }
+}

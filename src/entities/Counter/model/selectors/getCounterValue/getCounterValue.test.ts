@@ -1,5 +1,4 @@
 import { StoreSchema } from 'app/providers/StoreProvider/config/StoreSchema'
-import { DeepPartial } from '@reduxjs/toolkit'
 import { getCounterValue } from './getCounterValue'
 
 describe('getCounterValue fn', ()=>{

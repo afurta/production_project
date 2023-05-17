@@ -17,6 +17,7 @@
         "./src/*"
       ],
     },
+    "strict": true
   },
   "ts-node": {
     "compilerOptions": {
@@ -26,6 +27,7 @@
   "include": [
     "./config/jest/setupJest.ts",
     "./src/**/*.tsx",
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "src/widgets/Sidebar/types/SidebarItems.tss"
   ]
 }

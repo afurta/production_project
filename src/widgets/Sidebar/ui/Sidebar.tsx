@@ -1,11 +1,10 @@
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { ICONS } from 'shared/assets'
+import { useMemo, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classnames'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
+import { SidebarItems } from 'widgets/Sidebar/types/SidebarItems'
+import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem'
 import cls from './Sidebar.module.scss'
 
 interface SidebarProps {
@@ -13,10 +12,13 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-  const { t } = useTranslation()
   const [isCollapsed, setCollapes] = useState<boolean>(false)
 
   const collapsedHandler = () => setCollapes(prev => !prev)
+
+  const RenderSidebarItems = useMemo(() => SidebarItems.map(item => (
+    <SidebarItem item={item} key={item.path} collapsed={isCollapsed} />
+  )), [isCollapsed])
 
   return (
     <div
@@ -24,21 +26,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
       data-testid='sidebar'
     >
       <div className={classNames(cls.items, {}, [])}>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={'/'}
-          className={cls.item}
-        >
-          <ICONS.Main class={classNames(cls.icon, {}, [])} />
-          <span className={classNames(cls.link, {}, [])}>{t('Главная')}</span>
-        </AppLink>
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={'/about'}
-        >
-          <ICONS.AboutUs class={classNames(cls.icon, {}, [])} />
-          <span className={classNames(cls.link, {}, [])}>{t('О сайте')}</span>
-        </AppLink>
+        {
+          RenderSidebarItems
+        }
       </div>
       <Button
         theme={ButtonTheme.BACKGROUND_INVERTED}

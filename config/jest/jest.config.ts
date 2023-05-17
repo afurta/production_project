@@ -34,7 +34,8 @@ export default {
     '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
   },
   globals: {
-    __IS_DEV: true
+    __IS_DEV: true,
+    __API__: true
   },
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped

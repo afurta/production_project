@@ -1,9 +1,10 @@
 import { Story } from '@storybook/react'
 import { StoreProvider, StoreSchema } from 'app/providers/StoreProvider'
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit'
+import { ReducersMapObject } from '@reduxjs/toolkit'
 import { AuthReducer } from 'features/AuthByUsername/model/slice/AuthSlice'
+import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
-const defaultAsyncReducers: DeepPartial<ReducersMapObject<StoreSchema>> = {
+const defaultAsyncReducers: ReducerList = {
   auth: AuthReducer
 }
 

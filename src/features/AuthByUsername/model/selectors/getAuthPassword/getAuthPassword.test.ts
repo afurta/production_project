@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit'
 import { StoreSchema } from 'app/providers/StoreProvider'
 import { getAuthPassword } from './getAuthPassword'
 
@@ -9,12 +8,12 @@ describe('GetAuthPassword selector', ()=>{
         password: 'password'
       }
     } 
-    expect(getAuthPassword(state)).toEqual('password')
+    expect(getAuthPassword(state as StoreSchema)).toEqual('password')
   })
 
   it('Check undefined filed', ()=>{
     const state:DeepPartial<StoreSchema> = {} 
-    expect(getAuthPassword(state)).toEqual('')
+    expect(getAuthPassword(state as StoreSchema)).toEqual('')
   })
 
 })
