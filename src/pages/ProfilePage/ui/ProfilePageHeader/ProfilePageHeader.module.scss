@@ -1,9 +1,8 @@
 .ProfilePageHeader {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
-  align-items: center;
-
   .cancelBtn {
     margin-right: 20px;
   }
