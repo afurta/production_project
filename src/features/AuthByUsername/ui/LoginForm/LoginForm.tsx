@@ -22,7 +22,7 @@ interface LoginFormProps {
 }
 
 const initialReducers: ReducerList = {
-  'auth': AuthReducer
+  loginForm: AuthReducer
 }
 
 const LoginForm = memo((props: LoginFormProps) => {
@@ -51,7 +51,7 @@ const LoginForm = memo((props: LoginFormProps) => {
   }, [dispatch, username, password, onSuccess])
 
   return (
-    <DynamicModuleLoader reducers={initialReducers} >
+    <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount={true}>
       <div className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={t('Форма авторизации')} />
         {error && <Text title='title' theme={TextTheme.ERROR} />}

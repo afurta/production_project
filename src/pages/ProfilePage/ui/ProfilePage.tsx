@@ -86,8 +86,8 @@ const ProfilePage = () => {
         onChangeFirstName={onChangeFirstName}
         onChangeLastName={onChangeLastName}
         onChangeAge={onChangeAge}
-        onChangeCountry={onChangeCountry}
         onChangeCity={onChangeCity}
+        onChangeCountry={onChangeCountry}
         onChangeCurrency={onChangeCurrency}
         onChangeAvatar={onChangeAvatar}
       />

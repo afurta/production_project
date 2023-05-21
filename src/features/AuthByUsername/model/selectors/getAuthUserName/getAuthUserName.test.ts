@@ -4,7 +4,7 @@ import { getAuthUsername } from './getAuthUserName'
 describe('GetAuthUsername selector', ()=>{
   it('Check username field', ()=>{
     const state:DeepPartial<StoreSchema> = {
-      auth:{
+      loginForm:{
         username: 'username'
       }
     } 

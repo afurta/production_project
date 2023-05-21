@@ -13,8 +13,6 @@ interface DynamicModuleLoaderProps {
   isRemoveAfterUnmount?: boolean
 }
 
-type ReducerListEntry = [StoreSchemaKey, Reducer]
-
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
   const { reducers, children, isRemoveAfterUnmount } = props
 
@@ -29,15 +27,14 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
 
     return () => {
       if (isRemoveAfterUnmount) {
-        Object.entries(reducers).forEach(([name]) => {
-          dispatch({ type: `@REMOVE ${name as StoreSchemaKey} reducer` })
+        Object.entries(reducers).forEach(([name, reducer]) => {
           store.reducerManager.remove(name as StoreSchemaKey)
+          dispatch({ type: `@DESTROY ${name} reducer` })
         })
-
       }
     }
     // eslint-disable-next-line
-  }, [])
+  }, []);
 
   return (
     <>

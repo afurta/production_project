@@ -4,7 +4,7 @@ import { getAuthIsError } from './getAuthIsError'
 describe('GetAuthIsError selector', ()=>{
   it('Check error state', ()=>{
     const state:DeepPartial<StoreSchema> = {
-      auth:{
+      loginForm:{
         error: 'error'
       }
     } 

@@ -4,7 +4,7 @@ import { getAuthPassword } from './getAuthPassword'
 describe('GetAuthPassword selector', ()=>{
   it('Check password field', ()=>{
     const state:DeepPartial<StoreSchema> = {
-      auth:{
+      loginForm:{
         password: 'password'
       }
     } 

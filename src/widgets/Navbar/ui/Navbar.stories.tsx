@@ -14,8 +14,8 @@ const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />
 
 export const Light = Template.bind({})
 Light.args = {}
-Light.decorators = [StoreDecorator({ auth: undefined })]
+Light.decorators = [StoreDecorator({ loginForm: undefined })]
 
 export const Dark = Template.bind({})
 Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ auth: undefined })]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ loginForm: undefined })]

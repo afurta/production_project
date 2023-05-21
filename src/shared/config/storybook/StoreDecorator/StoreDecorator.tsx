@@ -5,7 +5,7 @@ import { AuthReducer } from 'features/AuthByUsername/model/slice/AuthSlice'
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 const defaultAsyncReducers: ReducerList = {
-  auth: AuthReducer
+  loginForm: AuthReducer
 }
 
 export const StoreDecorator = (

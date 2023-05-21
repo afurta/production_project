@@ -4,7 +4,7 @@ import { getAuthIsLoading } from './getAuthIsLoading'
 describe('GetAuthIsLoading selector', ()=>{
   it('Check loading state', ()=>{
     const state:DeepPartial<StoreSchema> = {
-      auth:{
+      loginForm:{
         isLoading: true
       }
     } 
