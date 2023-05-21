@@ -1,4 +1,3 @@
-import React, { ReactElement, ReactNode } from 'react'
 import { ICONS } from 'shared/assets'
 import { RoutePath } from 'shared/config/routeConfig/RouterConfig'
 
@@ -6,6 +5,7 @@ export interface SidebarItemType {
   path: string
   text: string
   Icon: any
+  isAutOnly?: boolean
 }
 
 export const SidebarItems: SidebarItemType[] = [
@@ -20,6 +20,7 @@ export const SidebarItems: SidebarItemType[] = [
   }, {
     path: RoutePath.profile,
     text: 'Профиль',
-    Icon: ICONS.Profile
+    Icon: ICONS.Profile,
+    isAutOnly: true
   },
 ]
