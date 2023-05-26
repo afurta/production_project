@@ -1,8 +1,21 @@
 {
   "Профиль": "Profile",
   "Редактировать": "Edit",
-  "Ваша фамилия": "Last name",
-  "Ваше имя": "First name",
+  "Имя": "First name",
+  "Фамилия": "Last name",
+  "Возраст": "Age",
+  "Город": "City",
+  "Укажите валюту": "Currency",
+  "Страна": "Country",
+  "Аватар": "Avatar",
   "Произошла ошибка при загрузке профиля": "An error occurred while loading the profile",
-  "Попробуйте обновить страницу": "Try refreshing the page"
+  "Попробуйте обновить страницу": "Try refreshing the page",
+  "Проверьте поле имя": "Check first name",
+  "Проверьте поле фамилия": "Check Last name",
+  "Проверьте возраст": "Check age",
+  "Некорректное значение в Валюта": "Currency field is incorrect",
+  "Некорректное значение в Страна": "Country field is incorrect",
+  "Некорректное значение в Город": "City field is incorrect",
+  "Проверьте Username": "Check Username",
+  "Данные не указаны": "Data is empty"
 }

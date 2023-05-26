@@ -1,12 +1,15 @@
-export { updateProfileData  } from './model/service/updateProfileData/updateProfileData'
-export { fetchProfileData } from 'entities/ProfileCard/model/service/fetchProfileData/fetchProfileData'
+export { ValidateProfileError } from './model/types/ProfileSchema'
 
-export { getErrorProfile } from 'entities/ProfileCard/model/selectors/getErrorProfile/getErrorProfile'
-export { getIsLoadingProfile } from 'entities/ProfileCard/model/selectors/getIsLoadingProfile/getIsLoadingProfile'
-export { getProfileData } from 'entities/ProfileCard/model/selectors/getProfileData/getProfileData'
-export { getProfileForm } from 'entities/ProfileCard/model/selectors/getProfileForm/getProfileForm'
-export { getReadonlyProfile } from 'entities/ProfileCard/model/selectors/getReadonlyProfile/getReadonlyProfile'
+export { updateProfileData  } from './model/service/updateProfileData/updateProfileData'
+export { fetchProfileData } from './model/service/fetchProfileData/fetchProfileData'
+
+export { getProfileValidateErrors } from './model/selectors/getProfileValidateErrors/getProfileValidateErrors'
+export { getErrorProfile } from './model/selectors/getErrorProfile/getErrorProfile'
+export { getIsLoadingProfile } from './model/selectors/getIsLoadingProfile/getIsLoadingProfile'
+export { getProfileData } from './model/selectors/getProfileData/getProfileData'
+export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm'
+export { getReadonlyProfile } from './model/selectors/getReadonlyProfile/getReadonlyProfile'
 
 export { ProfileCard } from './ui/ProfileCard'
 export { ProfileSchema } from './model/types/ProfileSchema'
-export { ProfileReducer, ProfileActions } from 'entities/ProfileCard/model/slice/ProfileSlice'
+export { ProfileReducer, ProfileActions } from './model/slice/ProfileSlice'
