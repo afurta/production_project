@@ -4,6 +4,7 @@ import ThemeDark from './icons/ThemeDark.svg'
 import Main from './icons/Main.svg'
 import AboutUs from './icons/AboutUs.svg'
 import Profile from './icons/Profile.svg'
+import Articles from './icons/Articles.svg'
 
 // IMAGES
 
@@ -12,6 +13,7 @@ export const ICONS = {
   ThemeLight,
   Main,
   AboutUs,
-  Profile
+  Profile,
+  Articles
 }
 
