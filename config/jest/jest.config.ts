@@ -35,7 +35,8 @@ export default {
   },
   globals: {
     __IS_DEV: true,
-    __API__: true
+    __API__: true,
+    __PROJECT__: true
   },
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped

@@ -1,13 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import AvatarImg from './storybook.jpg'
 
 import { Avatar, } from './Avatar'
 
 export default {
   title: 'shared/Avatar',
   component: Avatar,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 } as ComponentMeta<typeof Avatar>
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />
@@ -15,5 +13,5 @@ const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />
 export const Default = Template.bind({})
 Default.args = {
   alt: 'alt',
-  src: './avatar.webp',
+  src: AvatarImg,
 }
