@@ -4,7 +4,7 @@ import webpack, { WebpackPluginInstance } from 'webpack'
 import {  IBuildOptions } from './types/config'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
-export const BuildPlugins = ({paths, isDev, apiUrl}:IBuildOptions):WebpackPluginInstance[] => {
+export const BuildPlugins = ({paths, project, apiUrl}:IBuildOptions):WebpackPluginInstance[] => {
   return [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({ template: paths.html }),
@@ -15,6 +15,7 @@ export const BuildPlugins = ({paths, isDev, apiUrl}:IBuildOptions):WebpackPlugin
     new webpack.DefinePlugin({
       __IS_DEV: JSON.stringify('true'),
       __API__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project),
     }),
     new ReactRefreshWebpackPlugin(),
     // new BundleAnalyzerPlugin({

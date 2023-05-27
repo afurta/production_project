@@ -29,7 +29,7 @@ export const BuildLoaders = (options: IBuildOptions):RuleSetRule[] => {
     ],
   }
 
-  const babelLoader = BuildBabelLoader(options)
+  const babelLoader = BuildBabelLoader()
 
   return [
     fileLoader,
