@@ -5,8 +5,10 @@ import { Navbar } from 'widgets/Navbar/ui/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { UserActions } from 'entities/User'
 import { useDispatch } from 'react-redux'
+import { useTheme } from 'app/providers/ThemeProvider'
 
 export const App = () => {
+  const { theme } = useTheme()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -14,7 +16,7 @@ export const App = () => {
   }, [dispatch])
 
   return (
-    <div className={classNames('app', {}, [])}>
+    <div className={classNames('app', {}, [theme])}>
       <Suspense fallback={''}>
         <Navbar />
         <div className="app-content">
