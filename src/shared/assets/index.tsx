@@ -5,6 +5,9 @@ import Main from './icons/Main.svg'
 import AboutUs from './icons/AboutUs.svg'
 import Profile from './icons/Profile.svg'
 import Articles from './icons/Articles.svg'
+import Eye from './icons/Eye.svg'
+import Copy from './icons/Copy.svg'
+import Calendar from './icons/Calendar.svg'
 
 // IMAGES
 
@@ -14,6 +17,9 @@ export const ICONS = {
   Main,
   AboutUs,
   Profile,
-  Articles
+  Articles,
+  Eye,
+  Copy,
+  Calendar
 }
 
