@@ -15,25 +15,24 @@ export const getCommentsSelectors = commentsAdapter.getSelectors<StoreSchema>(
 export const ArticleDetailsCommentSlice = createSlice({
   name: 'ArticleDetails',
   initialState: commentsAdapter.getInitialState<ArticleDetailsCommentSchema>({
-    ids:[],
-    entities:{},
     isLoading: false,
-    error: undefined
+    error: undefined,
+    ids: [],
+    entities: {},
   }),
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchCommentsArticleById.pending, (state) => {
-      state.isLoading = true,
       state.error = undefined
+      state.isLoading = true
+    }),
+    builder.addCase(fetchCommentsArticleById.fulfilled, (state, action: PayloadAction<Comment[]>) => {
+      state.isLoading = false
+      commentsAdapter.setAll(state, action.payload)
     }),
     builder.addCase(fetchCommentsArticleById.rejected, (state, action) => {
       state.isLoading = false,
       state.error = action.payload
-    }),
-    builder.addCase(fetchCommentsArticleById.fulfilled, (state, action: PayloadAction<Comment[]>) => {
-      state.isLoading = false,
-      state.error = undefined
-      commentsAdapter.setAll(state, action.payload)
     })
   },
 })

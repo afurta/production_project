@@ -9,7 +9,7 @@ import { Text, TextAlign } from 'shared/ui/Text/Text'
 interface CommentListProps {
   className?: string
   data: Comment[]
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 export const CommentList: FC<CommentListProps> = (props) => {

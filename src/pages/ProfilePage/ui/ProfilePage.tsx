@@ -16,6 +16,8 @@ import { Country } from 'entities/Country'
 import { Text, TextAlign } from 'shared/ui/Text/Text'
 import { TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+import { useParams } from 'react-router-dom'
 
 const ProfilePage = () => {
 
@@ -28,6 +30,7 @@ const ProfilePage = () => {
   const error = useSelector(getErrorProfile)
   const readonly = useSelector(getReadonlyProfile)
   const validateErrors = useSelector(getProfileValidateErrors)
+  const { id } = useParams<{ id: string }>()
 
   const initialReducers: ReducerList = {
     'profile': ProfileReducer
@@ -44,13 +47,11 @@ const ProfilePage = () => {
     [ValidateProfileError.INCORRECT_DATA]: t('Данные не указаны'),
   }
 
-  useEffect(() => {
-    if (__PROJECT__ != 'storybook') {
-      dispatch(fetchProfileData())
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id))
     }
-  }, [dispatch])
-
-
+  })
   const onEdit = useCallback(() => {
     dispatch(ProfileActions.setReadonly(false))
   }, [dispatch])

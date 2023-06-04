@@ -1,10 +1,8 @@
-.ProfilePageHeader {
+.commentForm {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 1px solid var(--primary-color);
   margin-bottom: 20px;
-
-  .cancelBtn {
-    margin-right: 20px;
-  }
+  padding: 20px;
 }

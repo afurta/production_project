@@ -3,6 +3,7 @@ import { AxiosInstance } from 'axios'
 import { ArticleDetailsSchema } from 'entities/Article'
 import { ProfileSchema } from 'entities/ProfileCard/model/types/ProfileSchema'
 import { UserSchema } from 'entities/User'
+import { CommentFormSchema } from 'features/AddComment'
 import { AuthSchema } from 'features/AuthByUsername'
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage'
 import { NavigateOptions, To } from 'react-router-dom'
@@ -14,6 +15,7 @@ export interface StoreSchema{
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   ArticleDetailsComment?: ArticleDetailsCommentSchema
+  CommentForm?: CommentFormSchema
 }
 
 export type StoreSchemaKey = keyof StoreSchema

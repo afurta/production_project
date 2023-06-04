@@ -6,16 +6,17 @@ import { Comment } from '../../model/types/comment'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Text, TextAlign } from 'shared/ui/Text/Text'
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { RoutePath } from 'shared/config/routeConfig/RouterConfig'
 
 interface CommentCardProps {
   className?: string
   data: Comment
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 export const CommentCard: FC<CommentCardProps> = (props) => {
   const { className, data, isLoading } = props
-  const { t } = useTranslation()
 
   if (isLoading) {
     return (
@@ -40,10 +41,10 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
 
   return (
     <div className={classNames(cls.commentCard, {}, [className])}>
-      <div className={classNames(cls.userContainer)}>
+      <AppLink className={classNames(cls.userContainer)} to={RoutePath.profile + data.user.id}>
         {data.user.avatar ? <Avatar className={classNames(cls.avatar)} size={30} src={data.user.avatar} /> : null}
         <Text title={data.user.userName} />
-      </div>
+      </AppLink>
       <Text
         text={data.text}
         className={classNames(cls.text)}

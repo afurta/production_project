@@ -1,14 +1,18 @@
 .InputWrapper {
   display: flex;
   align-items: center;
+  color: var(--primary-color);
 }
+
 .InputPlaceholder {
   margin-right: 5px;
 }
+
 .CaretWrapper {
   position: relative;
   flex-grow: 1;
 }
+
 .Input {
   bottom: none;
   overflow: none;
@@ -17,10 +21,12 @@
   background: transparent;
   color: transparent;
   text-shadow: 0 0 0 var(--primary-color);
+
   &:focus {
     outline: none;
   }
 }
+
 .Caret {
   position: absolute;
   bottom: 0;
@@ -35,9 +41,11 @@
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 0.01;
   }
+
   100% {
     opacity: 1;
   }
