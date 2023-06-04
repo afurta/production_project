@@ -4,6 +4,7 @@ import { ArticleDetailsSchema } from 'entities/Article'
 import { ProfileSchema } from 'entities/ProfileCard/model/types/ProfileSchema'
 import { UserSchema } from 'entities/User'
 import { AuthSchema } from 'features/AuthByUsername'
+import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage'
 import { NavigateOptions, To } from 'react-router-dom'
 
 export interface StoreSchema{
@@ -12,6 +13,7 @@ export interface StoreSchema{
   loginForm?: AuthSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
+  ArticleDetailsComment?: ArticleDetailsCommentSchema
 }
 
 export type StoreSchemaKey = keyof StoreSchema
