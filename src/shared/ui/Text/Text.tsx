@@ -44,8 +44,8 @@ export const Text = (props: TextProps) => {
 
   return (
     <div className={classNames(cls.Title, mods, [cls[theme], className])}>
-      {title && <div className={classNames(cls.title, {}, [])}>{title}</div>}
-      {text && <div className={classNames(cls.text, {}, [])}>{text}</div>}
+      {title && <p className={classNames(cls.title, {}, [])}>{title}</p>}
+      {text && <p className={classNames(cls.text, {}, [])}>{text}</p>}
     </div >
   )
 }
