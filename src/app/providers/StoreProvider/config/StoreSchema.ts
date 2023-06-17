@@ -7,7 +7,6 @@ import { CommentFormSchema } from 'features/AddComment'
 import { AuthSchema } from 'features/AuthByUsername'
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage'
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
-import { NavigateOptions, To } from 'react-router-dom'
 
 export interface StoreSchema{
   user: UserSchema
@@ -27,7 +26,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StoreSchema>{
 }
 
 export interface ReducerManager{
-  getReducerMap: (state:StoreSchema, action:AnyAction) => ReducersMapObject<StoreSchema>
+  getReducerMap: () => ReducersMapObject<StoreSchema>
   reduce: (state:StoreSchema, action:AnyAction) => CombinedState<StoreSchema>
   add: (key:StoreSchemaKey, reducer:Reducer) => void
   remove: (key:StoreSchemaKey) => void
@@ -35,7 +34,6 @@ export interface ReducerManager{
 
 export interface ThunkExtraArg{
   api: AxiosInstance
-  navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig<T>{

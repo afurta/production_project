@@ -1,5 +1,6 @@
 import { ArticleList, ArticleViewsSelector } from 'entities/Article'
-import { fetchNextDataArticlePage } from 'pages/ArticlesPage/model/service/fetchNextDataArticlePage/fetchNextDataArticlePage'
+import { fetchNextDataArticlePage } from '../model/service/fetchNextDataArticlePage/fetchNextDataArticlePage'
+import { initedArticlesPage } from '../model/service/initedArticlesPage/initedArticlesPage'
 import { FC, memo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classnames'
@@ -7,8 +8,7 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Page } from 'shared/ui/Page/Page'
-import { getArticlePageError, getArticlePageLoading, getArticlePageView } from '../model/selectors/articlesPageSelectors'
-import { fetchArticlesList } from '../model/service/fetchArticlesList/fetchArticlesList'
+import { getArticlePageError, getArticlePageIsInited, getArticlePageLoading, getArticlePageView } from '../model/selectors/articlesPageSelectors'
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice'
 import cls from './ArticlesPage.module.scss'
 
@@ -28,10 +28,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const isLoading = useSelector(getArticlePageLoading)
   const view = useSelector(getArticlePageView)
 
-  useInitialEffect(() => {
-    dispatch(articlesPageActions.initeState())
-    dispatch(fetchArticlesList({ page: 1 }))
-  })
+  useInitialEffect(() => dispatch(initedArticlesPage()))
 
   const onLoadNextPartData = useCallback(() => {
     dispatch(fetchNextDataArticlePage())
@@ -42,7 +39,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   }, [dispatch])
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} isRemoveAfterUnmount={false}>
       <Page
         onScrollEnd={onLoadNextPartData}
         className={classNames(cls.articlesPage, {}, [className])}
