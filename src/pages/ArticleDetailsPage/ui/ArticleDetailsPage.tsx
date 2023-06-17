@@ -17,7 +17,7 @@ import { addCommentForArticle } from '../model/service/sendCommentForArticle/sen
 import { fetchCommentsArticleById } from './../model/service/commentsArticleById/commentsArticleById'
 import { ArticleDetailsCommentReducer, getCommentsSelectors } from './../model/slice/ArticleDetailsCommentSlice'
 import cls from './ArticleDetailsPage.module.scss'
-import { Page } from 'shared/ui/Page/Page'
+import { Page } from 'widgets/Page/Page'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -37,7 +37,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const comments = useSelector(getCommentsSelectors.selectAll)
   const isLoading = useSelector(getArticleDetailsCommentLoading)
   const error = useSelector(getArticleDetailsCommentError)
-
 
   const onBackTotList = useCallback(() => {
     navigate(RoutePath.articles)

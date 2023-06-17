@@ -7,9 +7,11 @@ import { CommentFormSchema } from 'features/AddComment'
 import { AuthSchema } from 'features/AuthByUsername'
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage'
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
+import { SaveScrollSchema } from './../../../../features/SaveScroll/model/types/SaveScrollSchema'
 
 export interface StoreSchema{
   user: UserSchema
+  SaveScroll: SaveScrollSchema
   // Async store
   loginForm?: AuthSchema
   profile?: ProfileSchema
