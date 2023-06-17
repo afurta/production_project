@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classnames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import cls from './PageError.module.scss'
+import { Page } from 'shared/ui/Page/Page'
 
 const PageError = () => {
 
@@ -10,7 +11,7 @@ const PageError = () => {
   const _reloadPage = () => location.reload()
 
   return (
-    <div className={classNames(cls.NotFoundPage, {}, [])}>
+    <Page className={classNames(cls.NotFoundPage, {}, [])}>
       <div className={classNames(cls.modal, {}, [])}>
         <div className={classNames(cls.modal_header, {}, [])}>
           {t('Сервис временно недоступен')}
@@ -22,7 +23,7 @@ const PageError = () => {
           {t('Обновить страницу')}
         </Button>
       </div>
-    </div>
+    </Page>
   )
 }
 

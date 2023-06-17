@@ -1,10 +1,8 @@
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classnames'
-import cls from './CommentList.module.scss'
+import { Text, TextAlign } from 'shared/ui/Text/Text'
 import { Comment } from '../../model/types/comment'
 import { CommentCard } from '../../ui/CommentCard/CommentCard'
-import { Text, TextAlign } from 'shared/ui/Text/Text'
 
 interface CommentListProps {
   className?: string
@@ -17,7 +15,7 @@ export const CommentList: FC<CommentListProps> = (props) => {
   const { t } = useTranslation()
 
   return (
-    <div className={classNames(cls.commentList, {}, [className])}>
+    <div>
       {
         data.length
           ? data.map(comment => (

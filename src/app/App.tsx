@@ -22,9 +22,7 @@ export const App = () => {
         <Navbar />
         <div className="app-content">
           <Sidebar />
-          <div className="app-page">
-            {inited && <AppRouter />}
-          </div>
+          {inited && <AppRouter />}
         </div>
       </Suspense>
     </div >

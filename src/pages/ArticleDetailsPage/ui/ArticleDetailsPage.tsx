@@ -17,6 +17,7 @@ import { addCommentForArticle } from '../model/service/sendCommentForArticle/sen
 import { fetchCommentsArticleById } from './../model/service/commentsArticleById/commentsArticleById'
 import { ArticleDetailsCommentReducer, getCommentsSelectors } from './../model/slice/ArticleDetailsCommentSlice'
 import cls from './ArticleDetailsPage.module.scss'
+import { Page } from 'shared/ui/Page/Page'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -61,13 +62,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount>
-      <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
         <Button theme={ButtonTheme.OUTLINE} onClick={onBackTotList}>{t('Назад к списку')}</Button>
         <ArticleDetails id={id} />
         <Text title={'Комментарии'} align={TextAlign.LEFT} />
         <CommentForm onSendComment={onSendComment} />
         <CommentList data={comments} isLoading={isLoading} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   )
 }

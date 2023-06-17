@@ -11,7 +11,7 @@ import { ArticleDetailsCommentReducer } from 'pages/ArticleDetailsPage/model/sli
 const defaultAsyncReducers: ReducerList = {
   loginForm: AuthReducer,
   profile: ProfileReducer,
-  articleDetails: ArticleDetailsReducer,
+  ArticleDetails: ArticleDetailsReducer,
   CommentForm: CommentFormReducer,
   ArticleDetailsComment: ArticleDetailsCommentReducer
 }

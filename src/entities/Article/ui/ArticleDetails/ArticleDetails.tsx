@@ -24,7 +24,7 @@ interface ArticleDetailsProps {
 }
 
 const initialReducers: ReducerList = {
-  'articleDetails': ArticleDetailsReducer
+  'ArticleDetails': ArticleDetailsReducer
 }
 export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
   const { className, id } = props
@@ -91,7 +91,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount>
-      <div className={classNames(cls.articleDetails, {}, [className])}>
+      <div className={classNames(cls.ArticleDetails, {}, [className])}>
         {content}
       </div>
     </DynamicModuleLoader >

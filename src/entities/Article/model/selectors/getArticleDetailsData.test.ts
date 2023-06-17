@@ -8,7 +8,7 @@ describe('getArticleDetailsData selector', ()=>{
       title:'title',
     }
     const state:DeepPartial<StoreSchema> = {
-      articleDetails:{
+      ArticleDetails:{
         data
       }
     } 
@@ -19,7 +19,7 @@ describe('getArticleDetailsData selector', ()=>{
   it('Check isLoading state', ()=>{
 
     const state:DeepPartial<StoreSchema> = {
-      articleDetails:{
+      ArticleDetails:{
         isLoading:true,
       }
     } 
@@ -29,7 +29,7 @@ describe('getArticleDetailsData selector', ()=>{
   it('Check error state', ()=>{
 
     const state:DeepPartial<StoreSchema> = {
-      articleDetails:{
+      ArticleDetails:{
         error: 'error',
       }
     } 

@@ -57,7 +57,7 @@ const article: Article = {
 export const Normal = Template.bind({})
 Normal.args = {}
 Normal.decorators = [StoreDecorator({
-  articleDetails: {
+  ArticleDetails: {
     data: article,
   },
 })]
@@ -65,7 +65,7 @@ Normal.decorators = [StoreDecorator({
 export const Loading = Template.bind({})
 Loading.args = {}
 Loading.decorators = [StoreDecorator({
-  articleDetails: {
+  ArticleDetails: {
     isLoading: true,
   },
 })]
@@ -73,7 +73,7 @@ Loading.decorators = [StoreDecorator({
 export const Error = Template.bind({})
 Error.args = {}
 Error.decorators = [StoreDecorator({
-  articleDetails: {
+  ArticleDetails: {
     error: 'error',
   },
 })]

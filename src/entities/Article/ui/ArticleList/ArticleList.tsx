@@ -26,23 +26,23 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     <ArticleListItem article={article} view={view} key={article.id} />
   )
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.articleList, {}, [cls[view]])}>
-        {
-          new Array(view === ArticleView.GRID ? 9 : 3)
-            .fill(0)
-            .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />)
-        }
-      </div>
-    )
-  }
   return (
     <div className={classNames(cls.articleList, {}, [cls[view]])}>
       {
         articles.length > 0
           ? articles.map(renderArticles)
           : 'Статей нет'
+      }
+      {
+        isLoading && (
+          <div className={classNames(cls.articleList, {}, [cls[view]])}>
+            {
+              new Array(view === ArticleView.GRID ? 9 : 3)
+                .fill(0)
+                .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />)
+            }
+          </div>
+        )
       }
     </div>
   )

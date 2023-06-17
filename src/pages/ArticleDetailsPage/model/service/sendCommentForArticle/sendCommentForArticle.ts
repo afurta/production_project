@@ -10,7 +10,7 @@ Comment,
 string,
 ThunkConfig<string>
 >(
-  'articleDetails/addCommentForArticle',
+  'ArticleDetails/addCommentForArticle',
   async (text, thunkApi) => {
 
     const {

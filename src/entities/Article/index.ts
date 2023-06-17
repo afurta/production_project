@@ -1,4 +1,6 @@
-export { ArticleView } from 'entities/Article/model/types/article'
+export { ArticleViewsSelector } from './ui/ArticleViewsSelector/ArticleViewsSelector'
+
+export { ArticleView } from './model/types/article'
 
 export { ArticleList } from './ui/ArticleList/ArticleList'
 

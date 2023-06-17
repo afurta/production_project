@@ -8,6 +8,8 @@ import Articles from './icons/Articles.svg'
 import Eye from './icons/Eye.svg'
 import Copy from './icons/Copy.svg'
 import Calendar from './icons/Calendar.svg'
+import Grid from './icons/Grid.svg'
+import List from './icons/List.svg'
 
 // IMAGES
 
@@ -20,6 +22,8 @@ export const ICONS = {
   Articles,
   Eye,
   Copy,
-  Calendar
+  Calendar,
+  Grid,
+  List
 }
 

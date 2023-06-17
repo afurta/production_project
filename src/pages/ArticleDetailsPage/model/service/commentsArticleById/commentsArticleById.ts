@@ -7,7 +7,7 @@ Comment[],
 string | undefined, 
 ThunkConfig<string>
 >(
-  'articleDetails/fetchCommentsArticleById',
+  'ArticleDetails/fetchCommentsArticleById',
   async (articleId, thunkApi) => {
     const {extra, rejectWithValue} = thunkApi
 
