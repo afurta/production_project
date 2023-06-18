@@ -8,6 +8,11 @@ export type ReducerList = {
   [name in StoreSchemaKey]?: Reducer
 }
 
+
+// export type ReducerList = {
+//   [name in StoreSchemaKey]?: Reducer<NonNullable<StoreSchema[name]>>
+// }
+
 interface DynamicModuleLoaderProps {
   reducers: ReducerList
   isRemoveAfterUnmount?: boolean

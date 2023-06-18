@@ -3,7 +3,7 @@ import CommentForm from './CommentForm'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
-  title: 'feature/CommentForm',
+  title: 'features/CommentForm',
   component: CommentForm,
 } as ComponentMeta<typeof CommentForm>
 

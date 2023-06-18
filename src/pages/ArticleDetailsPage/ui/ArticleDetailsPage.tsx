@@ -1,4 +1,4 @@
-import { ArticleDetails } from 'entities/Article'
+import { ArticleDetails, ArticleList } from 'entities/Article'
 import { CommentList } from 'entities/Comment/ui/CommentList/CommentList'
 import { CommentForm } from 'features/AddComment'
 import { memo, useCallback } from 'react'
@@ -11,20 +11,24 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
-import { getArticleDetailsCommentError, getArticleDetailsCommentLoading } from '../model/selectors/comments'
-import { addCommentForArticle } from '../model/service/sendCommentForArticle/sendCommentForArticle'
-import { fetchCommentsArticleById } from './../model/service/commentsArticleById/commentsArticleById'
-import { ArticleDetailsCommentReducer, getCommentsSelectors } from './../model/slice/ArticleDetailsCommentSlice'
-import cls from './ArticleDetailsPage.module.scss'
+import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text'
 import { Page } from 'widgets/Page/Page'
+import { getArticleDetailsCommentError, getArticleDetailsCommentLoading } from '../model/selectors/comments'
+import { getArticleDetailsRecomendationsError, getArticleDetailsRecomendationsLoading } from '../model/selectors/recomendations'
+import { fetchRecomendationArticle } from '../model/service/fetchRecomendationArticle/fetchRecomendationArticle'
+import { addCommentForArticle } from '../model/service/sendCommentForArticle/sendCommentForArticle'
+import { ArticleDetailsPageReducer } from '../model/slice'
+import { getRecomendationsArticleSelectors } from '../model/slice/ArticleDetailsRecomendations'
+import { fetchCommentsArticleById } from './../model/service/commentsArticleById/commentsArticleById'
+import { getCommentsSelectors } from './../model/slice/ArticleDetailsCommentSlice'
+import cls from './ArticleDetailsPage.module.scss'
 
 interface ArticleDetailsPageProps {
   className?: string
 }
 
 const initialReducers: ReducerList = {
-  ArticleDetailsComment: ArticleDetailsCommentReducer
+  ArticlesDetailsPage: ArticleDetailsPageReducer
 }
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
@@ -38,6 +42,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const isLoading = useSelector(getArticleDetailsCommentLoading)
   const error = useSelector(getArticleDetailsCommentError)
 
+  const recomendations = useSelector(getRecomendationsArticleSelectors.selectAll)
+  const recomendationsIsLoading = useSelector(getArticleDetailsRecomendationsLoading)
+  const recomendationsError = useSelector(getArticleDetailsRecomendationsError)
+
   const onBackTotList = useCallback(() => {
     navigate(RoutePath.articles)
   }, [navigate])
@@ -48,8 +56,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   useInitialEffect(() => {
     dispatch(fetchCommentsArticleById(id))
+    dispatch(fetchRecomendationArticle())
   })
-
 
   if (!id) {
     return <Text text={t('Статья не найдена')} theme={TextTheme.ERROR} />
@@ -64,6 +72,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
         <Button theme={ButtonTheme.OUTLINE} onClick={onBackTotList}>{t('Назад к списку')}</Button>
         <ArticleDetails id={id} />
+        <Text title={'Рекомендуем'} align={TextAlign.LEFT} size={TextSize.L} />
+        <ArticleList
+          isLoading={recomendationsIsLoading}
+          articles={recomendations}
+          className={classNames(cls.recomendationsList)}
+          target={'_blank'}
+        />
         <Text title={'Комментарии'} align={TextAlign.LEFT} />
         <CommentForm onSendComment={onSendComment} />
         <CommentList data={comments} isLoading={isLoading} />

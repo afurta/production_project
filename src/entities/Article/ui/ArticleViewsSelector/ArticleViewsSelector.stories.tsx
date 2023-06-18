@@ -1,14 +1,14 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ArticleViewsSelector } from './ArticleViewsSelector';
+import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ArticleViewsSelector } from './ArticleViewsSelector'
 
 export default {
-  title: 'shared/ArticleViewsSelector',
+  title: 'entities/ArticleViewsSelector',
   component: ArticleViewsSelector,
-} as ComponentMeta<typeof ArticleViewsSelector>;
+} as ComponentMeta<typeof ArticleViewsSelector>
 
-const Template: ComponentStory<typeof ArticleViewsSelector> = (args) => < ArticleViewsSelector {...args} />;
+const Template: ComponentStory<typeof ArticleViewsSelector> = (args) => < ArticleViewsSelector {...args} />
 
-export const Normal = Template.bind({});
+export const Normal = Template.bind({})
 Normal.args = {
 
-};
+}

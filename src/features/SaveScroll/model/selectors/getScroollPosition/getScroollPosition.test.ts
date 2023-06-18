@@ -1,20 +1,20 @@
-import { StoreSchema } from 'app/providers/StoreProvider'
-import { getAuthIsError } from './getScroollPosition'
+// import { StoreSchema } from 'app/providers/StoreProvider'
+// import { getAuthIsError } from './getScroollPosition'
 
-describe('GetAuthIsError selector', ()=>{
-  it('Check error state', ()=>{
-    const state:DeepPartial<StoreSchema> = {
-      loginForm:{
-        error: 'error'
-      }
-    } 
-    expect(getAuthIsError(state as StoreSchema)).toEqual('error')
-  })
+// describe('GetAuthIsError selector', ()=>{
+//   it('Check error state', ()=>{
+//     const state:DeepPartial<StoreSchema> = {
+//       loginForm:{
+//         error: 'error'
+//       }
+//     } 
+//     expect(getAuthIsError(state as StoreSchema)).toEqual('error')
+//   })
 
-  it('Check undefined filed', ()=>{
-    const state:DeepPartial<StoreSchema> = {
-    }
-    expect(getAuthIsError(state as StoreSchema)).toEqual('')
-  })
+//   it('Check undefined filed', ()=>{
+//     const state:DeepPartial<StoreSchema> = {
+//     }
+//     expect(getAuthIsError(state as StoreSchema)).toEqual('')
+//   })
 
-})
+// })

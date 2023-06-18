@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { CommentCard } from './CommentCard'
 
 export default {
-  title: 'shared/CommentCard',
+  title: 'entities/CommentCard',
   component: CommentCard,
 } as ComponentMeta<typeof CommentCard>
 

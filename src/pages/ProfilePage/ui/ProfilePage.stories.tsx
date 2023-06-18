@@ -8,7 +8,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider'
 
 export default {
-  title: 'page/ProfilePage',
+  title: 'pages/ProfilePage',
   component: ProfilePage,
   argTypes: {
     backgroundColor: { control: 'color' },

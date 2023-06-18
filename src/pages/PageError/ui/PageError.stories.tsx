@@ -5,7 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider'
 
 export default {
-  title: 'page/PageError',
+  title: 'pages/PageError',
   component: PageError,
   argTypes: {
     backgroundColor: { control: 'color' },

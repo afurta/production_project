@@ -5,9 +5,9 @@ import { ProfileSchema } from 'entities/ProfileCard'
 import { UserSchema } from 'entities/User'
 import { CommentFormSchema } from 'features/AddComment'
 import { AuthSchema } from 'features/AuthByUsername'
-import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage'
+import { SaveScrollSchema } from 'features/SaveScroll'
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage/model/types'
 import { ArticlesPageSchema } from 'pages/ArticlesPage'
-import { SaveScrollSchema } from './../../../../features/SaveScroll/model/types/SaveScrollSchema'
 
 export interface StoreSchema{
   user: UserSchema
@@ -15,10 +15,12 @@ export interface StoreSchema{
   // Async store
   loginForm?: AuthSchema
   profile?: ProfileSchema
+
   ArticleDetails?: ArticleDetailsSchema
-  ArticleDetailsComment?: ArticleDetailsCommentSchema
+  
   CommentForm?: CommentFormSchema
   ArticlesPage?: ArticlesPageSchema
+  ArticlesDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StoreSchemaKey = keyof StoreSchema

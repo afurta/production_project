@@ -1,37 +1,48 @@
-import { FC } from 'react'
+import { FC, HTMLAttributeAnchorTarget } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classnames'
 import cls from './ArticleList.module.scss'
 import { Article, ArticleView } from '../../model/types/article'
 import { ArticleListItem } from '../../ui/ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton'
+import { Text, TextSize } from 'shared/ui/Text/Text'
 
 interface ArticleListProps {
   className?: string
   isLoading?: boolean
   articles: Article[]
   view?: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleList: FC<ArticleListProps> = (props) => {
   const {
+    className,
     isLoading,
     articles,
-    view = ArticleView.GRID
+    view = ArticleView.GRID,
+    target
   } = props
 
   const { t } = useTranslation()
 
   const renderArticles = (article: Article) => (
-    <ArticleListItem article={article} view={view} key={article.id} />
+    <ArticleListItem article={article} view={view} key={article.id} target={target} />
   )
 
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames(cls.articleList, {}, [cls[view]])}>
+        <Text size={TextSize.L} title={'Статей нет'} />
+      </div>
+    )
+  }
   return (
-    <div className={classNames(cls.articleList, {}, [cls[view]])}>
+    <div className={classNames(cls.articleList, {}, [cls[view], className])}>
       {
         articles.length > 0
-          ? articles.map(renderArticles)
-          : 'Статей нет'
+        && articles.map(renderArticles)
+        // : 'Статей нет'
       }
       {
         isLoading && (
