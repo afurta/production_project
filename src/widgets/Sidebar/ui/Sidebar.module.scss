@@ -1,9 +1,7 @@
 .Sidebar {
   position: relative;
   height: calc(100vh - var(---navbar-height));
-
-  // width: 20%;
-  flex: 20% 0 0;
+  flex: var(--sidebar-width) 0 0;
   background: var(--inverted-bg-color);
   transition: 0.3s flex;
 }
