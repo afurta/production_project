@@ -1,5 +1,6 @@
 import { RuleSetRule } from 'webpack'
-import { IBuildOptions } from './types/config'
+import { buildCssLoader } from './loaders/buildCssLoader'
+import { buildBabelLoader } from './loaders/buildBabelLoader'
 
 export const BuildLoaders = (options: IBuildOptions):RuleSetRule[] => {
   const {isDev} = options
@@ -16,7 +17,7 @@ export const BuildLoaders = (options: IBuildOptions):RuleSetRule[] => {
     exclude: /node_modules/,
   }
 
-  const cssLoader = BuildCssLoader(isDev)
+  const cssLoader = buildCssLoader(isDev)
 
   const fileLoader =  {
     test: /\.(png|jpe?g|gif,woff2)$/i,
@@ -27,7 +28,7 @@ export const BuildLoaders = (options: IBuildOptions):RuleSetRule[] => {
     ],
   }
 
-  const babelLoader = BuildBabelLoader()
+  const babelLoader = buildBabelLoader()
 
   return [
     fileLoader,
