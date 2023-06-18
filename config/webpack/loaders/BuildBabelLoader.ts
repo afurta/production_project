@@ -1,5 +1,4 @@
-
-export const BuildBabelLoader = ()=>{
+export function buildBabelLoader ( ) {
   return {
     test: /\.m?js$/,
     exclude: /node_modules/,
