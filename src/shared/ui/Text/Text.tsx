@@ -3,7 +3,8 @@ import cls from './Text.module.scss'
 
 export enum TextTheme {
   DEFALUT = 'default',
-  ERROR = 'error'
+  ERROR = 'error',
+  INVERTED = 'inverted'
 }
 
 export enum TextAlign {

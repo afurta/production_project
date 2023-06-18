@@ -4,4 +4,4 @@ export { ArticleDetailsPageRecomendationsReducer } from './model/slice/ArticleDe
 export { ArticleDetailsRecomendationsSchema } from './model/types/ArticleDetailsRecomendationsSchema'
 export { ArticleDetailsCommentSchema } from './model/types/ArticleDetailsCommentSchema'
 
-export { ArticleDetailsPageAsync as ArticleDetailsPage} from './ui/ArticleDetailsPage.async'
+export { ArticleDetailsPageAsync as ArticleDetailsPage} from './ui/ArticleDetailsPage/ArticleDetailsPage.async'

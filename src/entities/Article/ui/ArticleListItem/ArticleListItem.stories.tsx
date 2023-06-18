@@ -9,7 +9,7 @@ export default {
 
 const Template: ComponentStory<typeof ArticleListItem> = (args) => < ArticleListItem {...args} />
 
-const article = {
+const articles = {
   'id': '1',
   'title': 'Javascript news',
   'subtitle': 'Что нового в JS за 2022 год?',
@@ -17,7 +17,7 @@ const article = {
   'views': 1022,
   'createdAt': '26.02.2022',
   'user': {
-    'id': 1,
+    'id': '1',
     'userName': 'userName',
     'avatar': 'https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200'
   },
@@ -91,13 +91,13 @@ const article = {
 
 export const NormalGrid = Template.bind({})
 NormalGrid.args = {
-  article: article,
+  article: articles,
   view: ArticleView.GRID
 }
 
 export const NormalList = Template.bind({})
 NormalList.args = {
-  article: article,
+  article: articles,
   view: ArticleView.LIST
 }
 

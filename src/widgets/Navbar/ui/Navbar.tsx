@@ -7,6 +7,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classnames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import cls from './Navbar.module.scss'
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
+import { RoutePath } from 'shared/config/routeConfig/RouterConfig'
 
 interface NavbarProps {
   className?: string
@@ -32,15 +35,31 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         {
           authData
             ? (
-              <Button
-                onClick={onLogOut}
-                theme={ButtonTheme.CLEAR_INVERTED}
-              >
-                {t('Выйти')}
-              </Button>
+              <>
+                <Text
+                  title={'App'}
+                  align={TextAlign.LEFT}
+                  theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                  className={classNames(cls.createNewArticle)}
+                  to={RoutePath.articles_create}
+                  theme={AppLinkTheme.SECONDARY}
+                >
+                  {t('Создать новую статью')}
+                </AppLink>
+                <Button
+                  className={classNames(cls.navbarBtn)}
+                  onClick={onLogOut}
+                  theme={ButtonTheme.CLEAR_INVERTED}
+                >
+                  {t('Выйти')}
+                </Button>
+              </>
             )
             : (
               <Button
+                className={classNames(cls.navbarBtn)}
                 onClick={onOpenLoginModal}
                 theme={ButtonTheme.CLEAR_INVERTED}
               >

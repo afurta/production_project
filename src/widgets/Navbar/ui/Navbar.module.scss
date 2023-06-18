@@ -10,5 +10,14 @@
   margin-right: 15px;
 }
 .links {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  color: var(--inverted-primary-color);
+}
+.createNewArticle {
+  margin-left: var(--sidebar-width);
+}
+.navbarBtn {
   margin-left: auto;
 }

@@ -18,7 +18,7 @@ Light.args = {}
 Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
   user: {
     authData: {
-      id: 1,
+      id: '1',
       userName: 'username'
     }
   }
@@ -29,7 +29,7 @@ Dark.args = {}
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
   user: {
     authData: {
-      id: 1,
+      id: '1',
       userName: 'username'
     }
   }
