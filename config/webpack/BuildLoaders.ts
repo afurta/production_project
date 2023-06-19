@@ -1,6 +1,7 @@
 import { RuleSetRule } from 'webpack'
 import { buildCssLoader } from './loaders/buildCssLoader'
 import { buildBabelLoader } from './loaders/buildBabelLoader'
+import { IBuildOptions } from './types/config'
 
 export const BuildLoaders = (options: IBuildOptions):RuleSetRule[] => {
   const {isDev} = options
