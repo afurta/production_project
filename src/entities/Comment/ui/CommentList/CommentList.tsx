@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Text, TextAlign } from 'shared/ui/Text/Text'
 import { Comment } from '../../model/types/comment'
 import { CommentCard } from '../../ui/CommentCard/CommentCard'
+import { VStack } from 'shared/ui/Stack'
 
 interface CommentListProps {
   className?: string
@@ -15,7 +16,7 @@ export const CommentList: FC<CommentListProps> = (props) => {
   const { t } = useTranslation()
 
   return (
-    <div>
+    <VStack gap={16}>
       {
         data.length
           ? data.map(comment => (
@@ -27,6 +28,6 @@ export const CommentList: FC<CommentListProps> = (props) => {
           ))
           : <Text title={t(('Комментариев нет'))} align={TextAlign.LEFT} />
       }
-    </div>
+    </VStack>
   )
 }

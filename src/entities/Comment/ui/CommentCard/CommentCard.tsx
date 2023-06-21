@@ -1,13 +1,12 @@
-import { FC } from 'react'
-import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classnames'
-import cls from './CommentCard.module.scss'
-import { Comment } from '../../model/types/comment'
-import { Avatar } from 'shared/ui/Avatar/Avatar'
-import { Text, TextAlign } from 'shared/ui/Text/Text'
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
-import { AppLink } from 'shared/ui/AppLink/AppLink'
 import { RoutePath } from 'shared/config/routeConfig/RouterConfig'
+import { classNames } from 'shared/lib/classNames/classnames'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
+import { VStack } from 'shared/ui/Stack'
+import { Text, TextAlign } from 'shared/ui/Text/Text'
+import { Comment } from '../../model/types/comment'
+import cls from './CommentCard.module.scss'
 
 interface CommentCardProps {
   className?: string
@@ -15,7 +14,7 @@ interface CommentCardProps {
   isLoading?: boolean
 }
 
-export const CommentCard: FC<CommentCardProps> = (props) => {
+export const CommentCard = (props: CommentCardProps) => {
   const { className, data, isLoading } = props
 
   if (isLoading) {
@@ -40,7 +39,7 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
   }
 
   return (
-    <div className={classNames(cls.commentCard, {}, [className])}>
+    <VStack className={classNames(cls.commentCard, {}, [className])} gap={8}>
       <AppLink className={classNames(cls.userContainer)} to={RoutePath.profile + data.user.id}>
         {data.user.avatar ? <Avatar className={classNames(cls.avatar)} size={30} src={data.user.avatar} /> : null}
         <Text title={data.user.userName} />
@@ -50,6 +49,6 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
         className={classNames(cls.text)}
         align={TextAlign.LEFT}
       />
-    </div>
+    </VStack>
   )
 }

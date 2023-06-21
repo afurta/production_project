@@ -1,15 +1,15 @@
 import { FC, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classnames'
-import cls from './CommentForm.module.scss'
-import { Input } from 'shared/ui/Input/Input'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { CommentFormActions, CommentFormReducer } from '../../model/slice/CommentFormSlice'
-import { getCommentFormError, getCommentFormText } from '../../model/selectors/getCommentFormData/getCommentFormData'
 import { useSelector } from 'react-redux'
-import { Text } from 'shared/ui/Text/Text'
+import { classNames } from 'shared/lib/classNames/classnames'
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { Input } from 'shared/ui/Input/Input'
+import { getCommentFormError, getCommentFormText } from '../../model/selectors/getCommentFormData/getCommentFormData'
+import { CommentFormActions, CommentFormReducer } from '../../model/slice/CommentFormSlice'
+import cls from './CommentForm.module.scss'
+import { HStack } from 'shared/ui/Stack'
 
 interface CommentFormProps {
   className?: string
@@ -38,7 +38,7 @@ const CommentForm: FC<CommentFormProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducer} >
-      <div className={classNames(cls.commentForm, {}, [className])}>
+      <HStack justify='between' className={classNames('', {}, [className])}>
         <Input
           className={classNames(cls.commentInput)}
           placeholder={'Введите комментарий'}
@@ -52,7 +52,7 @@ const CommentForm: FC<CommentFormProps> = (props) => {
         >
           {t('Добавить комментарий')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   )
 }

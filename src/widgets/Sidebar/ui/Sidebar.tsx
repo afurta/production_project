@@ -2,10 +2,11 @@ import { useMemo, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classnames'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { SidebarItems } from 'widgets/Sidebar/types/SidebarItems'
 import { SidebarItem } from 'widgets/Sidebar/ui/SidebarItem/SidebarItem'
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import cls from './Sidebar.module.scss'
+import { VStack } from 'shared/ui/Stack'
 
 interface SidebarProps {
   className?: string
@@ -25,11 +26,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
       className={classNames(cls.Sidebar, { [cls.collapsed]: isCollapsed }, [className])}
       data-testid='sidebar'
     >
-      <div className={classNames(cls.items, {}, [])}>
+      <VStack gap={16} className={classNames(cls.items, {}, [])}>
         {
           RenderSidebarItems
         }
-      </div>
+      </VStack>
       <Button
         theme={ButtonTheme.BACKGROUND_INVERTED}
         onClick={() => collapsedHandler()}

@@ -1,4 +1,4 @@
-import { BuildCssLoader } from './../webpack/loaders/BuildCssLoader'
+import { buildCssLoader } from './../webpack/loaders/buildCssLoader'
 import { BuildPath } from './../webpack/types/config'
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack'
 import path from 'path'
@@ -9,13 +9,15 @@ export default ({config}:{config:webpack.Configuration})=>{
     entry: '',
     output: '',
     html: '',
-    src: path.resolve(__dirname, '..', '..', 'src')
+    src: path.resolve(__dirname, '..', '..', 'src'),
+    locales: '',
+    buildLocales: ''
   }
 
   config.resolve?.modules?.push(paths.src)
   config.resolve?.extensions?.push('.ts', '.tsx')
 
-  config.module?.rules?.push(BuildCssLoader(true))
+  config.module?.rules?.push(buildCssLoader(true))
   
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore

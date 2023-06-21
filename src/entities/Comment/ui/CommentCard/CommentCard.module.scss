@@ -1,19 +1,11 @@
 .commentCard {
   padding: 10px;
   border: 1px solid var(--primary-color);
-  margin-bottom: 10px;
 }
 .userContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-.text {
-  margin: 10px;
-  margin-left: 10px;
-}
-.avatar {
-  margin-right: 10px;
 }
 .AvatarSkeleton {
   margin-right: 10px;

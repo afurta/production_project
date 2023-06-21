@@ -21,6 +21,7 @@ import { getRecomendationsArticleSelectors } from '../../model/slice/ArticleDeta
 import { fetchCommentsArticleById } from './../../model/service/commentsArticleById/commentsArticleById'
 import { getCommentsSelectors } from './../../model/slice/ArticleDetailsCommentSlice'
 import cls from './ArticleDetailsPage.module.scss'
+import { VStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -63,18 +64,20 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   return (
     <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount>
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-        <ArticleDetailsPageHeader />
-        <ArticleDetails id={id} />
-        <Text title={'Рекомендуем'} align={TextAlign.LEFT} size={TextSize.L} />
-        <ArticleList
-          isLoading={recomendationsIsLoading}
-          articles={recomendations}
-          className={classNames(cls.recomendationsList)}
-          target={'_blank'}
-        />
-        <Text title={'Комментарии'} align={TextAlign.LEFT} />
-        <CommentForm onSendComment={onSendComment} />
-        <CommentList data={comments} isLoading={isLoading} />
+        <VStack gap={16}>
+          <ArticleDetailsPageHeader />
+          <ArticleDetails id={id} />
+          <Text title={'Рекомендуем'} align={TextAlign.LEFT} size={TextSize.L} />
+          <ArticleList
+            isLoading={recomendationsIsLoading}
+            articles={recomendations}
+            className={classNames(cls.recomendationsList)}
+            target={'_blank'}
+          />
+          <Text title={'Комментарии'} align={TextAlign.LEFT} />
+          <CommentForm onSendComment={onSendComment} />
+          <CommentList data={comments} isLoading={isLoading} />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   )

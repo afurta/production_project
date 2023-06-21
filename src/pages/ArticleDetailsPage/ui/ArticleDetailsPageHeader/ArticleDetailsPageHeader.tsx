@@ -1,3 +1,4 @@
+import { getArticleDetailsData } from 'entities/Article'
 import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -6,8 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { RoutePath } from 'shared/config/routeConfig/RouterConfig'
 import { classNames } from 'shared/lib/classNames/classnames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import cls from './ArticleDetailsPageHeader.module.scss'
-import { getArticleDetailsData } from 'entities/Article'
+import { HStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsPageHeaderProps {
   className?: string
@@ -31,7 +31,7 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
   }, [article?.id, navigate])
 
   return (
-    <div className={classNames(cls.articleDetailsPageHeader, {}, [className])}>
+    <HStack justify='between' className={classNames('', {}, [className])}>
       <Button
         theme={ButtonTheme.OUTLINE}
         onClick={onBackTotList}
@@ -42,11 +42,10 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
         <Button
           theme={ButtonTheme.OUTLINE}
           onClick={onEditArticle}
-          className={classNames(cls.editBtn)}
         >
           {t('Редактировать')}
         </Button>
       )}
-    </div>
+    </HStack>
   )
 }
