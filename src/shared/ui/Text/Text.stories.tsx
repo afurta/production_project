@@ -53,19 +53,29 @@ ErrorDark.args = {
 ErrorDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const SizeL = Template.bind({})
-ErrorDark.args = {
+SizeL.args = {
   title: 'Title',
   text: 'Text',
   theme: TextTheme.DEFALUT,
   size: TextSize.L,
 }
-ErrorDark.decorators = [ThemeDecorator(Theme.DARK)]
+SizeL.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const SizeM = Template.bind({})
-ErrorDark.args = {
+SizeM.args = {
   title: 'Title',
   text: 'Text',
   theme: TextTheme.DEFALUT,
   size: TextSize.M,
 }
-ErrorDark.decorators = [ThemeDecorator(Theme.DARK)]
+SizeM.decorators = [ThemeDecorator(Theme.DARK)]
+
+
+export const SizeS = Template.bind({})
+SizeS.args = {
+  title: 'Title',
+  text: 'Text',
+  theme: TextTheme.DEFALUT,
+  size: TextSize.S,
+}
+SizeS.decorators = [ThemeDecorator(Theme.DARK)]

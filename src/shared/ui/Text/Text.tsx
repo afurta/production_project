@@ -14,6 +14,7 @@ export enum TextAlign {
 }
 
 export enum TextSize {
+  S = 'size_s',
   M = 'size_m',
   L = 'size_l',
 }
@@ -27,6 +28,15 @@ interface TextProps {
   align?: TextAlign
   size?: TextSize
 }
+
+export type HeaderTagType = 'h1' | 'h2' | 'h3'
+
+const getHeaderSizeByTag: Record<TextSize, HeaderTagType> = {
+  [TextSize.S]: 'h3',
+  [TextSize.M]: 'h2',
+  [TextSize.L]: 'h1',
+}
+
 export const Text = (props: TextProps) => {
   const {
     title,
@@ -35,8 +45,12 @@ export const Text = (props: TextProps) => {
     align = TextAlign.CENTER,
     theme = TextTheme.DEFALUT,
     size = TextSize.M
+
   } = props
 
+  const HeaderTag = getHeaderSizeByTag[size]
+
+  console.log(theme, cls[theme])
   const mods: Mods = {
     [cls[align]]: true,
     [cls[theme]]: true,
@@ -44,8 +58,8 @@ export const Text = (props: TextProps) => {
   }
 
   return (
-    <div className={classNames(cls.Title, mods, [cls[theme], className])}>
-      {title && <p className={classNames(cls.title, {}, [])}>{title}</p>}
+    <div className={classNames(cls.Title, mods, [className])}>
+      {title && <HeaderTag className={classNames(cls.title, {}, [])}>{title}</HeaderTag>}
       {text && <p className={classNames(cls.text, {}, [])}>{text}</p>}
     </div >
   )

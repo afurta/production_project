@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react'
 import { classNames } from 'shared/lib/classNames/classnames'
 import cls from './Flex.module.scss'
 
@@ -30,7 +30,9 @@ const DirectionClasses: Record<string, string> = {
   reverseColumn: cls.ReverseColumnDirection
 }
 
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+
+export interface FlexProps extends DivProps {
   className?: string
   children: ReactNode
   justify?: FlexJustify

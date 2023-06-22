@@ -22,11 +22,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
   )), [isCollapsed])
 
   return (
-    <div
+    <aside
       className={classNames(cls.Sidebar, { [cls.collapsed]: isCollapsed }, [className])}
       data-testid='sidebar'
     >
-      <VStack gap={16} className={classNames(cls.items, {}, [])}>
+      <VStack role={'navigation'} gap={16} className={classNames(cls.items, {}, [])}>
         {
           RenderSidebarItems
         }
@@ -45,6 +45,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
         <ThemeSwitcher />
         <LanguageSwitcher className={cls.lang} isShorten={isCollapsed} />
       </div>
-    </div>
+    </aside>
   )
 }

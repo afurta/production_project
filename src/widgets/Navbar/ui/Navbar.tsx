@@ -30,7 +30,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const onLogOut = useCallback(() => dispath(UserActions.logout()), [dispath])
 
   return (
-    <div className={classNames(cls.navbar, {}, [className])} >
+    <header className={classNames(cls.navbar, {}, [className])} >
       <div className={cls.links}>
         {
           authData
@@ -69,7 +69,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         }
       </div>
       {isLoginModal && <LoginModal isOpen={!authData && isLoginModal} onClose={onCloseLoginModal} />}
-    </div >
+    </header >
   )
 
 })
