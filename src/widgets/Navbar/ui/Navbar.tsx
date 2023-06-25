@@ -4,12 +4,14 @@ import { LoginModal } from 'features/AuthByUsername'
 import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+import { ICONS } from 'shared/assets'
+import { RoutePath } from 'shared/config/routeConfig/RouterConfig'
 import { classNames } from 'shared/lib/classNames/classnames'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import cls from './Navbar.module.scss'
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
+import cls from './Navbar.module.scss'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import { RoutePath } from 'shared/config/routeConfig/RouterConfig'
 
 interface NavbarProps {
   className?: string
@@ -48,13 +50,15 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                   {t('Создать новую статью')}
                 </AppLink>
-                <Button
-                  className={classNames(cls.navbarBtn)}
-                  onClick={onLogOut}
-                  theme={ButtonTheme.CLEAR_INVERTED}
-                >
-                  {t('Выйти')}
-                </Button>
+                <Dropdown
+                  direction='bottom left'
+                  className={classNames(cls.dropdown)}
+                  control={<ICONS.User width='32' height='32' />}
+                  items={[
+                    { href: RoutePath.profile + authData.id, content: t('Профиль') },
+                    { onClick: onLogOut, content: t('Выйти') }
+                  ]}
+                />
               </>
             )
             : (
@@ -65,6 +69,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
               >
                 {t('Войти')}
               </Button>
+
             )
         }
       </div>

@@ -5,6 +5,7 @@ import { Button } from 'shared/ui/Button/Button'
 import { HStack } from 'shared/ui/Stack'
 import cls from './ListBox.module.scss'
 import { Fragment, ReactNode } from 'react'
+import { DropdownDirection } from 'shared/types'
 
 interface IListItem {
   value: string
@@ -20,10 +21,9 @@ interface HListboxProps {
   readonly?: boolean
   listItems: IListItem[]
   onChange?: (value: string) => void
-  direction?: DropListDirection
+  direction?: DropdownDirection
 }
 
-type DropListDirection = 'bottom' | 'top'
 
 export const ListBox = (props: HListboxProps) => {
   const {
@@ -34,14 +34,16 @@ export const ListBox = (props: HListboxProps) => {
     listItems,
     onChange,
     readonly,
-    direction = 'bottom'
+    direction = 'bottom right'
   } = props
 
   const { t } = useTranslation()
 
-  const mapOptionsClasses: Record<DropListDirection, string> = {
-    bottom: cls.optionsBottom,
-    top: cls.optionsTop
+  const mapOptionsClasses: Record<DropdownDirection, string> = {
+    'top left': cls.optionsTopLeft,
+    'top right': cls.optionsTopRight,
+    'bottom left': cls.optionsBottomLeft,
+    'bottom right': cls.optionsBottomRight
   }
 
   return (
