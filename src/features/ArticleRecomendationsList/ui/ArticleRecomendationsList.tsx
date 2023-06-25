@@ -14,7 +14,7 @@ export const ArticleRecomendationsList = (props: ArticleRecomendationsListProps)
   const { t } = useTranslation()
   const { data: articles, error, isLoading } = UseArticleRecomendationsList(3)
 
-  if (error || isLoading) {
+  if (error || isLoading || !articles) {
     return <Text title={'Статей нет'} align={TextAlign.LEFT} size={TextSize.L} />
   }
 

@@ -1,4 +1,4 @@
-import { UserActions } from 'entities/User'
+import { UserActions, isUserAdmin, isUserManager } from 'entities/User'
 import { getUserAuthData } from 'entities/User/model/selectors/getUserAuthData/getUserAuthData'
 import { LoginModal } from 'features/AuthByUsername'
 import { memo, useCallback, useState } from 'react'
@@ -7,11 +7,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ICONS } from 'shared/assets'
 import { RoutePath } from 'shared/config/routeConfig/RouterConfig'
 import { classNames } from 'shared/lib/classNames/classnames'
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import cls from './Navbar.module.scss'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 
 interface NavbarProps {
   className?: string
@@ -22,6 +22,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const dispath = useDispatch()
 
   const authData = useSelector(getUserAuthData)
+  const isAdmin = useSelector(isUserAdmin)
+  const isManager = useSelector(isUserManager)
 
   const { t } = useTranslation()
 
@@ -31,6 +33,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const onOpenLoginModal = useCallback(() => setIsLoginModal(true), [])
   const onLogOut = useCallback(() => dispath(UserActions.logout()), [dispath])
 
+  const isAdminPanelAvaliable = isAdmin || isManager
   return (
     <header className={classNames(cls.navbar, {}, [className])} >
       <div className={cls.links}>
@@ -55,6 +58,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                   className={classNames(cls.dropdown)}
                   control={<ICONS.User width='32' height='32' />}
                   items={[
+                    ...(
+                      isAdminPanelAvaliable
+                        ? [{ href: RoutePath.admin_panel, content: t('Админка') }]
+                        : []
+                    ),
                     { href: RoutePath.profile + authData.id, content: t('Профиль') },
                     { onClick: onLogOut, content: t('Выйти') }
                   ]}

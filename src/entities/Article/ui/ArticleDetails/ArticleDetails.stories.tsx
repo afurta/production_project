@@ -4,6 +4,7 @@ import { Article } from 'entities/Article'
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ArticleDetails } from './ArticleDetails'
+import { UserRoles } from 'entities/User'
 
 export default {
   title: 'entities/ArticleDetails',
@@ -23,7 +24,8 @@ const article: Article = {
   user: {
     'id': '1',
     'userName': 'userName',
-    'avatar': ''
+    'avatar': '',
+    role: [UserRoles.ADMIN]
   },
   blocks: [
     {

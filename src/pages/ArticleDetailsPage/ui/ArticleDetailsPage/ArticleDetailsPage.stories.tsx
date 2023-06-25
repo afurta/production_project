@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import ArticleDetailsPage from './ArticleDetailsPage'
 import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/article'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
+import { UserRoles } from 'entities/User'
 
 export default {
   title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
@@ -21,7 +22,8 @@ const article: Article = {
   user: {
     'id': '1',
     'userName': 'userName',
-    'avatar': ''
+    'avatar': '',
+    role: [UserRoles.ADMIN]
   },
   blocks: [
     {
