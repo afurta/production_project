@@ -50,7 +50,6 @@ export const Text = (props: TextProps) => {
 
   const HeaderTag = getHeaderSizeByTag[size]
 
-  console.log(theme, cls[theme])
   const mods: Mods = {
     [cls[align]]: true,
     [cls[theme]]: true,

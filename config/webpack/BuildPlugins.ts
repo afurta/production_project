@@ -4,6 +4,7 @@ import CopyPlugin from 'copy-webpack-plugin'
 import webpack, { WebpackPluginInstance } from 'webpack'
 import { IBuildOptions } from './types/config'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 export const BuildPlugins = ({paths, project, apiUrl}:IBuildOptions):WebpackPluginInstance[] => {
   return [
@@ -25,7 +26,7 @@ export const BuildPlugins = ({paths, project, apiUrl}:IBuildOptions):WebpackPlug
       ],
     }),
     // new BundleAnalyzerPlugin({
-    //   analyzerMode: isDev ? 'server' : 'disabled'
+    //   analyzerMode: 'server'
     // })
   ]
 }
