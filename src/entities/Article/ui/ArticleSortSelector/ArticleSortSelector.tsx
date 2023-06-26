@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classnames'
 import { SortOrder } from 'shared/types'
 import { Select, SelectOption } from 'shared/ui/Select/Select'
-import { ArticleSortFields, ArticleView } from '../../model/types/article'
 import cls from './ArticleSortSelector.module.scss'
+import { ArticleSortFields, ArticleView } from 'entities/Article'
 
 interface ArticleSortSelectorProps {
   className?: string

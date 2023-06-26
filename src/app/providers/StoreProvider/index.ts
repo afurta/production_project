@@ -3,11 +3,10 @@ import { AppDispatch, createReduxStore } from './config/store'
 import { StoreProvider } from './ui/StoreProvider'
 
 export {
-  StoreSchema,
   StoreProvider, 
   createReduxStore,
   ReduxStoreWithManager,
-  AppDispatch,
   ThunkExtraArg,
-  ThunkConfig
 }
+
+export type {AppDispatch, StoreSchema, ThunkConfig}

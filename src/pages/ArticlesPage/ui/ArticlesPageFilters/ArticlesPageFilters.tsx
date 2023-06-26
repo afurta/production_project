@@ -1,5 +1,4 @@
-import { ArticleSortFields, ArticleSortSelector, ArticleViewsSelector } from 'entities/Article'
-import { ArticleType, ArticleView } from 'entities/Article/model/types/article'
+import { ArticleSortFields, ArticleSortSelector, ArticleType, ArticleView, ArticleViewsSelector } from 'entities/Article'
 import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'

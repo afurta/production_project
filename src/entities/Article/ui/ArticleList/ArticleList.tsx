@@ -2,10 +2,10 @@ import { FC, HTMLAttributeAnchorTarget } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classnames'
 import cls from './ArticleList.module.scss'
-import { Article, ArticleView } from '../../model/types/article'
 import { ArticleListItem } from '../../ui/ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton'
 import { Text, TextSize } from 'shared/ui/Text/Text'
+import { Article, ArticleView } from 'entities/Article'
 
 interface ArticleListProps {
   className?: string

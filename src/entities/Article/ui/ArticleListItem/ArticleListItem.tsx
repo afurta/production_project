@@ -10,8 +10,9 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Card } from 'shared/ui/Card/Card'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { Text, TextAlign } from 'shared/ui/Text/Text'
-import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article'
 import cls from './ArticleListItem.module.scss'
+import { Article, ArticleBlockType, ArticleView } from 'entities/Article'
+import { ArticleTextBlock } from 'entities/Article/model/types/article'
 
 interface ArticleListItemProps {
   className?: string
