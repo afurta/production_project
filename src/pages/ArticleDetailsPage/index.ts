@@ -1,3 +1,5 @@
+export { fetchRecomendationArticle } from './model/service/fetchRecomendationArticle/fetchRecomendationArticle'
+
 export { ArticleDetailsPageSchema } from './model/types/index'
 export { ArticleDetailsPageRecomendationsReducer } from './model/slice/ArticleDetailsRecomendations'
 

@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Forbidden } from './Forbidden'
+import Forbidden from './Forbidden'
 
 export default {
   title: 'shared/Forbidden',

@@ -1,5 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ArticleAddCommentForm } from './ArticleAddCommentForm'
+import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
 
 export default {
   title: 'pages/ArticleDetailsPage/ArticleAddCommentForm',
@@ -9,6 +10,5 @@ export default {
 const Template: ComponentStory<typeof ArticleAddCommentForm> = (args) => < ArticleAddCommentForm {...args} />
 
 export const Normal = Template.bind({})
-Normal.args = {
-
-}
+Normal.args = {}
+Normal.decorators = [SuspenseDecorator]

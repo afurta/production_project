@@ -19,7 +19,7 @@ export const CommentCard = (props: CommentCardProps) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.commentCard, {}, [className])}>
+      <VStack className={classNames(cls.commentCard, {}, [className])} gap={8}>
         <div className={classNames(cls.userContainer)}>
           <Skeleton
             width={30}
@@ -34,7 +34,7 @@ export const CommentCard = (props: CommentCardProps) => {
           height={30}
           className={classNames(cls.TextSkeleton)}
         />
-      </div>
+      </VStack>
     )
   }
 

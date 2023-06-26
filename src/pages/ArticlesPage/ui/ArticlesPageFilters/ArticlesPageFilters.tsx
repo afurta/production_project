@@ -1,5 +1,5 @@
 import { ArticleSortFields, ArticleSortSelector, ArticleViewsSelector } from 'entities/Article'
-import { ArticleType } from 'entities/Article/model/types/article'
+import { ArticleType, ArticleView } from 'entities/Article/model/types/article'
 import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
@@ -35,7 +35,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
 
   const fetchDebouncedData = useDebounce(fetchArticlesList({ replace: true }), 500)
 
-  const onChangeView = useCallback((view) => {
+  const onChangeView = useCallback((view: ArticleView) => {
     dispatch(articlesPageActions.setView(view))
   }, [dispatch])
 

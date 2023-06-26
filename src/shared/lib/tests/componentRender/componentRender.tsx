@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { StoreProvider, StoreSchema } from 'app/providers/StoreProvider'
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { I18nextProvider } from 'react-i18next'
 import { MemoryRouter } from 'react-router-dom'
 import i18n from '../../../config/i18n/i18nForTests'

@@ -21,7 +21,7 @@ import { HStack, VStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsProps {
   className?: string
-  id: string
+  id?: string
 }
 
 const initialReducers: ReducerList = {
@@ -90,7 +90,6 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
       </>
     )
   }
-
 
   return (
     <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount>
