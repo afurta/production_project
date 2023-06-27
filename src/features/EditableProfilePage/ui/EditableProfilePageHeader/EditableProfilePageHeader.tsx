@@ -4,10 +4,13 @@ import { classNames } from 'shared/lib/classNames/classnames'
 import { HStack } from 'shared/ui/Stack'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Text } from 'shared/ui/Text/Text'
-import { ProfileActions, getProfileData, getReadonlyProfile, updateProfileData } from 'features/EditableProfilePage'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from 'entities/User'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
+import { getReadonlyProfile } from '../../model/selectors/getReadonlyProfile/getReadonlyProfile'
+import { ProfileActions } from '../../model/slice/ProfileSlice'
+import { updateProfileData } from '../../model/service/updateProfileData/updateProfileData'
 
 interface EditableProfilePageHeaderProps {
   className?: string

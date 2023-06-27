@@ -4,7 +4,7 @@ import { StoreProvider, StoreSchema } from 'app/providers/StoreProvider'
 import { ArticleDetailsReducer } from 'entities/Article/model/slice/ArticleDetailsSlice'
 import { CommentFormReducer } from 'features/AddComment/model/slice/CommentFormSlice'
 import { AuthReducer } from 'features/AuthByUsername/model/slice/AuthSlice'
-import { ProfileReducer } from 'features/EditableProfilePage'
+import { ProfileReducer } from 'features/EditableProfilePage/model/slice/ProfileSlice'
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 const defaultAsyncReducers: ReducerList = {

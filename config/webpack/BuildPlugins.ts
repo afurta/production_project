@@ -4,6 +4,7 @@ import CopyPlugin from 'copy-webpack-plugin'
 import webpack, { WebpackPluginInstance } from 'webpack'
 import { IBuildOptions } from './types/config'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import CircularDependencyPlugin from 'circular-dependency-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 export const BuildPlugins = ({paths, project, apiUrl}:IBuildOptions):WebpackPluginInstance[] => {
@@ -25,6 +26,9 @@ export const BuildPlugins = ({paths, project, apiUrl}:IBuildOptions):WebpackPlug
         { from: paths.locales, to: paths.buildLocales },
       ],
     }),
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+    })
     // new BundleAnalyzerPlugin({
     //   analyzerMode: 'server'
     // })

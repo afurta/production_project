@@ -1,5 +1,6 @@
 import { StoreSchema } from 'app/providers/StoreProvider'
-import { ProfileSchema, getIsLoadingProfile } from 'features/EditableProfilePage'
+import { ProfileSchema } from 'features/EditableProfilePage'
+import { getIsLoadingProfile } from './getIsLoadingProfile'
 
 describe('getIsLoadingProfile selector', ()=>{
   it('Check error state', ()=>{

@@ -1,7 +1,7 @@
 import { ProfileSchema } from '../types/ProfileSchema'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
-import { ProfileActions, ProfileReducer } from 'features/EditableProfilePage'
+import { ProfileActions, ProfileReducer } from '../../model/slice/ProfileSlice'
 
 const data = {
   username: 'admin',

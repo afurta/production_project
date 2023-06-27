@@ -2,7 +2,6 @@ import { FC, memo, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import cls from './ArticleDetails.module.scss'
 import { classNames } from 'shared/lib/classNames/classnames'
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsLoading } from 'entities/Article/model/selectors/getArticleDetailsData'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
@@ -13,11 +12,18 @@ import { Skeleton } from 'shared/ui/Skeleton/Skeleton'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { ICONS } from 'shared/assets'
 import { Icon } from 'shared/ui/Icon/Icon'
-import { ArticleBlock, ArticleBlockType } from 'entities/Article'
+
 import { ArticleCodeBlockComp } from '../ArticleCodeBlockComp/ArticleCodeBlockComp'
 import { ArticleImageBlockComp } from '../ArticleImageBlockComp/ArticleImageBlockComp'
 import { ArticleTextBlockComp } from '../ArticleTextBlockComp/ArticleTextBlockComp'
 import { HStack, VStack } from 'shared/ui/Stack'
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsLoading
+} from '../../model/selectors/getArticleDetailsData'
+import { ArticleBlockType } from '../../model/consts'
+import { ArticleBlock } from '../../model/types/article'
 
 interface ArticleDetailsProps {
   className?: string

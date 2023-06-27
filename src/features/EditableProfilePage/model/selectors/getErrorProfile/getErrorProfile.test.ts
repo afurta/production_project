@@ -1,5 +1,6 @@
 import { StoreSchema } from 'app/providers/StoreProvider'
-import { ProfileSchema, getErrorProfile } from 'features/EditableProfilePage'
+import { ProfileSchema } from 'features/EditableProfilePage'
+import { getErrorProfile } from './getErrorProfile'
 
 describe('getErrorProfile selector', ()=>{
   it('Check error state', ()=>{

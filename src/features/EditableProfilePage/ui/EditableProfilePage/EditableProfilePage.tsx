@@ -7,9 +7,15 @@ import { ProfileCard } from 'entities/ProfileCard'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
-import { ProfileActions, ProfileReducer, ValidateProfileError, fetchProfileData, getErrorProfile, getIsLoadingProfile, getProfileValidateErrors, getReadonlyProfile } from 'features/EditableProfilePage'
-import { getProfileForm } from 'features/EditableProfilePage/model/selectors/getProfileForm/getProfileForm'
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
+import { ValidateProfileError } from '../../model/consts'
+import { ProfileActions, ProfileReducer } from '../../model/slice/ProfileSlice'
+import { getReadonlyProfile } from '../../model/selectors/getReadonlyProfile/getReadonlyProfile'
+import { getIsLoadingProfile } from '../../model/selectors/getIsLoadingProfile/getIsLoadingProfile'
+import { getErrorProfile } from '../../model/selectors/getErrorProfile/getErrorProfile'
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
+import { fetchProfileData } from '../../model/service/fetchProfileData/fetchProfileData'
 
 interface EditableProfilePageProps {
   className?: string

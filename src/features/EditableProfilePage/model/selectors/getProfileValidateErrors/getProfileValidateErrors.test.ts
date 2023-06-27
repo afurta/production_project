@@ -1,5 +1,6 @@
 import { StoreSchema } from 'app/providers/StoreProvider'
-import { ValidateProfileError, getProfileValidateErrors } from 'features/EditableProfilePage'
+import { ValidateProfileError } from 'features/EditableProfilePage'
+import { getProfileValidateErrors } from './getProfileValidateErrors'
 
 describe('getProfileForm selector', ()=>{
   it('Check error state', ()=>{

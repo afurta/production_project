@@ -1,4 +1,3 @@
-import { ArticleTextBlockComp } from 'entities/Article/ui/ArticleTextBlockComp/ArticleTextBlockComp'
 import { FC, HTMLAttributeAnchorTarget } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ICONS } from 'shared/assets'
@@ -11,8 +10,9 @@ import { Card } from 'shared/ui/Card/Card'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { Text, TextAlign } from 'shared/ui/Text/Text'
 import cls from './ArticleListItem.module.scss'
-import { Article, ArticleBlockType, ArticleView } from 'entities/Article'
-import { ArticleTextBlock } from 'entities/Article/model/types/article'
+import { ArticleBlockType, ArticleView } from '../../model/consts'
+import { Article, ArticleTextBlock } from '../../model/types/article'
+import { ArticleTextBlockComp } from '../../ui/ArticleTextBlockComp/ArticleTextBlockComp'
 
 interface ArticleListItemProps {
   className?: string

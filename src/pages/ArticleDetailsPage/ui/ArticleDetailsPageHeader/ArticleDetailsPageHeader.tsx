@@ -1,4 +1,4 @@
-import { getArticleDetailsData } from 'entities/Article'
+import { getArticleDetailsData } from 'entities/Article/model/selectors/getArticleDetailsData'
 import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
