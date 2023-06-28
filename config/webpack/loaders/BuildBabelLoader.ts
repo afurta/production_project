@@ -1,6 +1,13 @@
-export function buildBabelLoader ( ) {
+import { IBuildOptions } from '../types/config'
+import babelRemovePropsPlugin from './babelRemovePropsPlugin'
+
+interface IbuildBabelLoader extends IBuildOptions{
+  isTsx: boolean
+}
+
+export function buildBabelLoader ({isTsx}:IbuildBabelLoader) {
   return {
-    test: /\.m?js$/,
+    test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
@@ -14,7 +21,11 @@ export function buildBabelLoader ( ) {
               keyAsDefaultValue: true,
             },
           ],
-        ],
+          ['@babel/plugin-transform-typescript', { isTsx }, ],
+          '@babel/plugin-transform-runtime', 
+          isTsx && [ babelRemovePropsPlugin, { props: ['data-testid'], },
+          ],
+        ].filter(Boolean),
       },
     }
   }
