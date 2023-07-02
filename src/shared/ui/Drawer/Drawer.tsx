@@ -1,26 +1,24 @@
-import { useTheme } from 'app/providers/ThemeProvider'
-import { ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import React, { ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classnames'
-import { Overlay } from 'shared/ui/Overlay/Overlay'
 import { Portal } from 'shared/ui/Portal/Portal'
-import cls from './Modal.module.scss'
+import cls from './Drawer.module.scss'
+import { useTheme } from 'app/providers/ThemeProvider'
+import { Overlay } from 'shared/ui/Overlay/Overlay'
 
-interface ModalProps {
+interface DrawerProps {
   className?: string
   children?: ReactNode
   isOpen: boolean
   onClose: () => void
-  lazy?: boolean
 }
 const MODAL_CLOSING_DELAY = 300
 
-export const Modal = (props: ModalProps) => {
+export const Drawer = (props: DrawerProps) => {
   const {
     className,
     children,
     isOpen,
     onClose,
-    lazy
   } = props
 
   const [isClosing, setIsClosing] = useState<boolean>(false)
@@ -32,6 +30,8 @@ export const Modal = (props: ModalProps) => {
     [cls.opened]: isOpen,
     [cls.isClosing]: isClosing
   }
+
+  const preventEventHandler = (event: React.MouseEvent) => event.stopPropagation()
 
   const closeHandler = useCallback(() => {
     if (onClose) {
@@ -65,13 +65,14 @@ export const Modal = (props: ModalProps) => {
     if (isOpen) setIsMounted(true)
   }, [isOpen])
 
-  if (lazy && !isMounted) return null
-
   return (
     <Portal>
-      <div className={classNames(cls.modal, mods, [className, theme])}>
+      <div className={classNames(cls.Drawer, mods, [className, theme, 'app_drawer'])}>
         <Overlay clickHandler={closeHandler} />
-        <div className={classNames(cls.content, {}, [])} >
+        <div
+          className={classNames(cls.content, {}, [])}
+          onClick={preventEventHandler}
+        >
           {children}
         </div>
       </div>

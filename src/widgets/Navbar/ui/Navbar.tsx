@@ -12,6 +12,8 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { HStack } from 'shared/ui/Stack'
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import cls from './Navbar.module.scss'
+import { Drawer } from 'shared/ui/Drawer/Drawer'
+import { NotificationList } from 'entities/Notification'
 
 interface NavbarProps {
   className?: string
@@ -26,6 +28,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   const onCloseLoginModal = useCallback(() => setIsLoginModal(false), [])
   const onOpenLoginModal = useCallback(() => setIsLoginModal(true), [])
+
+
 
   return (
     <header className={classNames(cls.navbar, {}, [className])} >
