@@ -14,6 +14,7 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import cls from './Navbar.module.scss'
 import { Drawer } from 'shared/ui/Drawer/Drawer'
 import { NotificationList } from 'entities/Notification'
+import { AnimationProvider } from 'shared/lib/components/AnimationModuleLoader'
 
 interface NavbarProps {
   className?: string
@@ -51,7 +52,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                   {t('Создать новую статью')}
                 </AppLink>
                 <HStack gap={8} className={classNames(cls.controls)}>
-                  <NotificationBtn />
+                  <AnimationProvider>
+                    <NotificationBtn />
+                  </AnimationProvider>
                   <AvatarDropdown />
                 </HStack>
               </>
