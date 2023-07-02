@@ -3,9 +3,11 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classnames'
 import { Button } from 'shared/ui/Button/Button'
 import { HStack } from 'shared/ui/Stack'
-import cls from './ListBox.module.scss'
 import { Fragment, ReactNode } from 'react'
 import { DropdownDirection } from 'shared/types'
+import { mapPopupDirection } from 'shared/ui/Popups/styles/consts'
+import popupStyles from '../../styles/popup.module.scss'
+import cls from './ListBox.module.scss'
 
 interface IListItem {
   value: string
@@ -24,7 +26,6 @@ interface HListboxProps {
   direction?: DropdownDirection
 }
 
-
 export const ListBox = (props: HListboxProps) => {
   const {
     className,
@@ -39,13 +40,6 @@ export const ListBox = (props: HListboxProps) => {
 
   const { t } = useTranslation()
 
-  const mapOptionsClasses: Record<DropdownDirection, string> = {
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight,
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight
-  }
-
   return (
     <HStack gap={8} align={'between'}>
       {label && <span className={classNames(cls.ListBoxLabel)}>{`${label}>`}</span>}
@@ -53,15 +47,15 @@ export const ListBox = (props: HListboxProps) => {
         as="div"
         onChange={onChange}
         value={value}
-        className={classNames(cls.ListBox, {}, [className])}
+        className={classNames(cls.ListBox, {}, [className, popupStyles.popup])}
         disabled={readonly}
       >
-        <HListbox.Button className={cls.trigger} >
+        <HListbox.Button className={popupStyles.trigger} >
           <Button disabled={readonly}>
             {value ?? defaultValue}
           </Button>
         </HListbox.Button>
-        <HListbox.Options className={classNames(cls.options, {}, [mapOptionsClasses[direction]])}>
+        <HListbox.Options className={classNames(cls.options, {}, [mapPopupDirection[direction]])}>
           {listItems?.map((item) => (
             <HListbox.Option
               key={item.value}
@@ -73,8 +67,8 @@ export const ListBox = (props: HListboxProps) => {
                   className={
                     classNames(cls.item,
                       {
-                        [cls.active]: active,
-                        [cls.disabled]: item.disabled
+                        [popupStyles.active]: active,
+                        [popupStyles.disabled]: item.disabled
                       })
                   }
                 >

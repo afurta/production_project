@@ -11,6 +11,7 @@ import Calendar from './icons/Calendar.svg'
 import Grid from './icons/Grid.svg'
 import List from './icons/List.svg'
 import User from './icons/User.svg'
+import Notification from './icons/Notification.svg'
 
 // IMAGES
 
@@ -26,6 +27,7 @@ export const ICONS = {
   Calendar,
   Grid,
   List,
-  User
+  User,
+  Notification
 }
 

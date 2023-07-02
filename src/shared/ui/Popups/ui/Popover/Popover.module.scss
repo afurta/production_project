@@ -1,0 +1,12 @@
+.popover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.panel {
+  position: absolute;
+  z-index: 10000;
+  padding: 15px;
+  border-radius: 8px;
+  background: var(--card-bg);
+}
