@@ -1,6 +1,6 @@
-import { StoreSchema } from 'app/providers/StoreProvider'
-import { getReadonlyProfile } from 'features/EditableProfilePage/model/selectors/getReadonlyProfile/getReadonlyProfile'
-import { ProfileSchema } from 'features/EditableProfilePage/model/types/ProfileSchema'
+import { StoreSchema } from '@/app/providers/StoreProvider'
+import { getReadonlyProfile } from '@/features/EditableProfilePage/model/selectors/getReadonlyProfile/getReadonlyProfile'
+import { ProfileSchema } from '@/features/EditableProfilePage/model/types/ProfileSchema'
 
 describe('getReadonlyProfile selector', ()=>{
   it('Check error state', ()=>{

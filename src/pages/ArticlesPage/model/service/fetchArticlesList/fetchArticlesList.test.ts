@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
-import { fetchArticlesList } from 'pages/ArticlesPage/model/service/fetchArticlesList/fetchArticlesList'
-import { ArticleView } from 'entities/Article'
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
+import { fetchArticlesList } from '@/pages/ArticlesPage/model/service/fetchArticlesList/fetchArticlesList'
+import { ArticleView } from '@/entities/Article'
 
 describe('FetchArticlesList service', () => {
 

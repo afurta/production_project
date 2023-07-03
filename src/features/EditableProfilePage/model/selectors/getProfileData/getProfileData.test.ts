@@ -1,8 +1,8 @@
-import { StoreSchema } from 'app/providers/StoreProvider'
-import { Country } from 'entities/Country'
-import { Currency } from 'entities/Currency'
-import { ProfileSchema } from 'features/EditableProfilePage'
-import { getProfileData } from 'features/EditableProfilePage/model/selectors/getProfileData/getProfileData'
+import { StoreSchema } from '@/app/providers/StoreProvider'
+import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency'
+import { ProfileSchema } from '@/features/EditableProfilePage'
+import { getProfileData } from '@/features/EditableProfilePage/model/selectors/getProfileData/getProfileData'
 
 const data = {
   'first': 'ffdsf',

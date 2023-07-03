@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { loginByUserName } from './loginByUserName'
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 
 describe('LoginByUserName service', () => {
 

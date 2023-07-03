@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { USER_LOCALSTORAGE_KEY } from 'shared/constants/LS_Constants'
+import { USER_LOCALSTORAGE_KEY } from '@/shared/constants/LS_Constants'
 
 export const $api = axios.create({
   baseURL: __API__,

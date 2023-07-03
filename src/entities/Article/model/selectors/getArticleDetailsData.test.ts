@@ -1,4 +1,4 @@
-import { StoreSchema } from 'app/providers/StoreProvider'
+import { StoreSchema } from '@/app/providers/StoreProvider'
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsLoading } from '../../model/selectors/getArticleDetailsData'
 
 describe('getArticleDetailsData selector', ()=>{

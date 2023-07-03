@@ -1,8 +1,8 @@
-import { StoreSchema } from 'app/providers/StoreProvider'
-import { Country } from 'entities/Country'
-import { Currency } from 'entities/Currency'
-import { getProfileForm } from 'features/EditableProfilePage/model/selectors/getProfileForm/getProfileForm'
-import { ProfileSchema } from 'features/EditableProfilePage/model/types/ProfileSchema'
+import { StoreSchema } from '@/app/providers/StoreProvider'
+import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency'
+import { getProfileForm } from '@/features/EditableProfilePage/model/selectors/getProfileForm/getProfileForm'
+import { ProfileSchema } from '@/features/EditableProfilePage/model/types/ProfileSchema'
 
 const data = {
   'first': 'ffdsf',

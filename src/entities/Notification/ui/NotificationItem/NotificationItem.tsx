@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classnames'
-import { Card, CardTheme } from 'shared/ui/Card/Card'
-import { Text, TextAlign } from 'shared/ui/Text/Text'
+import { classNames } from '@/shared/lib/classNames/classnames'
+import { Card, CardTheme } from '@/shared/ui/Card/Card'
+import { Text, TextAlign } from '@/shared/ui/Text/Text'
 import { Notification } from '../../model/index'
 
 interface NotificationItemProps {

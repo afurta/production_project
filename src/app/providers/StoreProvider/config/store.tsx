@@ -1,9 +1,9 @@
 import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
-import { UserReducer } from 'entities/User'
+import { UserReducer } from '@/entities/User'
 import { StoreSchema, ThunkExtraArg } from './StoreSchema'
 import { createReducerManager } from './reducerManager'
-import { $api, rtkApi } from 'shared/api/api'
-import { SaveScrollReducer } from 'features/SaveScroll'
+import { $api, rtkApi } from '@/shared/api/api'
+import { SaveScrollReducer } from '@/features/SaveScroll'
 
 export const createReduxStore = (
   initialStore?: StoreSchema,

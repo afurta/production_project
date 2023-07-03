@@ -1,4 +1,4 @@
-import { PageError } from 'pages/PageError'
+import { PageError } from '@/pages/PageError'
 import React, { Component, ErrorInfo, ReactNode, Suspense } from 'react'
 
 interface Props {

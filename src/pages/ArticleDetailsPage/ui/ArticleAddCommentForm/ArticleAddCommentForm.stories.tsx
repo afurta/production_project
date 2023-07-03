@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ArticleAddCommentForm } from './ArticleAddCommentForm'
-import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
+import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
 
 export default {
   title: 'pages/ArticleDetailsPage/ArticleAddCommentForm',

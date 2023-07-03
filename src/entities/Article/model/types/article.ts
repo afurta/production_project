@@ -1,5 +1,5 @@
-import { ArticleBlockType, ArticleType } from 'entities/Article'
-import { User } from 'entities/User'
+import { ArticleBlockType, ArticleType } from '@/entities/Article'
+import { User } from '@/entities/User'
 
 interface ArticleCommonTypes{
   id: string

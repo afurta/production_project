@@ -1,10 +1,10 @@
 import { SortOrder } from './../../../../shared/types/index'
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
-import { StoreSchema } from 'app/providers/StoreProvider'
-import { Article, ArticleSortFields, ArticleType, ArticleView } from 'entities/Article'
+import { StoreSchema } from '@/app/providers/StoreProvider'
+import { Article, ArticleSortFields, ArticleType, ArticleView } from '@/entities/Article'
 import { ArticlesPageSchema } from '../../model/types/ArticlesPageSchema'
 import { fetchArticlesList } from '../../model/service/fetchArticlesList/fetchArticlesList'
-import { ARTICLE_VIEW_KEY } from 'shared/constants/LS_Constants'
+import { ARTICLE_VIEW_KEY } from '@/shared/constants/LS_Constants'
 
 const articlesAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id,

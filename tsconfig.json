@@ -14,9 +14,9 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "*": [
+      "@/*": [
         "./src/*"
-      ],
+      ]
     },
     "strict": true
   },
@@ -30,5 +30,5 @@
     "./src/**/*.tsx",
     "./src/**/*.ts",
     "src/widgets/Sidebar/types/SidebarItems.tss"
-  ]
+  ],
 }

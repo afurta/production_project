@@ -1,5 +1,5 @@
-import { StoreSchema } from 'app/providers/StoreProvider'
-import { ProfileSchema } from 'features/EditableProfilePage'
+import { StoreSchema } from '@/app/providers/StoreProvider'
+import { ProfileSchema } from '@/features/EditableProfilePage'
 import { getErrorProfile } from './getErrorProfile'
 
 describe('getErrorProfile selector', ()=>{

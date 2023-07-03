@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classnames'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { classNames } from '@/shared/lib/classNames/classnames'
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import cls from './PageError.module.scss'
-import { Page } from 'widgets/Page/Page'
+import { Page } from '@/widgets/Page/Page'
 
 const PageError = () => {
 

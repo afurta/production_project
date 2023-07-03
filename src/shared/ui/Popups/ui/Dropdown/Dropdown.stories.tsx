@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { Dropdown } from './Dropdown'
 import { action } from '@storybook/addon-actions'
-import { ICONS } from 'shared/assets'
+import { ICONS } from '@/shared/assets'
 
 export default {
   title: 'shared/Dropdown',

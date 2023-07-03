@@ -8,12 +8,12 @@ import { getAuthUsername } from '../../model/selectors/getAuthUserName/getAuthUs
 import { getAuthPassword } from '../../model/selectors/getAuthPassword/getAuthPassword'
 import { getAuthIsLoading } from '../../model/selectors/getAuthIsLoading/getAuthIsLoading'
 import { getAuthIsError } from '../../model/selectors/getAuthIsError/getAuthIsError'
-import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { Text, TextTheme } from 'shared/ui/Text/Text'
-import { classNames } from 'shared/lib/classNames/classnames'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { Input } from 'shared/ui/Input/Input'
+import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { Text, TextTheme } from '@/shared/ui/Text/Text'
+import { classNames } from '@/shared/lib/classNames/classnames'
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
+import { Input } from '@/shared/ui/Input/Input'
 import cls from './LoginForm.module.scss'
 
 interface LoginFormProps {

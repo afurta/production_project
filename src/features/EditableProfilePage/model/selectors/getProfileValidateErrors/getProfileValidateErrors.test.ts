@@ -1,5 +1,5 @@
-import { StoreSchema } from 'app/providers/StoreProvider'
-import { ValidateProfileError } from 'features/EditableProfilePage'
+import { StoreSchema } from '@/app/providers/StoreProvider'
+import { ValidateProfileError } from '@/features/EditableProfilePage'
 import { getProfileValidateErrors } from './getProfileValidateErrors'
 
 describe('getProfileForm selector', ()=>{

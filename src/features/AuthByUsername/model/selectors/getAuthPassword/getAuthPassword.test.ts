@@ -1,4 +1,4 @@
-import { StoreSchema } from 'app/providers/StoreProvider'
+import { StoreSchema } from '@/app/providers/StoreProvider'
 import { getAuthPassword } from './getAuthPassword'
 
 describe('GetAuthPassword selector', ()=>{

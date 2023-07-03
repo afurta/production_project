@@ -1,10 +1,10 @@
-import { ArticleList } from 'entities/Article'
+import { ArticleList } from '@/entities/Article'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { getArticlePageError, getArticlePageLoading, getArticlePageView } from '../../model/selectors/articlesPageSelectors'
 import { getArticles } from '../../model/slice/articlesPageSlice'
-import { VStack } from 'shared/ui/Stack'
-import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
+import { VStack } from '@/shared/ui/Stack'
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text'
 
 interface ArticleInfiniteListProps {
   className?: string

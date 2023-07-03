@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { Currency } from 'entities/Currency'
+import { Currency } from '@/entities/Currency'
 import { ListBox } from './ListBox'
 
 export default {

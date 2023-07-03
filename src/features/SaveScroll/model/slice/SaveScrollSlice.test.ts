@@ -1,4 +1,4 @@
-import { AuthActions, AuthReducer } from 'features/AuthByUsername/model/slice/AuthSlice'
+import { AuthActions, AuthReducer } from '@/features/AuthByUsername/model/slice/AuthSlice'
 
 describe('AuthSlice', () => {  
   // it('Check username', () => {  

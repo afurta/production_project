@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit'
-import { StoreSchema } from 'app/providers/StoreProvider'
+import { StoreSchema } from '@/app/providers/StoreProvider'
 
 export const getScrollObject = (store: StoreSchema) => store.SaveScroll
 

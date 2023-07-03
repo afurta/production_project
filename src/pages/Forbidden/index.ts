@@ -1,2 +1,2 @@
-export { ForbiddenAsync as Forbidden} from 'pages/Forbidden/ui/Forbidden.async'
+export { ForbiddenAsync as Forbidden} from './ui/Forbidden.async'
 

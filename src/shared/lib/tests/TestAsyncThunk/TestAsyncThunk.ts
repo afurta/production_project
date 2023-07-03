@@ -1,5 +1,5 @@
 import { AsyncThunkAction } from '@reduxjs/toolkit'
-import { StoreSchema } from 'app/providers/StoreProvider'
+import { StoreSchema } from '@/app/providers/StoreProvider'
 import axios, { AxiosStatic } from 'axios'
 
 jest.mock('axios')
