@@ -23,6 +23,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean
   size?: ButtonSize
   disabled?: boolean
+  fullWidth?: boolean
 }
 
 
@@ -34,12 +35,14 @@ export const Button: React.FC<ButtonProps> = (props) => {
     square,
     disabled,
     size = ButtonSize.M,
+    fullWidth,
     ...otherProps
   } = props
 
 
   const mods: Mods = {
     [cls.square]: square,
+    [cls.fullWidth]: fullWidth,
     [cls.disabled]: disabled
   }
 

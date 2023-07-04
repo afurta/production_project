@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classnames';
+import { classNames } from '@/shared/lib/classNames/classnames';
 import cls from './[FTName].module.scss';
 
 interface[FTName]Props {

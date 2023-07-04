@@ -9,8 +9,8 @@ import { useModal } from '@/shared/lib/hooks/useModal'
 interface ModalProps {
   className?: string
   children?: ReactNode
-  isOpen: boolean
-  onClose: () => void
+  isOpen?: boolean
+  onClose?: () => void
   lazy?: boolean
 }
 const MODAL_CLOSING_DELAY = 300
