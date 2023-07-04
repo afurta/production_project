@@ -2,19 +2,16 @@ import { getUserAuthData } from '@/entities/User/model/selectors/getUserAuthData
 import { LoginModal } from '@/features/AuthByUsername'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
 import { NotificationBtn } from '@/features/NotificationBtn'
-import { memo, useCallback, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
 import { RoutePath } from '@/shared/config/routeConfig/RouterConfig'
 import { classNames } from '@/shared/lib/classNames/classnames'
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { HStack } from '@/shared/ui/Stack'
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text'
+import { memo, useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 import cls from './Navbar.module.scss'
-import { Drawer } from '@/shared/ui/Drawer/Drawer'
-import { NotificationList } from '@/entities/Notification'
-import { AnimationProvider } from '@/shared/lib/components/AnimationModuleLoader'
 
 interface NavbarProps {
   className?: string
@@ -52,9 +49,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                   {t('Создать новую статью')}
                 </AppLink>
                 <HStack gap={8} className={classNames(cls.controls)}>
-                  <AnimationProvider>
-                    <NotificationBtn />
-                  </AnimationProvider>
+                  <NotificationBtn />
                   <AvatarDropdown />
                 </HStack>
               </>
