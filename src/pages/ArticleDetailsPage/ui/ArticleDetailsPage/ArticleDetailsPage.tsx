@@ -12,6 +12,7 @@ import { ArticleDetailsPageReducer } from '../../model/slice'
 import { ArticleDetailsPageHeader } from '../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 import cls from './ArticleDetailsPage.module.scss'
 import { Loader } from '@/shared/ui/Loader/Loader'
+import { ArticleRating } from '@/features/ArticleRating'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -26,6 +27,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props
   const { id } = useParams<{ id: string }>()
 
+  if (!id) return null
+
   return (
     <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount>
       <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
@@ -35,6 +38,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <ArticleDetails id={id} />
           </Suspense>
           <ArticleRecomendationsList />
+          <ArticleRating articleId={id} />
           <ArticleAddCommentForm id={id} />
         </VStack>
       </Page>

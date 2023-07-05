@@ -21,7 +21,7 @@ interface ArticleListItemProps {
   target?: HTMLAttributeAnchorTarget
 }
 
-export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
+export const ArticleListItem = (props: ArticleListItemProps) => {
   const {
     className,
     article,
@@ -31,7 +31,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = (props) => {
 
   const { t } = useTranslation()
 
-  const types = <Text text={article.type.join(',')} className={classNames(cls.types)} align={TextAlign.LEFT} />
+  const types = <Text text={!!article.type && article.type.join(',')} className={classNames(cls.types)} align={TextAlign.LEFT} />
 
   const views = (
     <>

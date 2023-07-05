@@ -11,30 +11,32 @@ import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { useDetectDevice } from '@/shared/lib/hooks/useDetectDevice'
 import { Drawer } from '@/shared/ui/Drawer/Drawer'
 
-interface RatingProps {
+interface RatingCardProps {
   className?: string
   title?: string
   feedbackTitle?: string
   hasFeedback?: boolean
   onCancel?: (startCount: number) => void
   onAccept?: (startCount: number, feedback?: string) => void
+  rate?: number
 }
 
-export const Rating = memo((props: RatingProps) => {
+export const RatingCard = memo((props: RatingCardProps) => {
   const {
     className,
     title,
     feedbackTitle,
     hasFeedback,
     onCancel,
-    onAccept
+    onAccept,
+    rate = 0
   } = props
 
   const { t } = useTranslation()
   const isMobile = useDetectDevice()
 
   const [isShowModal, setIsShowModal] = useState(false)
-  const [starCount, setStarCount] = useState(0)
+  const [starCount, setStarCount] = useState(rate)
   const [feedback, setFeedback] = useState('')
 
   const onSelectStars = useCallback((selectedStar: number) => {
@@ -61,16 +63,16 @@ export const Rating = memo((props: RatingProps) => {
   )
 
   return (
-    <Card className={classNames('', {}, [className])}>
-      <VStack gap={8} align={'center'}>
-        <Text title={title} />
-        <StarRating size={40} onSelect={onSelectStars} />
+    <Card className={classNames('', {}, [className])} max >
+      <VStack gap={8} align={'center'} justify={'center'}>
+        <Text title={starCount ? t('Спасибо за оценку') : title} />
+        <StarRating size={40} onSelect={onSelectStars} selectedStar={starCount} />
       </VStack>
       <Modal isOpen={isShowModal} lazy>
         {
           isMobile
             ? (
-              <VStack max gap={32}>
+              <VStack max gap={32} align={'center'} justify={'center'}>
                 {content}
                 <HStack gap={16} max justify={'end'}>
                   <Button onClick={onCancelHandler} theme={ButtonTheme.OUTLINE_RED}>{t('Закрыть')}</Button>
