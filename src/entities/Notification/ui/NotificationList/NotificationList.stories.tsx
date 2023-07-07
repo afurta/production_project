@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { NotificationList } from './NotificationList'
 
 export default {
-  title: 'shared/NotificationList',
+  title: 'entities/Notification/NotificationList',
   component: NotificationList,
 } as ComponentMeta<typeof NotificationList>
 

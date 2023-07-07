@@ -19,6 +19,7 @@ export default ({config}:{config:webpack.Configuration})=>{
 
   config.module?.rules?.push(buildCssLoader(true))
   
+
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   config.module!.rules = config.module!.rules!.map((rule: RuleSetRule )=>{
@@ -39,5 +40,10 @@ export default ({config}:{config:webpack.Configuration})=>{
     issuer: /\.[jt]sx?$/,
     use: ['@svgr/webpack'],
   })
+
+  config!.resolve!.alias = {
+    ...config!.resolve!.alias,
+    '@': paths.src
+  }
   return config
 }

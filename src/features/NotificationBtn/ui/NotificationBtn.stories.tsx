@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { NotificationBtn } from './NotificationBtn'
 
 export default {
-  title: 'shared/NotificationBtn',
+  title: 'features/NotificationBtn',
   component: NotificationBtn,
 } as ComponentMeta<typeof NotificationBtn>
 

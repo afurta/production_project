@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useParams } from 'react-router-dom'
 import { VStack } from '@/shared/ui/Stack'
 import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text'
-import { Page } from '@/widgets/Page/Page'
+import { Page } from '@/widgets/Page'
 
 const ProfilePage = () => {
   const { t } = useTranslation('profile')

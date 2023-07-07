@@ -1,16 +1,16 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Navbar } from './Navbar'
+import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from '@/app/providers/ThemeProvider'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
-  title: 'widgets/Navbar',
-  component: Navbar,
-} as ComponentMeta<typeof Navbar>
+  title: 'widgets/LanguageSwitcher',
+  component: LanguageSwitcher,
+} as ComponentMeta<typeof LanguageSwitcher>
 
-const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />
+const Template: ComponentStory<typeof LanguageSwitcher> = (args) => <LanguageSwitcher {...args} />
 
 export const Light = Template.bind({})
 Light.args = {}

@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ArticlesPageFilters } from './ArticlesPageFilters'
 
 export default {
-  title: 'entities/ArticlesPageFilters',
+  title: 'pages/ArticlesPage/ArticlesPageFilters',
   component: ArticlesPageFilters,
 } as ComponentMeta<typeof ArticlesPageFilters>
 

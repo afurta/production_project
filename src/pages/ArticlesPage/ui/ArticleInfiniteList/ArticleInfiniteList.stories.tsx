@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ArticleInfiniteList } from './ArticleInfiniteList'
 
 export default {
-  title: 'shared/ArticleInfiniteList',
+  title: 'pages/ArticlesPage/ArticleInfiniteList',
   component: ArticleInfiniteList,
 } as ComponentMeta<typeof ArticleInfiniteList>
 

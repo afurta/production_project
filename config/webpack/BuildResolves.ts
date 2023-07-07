@@ -1,6 +1,5 @@
-import path from 'path'
-import { IBuildOptions } from './types/config'
 import { ResolveOptions } from 'webpack'
+import { IBuildOptions } from './types/config'
 
 export const BuildResolves = (options:IBuildOptions):ResolveOptions  => {
   return {

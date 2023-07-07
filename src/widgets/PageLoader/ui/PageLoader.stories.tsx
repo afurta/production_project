@@ -5,7 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '@/app/providers/ThemeProvider'
 
 export default {
-  title: 'widget/PageLoader',
+  title: 'widgets/PageLoader',
   component: PageLoader,
 } as ComponentMeta<typeof PageLoader>
 
