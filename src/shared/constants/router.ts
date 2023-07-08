@@ -11,16 +11,14 @@ export enum AppRoutes {
   NOT_FOUND = 'not_found'
 }
 
-export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.MAIN]: '/',
-  [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.PROFILE]: '/profile/',
-  [AppRoutes.ARTICLES]: '/articles',
-  [AppRoutes.ARTICLES_CREATE]: '/articles/new',
-  [AppRoutes.ARTICLES_EDIT]: '/articles/:id/edit',
-  [AppRoutes.ARTICLE_DETAILS]: '/articles/',
-  [AppRoutes.ADMIN_PANEL]: '/admin-panel/',
-  [AppRoutes.FORBIDDEN]: '/forbidden',
-  [AppRoutes.NOT_FOUND]: '*'
-}
+export const getMainRoute = () =>  `/`
+export const getAboutRoute = () =>  `/about`
+export const getProfileRoute = (id:string) =>  `/profile/${id}`
+export const getArticlesRoute = () =>  `/articles`
+export const getArticlesCreateRoute = () =>  `/articles/new`
+export const getArticlesEditRoute = (id:string) =>  `/articles/:${id}/edit`
+export const getArticleDetailsRoute = (id:string) =>  `/articles/${id}`
+export const getAdminPanelRoute = () =>  `/admin-panel/`
+export const getForbiddenRoute = () =>  `/forbidden`
+export const getNotFoundRoute = () => '*'
 

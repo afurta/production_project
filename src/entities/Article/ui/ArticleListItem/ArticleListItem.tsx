@@ -1,7 +1,7 @@
 import { FC, HTMLAttributeAnchorTarget } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ICONS } from '@/shared/assets'
-import { RoutePath } from '@/shared/constants/router'
+import { getArticleDetailsRoute } from '@/shared/constants/router'
 import { classNames } from '@/shared/lib/classNames/classnames'
 import { AppLink } from '@/shared/ui/AppLink'
 import { Avatar } from '@/shared/ui/Avatar'
@@ -56,7 +56,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
           <img src={article.img} alt={article.title} className={classNames(cls.img)} />
           {textBlocks && <ArticleTextBlockComp block={textBlocks} className={classNames(cls.textBlock)} />}
           <div className={classNames(cls.footer)}>
-            <AppLink to={RoutePath.article_details + article.id} target={target}>
+            <AppLink to={getArticleDetailsRoute(article.id)} target={target}>
               <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
             </AppLink>
             {views}
@@ -68,7 +68,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
 
   return (
     <AppLink
-      to={RoutePath.article_details + article.id}
+      to={getArticleDetailsRoute(article.id)}
       className={classNames(cls.articleListItem, {}, [className, cls[view]])}
       target={target}
     >

@@ -5,7 +5,7 @@ import { ICONS } from '@/shared/assets'
 import { classNames } from '@/shared/lib/classNames/classnames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Dropdown } from '@/shared/ui/Popups'
-import { RoutePath } from '@/shared/constants/router'
+import { getAdminPanelRoute, getProfileRoute } from '@/shared/constants/router'
 import { useSelector } from 'react-redux'
 
 interface AvatarDropdownProps {
@@ -34,10 +34,10 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
       items={[
         ...(
           isAdminPanelAvaliable
-            ? [{ href: RoutePath.admin_panel, content: t('Админка') }]
+            ? [{ href: getAdminPanelRoute(), content: t('Админка') }]
             : []
         ),
-        { href: RoutePath.profile + authData.id, content: t('Профиль') },
+        { href: getProfileRoute(authData.id), content: t('Профиль') },
         { onClick: onLogOut, content: t('Выйти') }
       ]}
     />

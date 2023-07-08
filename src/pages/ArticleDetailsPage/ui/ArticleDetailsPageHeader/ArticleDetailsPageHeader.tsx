@@ -4,7 +4,7 @@ import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { RoutePath } from '@/shared/constants/router'
+import { getArticlesEditRoute, getArticlesRoute } from '@/shared/constants/router'
 import { classNames } from '@/shared/lib/classNames/classnames'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { HStack } from '@/shared/ui/Stack'
@@ -22,12 +22,13 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
   const article = useSelector(getArticleDetailsData)
 
   const onBackTotList = useCallback(() => {
-    navigate(RoutePath.articles)
+    navigate(getArticlesRoute())
   }, [navigate])
 
   const onEditArticle = useCallback(() => {
-    navigate(RoutePath.articles + article?.id + '/edit')
-    navigate(`${RoutePath.articles}/${article?.id}/edit`)
+    if (article?.id) {
+      navigate(getArticlesEditRoute(article.id))
+    }
   }, [article?.id, navigate])
 
   return (

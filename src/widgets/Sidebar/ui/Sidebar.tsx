@@ -2,11 +2,12 @@ import { useMemo, useState } from 'react'
 import { classNames } from '@/shared/lib/classNames/classnames'
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button'
 import { LanguageSwitcher } from '@/features/LanguageSwitcher'
-import { SidebarItems } from '@/widgets/Sidebar/types/SidebarItems'
 import { SidebarItem } from '@/widgets/Sidebar/ui/SidebarItem/SidebarItem'
 import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import cls from './Sidebar.module.scss'
 import { VStack } from '@/shared/ui/Stack'
+import { useSelector } from 'react-redux'
+import { getSidebarItems } from '../selectors/getSidebarItems'
 
 interface SidebarProps {
   className?: string
@@ -14,12 +15,13 @@ interface SidebarProps {
 
 export const Sidebar = ({ className }: SidebarProps) => {
   const [isCollapsed, setCollapes] = useState<boolean>(false)
+  const sidebarItemsList = useSelector(getSidebarItems)
 
   const collapsedHandler = () => setCollapes(prev => !prev)
 
-  const RenderSidebarItems = useMemo(() => SidebarItems.map(item => (
+  const RenderSidebarItems = useMemo(() => sidebarItemsList.map(item => (
     <SidebarItem item={item} key={item.path} collapsed={isCollapsed} />
-  )), [isCollapsed])
+  )), [isCollapsed, sidebarItemsList])
 
   return (
     <aside
