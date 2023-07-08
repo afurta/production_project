@@ -1,5 +1,5 @@
 import { ICONS } from '@/shared/assets'
-import { RoutePath } from '@/shared/config/routeConfig/RouterConfig'
+import { RoutePath } from '@/shared/constants/router'
 
 export interface SidebarItemType {
   path: string

@@ -1,9 +1,7 @@
-import { Theme } from './lib/ThemeContext'
-import { useTheme } from './lib/useTheme'
+import { useTheme } from '../../../shared/lib/hooks/useTheme'
 import ThemeProvider from './ui/ThemeProvider'
 
 export {
-  Theme,
   ThemeProvider,
   useTheme
 }

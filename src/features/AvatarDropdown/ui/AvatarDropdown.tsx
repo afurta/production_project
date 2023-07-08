@@ -5,7 +5,7 @@ import { ICONS } from '@/shared/assets'
 import { classNames } from '@/shared/lib/classNames/classnames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Dropdown } from '@/shared/ui/Popups'
-import { RoutePath } from '@/shared/config/routeConfig/RouterConfig'
+import { RoutePath } from '@/shared/constants/router'
 import { useSelector } from 'react-redux'
 
 interface AvatarDropdownProps {

@@ -1,5 +1,7 @@
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/constants/LS_Constants'
+import { ThemeContext } from '@/shared/context/ThemeContext'
+import { Theme } from '@/shared/types/theme'
 import React, { ReactNode, useMemo, useState } from 'react'
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext'
 
 interface ThemeProviderProps {
   initialTheme?: Theme

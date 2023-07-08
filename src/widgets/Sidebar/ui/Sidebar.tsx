@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
 import { classNames } from '@/shared/lib/classNames/classnames'
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button'
-import { LanguageSwitcher } from '@/widgets/LanguageSwitcher'
+import { LanguageSwitcher } from '@/features/LanguageSwitcher'
 import { SidebarItems } from '@/widgets/Sidebar/types/SidebarItems'
 import { SidebarItem } from '@/widgets/Sidebar/ui/SidebarItem/SidebarItem'
-import { ThemeSwitcher } from '@/widgets/ThemeSwitcher'
+import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import cls from './Sidebar.module.scss'
 import { VStack } from '@/shared/ui/Stack'
 

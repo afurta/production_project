@@ -2,7 +2,7 @@ import { getUserAuthData } from '@/entities/User/model/selectors/getUserAuthData
 import { LoginModal } from '@/features/AuthByUsername'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
 import { NotificationBtn } from '@/features/NotificationBtn'
-import { RoutePath } from '@/shared/config/routeConfig/RouterConfig'
+import { RoutePath } from '@/shared/constants/router'
 import { classNames } from '@/shared/lib/classNames/classnames'
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'

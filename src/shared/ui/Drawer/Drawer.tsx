@@ -10,8 +10,8 @@ import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/Ani
 interface DrawerProps {
   className?: string
   children?: ReactNode
-  isOpen?: boolean
-  onClose?: () => void
+  isOpen: boolean
+  onClose: () => void
 }
 const MODAL_CLOSING_DELAY = 300
 

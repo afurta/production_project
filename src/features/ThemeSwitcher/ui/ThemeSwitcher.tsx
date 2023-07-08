@@ -1,7 +1,8 @@
-import { Theme, useTheme } from '@/app/providers/ThemeProvider'
+import { useTheme } from '@/app/providers/ThemeProvider'
 import { memo } from 'react'
 import { ICONS } from '@/shared/assets'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
+import { Theme } from '@/shared/types/theme'
 
 interface ThemeSwitcherProps {
   className?: string

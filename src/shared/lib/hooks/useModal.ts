@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 interface useModalProps{
   delay?: number
   isOpen: boolean
-  onClose: ()=> void
+  onClose?: ()=> void
   isLazy?: boolean
 }
 export const useModal = ({delay = 300, isOpen, onClose, isLazy}:useModalProps)=>{
