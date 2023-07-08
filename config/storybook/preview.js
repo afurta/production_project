@@ -4,7 +4,7 @@ import {ThemeDecorator} from '../../src/shared/config/storybook/ThemeDecorator/T
 import {StyleDecorator} from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator'
 import {SuspenseDecorator} from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
 
-import { Theme } from 'app/providers/ThemeProvider'
+import { Theme } from '../../src/shared/types/theme'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
