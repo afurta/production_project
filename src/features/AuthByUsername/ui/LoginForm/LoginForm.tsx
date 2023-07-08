@@ -10,10 +10,10 @@ import { getAuthIsLoading } from '../../model/selectors/getAuthIsLoading/getAuth
 import { getAuthIsError } from '../../model/selectors/getAuthIsError/getAuthIsError'
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-import { Text, TextTheme } from '@/shared/ui/Text/Text'
+import { Text, TextTheme } from '@/shared/ui/Text'
 import { classNames } from '@/shared/lib/classNames/classnames'
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
-import { Input } from '@/shared/ui/Input/Input'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { Input } from '@/shared/ui/Input'
 import cls from './LoginForm.module.scss'
 
 interface LoginFormProps {

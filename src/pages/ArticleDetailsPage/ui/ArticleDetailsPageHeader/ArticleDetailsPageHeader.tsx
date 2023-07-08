@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { RoutePath } from '@/shared/constants/router'
 import { classNames } from '@/shared/lib/classNames/classnames'
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { HStack } from '@/shared/ui/Stack'
 
 interface ArticleDetailsPageHeaderProps {

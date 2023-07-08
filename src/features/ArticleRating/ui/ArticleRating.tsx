@@ -1,7 +1,7 @@
 import { RatingCard } from '@/entities/RatingCard'
 import { getUserAuthData } from '@/entities/User'
 import { UseGetArticleRating, UseSendArticleRating } from '@/features/ArticleRating'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
+import { Skeleton } from '@/shared/ui/Skeleton'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'

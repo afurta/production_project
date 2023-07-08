@@ -8,7 +8,7 @@ import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/Dynami
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text'
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text'
 import { ValidateProfileError } from '../../model/consts'
 import { ProfileActions, ProfileReducer } from '../../model/slice/ProfileSlice'
 import { getReadonlyProfile } from '../../model/selectors/getReadonlyProfile/getReadonlyProfile'

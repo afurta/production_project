@@ -11,7 +11,7 @@ import { Page } from '@/widgets/Page'
 import { ArticleDetailsPageReducer } from '../../model/slice'
 import { ArticleDetailsPageHeader } from '../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 import cls from './ArticleDetailsPage.module.scss'
-import { Loader } from '@/shared/ui/Loader/Loader'
+import { Loader } from '@/shared/ui/Loader'
 import { ArticleRating } from '@/features/ArticleRating'
 
 interface ArticleDetailsPageProps {

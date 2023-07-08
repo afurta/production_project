@@ -1,13 +1,13 @@
 import { Listbox as HListbox } from '@headlessui/react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classnames'
-import { Button } from '@/shared/ui/Button/Button'
+import { Button } from '@/shared/ui/Button'
 import { HStack } from '@/shared/ui/Stack'
 import { Fragment, ReactNode } from 'react'
 import { DropdownDirection } from '@/shared/types'
-import { mapPopupDirection } from '@/shared/ui/Popups/styles/consts'
 import popupStyles from '../../styles/popup.module.scss'
 import cls from './ListBox.module.scss'
+import { mapPopupDirection } from '../../styles/consts'
 
 interface IListItem {
   value: string

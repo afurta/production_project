@@ -5,13 +5,13 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { VStack } from '@/shared/ui/Stack'
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text'
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text'
 import { getArticleDetailsCommentError, getArticleDetailsCommentLoading } from '../../model/selectors/comments'
 import { addCommentForArticle } from '../../model/service/sendCommentForArticle/sendCommentForArticle'
 import { getCommentsSelectors } from '../../model/slice/ArticleDetailsCommentSlice'
 import { fetchCommentsArticleById } from '../../model/service/commentsArticleById/commentsArticleById'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
-import { Loader } from '@/shared/ui/Loader/Loader'
+import { Loader } from '@/shared/ui/Loader'
 
 interface ArticleAddCommentFormProps {
   className?: string
