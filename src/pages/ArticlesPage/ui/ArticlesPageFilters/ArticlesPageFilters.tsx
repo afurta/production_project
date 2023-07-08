@@ -1,5 +1,4 @@
-import { ArticleSortFields, ArticleSortSelector, ArticleType, ArticleView, ArticleViewsSelector } from '@/entities/Article'
-import { ArticleTypeTabs } from '@/entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs'
+import { ArticleSortFields, ArticleType, ArticleView } from '@/entities/Article'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classnames'
@@ -18,6 +17,9 @@ import {
 import { fetchArticlesList } from '../../model/service/fetchArticlesList/fetchArticlesList'
 import { articlesPageActions } from '../../model/slice/articlesPageSlice'
 import cls from './ArticlesPageFilters.module.scss'
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
+import { ArticleSortSelector } from '@/features/ArticleSortSelector'
+import { ArticleViewsSelector } from '@/features/ArticleViewsSelector'
 
 interface ArticlesPageFiltersProps {
   className?: string

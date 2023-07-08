@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classnames'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { Icon } from '@/shared/ui/Icon'
 import cls from './ArticleViewsSelector.module.scss'
-import { ArticleView } from '../../model/consts'
+import { ArticleView } from '@/entities/Article'
 
 interface ArticleViewsSelectorProps {
   className?: string
