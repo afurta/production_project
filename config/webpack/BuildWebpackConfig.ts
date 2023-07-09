@@ -22,6 +22,6 @@ export const buildWebpackConfig = (options: IBuildOptions)=>{
     },
     plugins: BuildPlugins(options),
     devServer: isDev ? BuildDevServer(options) : undefined,
-    devtool: isDev ? 'inline-source-map' : undefined,
+    devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
   }
 }

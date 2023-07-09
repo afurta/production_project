@@ -1,29 +1,25 @@
 import { IBuildOptions } from '../types/config'
-import babelRemovePropsPlugin from './babelRemovePropsPlugin'
+import babelRemovePropsPlugin from '../babel/babelRemovePropsPlugin'
 
 interface IbuildBabelLoader extends IBuildOptions{
   isTsx: boolean
 }
 
-export function buildBabelLoader ({isTsx}:IbuildBabelLoader) {
+export function buildBabelLoader ({isTsx, isDev}:IbuildBabelLoader) {
+  const isProd = !isDev
+
   return {
     test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
     exclude: /node_modules/,
     use: {
       loader: 'babel-loader',
       options: {
+        cacheDirectory: true, 
         presets: ['@babel/preset-env'],
         plugins: [
-          [
-            'i18next-extract',
-            {
-              locales: ['ru', 'en'],
-              keyAsDefaultValue: true,
-            },
-          ],
           ['@babel/plugin-transform-typescript', { isTsx }, ],
           '@babel/plugin-transform-runtime', 
-          isTsx && [ babelRemovePropsPlugin, { props: ['data-testid'], },
+          isProd && isTsx && [ babelRemovePropsPlugin, { props: ['data-testid'], },
           ],
         ].filter(Boolean),
       },

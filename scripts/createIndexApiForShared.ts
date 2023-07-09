@@ -39,7 +39,6 @@ files.forEach((sourceFile) => {
     const isSharedLayer = segment?.[0] === 'shared'
     const isUiLayer = segment?.[1] === 'ui'
 
-
     if (isAbsolute(valueWithoutAlias) && isSharedLayer && isUiLayer) {
       const result = valueWithoutAlias.split('/').slice(0, 3).join('/')
       importDeclaration.setModuleSpecifier(`@/${result}`)
