@@ -1,4 +1,4 @@
-import { SortOrder } from './../../../../shared/types/index'
+import { SortOrder } from '../../../../shared/types/sort'
 import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
 import { StoreSchema } from '@/app/providers/StoreProvider'
 import { Article, ArticleSortFields, ArticleType, ArticleView } from '@/entities/Article'

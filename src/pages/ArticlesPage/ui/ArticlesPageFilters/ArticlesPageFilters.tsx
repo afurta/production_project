@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { classNames } from '@/shared/lib/classNames/classnames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce'
-import { SortOrder } from '@/shared/types'
+import { SortOrder } from '@/shared/types/sort'
 import { Card } from '@/shared/ui/Card'
 import { Input } from '@/shared/ui/Input'
 import {

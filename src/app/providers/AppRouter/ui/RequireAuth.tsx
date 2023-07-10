@@ -21,16 +21,13 @@ export const RequireAuth = ({ children, roles }: RequireAuthProps) => {
     return userRoles?.some((role) => roles.includes(role))
   }, [roles, userRoles])
 
-
-
-
   if (!auth) {
     return <Navigate to={getMainRoute()} state={{ from: location }} replace />
   }
 
-  // if (!hasRequiredRoles) {
-  //   return <Navigate to={getForbiddenRoute()} state={{ from: location }} replace />
-  // }
+  if (!hasRequiredRoles) {
+    return <Navigate to={getForbiddenRoute()} state={{ from: location }} replace />
+  }
 
 
   return children

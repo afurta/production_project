@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classnames'
 import { Popover as HPopover } from '@headlessui/react'
 import cls from './Popover.module.scss'
 import popupStyles from '../../styles/popup.module.scss'
-import { DropdownDirection } from '@/shared/types'
+import { DropdownDirection } from '@/shared/types/sort'
 import { mapPopupDirection } from '../../styles/consts'
 
 interface PopoverProps {

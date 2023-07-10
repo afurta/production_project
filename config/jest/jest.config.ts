@@ -44,7 +44,7 @@ export default {
     ['jest-html-reporters', {
       publicPath: '<rootDir>reports/unit',
       filename: 'report.html',
-      openReport: true
+      openReport: false
     }]
   ],
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped

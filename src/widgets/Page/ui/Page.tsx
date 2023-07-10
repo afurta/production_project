@@ -10,8 +10,9 @@ import { getScrollValueByPath } from '@/features/SaveScroll/model/selectors/getS
 import { SaveScrollActions } from '@/features/SaveScroll'
 import { StoreSchema } from '@/app/providers/StoreProvider'
 import { useThrottle } from '@/shared/lib/hooks/useThrootle'
+import { TestsProps } from '@/shared/types/tests'
 
-interface PageProps {
+interface PageProps extends TestsProps {
   className?: string
   children: ReactNode
   onScrollEnd?: () => void
@@ -44,6 +45,7 @@ export const Page: FC<PageProps> = (props) => {
     <main
       className={classNames(cls.page, {}, [className])} ref={wrapperRef}
       onScroll={onScrollEvent}
+      data-testId={props['data-testId'] ?? 'Page'}
     >
       {children}
       <div ref={triggerRef} className={classNames(cls.triggerRef)} />
