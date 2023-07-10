@@ -30,7 +30,7 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
     <Dropdown
       className={classNames('', {}, [className])}
       direction='bottom left'
-      control={<ICONS.User width='32' height='32' />}
+      control={<ICONS.User width='30' height='30' fallbackInverted />}
       items={[
         ...(
           isAdminPanelAvaliable
