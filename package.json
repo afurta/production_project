@@ -26,6 +26,9 @@
     "prepare": "husky install",
     "postinstall": "npx ts-node ./scripts/removeNodeModuleCache.ts"
   },
+  "lint-staged": {
+    "*/**/*.{ts,tsx}": "eslint"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -76,6 +79,7 @@
     "jest": "^27.5.1",
     "jest-html-reporters": "^3.1.4",
     "json-server": "^0.17.0",
+    "lint-staged": "^13.2.3",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.5.3",
     "react-refresh": "^0.14.0",
