@@ -10,5 +10,11 @@ const Template: ComponentStory<typeof NotificationItem> = (args) => < Notificati
 
 export const Normal = Template.bind({})
 Normal.args = {
-
+  data: {
+    id: 'id',
+    title: 'title',
+    description: 'description',
+    userId: 'userId',
+    href: 'href'
+  }
 }

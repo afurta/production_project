@@ -3,7 +3,7 @@ import { buildCssLoader } from './loaders/buildCssLoader'
 import { buildBabelLoader } from './loaders/buildBabelLoader'
 import { IBuildOptions } from './types/config'
 
-export const BuildLoaders = (options: IBuildOptions):RuleSetRule[] => {
+export const buildLoaders = (options: IBuildOptions):RuleSetRule[] => {
   const {isDev} = options
 
   const svgLoader = {

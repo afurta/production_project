@@ -7,7 +7,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
 import webpack, { WebpackPluginInstance } from 'webpack'
 import { IBuildOptions } from './types/config'
 
-export const BuildPlugins = ({paths, project, apiUrl, isDev}:IBuildOptions):WebpackPluginInstance[] => {
+export const buildPlugins = ({paths, project, apiUrl, isDev}:IBuildOptions):WebpackPluginInstance[] => {
   const plugins = [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({ template: paths.html }),

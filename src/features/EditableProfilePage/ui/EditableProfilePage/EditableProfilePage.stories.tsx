@@ -3,7 +3,7 @@ import { EditableProfilePage } from './EditableProfilePage'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
-  title: 'features/EditableProfilePage',
+  title: 'features/EditableProfilePage/EditableProfilePage',
   component: EditableProfilePage,
 } as ComponentMeta<typeof EditableProfilePage>
 
