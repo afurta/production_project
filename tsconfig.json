@@ -24,9 +24,8 @@
     }
   },
   "include": [
-    "./config/jest/setupJest.ts",
-    "./src/**/*.tsx",
+    "./config/jest/setupTests.ts",
     "./src/**/*.ts",
-    "src/widgets/Sidebar/types/SidebarItems.ts"
+    "./src/**/*.tsx"
   ],
 }
