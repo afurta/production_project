@@ -1,8 +1,8 @@
-import { BuildPlugins } from './BuildPlugins'
-import { BuildResolves } from './BuildResolves'
-import { BuildLoaders } from './BuildLoaders'
+import { buildPlugins } from './buildPlugins'
+import { buildResolves } from './buildResolves'
+import { buildLoaders } from './buildLoaders'
 import { IBuildOptions } from './types/config'
-import { BuildDevServer } from './BuildDevServer'
+import { buildDevServer } from './buildDevServer'
 
 export const buildWebpackConfig = (options: IBuildOptions)=>{
   const { mode, paths, isDev} = options
@@ -16,12 +16,12 @@ export const buildWebpackConfig = (options: IBuildOptions)=>{
       clean: true,
       publicPath: '/'
     },
-    resolve: BuildResolves(options),
+    resolve: buildResolves(options),
     module: {
-      rules: BuildLoaders(options)
+      rules: buildLoaders(options)
     },
-    plugins: BuildPlugins(options),
-    devServer: isDev ? BuildDevServer(options) : undefined,
+    plugins: buildPlugins(options),
+    devServer: isDev ? buildDevServer(options) : undefined,
     devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
   }
 }
