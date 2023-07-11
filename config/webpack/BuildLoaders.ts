@@ -1,6 +1,6 @@
 import { RuleSetRule } from 'webpack'
-import { buildCssLoader } from './loaders/buildCssLoader.ts'
-import { buildBabelLoader } from './loaders/buildBabelLoader.ts'
+import { buildCssLoader } from './loaders/buildCssLoader'
+import { buildBabelLoader } from './loaders/buildBabelLoader'
 import { IBuildOptions } from './types/config'
 
 export const BuildLoaders = (options: IBuildOptions):RuleSetRule[] => {
