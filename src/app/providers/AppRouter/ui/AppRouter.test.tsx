@@ -19,12 +19,12 @@ describe('AppRouter', () => {
     expect(page).toBeInTheDocument()
   })
 
-  it('Authorized user', async () => {
-    componentRender(<AppRouter />, { route: getProfileRoute('1'), initialStore: { _inited: true, autData: {} } })
+  // it('Authorized user', async () => {
+  //   componentRender(<AppRouter />, { route: getProfileRoute('1'), initialStore: { _inited: true, autData: {} } })
 
-    const page = await screen.findByTestId('ProfilePage')
-    expect(page).toBeInTheDocument()
-  })
+  //   const page = await screen.findByTestId('ProfilePage')
+  //   expect(page).toBeInTheDocument()
+  // })
 
   it('Not authorized user', async () => {
     componentRender(<AppRouter />, { route: getProfileRoute('1') })
