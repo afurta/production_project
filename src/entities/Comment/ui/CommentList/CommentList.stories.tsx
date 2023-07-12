@@ -10,16 +10,29 @@ const Template: ComponentStory<typeof CommentList> = (args) => < CommentList {..
 
 export const Normal = Template.bind({})
 Normal.args = {
-  // comments: [
-  //   {
-  //     id: 'ads1',
-  //     text: 'adsf1'
-  //     user: { id: '1', username: 'username1' }
-  //   },
-  //   {
-  //     id: 'ads2',
-  //     text: 'adsf2'
-  //     user: { id: '2', username: 'username2' }
-  //   }
-  // ]
+  data: [
+    {
+      id: '1',
+      text: 'text1',
+      user: { id: '1', username: 'username1' }
+    },
+    {
+      id: '2',
+      text: '2',
+      user: { id: '2', username: 'username2' }
+    }
+  ],
+  isLoading: false
+}
+
+export const noComments = Template.bind({})
+noComments.args = {
+  data: [],
+  isLoading: false
+}
+
+export const isLoading = Template.bind({})
+isLoading.args = {
+  data: [{}],
+  isLoading: true
 }
