@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { CommentList } from './CommentList'
+import { UserRoles } from '@/entities/User'
 
 export default {
   title: 'entities/CommentList',
@@ -14,12 +15,12 @@ Normal.args = {
     {
       id: '1',
       text: 'text1',
-      user: { id: '1', username: 'username1' }
+      user: { id: '1', userName: 'username1', role: [UserRoles.ADMIN] }
     },
     {
       id: '2',
       text: '2',
-      user: { id: '2', username: 'username2' }
+      user: { id: '2', userName: 'username2', role: [UserRoles.ADMIN] }
     }
   ],
   isLoading: false
@@ -33,6 +34,6 @@ noComments.args = {
 
 export const isLoading = Template.bind({})
 isLoading.args = {
-  data: [{}],
+  data: [],
   isLoading: true
 }

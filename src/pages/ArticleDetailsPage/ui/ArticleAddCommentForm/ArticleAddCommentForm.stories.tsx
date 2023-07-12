@@ -12,4 +12,4 @@ const Template: ComponentStory<typeof ArticleAddCommentForm> = (args) => < Artic
 
 export const Normal = Template.bind({})
 Normal.args = {}
-Normal.decorators = [SuspenseDecorator, StoreDecorator()]
+Normal.decorators = [SuspenseDecorator, StoreDecorator({})]

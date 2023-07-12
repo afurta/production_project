@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import ArticleEditPage from './ArticleEditPage'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from '@/shared/types/theme'
 
 export default {
   title: 'pages/ArticleEditPage',
@@ -12,8 +12,8 @@ const Template: ComponentStory<typeof ArticleEditPage> = (args) => < ArticleEdit
 
 export const Normal = Template.bind({})
 Normal.args = {}
-Normal.decorators = [StoreDecorator()]
+Normal.decorators = []
 
 export const Dark = Template.bind({})
 Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator()]
+Dark.decorators = [ThemeDecorator(Theme.DARK)]

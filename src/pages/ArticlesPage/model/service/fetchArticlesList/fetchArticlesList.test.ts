@@ -1,8 +1,10 @@
+import { fetchArticlesList } from '@/pages/ArticlesPage/model/service/fetchArticlesList/fetchArticlesList'
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 
 describe('FetchArticlesList service', () => {
 
   it('FetchArticlesList correct data', async () => {
-    // const thunk = new TestAsyncThunk(fetchArticlesList)
+    const thunk = new TestAsyncThunk(fetchArticlesList)
     // const result = await thunk.callThunk({s: false, error: '', view: ArticleView.GRID, page: 1, ids:[], entities:{}, hasMore: true, limit: 5,})
     // thunk.api.post.mockReturnValue(Promise.resolve({status: 403}))
     // const result = await thunk.callThunk({username: '123', password: '123'})

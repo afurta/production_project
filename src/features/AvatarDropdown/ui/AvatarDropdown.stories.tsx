@@ -1,7 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { AvatarDropdown } from './AvatarDropdown'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { UserRoles } from '@/entities/User'
+import { Theme } from '@/shared/types/theme'
 
 export default {
   title: 'features/AvatarDropdown',
@@ -23,7 +25,7 @@ Normal.decorators = [StoreDecorator({
       id: 'string',
       userName: 'string',
       avatar: 'string',
-      role: UserRoles.ADMIN
+      role: [UserRoles.ADMIN]
     }
   }
 })]
@@ -38,7 +40,7 @@ Dark.decorators = [
         id: 'string',
         userName: 'string',
         avatar: 'string',
-        role: UserRoles.ADMIN
+        role: [UserRoles.ADMIN]
       }
     }
   })

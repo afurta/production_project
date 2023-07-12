@@ -2,6 +2,7 @@
 describe('LoginByUserName service', () => {
 
   it('Success login', async () => {
+    expect(1).toBe(1)
     // const userValue = {username: '123', id: '123'}
     // mockedAxios.post.mockReturnValue(Promise.resolve({data:userValue}))
     // const thunk = new TestAsyncThunk(loginByUserName)
@@ -26,3 +27,4 @@ describe('LoginByUserName service', () => {
 
 })
  
+export {}

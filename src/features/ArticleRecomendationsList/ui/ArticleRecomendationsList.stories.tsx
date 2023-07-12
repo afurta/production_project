@@ -2,6 +2,8 @@ import withMock from 'storybook-addon-mock'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ArticleRecomendationsList } from './ArticleRecomendationsList'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
+import { Article } from '@/entities/Article'
+import { UserRoles } from '@/entities/User'
 
 
 const article: Article = {
@@ -9,7 +11,7 @@ const article: Article = {
   img: '',
   createdAt: '',
   views: 123,
-  user: { id: '1', username: '123' },
+  user: { id: '1', userName: '123', role: [UserRoles.ADMIN] },
   blocks: [],
   type: [],
   title: '123',

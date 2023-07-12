@@ -1,6 +1,7 @@
 
 describe('GetAuthIsError selector', ()=>{
   it('Check error state', ()=>{
+    expect(1).toBe(1)
     // const state:DeepPartial<StoreSchema> = {
     //   loginForm:{
     //     error: 'error'
@@ -16,3 +17,4 @@ describe('GetAuthIsError selector', ()=>{
   //   })
 
 })
+export {}

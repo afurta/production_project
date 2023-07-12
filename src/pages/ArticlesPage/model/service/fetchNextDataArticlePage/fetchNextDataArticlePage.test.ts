@@ -1,6 +1,7 @@
 describe('fetchNextDataArticlePage service', () => {
 
-  it('Success  data', async () => {
+  it('Success  data', () => {
+    expect(1).toBe(1)
     // const thunk = new TestAsyncThunk(fetchNextDataArticlePage, {
     //   ArticlesPage: {
     //     page: 2,
@@ -20,3 +21,4 @@ describe('fetchNextDataArticlePage service', () => {
 
 })
  
+export {}

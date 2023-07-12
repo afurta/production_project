@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { CommentCard } from './CommentCard'
+import { UserRoles } from '@/entities/User'
 
 export default {
   title: 'entities/CommentCard',
@@ -13,7 +14,7 @@ Normal.args = {
   data: {
     id: '1',
     text: 'hello world',
-    user: { id: '1', username: 'Vasya' },
+    user: { id: '1', userName: 'Vasya', role: [UserRoles.ADMIN] },
   },
   isLoading: false
 }
@@ -23,7 +24,7 @@ isLoading.args = {
   data: {
     id: '1',
     text: 'hello world',
-    user: { id: '1', username: 'Vasya' },
+    user: { id: '1', userName: 'Vasya', role: [UserRoles.ADMIN] },
   },
   isLoading: true
 }
