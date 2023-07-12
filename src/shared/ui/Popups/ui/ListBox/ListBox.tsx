@@ -1,6 +1,6 @@
 import { Listbox as HListbox } from '@headlessui/react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button } from '@/shared/ui/Button'
 import { HStack } from '@/shared/ui/Stack'
 import { Fragment, ReactNode } from 'react'

@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { HStack } from '@/shared/ui/Stack'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { Text } from '@/shared/ui/Text'

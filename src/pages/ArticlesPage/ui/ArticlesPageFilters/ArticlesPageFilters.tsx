@@ -1,7 +1,7 @@
 import { ArticleSortFields, ArticleType, ArticleView } from '@/entities/Article'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce'
 import { SortOrder } from '@/shared/types/sort'

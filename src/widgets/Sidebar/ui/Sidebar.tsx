@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button'
 import { LanguageSwitcher } from '@/features/LanguageSwitcher'
 import { SidebarItem } from '@/widgets/Sidebar/ui/SidebarItem/SidebarItem'

@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Flex, FlexProps } from '../Flex/Flex'
 
 type VStackProps = Omit<FlexProps, 'direction'>;

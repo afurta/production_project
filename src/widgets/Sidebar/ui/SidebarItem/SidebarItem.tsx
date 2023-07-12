@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { SidebarItemType } from '../../types/SidebarItems'
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './SidebarItem.module.scss'
 import { getUserAuthData } from '@/entities/User/model/selectors/getUserAuthData/getUserAuthData'
 import { useSelector } from 'react-redux'

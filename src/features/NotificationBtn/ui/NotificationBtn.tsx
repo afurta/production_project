@@ -1,6 +1,6 @@
 import { NotificationList } from '@/entities/Notification'
 import { ICONS } from '@/shared/assets'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { useDetectDevice } from '@/shared/lib/hooks/useDetectDevice'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { Drawer } from '@/shared/ui/Drawer'

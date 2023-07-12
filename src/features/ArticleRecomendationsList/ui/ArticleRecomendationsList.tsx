@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { ArticleList } from '@/entities/Article'
 import { UseArticleRecomendationsList } from '../api/recomendationsList'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { VStack } from '@/shared/ui/Stack'
 import { Text, TextAlign, TextSize } from '@/shared/ui/Text'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'

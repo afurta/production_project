@@ -1,5 +1,5 @@
 import { NotificationItem } from '../NotificationItem/NotificationItem'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { UseArticleRecomendationsList } from '../../api/notificationList'
 import { VStack } from '@/shared/ui/Stack'
 import { Skeleton } from '@/shared/ui/Skeleton'

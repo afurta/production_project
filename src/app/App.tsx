@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from 'react'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Sidebar } from '@/widgets/Sidebar'
 import { UserActions, getUserInitedState } from '@/entities/User'
 import { useDispatch, useSelector } from 'react-redux'

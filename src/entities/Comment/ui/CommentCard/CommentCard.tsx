@@ -1,5 +1,5 @@
 import { getProfileRoute } from '@/shared/constants/router'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink } from '@/shared/ui/AppLink'
 import { Avatar } from '@/shared/ui/Avatar'
 import { Skeleton } from '@/shared/ui/Skeleton'

@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Avatar.module.scss'
 import { AppImage } from '../AppImage'
 import { ICONS } from '@/shared/assets'

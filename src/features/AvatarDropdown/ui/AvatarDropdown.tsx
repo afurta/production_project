@@ -2,7 +2,7 @@ import { UserActions, getUserAuthData, isUserAdmin, isUserManager } from '@/enti
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ICONS } from '@/shared/assets'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Dropdown } from '@/shared/ui/Popups'
 import { getAdminPanelRoute, getProfileRoute } from '@/shared/constants/router'

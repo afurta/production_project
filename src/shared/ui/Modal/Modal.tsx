@@ -1,5 +1,5 @@
 import { useTheme } from '@/app/providers/ThemeProvider'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { useModal } from '@/shared/lib/hooks/useModal'
 import { Overlay } from '@/shared/ui/Overlay'
 import { Portal } from '@/shared/ui/Portal'

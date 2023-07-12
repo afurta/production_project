@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleTextBlockComp.module.scss'
 import { ArticleTextBlock } from '../../model/types/article'
 import { Text, TextAlign } from '@/shared/ui/Text'

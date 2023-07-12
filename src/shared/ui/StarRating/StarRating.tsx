@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './StarRating.module.scss'
 import { ICONS } from '@/shared/assets'
 import { Icon } from '@/shared/ui/Icon'

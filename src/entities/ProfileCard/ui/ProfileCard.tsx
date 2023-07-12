@@ -1,4 +1,4 @@
-import { Mods, classNames } from '@/shared/lib/classNames/classnames'
+import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ProfileCard.module.scss'
 import { Input } from '@/shared/ui/Input'
 import { useTranslation } from 'react-i18next'

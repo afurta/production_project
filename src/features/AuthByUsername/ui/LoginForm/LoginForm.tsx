@@ -11,7 +11,7 @@ import { getAuthIsError } from '../../model/selectors/getAuthIsError/getAuthIsEr
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Text, TextTheme } from '@/shared/ui/Text'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { Input } from '@/shared/ui/Input'
 import cls from './LoginForm.module.scss'

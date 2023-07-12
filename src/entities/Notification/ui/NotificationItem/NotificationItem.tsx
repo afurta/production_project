@@ -1,4 +1,4 @@
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Card, CardTheme } from '@/shared/ui/Card'
 import { Text, TextAlign } from '@/shared/ui/Text'
 import { Notification } from '../../model/index'
@@ -11,7 +11,7 @@ interface NotificationItemProps {
 export const NotificationItem = (props: NotificationItemProps) => {
   const { className, data } = props
 
-  let content = (
+  const content = (
     <Card theme={CardTheme.OUTLINED} className={classNames('', {}, [className])}>
       <Text title={data.title} text={data.description} align={TextAlign.LEFT} />
     </Card>

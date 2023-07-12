@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { ICONS } from '@/shared/assets'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
 import { Icon } from '@/shared/ui/Icon'
 import cls from './ArticleViewsSelector.module.scss'

@@ -1,4 +1,4 @@
-import { classNames } from './classnames'
+import { classNames } from './classNames'
 
 
 describe('ClassNames function', ()=>{

@@ -1,6 +1,6 @@
 import { FC, HTMLAttributeAnchorTarget } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from '@/shared/lib/classNames/classnames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleList.module.scss'
 import { ArticleListItem } from '../../ui/ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton'
