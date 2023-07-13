@@ -1,4 +1,3 @@
-import withMock from 'storybook-addon-mock'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { NotificationBtn } from './NotificationBtn'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
@@ -6,7 +5,6 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 export default {
   title: 'features/NotificationBtn',
   component: NotificationBtn,
-  decorators: [withMock]
 } as ComponentMeta<typeof NotificationBtn>
 
 const Template: ComponentStory<typeof NotificationBtn> = (args) => < NotificationBtn {...args} />
