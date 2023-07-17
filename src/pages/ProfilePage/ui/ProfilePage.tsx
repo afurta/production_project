@@ -14,7 +14,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <Page>
+    <Page data-testId='ProfilePage'>
       <VStack gap={32}>
         <EditableProfilePageHeader />
         <EditableProfilePage id={id} />
