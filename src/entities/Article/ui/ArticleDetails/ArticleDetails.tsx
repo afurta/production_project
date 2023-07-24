@@ -79,8 +79,14 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
         <HStack align='center'>
           <Avatar alt="avatar" src={data?.img} size={200} className={cls.avatar} />
         </HStack>
-        <VStack gap={4}>
-          <Text title={data?.title} text={data?.subtitle} className={classNames(cls.title)} align={TextAlign.LEFT} size={TextSize.L} />
+        <VStack gap={4} data-testid='ArticleDetails.Info'>
+          <Text
+            title={data?.title}
+            text={data?.subtitle}
+            className={classNames(cls.title)}
+            align={TextAlign.LEFT}
+            size={TextSize.L}
+          />
           <HStack align={'start'} justify={'start'} gap={8}>
             <Icon Icon={ICONS.Eye} className={classNames(cls.icon)} />
             <Text text={String(data?.views)} />
@@ -99,7 +105,10 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount>
-      <VStack className={classNames(cls.ArticleDetails, {}, [className])} gap={16}>
+      <VStack
+        className={classNames(cls.ArticleDetails, {}, [className])}
+        gap={16}
+      >
         {content}
       </VStack>
     </DynamicModuleLoader >

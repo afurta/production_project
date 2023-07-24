@@ -46,12 +46,12 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
     const textBlocks = article.blocks.find(elem => elem.type === ArticleBlockType.TEXT) as ArticleTextBlock
 
     return (
-      <div className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
+      <div className={classNames(cls.articleListItem, {}, [className, cls[view]])} data-testid='ArticleListItem'>
         <Card className={cls.card}>
           <div className={classNames(cls.header)}>
-            <Avatar className={classNames(cls.avatar)} src={article.user.avatar} size={30} />
-            <Text text={article.user.userName} className={classNames(cls.username)} />
-            <Text text={article.createdAt} className={classNames(cls.date)} />
+            <Avatar className={classNames(cls.avatar)} src={article.user.avatar} size={30} data-testid='ArticleListItemAvatar' />
+            <Text text={article.user.userName} className={classNames(cls.username)} data-testid='ArticleListItemUserName' />
+            <Text text={article.createdAt} className={classNames(cls.date)} data-testid='ArticleListItemDate' />
           </div>
           <Text text={article.title} className={classNames(cls.title)} align={TextAlign.LEFT} />
           {types}
@@ -61,11 +61,12 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
             className={classNames(cls.img)}
             fallback={<Skeleton width={'100%'} height={'250'} />}
             errorFallback={<Skeleton width={'100%'} height={250} />}
+            data-testid='ArticleListItemImg'
           />
-          {textBlocks && <ArticleTextBlockComp block={textBlocks} className={classNames(cls.textBlock)} />}
+          {textBlocks && <ArticleTextBlockComp block={textBlocks} className={classNames(cls.textBlock)} data-testid='ArticleListItemTextBlock' />}
           <div className={classNames(cls.footer)}>
             <AppLink to={getArticleDetailsRoute(article.id)} target={target}>
-              <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее...')}</Button>
+              <Button theme={ButtonTheme.OUTLINE} data-testid='ArticleListItemMoreBtn'>{t('Читать далее...')}</Button>
             </AppLink>
             {views}
           </div>
@@ -79,6 +80,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
       to={getArticleDetailsRoute(article.id)}
       className={classNames(cls.articleListItem, {}, [className, cls[view]])}
       target={target}
+      data-testid='ArticleListItem'
     >
       <Card className={cls.card}>
         <div className={classNames(cls.card)}>

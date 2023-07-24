@@ -54,6 +54,8 @@ export const StarRating = memo((props: StarRatingProps) => {
           key={starNumber}
           height={size}
           width={size}
+          data-testid={`StarRating+${starNumber}`}
+          data-selectedItem={currentStartCount >= starNumber}
         />)
       )}
     </div>

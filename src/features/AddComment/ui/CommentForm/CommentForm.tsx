@@ -38,17 +38,23 @@ const CommentForm: FC<CommentFormProps> = (props) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducer} >
-      <HStack justify='between' className={classNames('', {}, [className])}>
+      <HStack
+        justify='between'
+        className={classNames('', {}, [className])}
+        data-testid='CommentForm.Form'
+      >
         <Input
           className={classNames(cls.commentInput)}
           placeholder={'Введите комментарий'}
           value={text}
           onChange={onCommentTextChange}
+          data-testid='CommentForm.CommentText'
         />
         <Button
           theme={ButtonTheme.CLEAR}
           className={classNames(cls.commentButton)}
           onClick={onSendHandler}
+          data-testid='CommentForm.onSendHandler'
         >
           {t('Добавить комментарий')}
         </Button>

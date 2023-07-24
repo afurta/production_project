@@ -68,7 +68,10 @@ export const ProfileCard = (props: ProfileCardProps) => {
     [cls.readonly]: !readonly
   }
   return (
-    <VStack className={classNames(cls.ProfileCard, mods, [className])} gap={16}>
+    <VStack
+      className={classNames(cls.ProfileCard, mods, [className])}
+      gap={16}
+    >
       {data?.avatar && (
         <HStack justify={'center'}>
           <Avatar alt='Avatar' src={data.avatar} />
@@ -80,6 +83,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Имя')}
         className={cls.input}
         onChange={onChangeFirstName}
+        data-testid="ProfileCard.firstname"
       />
       <Input
         value={data?.lastname}
@@ -87,6 +91,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         placeholder={t('Фамилия')}
         className={cls.input}
         onChange={onChangeLastName}
+        data-testid="ProfileCard.lastname"
       />
       <Input
         value={data?.age}

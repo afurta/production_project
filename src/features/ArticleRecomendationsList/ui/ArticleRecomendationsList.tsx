@@ -27,7 +27,11 @@ export const ArticleRecomendationsList = (props: ArticleRecomendationsListProps)
   }
 
   return (
-    <VStack gap={8} className={classNames('', {}, [className])}>
+    <VStack
+      gap={8}
+      className={classNames('', {}, [className])}
+      data-testid='ArticleRecomendationsList'
+    >
       <Text title={'Рекомендуем'} align={TextAlign.LEFT} size={TextSize.L} />
       <ArticleList
         isLoading={false}

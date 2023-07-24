@@ -67,7 +67,7 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
 
 
   return (
-    <div className={classNames(cls.articlesPageFilters, {}, [className])}>
+    <div className={classNames(cls.articlesPageFilters, {}, [className])} data-testid='ArticlesPageFilters'>
       <div className={classNames(cls.sortWrapper)}>
         <ArticleSortSelector
           view={view}

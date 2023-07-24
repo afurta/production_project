@@ -39,7 +39,10 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     )
   }
   return (
-    <div className={classNames(cls.articleList, {}, [cls[view], className])}>
+    <div
+      className={classNames(cls.articleList, {}, [cls[view], className])}
+      data-testid='ArticleList'
+    >
       {
         articles.length > 0
         && articles.map(renderArticles)

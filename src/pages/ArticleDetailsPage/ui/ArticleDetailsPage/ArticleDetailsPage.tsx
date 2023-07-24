@@ -31,7 +31,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount>
-      <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
+      <Page
+        className={classNames(cls.articleDetailsPage, {}, [className])}
+        data-testid='ArticleDetailsPage'
+      >
         <VStack gap={16}>
           <ArticleDetailsPageHeader />
           <Suspense fallback={<Loader />}>
