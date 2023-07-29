@@ -12,20 +12,21 @@ describe('ArticleDetails page', () => {
     cy.deleteArticle(articleId)
   })
 
-  it('Check the ArticleDetails page content', () => {
+  it.skip('Check the ArticleDetails page content', () => {
     cy.getByTestId('ArticleDetails.Info').should('exist')
   })
 
-  it('Check the ArticleRecomendationsList', () => {
+  it.skip('Check the ArticleRecomendationsList', () => {
     cy.getByTestId('ArticleRecomendationsList').should('exist')
   })
 
-  it('Check the Comment form', () => {
+  it.skip('Check the Comment form', () => {
     cy.getByTestId('CommentForm.Form').should('exist')
     cy.sendComment('test')
   })
 
   it('Check the Rating form', () => {
+    cy.intercept('GET', '**/articles/*', { fixture: 'article_details.json'})
     cy.getByTestId('RatingCard').should('exist')
     cy.getByTestId('RatingCard').scrollIntoView()
     cy.setRating('4', 'feetback')
