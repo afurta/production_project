@@ -7,37 +7,50 @@ import { Sidebar } from './Sidebar'
 
 export default {
   title: 'widgets/Sidebar',
-  component: Sidebar,
+  component: Sidebar
 } as ComponentMeta<typeof Sidebar>
 
-const Template: ComponentStory<typeof Sidebar> = (args) => <div style={{ height: '100vh', display: 'flex' }}><Sidebar {...args} /></div>
+const Template: ComponentStory<typeof Sidebar> = (args) => (
+  <div style={{ height: '100vh', display: 'flex' }}>
+    <Sidebar {...args} />
+  </div>
+)
 
 export const Light = Template.bind({})
 Light.args = {}
-Light.decorators = [ThemeDecorator(Theme.LIGHT), StoreDecorator({
-  user: {
-    authData: {
-      id: '1',
-      userName: 'username'
+Light.decorators = [
+  ThemeDecorator(Theme.LIGHT),
+  StoreDecorator({
+    user: {
+      authData: {
+        id: '1',
+        userName: 'username'
+      }
     }
-  }
-})]
+  })
+]
 
 export const Dark = Template.bind({})
 Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  user: {
-    authData: {
-      id: '1',
-      userName: 'username'
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    user: {
+      authData: {
+        id: '1',
+        userName: 'username'
+      }
     }
-  }
-})]
+  })
+]
 
 export const isNotAuth = Template.bind({})
 isNotAuth.args = {}
-isNotAuth.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  user: {
-    authData: undefined
-  }
-})]
+isNotAuth.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    user: {
+      authData: undefined
+    }
+  })
+]

@@ -30,7 +30,10 @@ const DirectionClasses: Record<string, string> = {
   reverseColumn: cls.ReverseColumnDirection
 }
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>
 
 export interface FlexProps extends DivProps {
   className?: string
@@ -59,7 +62,7 @@ export const Flex = (props: FlexProps) => {
     justifyClasses[justify],
     alignClasses[align],
     DirectionClasses[direction],
-    gap && cls[`gap${gap}`],
+    gap && cls[`gap${gap}`]
   ]
 
   const mods: Record<string, boolean> = {

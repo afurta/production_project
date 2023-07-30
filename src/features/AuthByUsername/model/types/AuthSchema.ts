@@ -1,4 +1,4 @@
-export interface AuthSchema{
+export interface AuthSchema {
   username: string
   password: string
   error?: string

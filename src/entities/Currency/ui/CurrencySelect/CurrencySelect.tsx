@@ -13,22 +13,20 @@ interface CurrencySelectProps {
 const options = [
   { value: Currency.RUB, content: Currency.RUB },
   { value: Currency.EUR, content: Currency.EUR },
-  { value: Currency.USD, content: Currency.USD },
+  { value: Currency.USD, content: Currency.USD }
 ]
 
 export const CurrencySelect = memo((props: CurrencySelectProps) => {
-  const {
-    className,
-    value,
-    onChange,
-    readonly,
-  } = props
+  const { className, value, onChange, readonly } = props
 
   const { t } = useTranslation()
 
-  const onChangeHandler = useCallback((value: string) => {
-    onChange?.(value as Currency)
-  }, [onChange])
+  const onChangeHandler = useCallback(
+    (value: string) => {
+      onChange?.(value as Currency)
+    },
+    [onChange]
+  )
 
   return (
     <ListBox
@@ -39,7 +37,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
       onChange={onChangeHandler}
       readonly={readonly}
       className={className}
-      direction='bottom right'
+      direction="bottom right"
     />
   )
 })

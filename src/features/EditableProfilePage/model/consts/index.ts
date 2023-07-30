@@ -1,4 +1,4 @@
-export enum ValidateProfileError{
+export enum ValidateProfileError {
   INCORRECT_FIRST_NAME = 'INCORRECT_FIRST_NAME',
   INCORRECT_LAST_NAME = 'INCORRECT_LAST_NAME',
   INCORRECT_AGE = 'INCORRECT_AGE',

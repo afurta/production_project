@@ -4,17 +4,19 @@ import { UserRoles } from '@/entities/User'
 
 export default {
   title: 'entities/CommentCard',
-  component: CommentCard,
+  component: CommentCard
 } as ComponentMeta<typeof CommentCard>
 
-const Template: ComponentStory<typeof CommentCard> = (args) => < CommentCard {...args} />
+const Template: ComponentStory<typeof CommentCard> = (args) => (
+  <CommentCard {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {
   data: {
     id: '1',
     text: 'hello world',
-    user: { id: '1', userName: 'Vasya', role: [UserRoles.ADMIN] },
+    user: { id: '1', userName: 'Vasya', role: [UserRoles.ADMIN] }
   },
   isLoading: false
 }
@@ -24,7 +26,7 @@ isLoading.args = {
   data: {
     id: '1',
     text: 'hello world',
-    user: { id: '1', userName: 'Vasya', role: [UserRoles.ADMIN] },
+    user: { id: '1', userName: 'Vasya', role: [UserRoles.ADMIN] }
   },
   isLoading: true
 }

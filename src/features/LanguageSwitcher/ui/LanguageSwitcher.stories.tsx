@@ -7,10 +7,12 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 
 export default {
   title: 'widgets/LanguageSwitcher',
-  component: LanguageSwitcher,
+  component: LanguageSwitcher
 } as ComponentMeta<typeof LanguageSwitcher>
 
-const Template: ComponentStory<typeof LanguageSwitcher> = (args) => <LanguageSwitcher {...args} />
+const Template: ComponentStory<typeof LanguageSwitcher> = (args) => (
+  <LanguageSwitcher {...args} />
+)
 
 export const Light = Template.bind({})
 Light.args = {}
@@ -18,4 +20,7 @@ Light.decorators = [StoreDecorator({ loginForm: undefined })]
 
 export const Dark = Template.bind({})
 Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({ loginForm: undefined })]
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({ loginForm: undefined })
+]

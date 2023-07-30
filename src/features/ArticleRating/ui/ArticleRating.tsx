@@ -1,6 +1,9 @@
 import { RatingCard } from '@/entities/RatingCard'
 import { getUserAuthData } from '@/entities/User'
-import { UseGetArticleRating, UseSendArticleRating } from '@/features/ArticleRating'
+import {
+  UseGetArticleRating,
+  UseSendArticleRating
+} from '@/features/ArticleRating'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -16,30 +19,41 @@ const ArticleRating = (props: ArticleRatingProps) => {
   const { t } = useTranslation()
   const userData = useSelector(getUserAuthData)
 
-  const { data, isLoading } = UseGetArticleRating({ articleId, userId: userData?.id ?? '' })
+  const { data, isLoading } = UseGetArticleRating({
+    articleId,
+    userId: userData?.id ?? ''
+  })
   const [rateArticleMutation] = UseSendArticleRating()
 
+  const handelRateArticle = useCallback(
+    (starCount: number, feedback?: string) => {
+      try {
+        rateArticleMutation({
+          userId: userData?.id ?? '',
+          articleId,
+          rate: starCount,
+          feedback
+        })
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    [articleId, rateArticleMutation, userData?.id]
+  )
 
-  const handelRateArticle = useCallback((starCount: number, feedback?: string) => {
-    try {
-      rateArticleMutation({
-        userId: userData?.id ?? '',
-        articleId,
-        rate: starCount,
-        feedback
-      })
-    } catch (e) {
-      console.log(e)
-    }
-  }, [articleId, rateArticleMutation, userData?.id])
+  const onCancel = useCallback(
+    (starCount: number) => {
+      handelRateArticle(starCount, '')
+    },
+    [handelRateArticle]
+  )
 
-  const onCancel = useCallback((starCount: number) => {
-    handelRateArticle(starCount, '')
-  }, [handelRateArticle])
-
-  const onAccept = useCallback((starCount: number) => {
-    handelRateArticle(starCount)
-  }, [handelRateArticle])
+  const onAccept = useCallback(
+    (starCount: number) => {
+      handelRateArticle(starCount)
+    },
+    [handelRateArticle]
+  )
 
   if (isLoading) return <Skeleton width={'100%'} height={'120px'} />
 

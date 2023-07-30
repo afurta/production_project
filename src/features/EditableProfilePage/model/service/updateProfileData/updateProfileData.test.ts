@@ -8,7 +8,7 @@ const data = {
   lastname: 'ulbi tv',
   first: 'asd',
   city: 'asf',
-  currency: Currency.USD,
+  currency: Currency.USD
 }
 
 describe('updateProfileData service', () => {
@@ -16,7 +16,6 @@ describe('updateProfileData service', () => {
     // const thunk = new TestAsyncThunk(updateProfileData, {profile: {form: data}})
     // thunk.api.put.mockReturnValue(Promise.resolve({data}))
     // const result = await thunk.callThunk()
-
     // expect(thunk.api.put).toHaveBeenCalled()
     // expect(result.meta.requestStatus).toBe('fulfilled')
     // expect(result.payload).toEqual(data)
@@ -48,5 +47,3 @@ describe('updateProfileData service', () => {
   //   expect(result.payload).toEqual([ValidateProfileError.INCORRECT_LAST_NAME])
   // })
 })
- 
-

@@ -1,6 +1,4 @@
-
 describe('LoginByUserName service', () => {
-
   it('Success login', async () => {
     expect(1).toBe(1)
     // const userValue = {username: '123', id: '123'}
@@ -24,7 +22,6 @@ describe('LoginByUserName service', () => {
   //   expect(result.meta.requestStatus).toBe('rejected')
   //   expect(result.payload).toBe('error')
   // })
-
 })
- 
+
 export {}

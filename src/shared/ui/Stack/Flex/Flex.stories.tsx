@@ -3,10 +3,10 @@ import { Flex } from './Flex'
 
 export default {
   title: 'shared/Flex',
-  component: Flex,
+  component: Flex
 } as ComponentMeta<typeof Flex>
 
-const Template: ComponentStory<typeof Flex> = (args) => < Flex {...args} />
+const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />
 
 export const Row = Template.bind({})
 Row.args = {
@@ -214,10 +214,3 @@ RowGap32.args = {
     </>
   )
 }
-
-
-
-
-
-
-

@@ -1,13 +1,13 @@
 import { UserRoles } from '../../model/consts'
 
-export interface User{
+export interface User {
   id: string
-  userName: string  
-  avatar?: string  
+  userName: string
+  avatar?: string
   role: UserRoles[]
 }
 
-export interface UserSchema{
+export interface UserSchema {
   authData?: User
   _inited?: boolean
 }

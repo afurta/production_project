@@ -6,14 +6,22 @@ export default {
   title: 'shared/ListBox',
   component: ListBox,
   decorators: [
-    Story => <div
-      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}
-    ><Story /></div>
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh'
+        }}
+      >
+        <Story />
+      </div>
+    )
   ]
 } as ComponentMeta<typeof ListBox>
 
-const Template: ComponentStory<typeof ListBox> = (args) => < ListBox {...args} />
-
+const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />
 
 export const BottomRight = Template.bind({})
 BottomRight.args = {
@@ -22,7 +30,7 @@ BottomRight.args = {
   listItems: [
     { value: Currency.RUB, content: Currency.RUB },
     { value: Currency.EUR, content: Currency.EUR },
-    { value: Currency.USD, content: Currency.USD },
+    { value: Currency.USD, content: Currency.USD }
   ],
   direction: 'bottom right'
 }
@@ -34,7 +42,7 @@ BottomLeft.args = {
   listItems: [
     { value: Currency.RUB, content: Currency.RUB },
     { value: Currency.EUR, content: Currency.EUR },
-    { value: Currency.USD, content: Currency.USD },
+    { value: Currency.USD, content: Currency.USD }
   ],
   direction: 'bottom left'
 }
@@ -46,7 +54,7 @@ TopRight.args = {
   listItems: [
     { value: Currency.RUB, content: Currency.RUB },
     { value: Currency.EUR, content: Currency.EUR },
-    { value: Currency.USD, content: Currency.USD },
+    { value: Currency.USD, content: Currency.USD }
   ],
   direction: 'top right'
 }
@@ -58,7 +66,7 @@ TopLeft.args = {
   listItems: [
     { value: Currency.RUB, content: Currency.RUB },
     { value: Currency.EUR, content: Currency.EUR },
-    { value: Currency.USD, content: Currency.USD },
+    { value: Currency.USD, content: Currency.USD }
   ],
   direction: 'top left'
 }

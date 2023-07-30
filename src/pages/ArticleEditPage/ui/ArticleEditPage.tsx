@@ -12,7 +12,7 @@ const ArticleEditPage = (props: ArticleEditPageProps) => {
   const isEdit = Boolean(id)
 
   return (
-    <Page >
+    <Page>
       {isEdit ? `Редактировать статью${id}` : 'Создание новой статьи'}
     </Page>
   )

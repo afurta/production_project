@@ -2,7 +2,10 @@ export { UserRoles } from './model/consts'
 
 export { getUserRoles } from './model/selectors/getUserRoles/getUserRoles'
 
-export { isUserAdmin, isUserManager } from './model/selectors/getUserRoles/getUserRoles'
+export {
+  isUserAdmin,
+  isUserManager
+} from './model/selectors/getUserRoles/getUserRoles'
 
 export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData'
 

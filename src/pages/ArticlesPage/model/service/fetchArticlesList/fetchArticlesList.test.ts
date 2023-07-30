@@ -2,7 +2,6 @@ import { fetchArticlesList } from '@/pages/ArticlesPage/model/service/fetchArtic
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 
 describe('FetchArticlesList service', () => {
-
   it('FetchArticlesList correct data', async () => {
     const thunk = new TestAsyncThunk(fetchArticlesList)
     // const result = await thunk.callThunk({s: false, error: '', view: ArticleView.GRID, page: 1, ids:[], entities:{}, hasMore: true, limit: 5,})
@@ -14,6 +13,4 @@ describe('FetchArticlesList service', () => {
     // expect(result.meta.requestStatus).toBe('rejected')
     // expect(result.payload).toBe('error')
   })
-
 })
- 

@@ -30,7 +30,7 @@ export const NotificationBtn = memo((props: NotificationBtnProps) => {
   const mobileContent = (
     <>
       {trigger}
-      <Drawer isOpen={state} onClose={closeHandler} >
+      <Drawer isOpen={state} onClose={closeHandler}>
         <NotificationList />
       </Drawer>
     </>
@@ -44,9 +44,5 @@ export const NotificationBtn = memo((props: NotificationBtnProps) => {
       <NotificationList className={classNames(cls.notificationList)} />
     </Popover>
   )
-  return (
-    <>
-      {isMobile ? BrowserContent : mobileContent}
-    </>
-  )
+  return <>{isMobile ? BrowserContent : mobileContent}</>
 })

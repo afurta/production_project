@@ -4,14 +4,9 @@ import { StarRating } from '@/shared/ui/StarRating'
 import { Rating } from '@/entities/RatingCard'
 
 const MainPage = () => {
-
   const { t } = useTranslation()
 
-  return (
-    <Page data-testId='MainPage'>
-      {t('Главная страница')}
-    </Page>
-  )
+  return <Page data-testId="MainPage">{t('Главная страница')}</Page>
 }
 
 export default MainPage

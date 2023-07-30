@@ -6,21 +6,20 @@ import { AppRoutesProps } from '@/shared/types/router'
 import { routeConfig } from '@/app/providers/AppRouter/config/RouterConfig'
 
 export const AppRouter = () => {
-
   const renderAppRoutesWithWrapper = useCallback((route: AppRoutesProps) => {
     const element = (
-      <Suspense fallback={<PageLoader />}>
-        {route.element}
-      </Suspense>
+      <Suspense fallback={<PageLoader />}>{route.element}</Suspense>
     )
     return (
       <Route
         path={route.path}
         key={route.path}
         element={
-          route.isAuthOnly
-            ? <RequireAuth roles={route.roles}>{element}</RequireAuth>
-            : element
+          route.isAuthOnly ? (
+            <RequireAuth roles={route.roles}>{element}</RequireAuth>
+          ) : (
+            element
+          )
         }
       />
     )

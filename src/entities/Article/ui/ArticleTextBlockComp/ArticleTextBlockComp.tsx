@@ -21,7 +21,7 @@ export const ArticleTextBlockComp = (props: ArticleTextBlockCompProps) => {
           align={TextAlign.LEFT}
         />
       )}
-      {block.paragraphs.map(p => (
+      {block.paragraphs.map((p) => (
         <Text
           text={p}
           className={classNames(cls.paragraph)}

@@ -1,6 +1,6 @@
-export type BuildMode =  'development' | 'production'
+export type BuildMode = 'development' | 'production'
 
-export interface BuildPath{
+export interface BuildPath {
   entry: string
   output: string
   html: string
@@ -9,13 +9,13 @@ export interface BuildPath{
   buildLocales: string
 }
 
-export interface IBuildEnv{
+export interface IBuildEnv {
   port: number
   mode: BuildMode
   apiUrl: string
 }
 
-export interface IBuildOptions{
+export interface IBuildOptions {
   mode: BuildMode
   paths: BuildPath
   isDev: boolean

@@ -12,15 +12,20 @@ export const NotificationItem = (props: NotificationItemProps) => {
   const { className, data } = props
 
   const content = (
-    <Card theme={CardTheme.OUTLINED} className={classNames('', {}, [className])}>
+    <Card
+      theme={CardTheme.OUTLINED}
+      className={classNames('', {}, [className])}
+    >
       <Text title={data.title} text={data.description} align={TextAlign.LEFT} />
     </Card>
   )
   if (data.href) {
-    return <a href={data.href} target='__blank'>{content}</a>
+    return (
+      <a href={data.href} target="__blank">
+        {content}
+      </a>
+    )
   }
 
-  return (
-    content
-  )
+  return content
 }

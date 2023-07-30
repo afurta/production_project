@@ -25,7 +25,11 @@ class ErrorBoundary extends Component<Props, State> {
 
   public render () {
     if (this.state.hasError) {
-      return <Suspense fallback=''><PageError /></Suspense>
+      return (
+        <Suspense fallback="">
+          <PageError />
+        </Suspense>
+      )
     }
 
     return this.props.children

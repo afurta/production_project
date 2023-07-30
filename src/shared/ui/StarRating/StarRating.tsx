@@ -1,9 +1,8 @@
-import { useTranslation } from 'react-i18next'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './StarRating.module.scss'
 import { ICONS } from '@/shared/assets'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { Icon } from '@/shared/ui/Icon'
 import { memo, useState } from 'react'
+import cls from './StarRating.module.scss'
 
 interface StarRatingProps {
   className?: string
@@ -16,9 +15,9 @@ const star = [1, 2, 3, 4, 5]
 
 export const StarRating = memo((props: StarRatingProps) => {
   const { className, onSelect, size = 30, selectedStar = 0 } = props
-  const { t } = useTranslation()
 
-  const [currentStartCount, setCurrentStartCount] = useState<number>(selectedStar)
+  const [currentStartCount, setCurrentStartCount] =
+    useState<number>(selectedStar)
   const [isSelected, setIsSelected] = useState(Boolean(selectedStar))
 
   const onHover = (starCount: number) => () => {
@@ -39,14 +38,11 @@ export const StarRating = memo((props: StarRatingProps) => {
 
   return (
     <div className={classNames(cls.starRating, {}, [className])}>
-      {star.map(starNumber => (
+      {star.map((starNumber) => (
         <Icon
-          className={
-            classNames(cls.start,
-              { [cls.selected]: isSelected },
-              [currentStartCount >= starNumber ? cls.hovered : cls.normal]
-            )
-          }
+          className={classNames(cls.start, { [cls.selected]: isSelected }, [
+            currentStartCount >= starNumber ? cls.hovered : cls.normal
+          ])}
           onMouseEnter={onHover(starNumber)}
           onMouseLeave={onLeave()}
           onClick={onClick(starNumber)}
@@ -56,8 +52,8 @@ export const StarRating = memo((props: StarRatingProps) => {
           width={size}
           data-testid={`StarRating+${starNumber}`}
           data-selectedItem={currentStartCount >= starNumber}
-        />)
-      )}
+        />
+      ))}
     </div>
   )
 })

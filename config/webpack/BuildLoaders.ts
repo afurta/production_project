@@ -3,34 +3,28 @@ import { buildCssLoader } from './loaders/buildCssLoader'
 import { buildBabelLoader } from './loaders/buildBabelLoader'
 import { IBuildOptions } from './types/config'
 
-export const buildLoaders = (options: IBuildOptions):RuleSetRule[] => {
-  const {isDev} = options
+export const buildLoaders = (options: IBuildOptions): RuleSetRule[] => {
+  const { isDev } = options
 
   const svgLoader = {
     test: /\.svg$/i,
     issuer: /\.[jt]sx?$/,
-    use: ['@svgr/webpack'],
+    use: ['@svgr/webpack']
   }
 
   const cssLoader = buildCssLoader(isDev)
 
-  const fileLoader =  {
+  const fileLoader = {
     test: /\.(png|jpe?g|gif,woff2)$/i,
     use: [
       {
-        loader: 'file-loader',
-      },
-    ],
+        loader: 'file-loader'
+      }
+    ]
   }
 
-  const codebabelLoader = buildBabelLoader({...options, isTsx:false})
-  const tscCodebabelLoader = buildBabelLoader({...options, isTsx:true})
+  const codebabelLoader = buildBabelLoader({ ...options, isTsx: false })
+  const tscCodebabelLoader = buildBabelLoader({ ...options, isTsx: true })
 
-  return [
-    fileLoader,
-    svgLoader,
-    codebabelLoader,
-    tscCodebabelLoader,
-    cssLoader
-  ]
+  return [fileLoader, svgLoader, codebabelLoader, tscCodebabelLoader, cssLoader]
 }

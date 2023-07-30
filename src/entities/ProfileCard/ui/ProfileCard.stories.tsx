@@ -7,10 +7,12 @@ import avatar from '../../../shared/assets/test/storybook.jpg'
 
 export default {
   title: 'entities/ProfileCard',
-  component: ProfileCard,
+  component: ProfileCard
 } as ComponentMeta<typeof ProfileCard>
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />
+const Template: ComponentStory<typeof ProfileCard> = (args) => (
+  <ProfileCard {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {
@@ -22,7 +24,7 @@ Normal.args = {
     country: Country.Armenia,
     city: 'fdsaf',
     username: 'admin',
-    avatar,
+    avatar
   },
   readonly: true
 }

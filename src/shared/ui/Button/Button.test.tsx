@@ -4,7 +4,6 @@ import { Button, ButtonTheme } from './Button'
 const fn = jest.fn()
 
 describe('Button test', () => {
-
   it('Initial state', () => {
     render(<Button theme={ButtonTheme.CLEAR}>TEST</Button>)
     expect(screen.getByText('TEST')).toBeInTheDocument()
@@ -17,9 +16,12 @@ describe('Button test', () => {
   })
 
   it('Check click event', () => {
-    render(<Button theme={ButtonTheme.CLEAR} onClick={fn}>TEST</Button>)
+    render(
+      <Button theme={ButtonTheme.CLEAR} onClick={fn}>
+        TEST
+      </Button>
+    )
     fireEvent.click(screen.getByText('TEST'))
     expect(fn).toBeCalledTimes(1)
   })
-
 })

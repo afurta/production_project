@@ -1,5 +1,4 @@
 describe('fetchNextDataArticlePage service', () => {
-
   it('Success  data', () => {
     expect(1).toBe(1)
     // const thunk = new TestAsyncThunk(fetchNextDataArticlePage, {
@@ -18,7 +17,6 @@ describe('fetchNextDataArticlePage service', () => {
     // expect(thunk.dispatch).toBeCalledTimes(4)
     // expect(fetchArticlesList).toHaveBeenCalled()
   })
-
 })
- 
+
 export {}

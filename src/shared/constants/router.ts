@@ -11,14 +11,13 @@ export enum AppRoutes {
   NOT_FOUND = 'not_found'
 }
 
-export const getMainRoute = () =>  `/`
-export const getAboutRoute = () =>  `/about`
-export const getProfileRoute = (id:string) =>  `/profile/${id}`
-export const getArticlesRoute = () =>  `/articles`
-export const getArticlesCreateRoute = () =>  `/articles/new`
-export const getArticlesEditRoute = (id:string) =>  `/articles/:${id}/edit`
-export const getArticleDetailsRoute = (id:string) =>  `/articles/${id}`
-export const getAdminPanelRoute = () =>  `/admin-panel/`
-export const getForbiddenRoute = () =>  `/forbidden`
+export const getMainRoute = () => `/`
+export const getAboutRoute = () => `/about`
+export const getProfileRoute = (id: string) => `/profile/${id}`
+export const getArticlesRoute = () => `/articles`
+export const getArticlesCreateRoute = () => `/articles/new`
+export const getArticlesEditRoute = (id: string) => `/articles/:${id}/edit`
+export const getArticleDetailsRoute = (id: string) => `/articles/${id}`
+export const getAdminPanelRoute = () => `/admin-panel/`
+export const getForbiddenRoute = () => `/forbidden`
 export const getNotFoundRoute = () => '*'
-

@@ -18,21 +18,19 @@ export const AuthSlice = createSlice({
     },
     setPassword: (state, action) => {
       state.password = action.payload
-    },
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(loginByUserName.pending, (state) => {
-      state.isLoading = true,
-      state.error = undefined
+      (state.isLoading = true), (state.error = undefined)
     }),
-    builder.addCase(loginByUserName.rejected, (state, action) => {
-      state.isLoading = false,
-      state.error = action.payload
-    }),
-    builder.addCase(loginByUserName.fulfilled, (state) => {
-      state.isLoading = false
-    })
-  },
+      builder.addCase(loginByUserName.rejected, (state, action) => {
+        (state.isLoading = false), (state.error = action.payload)
+      }),
+      builder.addCase(loginByUserName.fulfilled, (state) => {
+        state.isLoading = false
+      })
+  }
 })
 
 export const { actions: AuthActions } = AuthSlice

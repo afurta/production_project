@@ -13,7 +13,9 @@ export const Icon = (props: IconProps) => {
 
   return (
     <Icon
-      className={classNames(cls.Icon, { [cls.inverted]: inverted }, [className])}
+      className={classNames(cls.Icon, { [cls.inverted]: inverted }, [
+        className
+      ])}
       {...othersProps}
     />
   )

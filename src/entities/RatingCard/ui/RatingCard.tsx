@@ -39,12 +39,13 @@ export const RatingCard = memo((props: RatingCardProps) => {
   const [starCount, setStarCount] = useState(rate)
   const [feedback, setFeedback] = useState('')
 
-  const onSelectStars = useCallback((selectedStar: number) => {
-    setStarCount(selectedStar)
-    hasFeedback
-      ? setIsShowModal(true)
-      : onAccept?.(selectedStar)
-  }, [hasFeedback, onAccept])
+  const onSelectStars = useCallback(
+    (selectedStar: number) => {
+      setStarCount(selectedStar)
+      hasFeedback ? setIsShowModal(true) : onAccept?.(selectedStar)
+    },
+    [hasFeedback, onAccept]
+  )
 
   const onAcceptHandler = useCallback(() => {
     setIsShowModal(false)
@@ -62,7 +63,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
         value={feedback}
         onChange={setFeedback}
         placeholder={t('Ваш отзыв')}
-        data-testid='RatingCard.Input'
+        data-testid="RatingCard.Input"
       />
     </>
   )
@@ -75,42 +76,44 @@ export const RatingCard = memo((props: RatingCardProps) => {
     >
       <VStack gap={8} align={'center'} justify={'center'}>
         <Text title={starCount ? t('Спасибо за оценку') : title} />
-        <StarRating size={40} onSelect={onSelectStars} selectedStar={starCount} />
+        <StarRating
+          size={40}
+          onSelect={onSelectStars}
+          selectedStar={starCount}
+        />
       </VStack>
       <Modal isOpen={isShowModal} lazy>
-        {
-          isMobile
-            ? (
-              <VStack max gap={32} align={'center'} justify={'center'}>
-                {content}
-                <HStack gap={16} max justify={'end'}>
-                  <Button
-                    onClick={onCancelHandler}
-                    data-testid='RatingCard.CancelHandler'
-                    theme={ButtonTheme.OUTLINE_RED}
-                  >
-                    {t('Закрыть')}
-                  </Button>
-                  <Button
-                    onClick={onAcceptHandler}
-                    data-testid='RatingCard.AcceptHandler'
-                  >
-                    {t('Отправить')}
-                  </Button>
-                </HStack>
-              </VStack>
-            )
-            : (
-              <Drawer isOpen={isShowModal} onClose={onCancelHandler}>
-                <VStack max gap={32}>
-                  {content}
-                  <HStack gap={16} max justify={'end'}>
-                    <Button fullWidth onClick={onAcceptHandler}>{t('Отправить')}</Button>
-                  </HStack>
-                </VStack>
-              </Drawer>
-            )
-        }
+        {isMobile ? (
+          <VStack max gap={32} align={'center'} justify={'center'}>
+            {content}
+            <HStack gap={16} max justify={'end'}>
+              <Button
+                onClick={onCancelHandler}
+                data-testid="RatingCard.CancelHandler"
+                theme={ButtonTheme.OUTLINE_RED}
+              >
+                {t('Закрыть')}
+              </Button>
+              <Button
+                onClick={onAcceptHandler}
+                data-testid="RatingCard.AcceptHandler"
+              >
+                {t('Отправить')}
+              </Button>
+            </HStack>
+          </VStack>
+        ) : (
+          <Drawer isOpen={isShowModal} onClose={onCancelHandler}>
+            <VStack max gap={32}>
+              {content}
+              <HStack gap={16} max justify={'end'}>
+                <Button fullWidth onClick={onAcceptHandler}>
+                  {t('Отправить')}
+                </Button>
+              </HStack>
+            </VStack>
+          </Drawer>
+        )}
       </Modal>
     </Card>
   )

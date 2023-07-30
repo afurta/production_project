@@ -7,17 +7,28 @@ export default {
   title: 'shared/Dropdown',
   component: Dropdown,
   decorators: [
-    Story => <div
-      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}
-    ><Story /></div>
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh'
+        }}
+      >
+        <Story />
+      </div>
+    )
   ]
 } as ComponentMeta<typeof Dropdown>
 
-const Template: ComponentStory<typeof Dropdown> = (args) => < Dropdown {...args} />
+const Template: ComponentStory<typeof Dropdown> = (args) => (
+  <Dropdown {...args} />
+)
 
 export const BottomRight = Template.bind({})
 BottomRight.args = {
-  control: <ICONS.User width='32' height='32' />,
+  control: <ICONS.User width="32" height="32" />,
   items: [
     { onClick: action('itemClick'), content: 'content1' },
     { href: '', content: 'content2' }
@@ -27,7 +38,7 @@ BottomRight.args = {
 
 export const BottomLeft = Template.bind({})
 BottomLeft.args = {
-  control: <ICONS.User width='32' height='32' />,
+  control: <ICONS.User width="32" height="32" />,
   items: [
     { onClick: action('itemClick'), content: 'content1' },
     { href: '', content: 'content2' }
@@ -37,7 +48,7 @@ BottomLeft.args = {
 
 export const TopRight = Template.bind({})
 TopRight.args = {
-  control: <ICONS.User width='32' height='32' />,
+  control: <ICONS.User width="32" height="32" />,
   items: [
     { onClick: action('itemClick'), content: 'content1' },
     { href: '', content: 'content2' }
@@ -47,7 +58,7 @@ TopRight.args = {
 
 export const TopLeft = Template.bind({})
 TopLeft.args = {
-  control: <ICONS.User width='32' height='32' />,
+  control: <ICONS.User width="32" height="32" />,
   items: [
     { onClick: action('itemClick'), content: 'content1' },
     { href: '', content: 'content2' }

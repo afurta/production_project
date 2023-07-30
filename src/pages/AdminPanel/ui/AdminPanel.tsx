@@ -9,11 +9,7 @@ const AdminPanel = (props: AdminPanelProps) => {
   const { className } = props
   const { t } = useTranslation()
 
-  return (
-    <Page data-testId='AdminPanel'>
-      {t('Админка')}
-    </Page>
-  )
+  return <Page data-testId="AdminPanel">{t('Админка')}</Page>
 }
 
 export default AdminPanel

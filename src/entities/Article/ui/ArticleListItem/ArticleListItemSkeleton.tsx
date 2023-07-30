@@ -11,34 +11,47 @@ interface ArticleListItemSkeleton {
 }
 
 export const ArticleListItemSkeleton: FC<ArticleListItemSkeleton> = (props) => {
-  const {
-    className,
-    view = ArticleView.GRID
-  } = props
+  const { className, view = ArticleView.GRID } = props
 
   if (view === ArticleView.LIST) {
-
     return (
-      <div className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
+      <div
+        className={classNames(cls.articleListItem, {}, [className, cls[view]])}
+      >
         <Card className={cls.card}>
           <div className={classNames(cls.header)}>
-            <Skeleton width={30} height={30} border={'50%'} className={classNames(cls.avatar)} />
-            <Skeleton width={150} height={30} className={classNames(cls.username)} />
-            <Skeleton width={150} height={30} className={classNames(cls.date)} />
+            <Skeleton
+              width={30}
+              height={30}
+              border={'50%'}
+              className={classNames(cls.avatar)}
+            />
+            <Skeleton
+              width={150}
+              height={30}
+              className={classNames(cls.username)}
+            />
+            <Skeleton
+              width={150}
+              height={30}
+              className={classNames(cls.date)}
+            />
           </div>
           <Skeleton width={250} height={24} className={classNames(cls.title)} />
           <Skeleton height={200} className={classNames(cls.img)} />
           <div className={classNames(cls.footer)}>
             <Skeleton height={36} width={200} />
           </div>
-        </Card >
-      </div >
+        </Card>
+      </div>
     )
   }
 
   return (
-    <div className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
-      <Card className={cls.card} >
+    <div
+      className={classNames(cls.articleListItem, {}, [className, cls[view]])}
+    >
+      <Card className={cls.card}>
         <div className={classNames(cls.card)}>
           <div className={classNames(cls.imageWrapper)}>
             <Skeleton width={200} height={200} />
@@ -49,6 +62,6 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeleton> = (props) => {
           <Skeleton width={160} height={16} />
         </div>
       </Card>
-    </div >
+    </div>
   )
 }

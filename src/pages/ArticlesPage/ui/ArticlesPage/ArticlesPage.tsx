@@ -1,7 +1,10 @@
 import { memo, useCallback } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {
+  DynamicModuleLoader,
+  ReducerList
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
 import { Page } from '@/widgets/Page'
@@ -37,7 +40,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
       <Page
         onScrollEnd={onLoadNextPartData}
         className={classNames(cls.articlesPage, {}, [className])}
-        data-testId='ArticlesPage'
+        data-testId="ArticlesPage"
       >
         <ArticlesPageFilters className={classNames(cls.articlesPageFilters)} />
         <ArticleInfiniteList />

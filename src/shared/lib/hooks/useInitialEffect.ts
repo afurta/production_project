@@ -5,7 +5,6 @@ export const useInitialEffect = (cb: () => void) => {
     if (__PROJECT__ !== 'storybook') {
       cb()
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
 }

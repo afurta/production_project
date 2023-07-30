@@ -1,6 +1,9 @@
 import { Reducer } from '@reduxjs/toolkit'
 import { ReduxStoreWithManager } from '@/app/providers/StoreProvider'
-import { StoreSchema, StoreSchemaKey } from '@/app/providers/StoreProvider/config/StoreSchema'
+import {
+  StoreSchema,
+  StoreSchemaKey
+} from '@/app/providers/StoreProvider/config/StoreSchema'
 import { FC, ReactNode, useEffect } from 'react'
 import { useDispatch, useStore } from 'react-redux'
 
@@ -40,12 +43,7 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
       }
     }
     // eslint-disable-next-line
-  }, []);
+  }, [])
 
-  return (
-    <>
-      {children}
-    </>
-  )
+  return <>{children}</>
 }
-

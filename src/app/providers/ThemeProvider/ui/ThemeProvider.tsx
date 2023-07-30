@@ -10,14 +10,18 @@ interface ThemeProviderProps {
 const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
   const { initialTheme, children } = props
 
-  const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme || Theme.DARK
+  const defaultTheme =
+    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.DARK
 
   const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme)
 
-  const defaultProps = useMemo(() => ({
-    theme,
-    setTheme
-  }), [theme, setTheme])
+  const defaultProps = useMemo(
+    () => ({
+      theme,
+      setTheme
+    }),
+    [theme, setTheme]
+  )
 
   return (
     <ThemeContext.Provider value={defaultProps}>

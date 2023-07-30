@@ -8,11 +8,7 @@ interface ForbiddenProps {
 const Forbidden = (props: ForbiddenProps) => {
   const { t } = useTranslation()
 
-  return (
-    <Page data-testId='Forbidden'>
-      {t('У вас нет доступа')}
-    </Page>
-  )
+  return <Page data-testId="Forbidden">{t('У вас нет доступа')}</Page>
 }
 
 export default Forbidden

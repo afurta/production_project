@@ -5,10 +5,12 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 
 export default {
   title: 'pages/ArticleDetailsPage/ArticleAddCommentForm',
-  component: ArticleAddCommentForm,
+  component: ArticleAddCommentForm
 } as ComponentMeta<typeof ArticleAddCommentForm>
 
-const Template: ComponentStory<typeof ArticleAddCommentForm> = (args) => < ArticleAddCommentForm {...args} />
+const Template: ComponentStory<typeof ArticleAddCommentForm> = (args) => (
+  <ArticleAddCommentForm {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}

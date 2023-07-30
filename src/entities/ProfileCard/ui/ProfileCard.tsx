@@ -68,15 +68,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
     [cls.readonly]: !readonly
   }
   return (
-    <VStack
-      className={classNames(cls.ProfileCard, mods, [className])}
-      gap={16}
-    >
+    <VStack className={classNames(cls.ProfileCard, mods, [className])} gap={16}>
       {data?.avatar && (
         <HStack justify={'center'}>
-          <Avatar alt='Avatar' src={data.avatar} />
-        </HStack>)
-      }
+          <Avatar alt="Avatar" src={data.avatar} />
+        </HStack>
+      )}
       <Input
         value={data?.first}
         readonly={readonly}
@@ -130,4 +127,3 @@ export const ProfileCard = (props: ProfileCardProps) => {
     </VStack>
   )
 }
-

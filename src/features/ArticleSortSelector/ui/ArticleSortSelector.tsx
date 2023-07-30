@@ -25,31 +25,37 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
   } = props
   const { t } = useTranslation()
 
-  const sortOptions = useMemo<SelectOption[]>(() => [
-    {
-      text: 'По заголовку',
-      value: ArticleSortFields.TITLE
-    },
-    {
-      text: 'По дате создания',
-      value: ArticleSortFields.CREATED_AT
-    },
-    {
-      text: 'По просмотрам',
-      value: ArticleSortFields.VIEWS
-    }
-  ], [])
+  const sortOptions = useMemo<SelectOption[]>(
+    () => [
+      {
+        text: 'По заголовку',
+        value: ArticleSortFields.TITLE
+      },
+      {
+        text: 'По дате создания',
+        value: ArticleSortFields.CREATED_AT
+      },
+      {
+        text: 'По просмотрам',
+        value: ArticleSortFields.VIEWS
+      }
+    ],
+    []
+  )
 
-  const orderOptions = useMemo<SelectOption[]>(() => [
-    {
-      value: 'asc',
-      text: 'возрастанию',
-    },
-    {
-      value: 'desc',
-      text: 'убыванию',
-    },
-  ], [])
+  const orderOptions = useMemo<SelectOption[]>(
+    () => [
+      {
+        value: 'asc',
+        text: 'возрастанию'
+      },
+      {
+        value: 'desc',
+        text: 'убыванию'
+      }
+    ],
+    []
+  )
 
   return (
     <div className={classNames(cls.articleSortSelector, {}, [className])}>

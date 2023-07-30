@@ -1,12 +1,11 @@
-import { Menu } from '@headlessui/react'
-import { Fragment, ReactNode } from 'react'
-import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { DropdownDirection } from '@/shared/types/sort'
 import { AppLink } from '@/shared/ui/AppLink'
+import { Menu } from '@headlessui/react'
+import { Fragment, ReactNode } from 'react'
 import { mapPopupDirection } from '../../styles/consts'
-import cls from './Dropdown.module.scss'
 import popupStyles from '../../styles/popup.module.scss'
+import cls from './Dropdown.module.scss'
 
 interface DropdownItem {
   disabled?: boolean
@@ -15,7 +14,6 @@ interface DropdownItem {
   href?: string
 }
 
-
 interface DropdownProps {
   className?: string
   control: ReactNode
@@ -23,21 +21,20 @@ interface DropdownProps {
   direction: DropdownDirection
 }
 
-
 export const Dropdown = (props: DropdownProps) => {
-  const {
-    className,
-    control,
-    items,
-    direction = 'bottom left'
-  } = props
-
-  const { t } = useTranslation()
+  const { className, control, items, direction = 'bottom left' } = props
 
   return (
-    <Menu as='div' className={classNames(cls.dropdown, {}, [className, popupStyles.popup])}>
-      <Menu.Button className={classNames(popupStyles.trigger)}>{control}</Menu.Button>
-      <Menu.Items className={classNames(cls.menu, {}, [mapPopupDirection[direction]])}>
+    <Menu
+      as="div"
+      className={classNames(cls.dropdown, {}, [className, popupStyles.popup])}
+    >
+      <Menu.Button className={classNames(popupStyles.trigger)}>
+        {control}
+      </Menu.Button>
+      <Menu.Items
+        className={classNames(cls.menu, {}, [mapPopupDirection[direction]])}
+      >
         {items.map((item) => {
           const content = ({ active }: { active: boolean }) => (
             <button
@@ -64,8 +61,7 @@ export const Dropdown = (props: DropdownProps) => {
             </Menu.Item>
           )
         })}
-
       </Menu.Items>
-    </Menu >
+    </Menu>
   )
 }

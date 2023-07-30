@@ -12,7 +12,9 @@ interface ArticleRecomendationsListProps {
   className?: string
 }
 
-export const ArticleRecomendationsList = (props: ArticleRecomendationsListProps) => {
+export const ArticleRecomendationsList = (
+  props: ArticleRecomendationsListProps
+) => {
   const { className } = props
   const { t } = useTranslation()
   const { data: articles, error, isLoading } = UseArticleRecomendationsList(3)
@@ -23,21 +25,19 @@ export const ArticleRecomendationsList = (props: ArticleRecomendationsListProps)
   })
 
   if (error || isLoading || !articles) {
-    return <Text title={'Статей нет'} align={TextAlign.LEFT} size={TextSize.L} />
+    return (
+      <Text title={'Статей нет'} align={TextAlign.LEFT} size={TextSize.L} />
+    )
   }
 
   return (
     <VStack
       gap={8}
       className={classNames('', {}, [className])}
-      data-testid='ArticleRecomendationsList'
+      data-testid="ArticleRecomendationsList"
     >
       <Text title={'Рекомендуем'} align={TextAlign.LEFT} size={TextSize.L} />
-      <ArticleList
-        isLoading={false}
-        articles={articles}
-        target={'_blank'}
-      />
+      <ArticleList isLoading={false} articles={articles} target={'_blank'} />
     </VStack>
   )
 }

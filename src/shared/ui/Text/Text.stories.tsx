@@ -8,8 +8,8 @@ export default {
   title: 'shared/Text',
   component: Text,
   argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    backgroundColor: { control: 'color' }
+  }
 } as ComponentMeta<typeof Text>
 
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />
@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />
 export const Default = Template.bind({})
 Default.args = {
   title: 'Title',
-  text: 'Text',
+  text: 'Text'
 }
 
 export const Error = Template.bind({})
@@ -29,18 +29,18 @@ Error.args = {
 
 export const withTitle = Template.bind({})
 withTitle.args = {
-  title: 'Title',
+  title: 'Title'
 }
 
 export const withText = Template.bind({})
 withText.args = {
-  text: 'Text',
+  text: 'Text'
 }
 
 export const DefaultDark = Template.bind({})
 DefaultDark.args = {
   title: 'Title',
-  text: 'Text',
+  text: 'Text'
 }
 DefaultDark.decorators = [ThemeDecorator(Theme.DARK)]
 
@@ -57,7 +57,7 @@ SizeL.args = {
   title: 'Title',
   text: 'Text',
   theme: TextTheme.DEFALUT,
-  size: TextSize.L,
+  size: TextSize.L
 }
 SizeL.decorators = [ThemeDecorator(Theme.DARK)]
 
@@ -66,16 +66,15 @@ SizeM.args = {
   title: 'Title',
   text: 'Text',
   theme: TextTheme.DEFALUT,
-  size: TextSize.M,
+  size: TextSize.M
 }
 SizeM.decorators = [ThemeDecorator(Theme.DARK)]
-
 
 export const SizeS = Template.bind({})
 SizeS.args = {
   title: 'Title',
   text: 'Text',
   theme: TextTheme.DEFALUT,
-  size: TextSize.S,
+  size: TextSize.S
 }
 SizeS.decorators = [ThemeDecorator(Theme.DARK)]

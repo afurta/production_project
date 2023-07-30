@@ -6,10 +6,12 @@ import { Theme } from '@/shared/types/theme'
 
 export default {
   title: 'widgets/PageLoader',
-  component: PageLoader,
+  component: PageLoader
 } as ComponentMeta<typeof PageLoader>
 
-const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...args} />
+const Template: ComponentStory<typeof PageLoader> = (args) => (
+  <PageLoader {...args} />
+)
 
 export const Light = Template.bind({})
 Light.args = {}

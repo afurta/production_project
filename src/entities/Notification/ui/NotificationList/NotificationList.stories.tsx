@@ -4,11 +4,12 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 
 export default {
   title: 'entities/Notification/NotificationList',
-  component: NotificationList,
+  component: NotificationList
 } as ComponentMeta<typeof NotificationList>
 
-const Template: ComponentStory<typeof NotificationList> = (args) => < NotificationList {...args} />
-
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+  <NotificationList {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}
@@ -34,8 +35,8 @@ Normal.parameters = {
           id: '3',
           title: 'Уведомление 3',
           description: 'Текст уведомления 3'
-        },
-      ],
-    },
-  ],
+        }
+      ]
+    }
+  ]
 }

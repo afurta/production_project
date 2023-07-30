@@ -24,16 +24,17 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = (props: ArticleListItemProps) => {
-  const {
-    className,
-    article,
-    view = ArticleView.GRID,
-    target
-  } = props
+  const { className, article, view = ArticleView.GRID, target } = props
 
   const { t } = useTranslation()
 
-  const types = <Text text={!!article.type && article.type.join(',')} className={classNames(cls.types)} align={TextAlign.LEFT} />
+  const types = (
+    <Text
+      text={!!article.type && article.type.join(',')}
+      className={classNames(cls.types)}
+      align={TextAlign.LEFT}
+    />
+  )
 
   const views = (
     <>
@@ -43,17 +44,39 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
   )
 
   if (view === ArticleView.LIST) {
-    const textBlocks = article.blocks.find(elem => elem.type === ArticleBlockType.TEXT) as ArticleTextBlock
+    const textBlocks = article.blocks.find(
+      (elem) => elem.type === ArticleBlockType.TEXT
+    ) as ArticleTextBlock
 
     return (
-      <div className={classNames(cls.articleListItem, {}, [className, cls[view]])} data-testid='ArticleListItem'>
+      <div
+        className={classNames(cls.articleListItem, {}, [className, cls[view]])}
+        data-testid="ArticleListItem"
+      >
         <Card className={cls.card}>
           <div className={classNames(cls.header)}>
-            <Avatar className={classNames(cls.avatar)} src={article.user.avatar} size={30} data-testid='ArticleListItemAvatar' />
-            <Text text={article.user.userName} className={classNames(cls.username)} data-testid='ArticleListItemUserName' />
-            <Text text={article.createdAt} className={classNames(cls.date)} data-testid='ArticleListItemDate' />
+            <Avatar
+              className={classNames(cls.avatar)}
+              src={article.user.avatar}
+              size={30}
+              data-testid="ArticleListItemAvatar"
+            />
+            <Text
+              text={article.user.userName}
+              className={classNames(cls.username)}
+              data-testid="ArticleListItemUserName"
+            />
+            <Text
+              text={article.createdAt}
+              className={classNames(cls.date)}
+              data-testid="ArticleListItemDate"
+            />
           </div>
-          <Text text={article.title} className={classNames(cls.title)} align={TextAlign.LEFT} />
+          <Text
+            text={article.title}
+            className={classNames(cls.title)}
+            align={TextAlign.LEFT}
+          />
           {types}
           <AppImage
             src={article.img}
@@ -61,17 +84,28 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
             className={classNames(cls.img)}
             fallback={<Skeleton width={'100%'} height={'250'} />}
             errorFallback={<Skeleton width={'100%'} height={250} />}
-            data-testid='ArticleListItemImg'
+            data-testid="ArticleListItemImg"
           />
-          {textBlocks && <ArticleTextBlockComp block={textBlocks} className={classNames(cls.textBlock)} data-testid='ArticleListItemTextBlock' />}
+          {textBlocks && (
+            <ArticleTextBlockComp
+              block={textBlocks}
+              className={classNames(cls.textBlock)}
+              data-testid="ArticleListItemTextBlock"
+            />
+          )}
           <div className={classNames(cls.footer)}>
             <AppLink to={getArticleDetailsRoute(article.id)} target={target}>
-              <Button theme={ButtonTheme.OUTLINE} data-testid='ArticleListItemMoreBtn'>{t('Читать далее...')}</Button>
+              <Button
+                theme={ButtonTheme.OUTLINE}
+                data-testid="ArticleListItemMoreBtn"
+              >
+                {t('Читать далее...')}
+              </Button>
             </AppLink>
             {views}
           </div>
-        </Card >
-      </div >
+        </Card>
+      </div>
     )
   }
 
@@ -80,7 +114,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
       to={getArticleDetailsRoute(article.id)}
       className={classNames(cls.articleListItem, {}, [className, cls[view]])}
       target={target}
-      data-testid='ArticleListItem'
+      data-testid="ArticleListItem"
     >
       <Card className={cls.card}>
         <div className={classNames(cls.card)}>
@@ -99,9 +133,13 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
             {types}
             {views}
           </div>
-          <Text text={article.title} className={classNames(cls.title)} align={TextAlign.LEFT} />
+          <Text
+            text={article.title}
+            className={classNames(cls.title)}
+            align={TextAlign.LEFT}
+          />
         </div>
       </Card>
-    </AppLink >
+    </AppLink>
   )
 }

@@ -6,7 +6,10 @@ import { useSelector } from 'react-redux'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { VStack } from '@/shared/ui/Stack'
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text'
-import { getArticleDetailsCommentError, getArticleDetailsCommentLoading } from '../../model/selectors/comments'
+import {
+  getArticleDetailsCommentError,
+  getArticleDetailsCommentLoading
+} from '../../model/selectors/comments'
 import { addCommentForArticle } from '../../model/service/sendCommentForArticle/sendCommentForArticle'
 import { getCommentsSelectors } from '../../model/slice/ArticleDetailsCommentSlice'
 import { fetchCommentsArticleById } from '../../model/service/commentsArticleById/commentsArticleById'
@@ -31,14 +34,16 @@ export const ArticleAddCommentForm = (props: ArticleAddCommentFormProps) => {
     dispatch(fetchCommentsArticleById(id))
   })
 
-  const onSendComment = useCallback((value: string) => {
-    dispatch(addCommentForArticle(value))
-  }, [dispatch])
+  const onSendComment = useCallback(
+    (value: string) => {
+      dispatch(addCommentForArticle(value))
+    },
+    [dispatch]
+  )
 
   if (error) {
     return <Text text={t('Ошибка')} theme={TextTheme.ERROR} />
   }
-
 
   return (
     <VStack>

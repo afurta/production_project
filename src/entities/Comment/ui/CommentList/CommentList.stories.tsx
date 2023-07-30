@@ -4,10 +4,12 @@ import { UserRoles } from '@/entities/User'
 
 export default {
   title: 'entities/CommentList',
-  component: CommentList,
+  component: CommentList
 } as ComponentMeta<typeof CommentList>
 
-const Template: ComponentStory<typeof CommentList> = (args) => < CommentList {...args} />
+const Template: ComponentStory<typeof CommentList> = (args) => (
+  <CommentList {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {

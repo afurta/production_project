@@ -11,43 +11,47 @@ export default {
   title: 'pages/ProfilePage',
   component: ProfilePage,
   argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    backgroundColor: { control: 'color' }
+  }
 } as ComponentMeta<typeof ProfilePage>
 
 const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />
 
 export const Normal = Template.bind({})
-Normal.decorators = [StoreDecorator({
-  profile: {
-    data: {
-      'first': 'ffdsf',
-      'lastname': 'Ульбиdfs',
-      'age': 344,
-      'currency': Currency.EUR,
-      'country': Country.Armenia,
-      'city': 'fdsaf',
-      'username': 'admin',
-      'avatar': 'shared/assets/test/avatar.webp'
-    },
-    readonly: true
-  }
-})]
+Normal.decorators = [
+  StoreDecorator({
+    profile: {
+      data: {
+        first: 'ffdsf',
+        lastname: 'Ульбиdfs',
+        age: 344,
+        currency: Currency.EUR,
+        country: Country.Armenia,
+        city: 'fdsaf',
+        username: 'admin',
+        avatar: 'shared/assets/test/avatar.webp'
+      },
+      readonly: true
+    }
+  })
+]
 
 export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  profile: {
-    data: {
-      'first': 'ffdsf',
-      'lastname': 'Ульбиdfs',
-      'age': 344,
-      'currency': Currency.EUR,
-      'country': Country.Armenia,
-      'city': 'fdsaf',
-      'username': 'admin',
-      'avatar': 'shared/assets/test/avatar.webp'
-    },
-    readonly: false
-  }
-})]
-
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    profile: {
+      data: {
+        first: 'ffdsf',
+        lastname: 'Ульбиdfs',
+        age: 344,
+        currency: Currency.EUR,
+        country: Country.Armenia,
+        city: 'fdsaf',
+        username: 'admin',
+        avatar: 'shared/assets/test/avatar.webp'
+      },
+      readonly: false
+    }
+  })
+]

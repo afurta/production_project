@@ -1,3 +1,4 @@
 import { StoreSchema } from '@/app/providers/StoreProvider'
 
-export const getAuthUsername = (store: StoreSchema) => store.loginForm?.username || ''
+export const getAuthUsername = (store: StoreSchema) =>
+  store.loginForm?.username || ''

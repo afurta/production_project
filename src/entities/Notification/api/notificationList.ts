@@ -5,10 +5,11 @@ const notificationList = rtkApi.injectEndpoints({
   endpoints: (build) => ({
     getArticleRecomendationsList: build.query<Notification[], null>({
       query: () => ({
-        url: '/notifications',
-      }),
-    }),
-  }),
+        url: '/notifications'
+      })
+    })
+  })
 })
 
-export const UseArticleRecomendationsList = notificationList.useGetArticleRecomendationsListQuery
+export const UseArticleRecomendationsList =
+  notificationList.useGetArticleRecomendationsListQuery

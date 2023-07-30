@@ -34,40 +34,59 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
   const sortOrder = useSelector(getArticlePageSortOrder)
   const type = useSelector(getArticlePageType)
 
-  const fetchDebouncedData = useDebounce(fetchArticlesList({ replace: true }), 500)
+  const fetchDebouncedData = useDebounce(
+    fetchArticlesList({ replace: true }),
+    500
+  )
 
-  const onChangeView = useCallback((view: ArticleView) => {
-    dispatch(articlesPageActions.setView(view))
-  }, [dispatch])
+  const onChangeView = useCallback(
+    (view: ArticleView) => {
+      dispatch(articlesPageActions.setView(view))
+    },
+    [dispatch]
+  )
 
-  const onChangeSearch = useCallback((search: string) => {
-    dispatch(articlesPageActions.setSearch(search))
-    dispatch(articlesPageActions.setPage(1))
-    dispatch(fetchDebouncedData)
-  }, [dispatch, fetchDebouncedData])
+  const onChangeSearch = useCallback(
+    (search: string) => {
+      dispatch(articlesPageActions.setSearch(search))
+      dispatch(articlesPageActions.setPage(1))
+      dispatch(fetchDebouncedData)
+    },
+    [dispatch, fetchDebouncedData]
+  )
 
-  const onChangeSortField = useCallback((field: ArticleSortFields) => {
-    dispatch(articlesPageActions.setSortField(field))
-    dispatch(articlesPageActions.setPage(1))
-    dispatch(fetchDebouncedData)
-  }, [dispatch, fetchDebouncedData])
+  const onChangeSortField = useCallback(
+    (field: ArticleSortFields) => {
+      dispatch(articlesPageActions.setSortField(field))
+      dispatch(articlesPageActions.setPage(1))
+      dispatch(fetchDebouncedData)
+    },
+    [dispatch, fetchDebouncedData]
+  )
 
-  const onChangeSortOrder = useCallback((sort: SortOrder) => {
-    dispatch(articlesPageActions.setSortOrder(sort))
-    dispatch(articlesPageActions.setPage(1))
-    dispatch(fetchDebouncedData)
-  }, [dispatch, fetchDebouncedData])
+  const onChangeSortOrder = useCallback(
+    (sort: SortOrder) => {
+      dispatch(articlesPageActions.setSortOrder(sort))
+      dispatch(articlesPageActions.setPage(1))
+      dispatch(fetchDebouncedData)
+    },
+    [dispatch, fetchDebouncedData]
+  )
 
-  const onChangeType = useCallback((value: ArticleType) => {
-    dispatch(articlesPageActions.setType(value))
-    dispatch(articlesPageActions.setPage(1))
-    fetchArticlesList({})
-  }, [dispatch])
-
-
+  const onChangeType = useCallback(
+    (value: ArticleType) => {
+      dispatch(articlesPageActions.setType(value))
+      dispatch(articlesPageActions.setPage(1))
+      fetchArticlesList({})
+    },
+    [dispatch]
+  )
 
   return (
-    <div className={classNames(cls.articlesPageFilters, {}, [className])} data-testid='ArticlesPageFilters'>
+    <div
+      className={classNames(cls.articlesPageFilters, {}, [className])}
+      data-testid="ArticlesPageFilters"
+    >
       <div className={classNames(cls.sortWrapper)}>
         <ArticleSortSelector
           view={view}
@@ -79,9 +98,13 @@ export const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
         <ArticleViewsSelector view={view} onViewClick={onChangeView} />
       </div>
       <Card className={classNames(cls.searchInputContainer)}>
-        <Input placeholder='Поиск' value={search} onChange={onChangeSearch} />
+        <Input placeholder="Поиск" value={search} onChange={onChangeSearch} />
       </Card>
-      <ArticleTypeTabs onChangeType={onChangeType} value={type} className={classNames(cls.articleTypeTabs)} />
+      <ArticleTypeTabs
+        onChangeType={onChangeType}
+        value={type}
+        className={classNames(cls.articleTypeTabs)}
+      />
     </div>
   )
 }

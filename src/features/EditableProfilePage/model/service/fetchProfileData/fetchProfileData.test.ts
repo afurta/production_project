@@ -8,7 +8,7 @@ const data = {
   lastname: 'ulbi tv',
   first: 'asd',
   city: 'asf',
-  currency: Currency.USD,
+  currency: Currency.USD
 }
 
 describe('fetchProfileData service', () => {
@@ -22,15 +22,11 @@ describe('fetchProfileData service', () => {
   //   expect(result.meta.requestStatus).toBe('fulfilled');
   //   expect(result.payload).toEqual(data);
   // })
-  
 
   it('error', async () => {
     // const thunk = new TestAsyncThunk(fetchProfileData)
     // thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }))
     // const result = await thunk.callThunk('1')
-
     // expect(result.meta.requestStatus).toBe('rejected')
   })
 })
- 
-

@@ -1,14 +1,14 @@
 const articleId = ''
 
 describe('ArticleDetails page', () => {
-  beforeEach(()=>{
+  beforeEach(() => {
     cy.login()
-    cy.createArticle().then(article=> {
+    cy.createArticle().then((article) => {
       articleId = article.id
       cy.visit(`articles/${article.id}`)
     })
   })
-  afterEach(()=>{
+  afterEach(() => {
     cy.deleteArticle(articleId)
   })
 
@@ -26,7 +26,7 @@ describe('ArticleDetails page', () => {
   })
 
   it('Check the Rating form', () => {
-    cy.intercept('GET', '**/articles/*', { fixture: 'article_details.json'})
+    cy.intercept('GET', '**/articles/*', { fixture: 'article_details.json' })
     cy.getByTestId('RatingCard').should('exist')
     cy.getByTestId('RatingCard').scrollIntoView()
     cy.setRating('4', 'feetback')

@@ -17,26 +17,34 @@ export const Sidebar = ({ className }: SidebarProps) => {
   const [isCollapsed, setCollapes] = useState<boolean>(false)
   const sidebarItemsList = useSelector(getSidebarItems)
 
-  const collapsedHandler = () => setCollapes(prev => !prev)
+  const collapsedHandler = () => setCollapes((prev) => !prev)
 
-  const RenderSidebarItems = useMemo(() => sidebarItemsList.map(item => (
-    <SidebarItem item={item} key={item.path} collapsed={isCollapsed} />
-  )), [isCollapsed, sidebarItemsList])
+  const RenderSidebarItems = useMemo(
+    () =>
+      sidebarItemsList.map((item) => (
+        <SidebarItem item={item} key={item.path} collapsed={isCollapsed} />
+      )),
+    [isCollapsed, sidebarItemsList]
+  )
 
   return (
     <aside
-      className={classNames(cls.Sidebar, { [cls.collapsed]: isCollapsed }, [className])}
-      data-testid='sidebar'
+      className={classNames(cls.Sidebar, { [cls.collapsed]: isCollapsed }, [
+        className
+      ])}
+      data-testid="sidebar"
     >
-      <VStack role={'navigation'} gap={16} className={classNames(cls.items, {}, [])}>
-        {
-          RenderSidebarItems
-        }
+      <VStack
+        role={'navigation'}
+        gap={16}
+        className={classNames(cls.items, {}, [])}
+      >
+        {RenderSidebarItems}
       </VStack>
       <Button
         theme={ButtonTheme.BACKGROUND_INVERTED}
         onClick={() => collapsedHandler()}
-        data-testid='sidebar-btn'
+        data-testid="sidebar-btn"
         className={cls.collapseBtn}
         square
         size={ButtonSize.L}

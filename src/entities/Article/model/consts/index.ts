@@ -1,13 +1,13 @@
-export enum ArticleSortFields{
+export enum ArticleSortFields {
   VIEWS = 'view',
   CREATED_AT = 'createdAt',
-  TITLE = 'title',
+  TITLE = 'title'
 }
 
-export enum ArticleBlockType{
+export enum ArticleBlockType {
   CODE = 'CODE',
   IMAGE = 'IMAGE',
-  TEXT = 'TEXT',
+  TEXT = 'TEXT'
 }
 
 export enum ArticleView {

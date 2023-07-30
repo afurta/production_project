@@ -15,21 +15,18 @@ interface AvatarProps {
 }
 
 export const Avatar = memo((props: AvatarProps) => {
-  const {
-    alt,
-    src,
-    size = 100,
-    className,
-    fallbackInverted
-  } = props
+  const { alt, src, size = 100, className, fallbackInverted } = props
 
   const errorFallback = <Icon Icon={ICONS.User} width={size} height={size} />
-  const fallback = <Skeleton width={size} height={size} border='50%' />
+  const fallback = <Skeleton width={size} height={size} border="50%" />
 
-  const styles = useMemo<CSSProperties>(() => ({
-    width: `${size}px`,
-    height: `${size}px`,
-  }), [size])
+  const styles = useMemo<CSSProperties>(
+    () => ({
+      width: `${size}px`,
+      height: `${size}px`
+    }),
+    [size]
+  )
 
   return (
     <AppImage

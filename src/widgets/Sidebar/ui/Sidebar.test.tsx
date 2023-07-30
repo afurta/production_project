@@ -1,10 +1,8 @@
-import { fireEvent, render, screen } from '@testing-library/react'
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
+import { fireEvent, screen } from '@testing-library/react'
 import { Sidebar } from './Sidebar'
 
-
 describe('Sidebar test', () => {
-
   it('Initial state', () => {
     componentRender(<Sidebar />)
 
@@ -22,5 +20,4 @@ describe('Sidebar test', () => {
 
     expect(screen.getByTestId('sidebar')).toHaveClass('collapsed')
   })
-
 })

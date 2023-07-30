@@ -6,7 +6,10 @@ import { useSelector } from 'react-redux'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
 import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text'
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {
+  DynamicModuleLoader,
+  ReducerList
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { ArticleDetailsReducer } from '../../model/slice/ArticleDetailsSlice'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { Avatar } from '@/shared/ui/Avatar'
@@ -31,7 +34,7 @@ interface ArticleDetailsProps {
 }
 
 const initialReducers: ReducerList = {
-  'ArticleDetails': ArticleDetailsReducer
+  ArticleDetails: ArticleDetailsReducer
 }
 export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
   const { className, id } = props
@@ -64,7 +67,12 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
   if (articleDetailsIsLoading) {
     content = (
       <>
-        <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+        <Skeleton
+          className={cls.avatar}
+          width={200}
+          height={200}
+          border="50%"
+        />
         <Skeleton className={cls.title} width={300} height={32} />
         <Skeleton className={cls.skeleton} width="100%" height={24} />
         <Skeleton className={cls.skeleton} width="100%" height={200} />
@@ -72,14 +80,19 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
       </>
     )
   } else if (articleDetailsError) {
-    content = <Text text='articleDetailsIsLoading' theme={TextTheme.ERROR} />
+    content = <Text text="articleDetailsIsLoading" theme={TextTheme.ERROR} />
   } else {
     content = (
       <>
-        <HStack align='center'>
-          <Avatar alt="avatar" src={data?.img} size={200} className={cls.avatar} />
+        <HStack align="center">
+          <Avatar
+            alt="avatar"
+            src={data?.img}
+            size={200}
+            className={cls.avatar}
+          />
         </HStack>
-        <VStack gap={4} data-testid='ArticleDetails.Info'>
+        <VStack gap={4} data-testid="ArticleDetails.Info">
           <Text
             title={data?.title}
             text={data?.subtitle}
@@ -111,7 +124,6 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
       >
         {content}
       </VStack>
-    </DynamicModuleLoader >
-
+    </DynamicModuleLoader>
   )
 })

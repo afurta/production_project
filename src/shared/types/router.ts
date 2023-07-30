@@ -5,5 +5,3 @@ export type AppRoutesProps = RouteProps & {
   isAuthOnly?: boolean
   roles?: UserRoles[]
 }
-
-

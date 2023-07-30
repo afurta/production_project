@@ -2,32 +2,14 @@ import path from 'path'
 
 export default {
   clearMocks: true,
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'ts',
-    'tsx',
-    'json',
-    'node'
-  ],
-  coveragePathIgnorePatterns: [
-    '/node_modules/'
-  ],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  coveragePathIgnorePatterns: ['/node_modules/'],
   testEnvironment: 'jsdom',
-  moduleDirectories: [
-    'node_modules'
-  ],
+  moduleDirectories: ['node_modules'],
   rootDir: '../../',
-  testMatch: [
-    '<rootDir>/src/**/*.test.ts',
-    '<rootDir>/src/**/*.test.tsx',
-  ],
-  transformIgnorePatterns: [
-    '/node_modules/'
-  ],
-  modulePaths: [
-    '<rootDir>src',
-  ],
+  testMatch: ['<rootDir>/src/**/*.test.ts', '<rootDir>/src/**/*.test.tsx'],
+  transformIgnorePatterns: ['/node_modules/'],
+  modulePaths: ['<rootDir>src'],
   setupFilesAfterEnv: ['<rootDir>config/jest/setupJest.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
@@ -41,11 +23,14 @@ export default {
   },
   reporters: [
     'default',
-    ['jest-html-reporters', {
-      publicPath: '<rootDir>reports/unit',
-      filename: 'report.html',
-      openReport: false
-    }]
+    [
+      'jest-html-reporters',
+      {
+        publicPath: '<rootDir>reports/unit',
+        filename: 'report.html',
+        openReport: false
+      }
+    ]
   ],
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
@@ -61,7 +46,6 @@ export default {
   // The directory where Jest should store its cached dependency information
   // cacheDirectory: "/private/var/folders/s8/c4ssl1sd7v55gbmprcr3l7_00000gn/T/jest_dx",
 
-
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -69,8 +53,7 @@ export default {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: undefined,
-
+  coverageDirectory: undefined
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
@@ -101,7 +84,9 @@ export default {
   // A path to a module which exports an async function that is triggered once after all test suites
   // globalTeardown: undefined,
 
-  // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
+  // The maximum amount of workers used to run your tests. Can be specified as %
+  // or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1
+  // as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module

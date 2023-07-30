@@ -10,33 +10,31 @@ const data = {
   lastname: 'fsd',
   first: 'asd',
   city: 'asf',
-  currency: Currency.USD,
+  currency: Currency.USD
 }
 
 describe('validateProfileData service', () => {
   it('success', async () => {
     const result = validateProfileData(data)
 
-    expect(result).toEqual([])    
+    expect(result).toEqual([])
   })
 
   it('incorrect username', async () => {
-    const result = validateProfileData({...data, lastname: ''})
+    const result = validateProfileData({ ...data, lastname: '' })
 
-    expect(result).toEqual([ValidateProfileError.INCORRECT_LAST_NAME])    
+    expect(result).toEqual([ValidateProfileError.INCORRECT_LAST_NAME])
   })
 
   it('incorrect username', async () => {
-    const result = validateProfileData({...data, age: 32.43})
+    const result = validateProfileData({ ...data, age: 32.43 })
 
-    expect(result).toEqual([ValidateProfileError.INCORRECT_AGE])    
+    expect(result).toEqual([ValidateProfileError.INCORRECT_AGE])
   })
 
   it('incorrect city', async () => {
-    const result = validateProfileData({...data, city: ''})
+    const result = validateProfileData({ ...data, city: '' })
 
-    expect(result).toEqual([ValidateProfileError.INCORRECT_CITY])    
+    expect(result).toEqual([ValidateProfileError.INCORRECT_CITY])
   })
 })
- 
-

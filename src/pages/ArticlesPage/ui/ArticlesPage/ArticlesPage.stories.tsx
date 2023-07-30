@@ -6,11 +6,12 @@ import { Theme } from '@/shared/types/theme'
 
 export default {
   title: 'pages/ArticlesPage',
-  component: ArticlesPage,
-
+  component: ArticlesPage
 } as ComponentMeta<typeof ArticlesPage>
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+  <ArticlesPage {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}

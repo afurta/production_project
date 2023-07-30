@@ -1,13 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-interface useModalProps{
+interface useModalProps {
   delay?: number
   isOpen: boolean
-  onClose?: ()=> void
+  onClose?: () => void
   isLazy?: boolean
 }
-export const useModal = ({delay = 300, isOpen, onClose, isLazy}:useModalProps)=>{
-
+export const useModal = ({
+  delay = 300,
+  isOpen,
+  onClose,
+  isLazy
+}: useModalProps) => {
   const [isClosing, setIsClosing] = useState<boolean>(false)
   const [isMounted, setIsMounted] = useState<boolean>(false)
   const timerRef = useRef<ReturnType<typeof setTimeout>>()
@@ -22,11 +26,14 @@ export const useModal = ({delay = 300, isOpen, onClose, isLazy}:useModalProps)=>
     }
   }, [onClose, delay])
 
-  const onKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      close()
-    }
-  }, [close])
+  const onKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        close()
+      }
+    },
+    [close]
+  )
 
   useEffect(() => {
     if (isOpen) {
@@ -37,15 +44,15 @@ export const useModal = ({delay = 300, isOpen, onClose, isLazy}:useModalProps)=>
       clearTimeout(timerRef.current)
       window.removeEventListener('keydown', onKeyDown)
     }
-
   }, [isOpen, onKeyDown])
 
   useEffect(() => {
     if (isOpen) setIsMounted(true)
   }, [isOpen])
 
-
   return {
-    close, isClosing, isMounted
+    close,
+    isClosing,
+    isMounted
   }
 }

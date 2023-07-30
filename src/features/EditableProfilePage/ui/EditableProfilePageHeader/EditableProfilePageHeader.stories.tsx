@@ -4,10 +4,12 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 
 export default {
   title: 'features/EditableProfilePage/EditableProfilePageHeader',
-  component: EditableProfilePageHeader,
+  component: EditableProfilePageHeader
 } as ComponentMeta<typeof EditableProfilePageHeader>
 
-const Template: ComponentStory<typeof EditableProfilePageHeader> = (args) => < EditableProfilePageHeader {...args} />
+const Template: ComponentStory<typeof EditableProfilePageHeader> = (args) => (
+  <EditableProfilePageHeader {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}

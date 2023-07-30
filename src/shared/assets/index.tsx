@@ -32,4 +32,3 @@ export const ICONS = {
   Notification,
   Star
 }
-

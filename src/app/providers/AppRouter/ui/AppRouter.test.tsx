@@ -1,4 +1,9 @@
-import { getAboutRoute, getAdminPanelRoute, getMainRoute, getProfileRoute } from '@/shared/constants/router'
+import {
+  getAboutRoute,
+  getAdminPanelRoute,
+  getMainRoute,
+  getProfileRoute
+} from '@/shared/constants/router'
 import { AppRouter } from './AppRouter'
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
 import { screen } from '@testing-library/react'

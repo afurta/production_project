@@ -24,7 +24,9 @@ export const Page: FC<PageProps> = (props) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
   const dispatch = useAppDispatch()
   const { pathname } = useLocation()
-  const scrollPosition = useSelector((state: StoreSchema) => getScrollValueByPath(state, pathname))
+  const scrollPosition = useSelector((state: StoreSchema) =>
+    getScrollValueByPath(state, pathname)
+  )
 
   useInfiniteScroll({
     triggerRef,
@@ -32,10 +34,14 @@ export const Page: FC<PageProps> = (props) => {
     cb: onScrollEnd
   })
 
-  const onScrollEvent = useThrottle(
-    (e: UIEvent<HTMLDivElement>) => {
-      dispatch(SaveScrollActions.setScroollPosition({ path: pathname, position: e.currentTarget.scrollTop }))
-    }, 500)
+  const onScrollEvent = useThrottle((e: UIEvent<HTMLDivElement>) => {
+    dispatch(
+      SaveScrollActions.setScroollPosition({
+        path: pathname,
+        position: e.currentTarget.scrollTop
+      })
+    )
+  }, 500)
 
   useInitialEffect(() => {
     wrapperRef.current.scrollTop = scrollPosition || 0
@@ -43,7 +49,8 @@ export const Page: FC<PageProps> = (props) => {
 
   return (
     <main
-      className={classNames(cls.page, {}, [className])} ref={wrapperRef}
+      className={classNames(cls.page, {}, [className])}
+      ref={wrapperRef}
       onScroll={onScrollEvent}
       data-testId={props['data-testId'] ?? 'Page'}
     >
@@ -52,5 +59,3 @@ export const Page: FC<PageProps> = (props) => {
     </main>
   )
 }
-
-

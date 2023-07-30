@@ -1,14 +1,15 @@
 import webpack from 'webpack'
+import { buildDevServer } from './buildDevServer'
+import { buildLoaders } from './buildLoaders'
 import { buildPlugins } from './buildPlugins'
 import { buildResolves } from './buildResolves'
-import { buildLoaders } from './buildLoaders'
 import { IBuildOptions } from './types/config'
-import { buildDevServer } from './buildDevServer'
-import webpackDevServer from 'webpack-dev-server'
 
-export function buildWebpackConfig (options: IBuildOptions): webpack.Configuration {
-  const { mode, paths, isDev} = options
-  
+export function buildWebpackConfig (
+  options: IBuildOptions
+): webpack.Configuration {
+  const { mode, paths, isDev } = options
+
   return {
     mode,
     entry: paths.entry,
@@ -24,6 +25,6 @@ export function buildWebpackConfig (options: IBuildOptions): webpack.Configurati
     },
     plugins: buildPlugins(options),
     devServer: isDev ? buildDevServer(options) : undefined,
-    devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
+    devtool: isDev ? 'eval-cheap-module-source-map' : undefined
   }
 }

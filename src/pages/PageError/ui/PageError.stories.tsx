@@ -9,8 +9,8 @@ export default {
   title: 'pages/PageError',
   component: PageError,
   argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    backgroundColor: { control: 'color' }
+  }
 } as ComponentMeta<typeof PageError>
 
 const Template: ComponentStory<typeof PageError> = () => <PageError />

@@ -17,17 +17,13 @@ export const CommentList: FC<CommentListProps> = (props) => {
 
   return (
     <VStack gap={16}>
-      {
-        data.length
-          ? data.map(comment => (
-            <CommentCard
-              key={comment.id}
-              data={comment}
-              isLoading={isLoading}
-            />
-          ))
-          : <Text title={t(('Комментариев нет'))} align={TextAlign.LEFT} />
-      }
+      {data.length ? (
+        data.map((comment) => (
+          <CommentCard key={comment.id} data={comment} isLoading={isLoading} />
+        ))
+      ) : (
+        <Text title={t('Комментариев нет')} align={TextAlign.LEFT} />
+      )}
     </VStack>
   )
 }

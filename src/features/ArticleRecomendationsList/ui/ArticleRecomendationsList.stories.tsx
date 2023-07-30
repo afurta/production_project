@@ -4,7 +4,6 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { Article } from '@/entities/Article'
 import { UserRoles } from '@/entities/User'
 
-
 const article: Article = {
   id: '1',
   img: '',
@@ -14,15 +13,17 @@ const article: Article = {
   blocks: [],
   type: [],
   title: '123',
-  subtitle: 'asfsa',
+  subtitle: 'asfsa'
 }
 
 export default {
   title: 'features/ArticleRecomendationsList',
-  component: ArticleRecomendationsList,
+  component: ArticleRecomendationsList
 } as ComponentMeta<typeof ArticleRecomendationsList>
 
-const Template: ComponentStory<typeof ArticleRecomendationsList> = (args) => < ArticleRecomendationsList {...args} />
+const Template: ComponentStory<typeof ArticleRecomendationsList> = (args) => (
+  <ArticleRecomendationsList {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}
@@ -36,8 +37,8 @@ Normal.parameters = {
       response: [
         { ...article, id: '1' },
         { ...article, id: '2' },
-        { ...article, id: '3' },
-      ],
+        { ...article, id: '3' }
+      ]
     },
     {
       url: `${__API__}/notifications`,
@@ -58,8 +59,8 @@ Normal.parameters = {
           id: '3',
           title: 'Уведомление 3',
           description: 'Текст уведомления 3'
-        },
-      ],
-    },
-  ],
+        }
+      ]
+    }
+  ]
 }

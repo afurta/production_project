@@ -9,8 +9,8 @@ export default {
   title: 'pages/AdminPanel',
   component: AdminPanel,
   argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    backgroundColor: { control: 'color' }
+  }
 } as ComponentMeta<typeof AdminPanel>
 
 const Template: ComponentStory<typeof AdminPanel> = () => <AdminPanel />

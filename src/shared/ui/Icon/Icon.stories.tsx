@@ -4,10 +4,10 @@ import { ICONS } from '@/shared/assets'
 
 export default {
   title: 'shared/Icon',
-  component: Icon,
+  component: Icon
 } as ComponentMeta<typeof Icon>
 
-const Template: ComponentStory<typeof Icon> = (args) => < Icon {...args} />
+const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {

@@ -10,7 +10,7 @@ export const PageLoader = ({ className }: PageLoaderProps) => {
   return (
     <div
       className={classNames(cls.PageLoader, {}, [className])}
-      data-testid='page-loader'
+      data-testid="page-loader"
     >
       <Loader />
     </div>

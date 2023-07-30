@@ -1,4 +1,9 @@
-import { UserActions, getUserAuthData, isUserAdmin, isUserManager } from '@/entities/User'
+import {
+  UserActions,
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager
+} from '@/entities/User'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ICONS } from '@/shared/assets'
@@ -29,14 +34,12 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
   return (
     <Dropdown
       className={classNames('', {}, [className])}
-      direction='bottom left'
-      control={<ICONS.User width='30' height='30' fallbackInverted />}
+      direction="bottom left"
+      control={<ICONS.User width="30" height="30" fallbackInverted />}
       items={[
-        ...(
-          isAdminPanelAvaliable
-            ? [{ href: getAdminPanelRoute(), content: t('Админка') }]
-            : []
-        ),
+        ...(isAdminPanelAvaliable
+          ? [{ href: getAdminPanelRoute(), content: t('Админка') }]
+          : []),
         { href: getProfileRoute(authData.id), content: t('Профиль') },
         { onClick: onLogOut, content: t('Выйти') }
       ]}

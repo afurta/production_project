@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { CommentFormSchema } from '../types/CommentFormSliceSchema'
 
 const initialState: CommentFormSchema = {
-  text: '',
+  text: ''
 }
 
 export const CommentFormSlice = createSlice({
@@ -25,7 +25,7 @@ export const CommentFormSlice = createSlice({
     // builder.addCase(loginByUserName.fulfilled, (state) => {
     //   state.isLoading = false
     // })
-  },
+  }
 })
 
 export const { reducer: CommentFormReducer } = CommentFormSlice

@@ -10,16 +10,15 @@ const sharedLayerPath = path.resolve(__dirname, '..', 'src', 'shared', 'ui')
 const sharedLayerDir = project.getDirectory(sharedLayerPath)
 const componentsDirs = sharedLayerDir?.getDirectories()
 
-componentsDirs?.forEach(dir => {
+componentsDirs?.forEach((dir) => {
   const indexFilePath = `${dir.getPath()}/index.ts`
   const indexFile = dir.getSourceFile(indexFilePath)
-  
-  if (!indexFile){
+
+  if (!indexFile) {
     const codeTemplate = `export * from './${dir.getBaseName()}'`
     dir.createSourceFile(indexFilePath, codeTemplate, { overwrite: true })
     project.save()
   }
-
 })
 
 const files = project.getSourceFiles()

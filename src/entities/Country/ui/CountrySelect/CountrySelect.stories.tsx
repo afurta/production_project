@@ -4,13 +4,14 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 
 export default {
   title: 'entities/CountrySelect',
-  component: CountrySelect,
+  component: CountrySelect
 } as ComponentMeta<typeof CountrySelect>
 
-const Template: ComponentStory<typeof CountrySelect> = (args) => < CountrySelect {...args} />
+const Template: ComponentStory<typeof CountrySelect> = (args) => (
+  <CountrySelect {...args} />
+)
 
 export const Normal = Template.bind({})
-Normal.args = {
-}
+Normal.args = {}
 
 Normal.decorators = [StoreDecorator({})]

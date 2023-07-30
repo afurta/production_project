@@ -1,11 +1,11 @@
 import { IBuildOptions } from '../types/config'
 import babelRemovePropsPlugin from '../babel/babelRemovePropsPlugin'
 
-interface IbuildBabelLoader extends IBuildOptions{
+interface IbuildBabelLoader extends IBuildOptions {
   isTsx: boolean
 }
 
-export function buildBabelLoader ({isTsx, isDev}:IbuildBabelLoader) {
+export function buildBabelLoader ({ isTsx, isDev }: IbuildBabelLoader) {
   const isProd = !isDev
 
   return {
@@ -14,15 +14,15 @@ export function buildBabelLoader ({isTsx, isDev}:IbuildBabelLoader) {
     use: {
       loader: 'babel-loader',
       options: {
-        cacheDirectory: true, 
+        cacheDirectory: true,
         presets: ['@babel/preset-env'],
         plugins: [
-          ['@babel/plugin-transform-typescript', { isTsx }, ],
-          '@babel/plugin-transform-runtime', 
-          isProd && isTsx && [ babelRemovePropsPlugin, { props: ['data-testid'], },
-          ],
-        ].filter(Boolean),
-      },
+          ['@babel/plugin-transform-typescript', { isTsx }],
+          '@babel/plugin-transform-runtime',
+          isProd &&
+            isTsx && [babelRemovePropsPlugin, { props: ['data-testid'] }]
+        ].filter(Boolean)
+      }
     }
   }
 }

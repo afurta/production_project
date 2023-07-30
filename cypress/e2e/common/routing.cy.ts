@@ -1,8 +1,6 @@
 import { selectByTestId } from 'cypress/helpers/selectByTestId'
 
 describe('App routing', () => {
-
-
   describe('User is logged', () => {
     beforeEach(() => {
       cy.login('admin', '123')
@@ -16,7 +14,6 @@ describe('App routing', () => {
       cy.visit('/articles')
       cy.get(selectByTestId('ArticlesPage')).should('exist')
     })
-        
   })
 
   describe('User is not logged', () => {
@@ -32,7 +29,5 @@ describe('App routing', () => {
       cy.visit('/asdfasdf')
       cy.get(selectByTestId('NotFoundPage')).should('exist')
     })
-    
   })
-
 })

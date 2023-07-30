@@ -7,19 +7,22 @@ interface LanguageSwitcherProps {
   isShorten: boolean
 }
 
-export const LanguageSwitcher = memo(({ className, isShorten }: LanguageSwitcherProps) => {
-  const { t, i18n } = useTranslation()
+export const LanguageSwitcher = memo(
+  ({ className, isShorten }: LanguageSwitcherProps) => {
+    const { t, i18n } = useTranslation()
 
-  const __changeLanguage = () => i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+    const __changeLanguage = () =>
+      i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
 
-  return (
-    <Button
-      theme={ButtonTheme.CLEAR}
-      onClick={__changeLanguage}
-      className={className}
-      data-testid='language-switcher'
-    >
-      {t(isShorten ? 'Сокращение' : 'Язык')}
-    </Button>
-  )
-})
+    return (
+      <Button
+        theme={ButtonTheme.CLEAR}
+        onClick={__changeLanguage}
+        className={className}
+        data-testid="language-switcher"
+      >
+        {t(isShorten ? 'Сокращение' : 'Язык')}
+      </Button>
+    )
+  }
+)

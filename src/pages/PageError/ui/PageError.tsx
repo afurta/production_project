@@ -5,7 +5,6 @@ import cls from './PageError.module.scss'
 import { Page } from '@/widgets/Page'
 
 const PageError = () => {
-
   const { t } = useTranslation()
 
   const _reloadPage = () => location.reload()
@@ -16,10 +15,7 @@ const PageError = () => {
         <div className={classNames(cls.modal_header, {}, [])}>
           {t('Сервис временно недоступен')}
         </div>
-        <Button
-          theme={ButtonTheme.CLEAR}
-          onClick={_reloadPage}
-        >
+        <Button theme={ButtonTheme.CLEAR} onClick={_reloadPage}>
           {t('Обновить страницу')}
         </Button>
       </div>

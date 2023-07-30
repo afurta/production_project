@@ -8,8 +8,8 @@ export const login = (username = 'testuser', password = '123') => {
     url: 'http://localhost:8000/login',
     body: {
       username,
-      password,
-    },
+      password
+    }
   }).then(({ body }) => {
     window.localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(body))
     return body
@@ -18,7 +18,7 @@ export const login = (username = 'testuser', password = '123') => {
 
 export const getByTestId = (id: string) => {
   return cy.get(selectByTestId(id))
-} 
+}
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace

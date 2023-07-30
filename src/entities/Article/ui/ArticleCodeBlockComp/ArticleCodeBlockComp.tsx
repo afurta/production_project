@@ -7,9 +7,10 @@ interface ArticleCodeBlockCompProps {
   block: ArticleCodeBlock
 }
 
-export const ArticleCodeBlockComp: FC<ArticleCodeBlockCompProps> = memo((props) => {
-  const { block } = props
+export const ArticleCodeBlockComp: FC<ArticleCodeBlockCompProps> = memo(
+  (props) => {
+    const { block } = props
 
-  return <Code text={block.code} />
-}
+    return <Code text={block.code} />
+  }
 )

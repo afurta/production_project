@@ -1,7 +1,11 @@
 import { ArticleList } from '@/entities/Article'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { getArticlePageError, getArticlePageLoading, getArticlePageView } from '../../model/selectors/articlesPageSelectors'
+import {
+  getArticlePageError,
+  getArticlePageLoading,
+  getArticlePageView
+} from '../../model/selectors/articlesPageSelectors'
 import { getArticles } from '../../model/slice/articlesPageSlice'
 import { VStack } from '@/shared/ui/Stack'
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text'
@@ -31,11 +35,5 @@ export const ArticleInfiniteList = (props: ArticleInfiniteListProps) => {
     )
   }
 
-  return (
-    <ArticleList
-      articles={articles}
-      view={view}
-      isLoading={isLoading}
-    />
-  )
+  return <ArticleList articles={articles} view={view} isLoading={isLoading} />
 }

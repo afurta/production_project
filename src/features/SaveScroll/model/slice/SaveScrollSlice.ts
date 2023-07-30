@@ -7,10 +7,13 @@ export const SaveScrollSlice = createSlice({
   name: 'SaveScrollSlice',
   initialState,
   reducers: {
-    setScroollPosition: (state, action:PayloadAction<{path: string, position: number}>) => {
+    setScroollPosition: (
+      state,
+      action: PayloadAction<{ path: string, position: number }>
+    ) => {
       state[action.payload.path] = action.payload.position
-    },
-  },
+    }
+  }
 })
 
 export const { actions: SaveScrollActions } = SaveScrollSlice

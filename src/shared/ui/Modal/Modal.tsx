@@ -16,16 +16,15 @@ interface ModalProps {
 const MODAL_CLOSING_DELAY = 300
 
 export const Modal = (props: ModalProps) => {
-  const {
-    className,
-    children,
-    isOpen,
-    onClose,
-    lazy
-  } = props
+  const { className, children, isOpen, onClose, lazy } = props
 
   const { theme } = useTheme()
-  const { close, isClosing, isMounted } = useModal({ delay: MODAL_CLOSING_DELAY, isOpen, onClose, isLazy: lazy })
+  const { close, isClosing, isMounted } = useModal({
+    delay: MODAL_CLOSING_DELAY,
+    isOpen,
+    onClose,
+    isLazy: lazy
+  })
 
   const mods: Record<string, boolean | undefined> = {
     [cls.opened]: isOpen,
@@ -38,9 +37,7 @@ export const Modal = (props: ModalProps) => {
     <Portal>
       <div className={classNames(cls.modal, mods, [className, theme])}>
         <Overlay clickHandler={close} />
-        <div className={classNames(cls.content, {}, [])} >
-          {children}
-        </div>
+        <div className={classNames(cls.content, {}, [])}>{children}</div>
       </div>
     </Portal>
   )

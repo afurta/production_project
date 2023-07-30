@@ -10,13 +10,15 @@ interface ArticleImageBlockCompProps {
   block: ArticleImageBlock
 }
 
-export const ArticleImageBlockComp = memo((props: ArticleImageBlockCompProps) => {
-  const { className, block } = props
+export const ArticleImageBlockComp = memo(
+  (props: ArticleImageBlockCompProps) => {
+    const { className, block } = props
 
-  return (
-    <div className={classNames(cls.articleImageBlockComp, {}, [className])}>
-      <img src={block.src} className={classNames(cls.img)} />
-      {block.title && <Text title={block.title} align={TextAlign.CENTER} />}
-    </div>
-  )
-})
+    return (
+      <div className={classNames(cls.articleImageBlockComp, {}, [className])}>
+        <img src={block.src} className={classNames(cls.img)} />
+        {block.title && <Text title={block.title} align={TextAlign.CENTER} />}
+      </div>
+    )
+  }
+)

@@ -4,14 +4,16 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 
 export default {
   title: 'features/CommentForm',
-  component: CommentForm,
+  component: CommentForm
 } as ComponentMeta<typeof CommentForm>
 
-const Template: ComponentStory<typeof CommentForm> = (args) => < CommentForm {...args} />
+const Template: ComponentStory<typeof CommentForm> = (args) => (
+  <CommentForm {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {
-  onSendComment: function () { }
+  onSendComment: function () {}
 }
 
 Normal.decorators = [StoreDecorator({})]

@@ -25,6 +25,6 @@ export const App = () => {
           {inited && <AppRouter />}
         </div>
       </Suspense>
-    </div >
+    </div>
   )
 }

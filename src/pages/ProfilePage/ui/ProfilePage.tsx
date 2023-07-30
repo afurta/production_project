@@ -10,11 +10,13 @@ const ProfilePage = () => {
   const { id } = useParams<{ id: string }>()
 
   if (!id) {
-    return <Text title={t('Статей нет')} align={TextAlign.LEFT} size={TextSize.L} />
+    return (
+      <Text title={t('Статей нет')} align={TextAlign.LEFT} size={TextSize.L} />
+    )
   }
 
   return (
-    <Page data-testId='ProfilePage'>
+    <Page data-testId="ProfilePage">
       <VStack gap={32}>
         <EditableProfilePage id={id} />
       </VStack>

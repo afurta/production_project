@@ -7,24 +7,40 @@ import { Theme } from '@/shared/types/theme'
 
 export default {
   title: 'features/LoginForm',
-  component: LoginForm,
+  component: LoginForm
 } as ComponentMeta<typeof LoginForm>
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <div style={{ width: '300px' }}><LoginForm {...args} /></div>
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+  <div style={{ width: '300px' }}>
+    <LoginForm {...args} />
+  </div>
+)
 
 export const Light = Template.bind({})
 Light.args = {}
-Light.decorators = [StoreDecorator({ loginForm: { username: 'admin', password: '123' }, })]
+Light.decorators = [
+  StoreDecorator({ loginForm: { username: 'admin', password: '123' } })
+]
 
 export const Dark = Template.bind({})
 Dark.args = {}
-Dark.decorators = [StoreDecorator({ loginForm: { username: 'admin', password: '123' } }), ThemeDecorator(Theme.DARK)]
+Dark.decorators = [
+  StoreDecorator({ loginForm: { username: 'admin', password: '123' } }),
+  ThemeDecorator(Theme.DARK)
+]
 
 export const Error = Template.bind({})
 Error.args = {}
-Error.decorators = [StoreDecorator({ loginForm: { username: 'admin', password: '123', error: 'error', } })]
-
+Error.decorators = [
+  StoreDecorator({
+    loginForm: { username: 'admin', password: '123', error: 'error' }
+  })
+]
 
 export const Loading = Template.bind({})
 Loading.args = {}
-Loading.decorators = [StoreDecorator({ loginForm: { username: 'admin', password: '123', isLoading: true } })]
+Loading.decorators = [
+  StoreDecorator({
+    loginForm: { username: 'admin', password: '123', isLoading: true }
+  })
+]

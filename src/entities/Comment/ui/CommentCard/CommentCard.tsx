@@ -24,7 +24,7 @@ export const CommentCard = (props: CommentCardProps) => {
           <Skeleton
             width={30}
             height={30}
-            border='50%'
+            border="50%"
             className={classNames(cls.AvatarSkeleton)}
           />
           <Skeleton width={100} height={30} />
@@ -40,8 +40,17 @@ export const CommentCard = (props: CommentCardProps) => {
 
   return (
     <VStack className={classNames(cls.commentCard, {}, [className])} gap={8}>
-      <AppLink className={classNames(cls.userContainer)} to={getProfileRoute(data.user.id)}>
-        {data.user.avatar ? <Avatar className={classNames(cls.avatar)} size={30} src={data.user.avatar} /> : null}
+      <AppLink
+        className={classNames(cls.userContainer)}
+        to={getProfileRoute(data.user.id)}
+      >
+        {data.user.avatar ? (
+          <Avatar
+            className={classNames(cls.avatar)}
+            size={30}
+            src={data.user.avatar}
+          />
+        ) : null}
         <Text title={data.user.userName} />
       </AppLink>
       <Text

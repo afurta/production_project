@@ -28,18 +28,17 @@ export const TestProvider = (props: TestProviderProps) => {
       <StoreProvider initialStore={initialStore}>
         <I18nextProvider i18n={i18n}>
           <ThemeProvider initialTheme={theme}>
-            <div className={`app ${theme}`}>
-              {children}
-            </div>
+            <div className={`app ${theme}`}>{children}</div>
           </ThemeProvider>
         </I18nextProvider>
       </StoreProvider>
-    </MemoryRouter >
+    </MemoryRouter>
   )
 }
 
-export const componentRender = (component: ReactNode, options: componentRenderOptions = {}) => {
-  return render(
-    <TestProvider options={options}>{component}</TestProvider>
-  )
+export const componentRender = (
+  component: ReactNode,
+  options: componentRenderOptions = {}
+) => {
+  return render(<TestProvider options={options}>{component}</TestProvider>)
 }

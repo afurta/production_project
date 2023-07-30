@@ -6,10 +6,12 @@ import { Theme } from '@/shared/types/theme'
 
 export default {
   title: 'pages/Forbidden',
-  component: Forbidden,
+  component: Forbidden
 } as ComponentMeta<typeof Forbidden>
 
-const Template: ComponentStory<typeof Forbidden> = (args) => < Forbidden {...args} />
+const Template: ComponentStory<typeof Forbidden> = (args) => (
+  <Forbidden {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}
