@@ -1,5 +1,3 @@
-import { memo, useCallback } from 'react'
-import { useSearchParams } from 'react-router-dom'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
@@ -8,6 +6,8 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
 import { Page } from '@/widgets/Page'
+import { memo, useCallback } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { fetchNextDataArticlePage } from '../../model/service/fetchNextDataArticlePage/fetchNextDataArticlePage'
 import { initedArticlesPage } from '../../model/service/initedArticlesPage/initedArticlesPage'
 import { articlesPageReducer } from '../../model/slice/articlesPageSlice'

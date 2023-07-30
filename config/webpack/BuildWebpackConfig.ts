@@ -1,11 +1,13 @@
 import webpack from 'webpack'
-import { buildDevServer } from './buildDevServer'
-import { buildLoaders } from './buildLoaders'
 import { buildPlugins } from './buildPlugins'
 import { buildResolves } from './buildResolves'
+import { buildLoaders } from './buildLoaders'
 import { IBuildOptions } from './types/config'
+import { buildDevServer } from './buildDevServer'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import webpackDevServer from 'webpack-dev-server'
 
-export function buildWebpackConfig (
+export function buildWebpackConfig(
   options: IBuildOptions
 ): webpack.Configuration {
   const { mode, paths, isDev } = options
