@@ -8,7 +8,7 @@ declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Cypress {
     interface Chainable {
-      setRating(rating:string, feetback?:string): Chainable<>
+      setRating(rating:string, feetback?:string): Chainable<void>
     }
   }
 }

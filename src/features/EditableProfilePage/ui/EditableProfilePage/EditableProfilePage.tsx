@@ -1,29 +1,29 @@
-import { useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useSelector } from 'react-redux'
 import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
 import { ProfileCard } from '@/entities/ProfileCard'
+import { EditableProfilePageHeader } from '@/features/EditableProfilePage/ui/EditableProfilePageHeader/EditableProfilePageHeader'
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
-import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text'
+import { useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 import { ValidateProfileError } from '../../model/consts'
-import { ProfileActions, ProfileReducer } from '../../model/slice/ProfileSlice'
-import { getReadonlyProfile } from '../../model/selectors/getReadonlyProfile/getReadonlyProfile'
-import { getIsLoadingProfile } from '../../model/selectors/getIsLoadingProfile/getIsLoadingProfile'
 import { getErrorProfile } from '../../model/selectors/getErrorProfile/getErrorProfile'
+import { getIsLoadingProfile } from '../../model/selectors/getIsLoadingProfile/getIsLoadingProfile'
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
+import { getReadonlyProfile } from '../../model/selectors/getReadonlyProfile/getReadonlyProfile'
 import { fetchProfileData } from '../../model/service/fetchProfileData/fetchProfileData'
+import { ProfileActions, ProfileReducer } from '../../model/slice/ProfileSlice'
 
 interface EditableProfilePageProps {
-  className?: string
   id: string
 }
 
 export const EditableProfilePage = (props: EditableProfilePageProps) => {
-  const { className, id } = props
+  const { id } = props
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
 
@@ -89,6 +89,7 @@ export const EditableProfilePage = (props: EditableProfilePageProps) => {
           validateErrors.map(elem => <Text theme={TextTheme.ERROR} key={elem} text={validateErrorsTranslates[elem]} align={TextAlign.LEFT} />)
         )
       }
+      <EditableProfilePageHeader />
       <ProfileCard
         readonly={readonly}
         data={formData}
