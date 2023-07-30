@@ -16,6 +16,7 @@ import { ArticleDetailsPageHeader } from '../../ui/ArticleDetailsPageHeader/Arti
 import cls from './ArticleDetailsPage.module.scss'
 import { Loader } from '@/shared/ui/Loader'
 import { ArticleRating } from '@/features/ArticleRating'
+import { getFeatureFlag } from '@/shared/lib/features'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -29,6 +30,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article_details')
   const { className } = props
   const { id } = useParams<{ id: string }>()
+  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled')
 
   if (!id) return null
 
@@ -44,7 +46,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <ArticleDetails id={id} />
           </Suspense>
           <ArticleRecomendationsList />
-          <ArticleRating articleId={id} />
+          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
           <ArticleAddCommentForm id={id} />
         </VStack>
       </Page>
