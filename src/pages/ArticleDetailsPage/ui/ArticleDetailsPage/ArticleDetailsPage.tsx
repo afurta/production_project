@@ -16,7 +16,8 @@ import { ArticleDetailsPageHeader } from '../../ui/ArticleDetailsPageHeader/Arti
 import cls from './ArticleDetailsPage.module.scss'
 import { Loader } from '@/shared/ui/Loader'
 import { ArticleRating } from '@/features/ArticleRating'
-import { getFeatureFlag } from '@/shared/lib/features'
+import { getFeatureFlag, toggleFeature } from '@/shared/lib/features'
+import { Card } from '@/shared/ui/Card'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -34,6 +35,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
   if (!id) return null
 
+  const rating = toggleFeature({
+    name: 'ArticleRatingEnabled',
+    on: () => <ArticleRating articleId={id} />,
+    off: () => <Card>{t('Рейтинг появится позже')}</Card>
+  })
+
   return (
     <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount>
       <Page
@@ -46,7 +53,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <ArticleDetails id={id} />
           </Suspense>
           <ArticleRecomendationsList />
-          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+          {/* {isArticleRatingEnabled && <ArticleRating articleId={id} />} */}
+          {rating}
           <ArticleAddCommentForm id={id} />
         </VStack>
       </Page>
