@@ -1,23 +1,23 @@
 import { ArticleDetails } from '@/entities/Article'
+import { ArticleRating } from '@/features/ArticleRating'
 import { ArticleRecomendationsList } from '@/features/ArticleRecomendationsList'
 import { ArticleAddCommentForm } from '@/pages/ArticleDetailsPage/ui/ArticleAddCommentForm/ArticleAddCommentForm'
-import { Suspense, memo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useParams } from 'react-router-dom'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import {
   DynamicModuleLoader,
   ReducerList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { getFeatureFlag, toggleFeature } from '@/shared/lib/features'
+import { Card } from '@/shared/ui/Card'
+import { Loader } from '@/shared/ui/Loader'
 import { VStack } from '@/shared/ui/Stack'
 import { Page } from '@/widgets/Page'
+import { Suspense, memo } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
 import { ArticleDetailsPageReducer } from '../../model/slice'
 import { ArticleDetailsPageHeader } from '../../ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader'
 import cls from './ArticleDetailsPage.module.scss'
-import { Loader } from '@/shared/ui/Loader'
-import { ArticleRating } from '@/features/ArticleRating'
-import { getFeatureFlag, toggleFeature } from '@/shared/lib/features'
-import { Card } from '@/shared/ui/Card'
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -36,7 +36,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   if (!id) return null
 
   const rating = toggleFeature({
-    name: 'ArticleRatingEnabled',
+    name: 'isArticleRatingEnabled',
     on: () => <ArticleRating articleId={id} />,
     off: () => <Card>{t('Рейтинг появится позже')}</Card>
   })

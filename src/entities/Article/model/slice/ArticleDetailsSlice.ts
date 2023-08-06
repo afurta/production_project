@@ -1,7 +1,7 @@
-import { fetchArticleById } from './../services/fetchArticleById/fetchArticleById'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { ArticleDetailsSchema } from '../../model/types/ArticleDetails'
 import { Article } from '../../model/types/article'
+import { fetchArticleById } from './../services/fetchArticleById/fetchArticleById'
 
 const initialState: ArticleDetailsSchema = {
   data: undefined,
@@ -15,18 +15,20 @@ export const ArticleDetailsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchArticleById.pending, (state) => {
-      (state.isLoading = true), (state.error = undefined)
-    }),
-      builder.addCase(fetchArticleById.rejected, (state, action) => {
-        (state.isLoading = false), (state.error = action.payload)
-      }),
-      builder.addCase(
-        fetchArticleById.fulfilled,
-        (state, action: PayloadAction<Article>) => {
-          state.data = action.payload
-          state.isLoading = false
-        }
-      )
+      state.isLoading = true
+      state.error = undefined
+    })
+    builder.addCase(fetchArticleById.rejected, (state, action) => {
+      state.isLoading = false
+      state.error = action.payload
+    })
+    builder.addCase(
+      fetchArticleById.fulfilled,
+      (state, action: PayloadAction<Article>) => {
+        state.data = action.payload
+        state.isLoading = false
+      }
+    )
   }
 })
 

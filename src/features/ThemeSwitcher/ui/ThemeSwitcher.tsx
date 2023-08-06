@@ -1,8 +1,10 @@
 import { useTheme } from '@/app/providers/ThemeProvider'
-import { memo } from 'react'
+import { saveJsonSettings } from '@/entities/User'
 import { ICONS } from '@/shared/assets'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Theme } from '@/shared/types/theme'
+import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { memo, useCallback } from 'react'
 
 interface ThemeSwitcherProps {
   className?: string
@@ -10,11 +12,18 @@ interface ThemeSwitcherProps {
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme()
+  const dispatch = useAppDispatch()
+
+  const onToggleTheme = useCallback(() => {
+    toggleTheme((newTheme: Theme) => {
+      dispatch(saveJsonSettings({ theme: newTheme }))
+    })
+  }, [dispatch, toggleTheme])
 
   return (
     <Button
       theme={ButtonTheme.CLEAR}
-      onClick={toggleTheme}
+      onClick={onToggleTheme}
       data-testid="theme-switcher"
     >
       {theme === Theme.LIGHT ? <ICONS.ThemeLight /> : <ICONS.ThemeDark />}
