@@ -7,7 +7,7 @@ import {
   DynamicModuleLoader,
   ReducerList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { getFeatureFlag, toggleFeature } from '@/shared/lib/features'
+import { ToggleFeature } from '@/shared/lib/features'
 import { Card } from '@/shared/ui/Card'
 import { Loader } from '@/shared/ui/Loader'
 import { VStack } from '@/shared/ui/Stack'
@@ -31,15 +31,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { t } = useTranslation('article_details')
   const { className } = props
   const { id } = useParams<{ id: string }>()
-  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled')
 
   if (!id) return null
-
-  const rating = toggleFeature({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>{t('Рейтинг появится позже')}</Card>
-  })
 
   return (
     <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount>
@@ -53,8 +46,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <ArticleDetails id={id} />
           </Suspense>
           <ArticleRecomendationsList />
-          {/* {isArticleRatingEnabled && <ArticleRating articleId={id} />} */}
-          {rating}
+          <ToggleFeature
+            feature={'isArticleRatingEnabled'}
+            on={<ArticleRating articleId={id} />}
+            off={<Card>{t('Рейтинг появится позже')}</Card>}
+          />
           <ArticleAddCommentForm id={id} />
         </VStack>
       </Page>

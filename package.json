@@ -26,7 +26,8 @@
     "storybook:build": "build-storybook -c ./config/storybook",
     "start:dev:server": "node ./json-server/index.js",
     "prepare": "husky install",
-    "postinstall": "npx ts-node ./scripts/removeNodeModuleCache.ts"
+    "postinstall": "npx ts-node ./scripts/removeNodeModuleCache.ts",
+    "remove-feature": "ts-node ./scripts/removeFeature.ts"
   },
   "lint-staged": {
     "*/**/*.{ts,tsx}": [
