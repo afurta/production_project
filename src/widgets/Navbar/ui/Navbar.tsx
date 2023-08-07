@@ -12,6 +12,7 @@ import { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import cls from './Navbar.module.scss'
+import { ToggleFeature } from '@/shared/lib/features'
 
 interface NavbarProps {
   className?: string
@@ -27,37 +28,60 @@ export const Navbar = memo(({ className }: NavbarProps) => {
   const onCloseLoginModal = useCallback(() => setIsLoginModal(false), [])
   const onOpenLoginModal = useCallback(() => setIsLoginModal(true), [])
 
+  if (authData) {
+    return (
+      <ToggleFeature
+        feature={'isAppRedesigned'}
+        on={
+          <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
+            <div className={cls.links}>
+              <div>
+                <HStack gap={8} className={classNames(cls.controls)}>
+                  <NotificationBtn />
+                  <AvatarDropdown />
+                </HStack>
+              </div>
+            </div>
+          </header>
+        }
+        off={
+          <header className={classNames(cls.navbar, {}, [className])}>
+            <div className={cls.links}>
+              <div>
+                <Text
+                  title={'App'}
+                  align={TextAlign.LEFT}
+                  theme={TextTheme.INVERTED}
+                />
+                <AppLink
+                  className={classNames(cls.createNewArticle)}
+                  to={getArticlesCreateRoute()}
+                  theme={AppLinkTheme.SECONDARY}
+                >
+                  {t('Создать новую статью')}
+                </AppLink>
+                <HStack gap={8} className={classNames(cls.controls)}>
+                  <NotificationBtn />
+                  <AvatarDropdown />
+                </HStack>
+              </div>
+            </div>
+          </header>
+        }
+      />
+    )
+  }
+
   return (
     <header className={classNames(cls.navbar, {}, [className])}>
       <div className={cls.links}>
-        {authData ? (
-          <>
-            <Text
-              title={'App'}
-              align={TextAlign.LEFT}
-              theme={TextTheme.INVERTED}
-            />
-            <AppLink
-              className={classNames(cls.createNewArticle)}
-              to={getArticlesCreateRoute()}
-              theme={AppLinkTheme.SECONDARY}
-            >
-              {t('Создать новую статью')}
-            </AppLink>
-            <HStack gap={8} className={classNames(cls.controls)}>
-              <NotificationBtn />
-              <AvatarDropdown />
-            </HStack>
-          </>
-        ) : (
-          <Button
-            className={classNames(cls.navbarBtn)}
-            onClick={onOpenLoginModal}
-            theme={ButtonTheme.CLEAR_INVERTED}
-          >
-            {t('Войти')}
-          </Button>
-        )}
+        <Button
+          className={classNames(cls.navbarBtn)}
+          onClick={onOpenLoginModal}
+          theme={ButtonTheme.CLEAR_INVERTED}
+        >
+          {t('Войти')}
+        </Button>
       </div>
       {isLoginModal && (
         <LoginModal

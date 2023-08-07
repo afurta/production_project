@@ -1,16 +1,17 @@
-import { FC, MutableRefObject, ReactNode, UIEvent, useRef } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './Page.module.scss'
-import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-import { useLocation } from 'react-router-dom'
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
-import { useSelector } from 'react-redux'
-import { getScrollValueByPath } from '@/features/SaveScroll/model/selectors/getScroollPosition/getScroollPosition'
-import { SaveScrollActions } from '@/features/SaveScroll'
 import { StoreSchema } from '@/app/providers/StoreProvider'
+import { SaveScrollActions } from '@/features/SaveScroll'
+import { getScrollValueByPath } from '@/features/SaveScroll/model/selectors/getScroollPosition/getScroollPosition'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { toggleFeature } from '@/shared/lib/features'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
 import { useThrottle } from '@/shared/lib/hooks/useThrootle'
 import { TestsProps } from '@/shared/types/tests'
+import { FC, MutableRefObject, ReactNode, UIEvent, useRef } from 'react'
+import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
+import cls from './Page.module.scss'
 
 interface PageProps extends TestsProps {
   className?: string
@@ -49,7 +50,15 @@ export const Page: FC<PageProps> = (props) => {
 
   return (
     <main
-      className={classNames(cls.page, {}, [className])}
+      className={classNames(
+        toggleFeature({
+          name: 'isAppRedesigned',
+          on: () => cls.pageRedesigned,
+          off: () => cls.page
+        }),
+        {},
+        [className]
+      )}
       ref={wrapperRef}
       onScroll={onScrollEvent}
       data-testId={props['data-testId'] ?? 'Page'}

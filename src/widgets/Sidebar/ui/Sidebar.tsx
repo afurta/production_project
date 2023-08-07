@@ -8,6 +8,8 @@ import cls from './Sidebar.module.scss'
 import { VStack } from '@/shared/ui/Stack'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../selectors/getSidebarItems'
+import { ToggleFeature } from '@/shared/lib/features'
+import { AppLogo } from '@/shared/ui/AppLogo'
 
 interface SidebarProps {
   className?: string
@@ -28,33 +30,50 @@ export const Sidebar = ({ className }: SidebarProps) => {
   )
 
   return (
-    <aside
-      className={classNames(cls.Sidebar, { [cls.collapsed]: isCollapsed }, [
-        className
-      ])}
-      data-testid="sidebar"
-    >
-      <VStack
-        role={'navigation'}
-        gap={16}
-        className={classNames(cls.items, {}, [])}
-      >
-        {RenderSidebarItems}
-      </VStack>
-      <Button
-        theme={ButtonTheme.BACKGROUND_INVERTED}
-        onClick={() => collapsedHandler()}
-        data-testid="sidebar-btn"
-        className={cls.collapseBtn}
-        square
-        size={ButtonSize.L}
-      >
-        {isCollapsed ? '>' : '<'}
-      </Button>
-      <div className={cls.switchers}>
-        <ThemeSwitcher />
-        <LanguageSwitcher className={cls.lang} isShorten={isCollapsed} />
-      </div>
-    </aside>
+    <ToggleFeature
+      feature={'isAppRedesigned'}
+      on={
+        <aside
+          className={classNames(
+            cls.SidebarRedesigned,
+            { [cls.collapsed]: isCollapsed },
+            [className]
+          )}
+          data-testid="sidebar"
+        >
+          <AppLogo className={cls.appLogo} />
+        </aside>
+      }
+      off={
+        <aside
+          className={classNames(cls.Sidebar, { [cls.collapsed]: isCollapsed }, [
+            className
+          ])}
+          data-testid="sidebar"
+        >
+          <VStack
+            role={'navigation'}
+            gap={16}
+            className={classNames(cls.items, {}, [])}
+          >
+            {RenderSidebarItems}
+          </VStack>
+          <Button
+            theme={ButtonTheme.BACKGROUND_INVERTED}
+            onClick={() => collapsedHandler()}
+            data-testid="sidebar-btn"
+            className={cls.collapseBtn}
+            square
+            size={ButtonSize.L}
+          >
+            {isCollapsed ? '>' : '<'}
+          </Button>
+          <div className={cls.switchers}>
+            <ThemeSwitcher />
+            <LanguageSwitcher className={cls.lang} isShorten={isCollapsed} />
+          </div>
+        </aside>
+      }
+    />
   )
 }

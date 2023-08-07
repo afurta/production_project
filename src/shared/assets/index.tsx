@@ -15,6 +15,11 @@ import Notification from './icons/Notification.svg'
 import Star from './icons/Star.svg'
 
 // IMAGES
+import AppImage from './images/AppImage.svg'
+
+export const IMAGES = {
+  AppImage
+}
 
 export const ICONS = {
   ThemeDark,

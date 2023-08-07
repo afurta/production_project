@@ -1,6 +1,6 @@
-import { getFeatureFlag } from '../setGetFeaturesFlags'
 import { FeauresFlags } from '@/shared/types/featureFlag'
 import { ReactElement } from 'react'
+import { getFeatureFlag } from '../setGetFeaturesFlags'
 
 interface ToggleFeature {
   feature: keyof FeauresFlags
@@ -8,7 +8,10 @@ interface ToggleFeature {
   off: ReactElement
 }
 
-export const ToggleFeature = ({ feature, on, off }: ToggleFeature) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const ToggleFeature = (props: ToggleFeature) => {
+  const { on, off, feature } = props
+
   if (getFeatureFlag(feature)) {
     return on
   }

@@ -96,13 +96,24 @@
       "error",
       {
         "markupOnly": true,
-        "ignoreAllAttributes": ["data-testid", "to"]
+        "ignoreAttribute": [
+          "as",
+          "role",
+          "data-testid",
+          "to",
+          "target",
+          "justify",
+          "align",
+          "border",
+          "direction",
+          "gap",
+          "feature"
+        ]
       }
     ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "no-undef": "off"
-    // "react/jsx-max-props-per-line": [1, { "maximum": 4 }]
   },
   "overrides": [
     {
