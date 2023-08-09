@@ -1,5 +1,7 @@
 .sortWrapper {
   color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
 }
 .searchInputContainer {
   margin-bottom: 20px;

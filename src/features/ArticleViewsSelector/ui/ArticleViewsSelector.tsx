@@ -42,6 +42,8 @@ export const ArticleViewsSelector: FC<ArticleViewsSelectorProps> = (props) => {
             className={classNames('', {
               [cls.selected]: viewType.view !== view
             })}
+            width={24}
+            height={24}
           />
         </Button>
       ))}

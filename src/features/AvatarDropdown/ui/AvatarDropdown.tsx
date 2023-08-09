@@ -12,6 +12,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Dropdown } from '@/shared/ui/Popups'
 import { getAdminPanelRoute, getProfileRoute } from '@/shared/constants/router'
 import { useSelector } from 'react-redux'
+import { Icon } from '@/shared/ui/Icon'
 
 interface AvatarDropdownProps {
   className?: string
@@ -35,7 +36,7 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
     <Dropdown
       className={classNames('', {}, [className])}
       direction="bottom left"
-      control={<ICONS.User width="30" height="30" fallbackInverted />}
+      control={<Icon Icon={ICONS.User} width={24} height={24} />}
       items={[
         ...(isAdminPanelAvaliable
           ? [{ href: getAdminPanelRoute(), content: t('Админка') }]

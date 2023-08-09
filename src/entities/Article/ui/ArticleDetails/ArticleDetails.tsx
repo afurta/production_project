@@ -84,7 +84,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
   } else {
     content = (
       <>
-        <HStack align="center">
+        <HStack align="center" justify="center">
           <Avatar
             alt="avatar"
             src={data?.img}

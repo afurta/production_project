@@ -47,24 +47,22 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         off={
           <header className={classNames(cls.navbar, {}, [className])}>
             <div className={cls.links}>
-              <div>
-                <Text
-                  title={'App'}
-                  align={TextAlign.LEFT}
-                  theme={TextTheme.INVERTED}
-                />
-                <AppLink
-                  className={classNames(cls.createNewArticle)}
-                  to={getArticlesCreateRoute()}
-                  theme={AppLinkTheme.SECONDARY}
-                >
-                  {t('Создать новую статью')}
-                </AppLink>
-                <HStack gap={8} className={classNames(cls.controls)}>
-                  <NotificationBtn />
-                  <AvatarDropdown />
-                </HStack>
-              </div>
+              <Text
+                title={'App'}
+                align={TextAlign.LEFT}
+                theme={TextTheme.INVERTED}
+              />
+              <AppLink
+                className={classNames(cls.createNewArticle)}
+                to={getArticlesCreateRoute()}
+                theme={AppLinkTheme.SECONDARY}
+              >
+                {t('Создать новую статью')}
+              </AppLink>
+              <HStack gap={8} className={classNames(cls.controls)}>
+                <NotificationBtn />
+                <AvatarDropdown />
+              </HStack>
             </div>
           </header>
         }

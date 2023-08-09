@@ -1,6 +1,6 @@
 import { StoreSchema } from '@/app/providers/StoreProvider'
 import { SaveScrollActions } from '@/features/SaveScroll'
-import { getScrollValueByPath } from '@/features/SaveScroll/model/selectors/getScroollPosition/getScroollPosition'
+import { getScrollValueByPath } from '@/features/SaveScroll'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { toggleFeature } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'

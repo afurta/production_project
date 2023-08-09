@@ -4,6 +4,7 @@ import { ICONS } from '@/shared/assets'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Theme } from '@/shared/types/theme'
 import { Button, ButtonTheme } from '@/shared/ui/Button'
+import { Icon } from '@/shared/ui/Icon'
 import { memo, useCallback } from 'react'
 
 interface ThemeSwitcherProps {
@@ -26,7 +27,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
       onClick={onToggleTheme}
       data-testid="theme-switcher"
     >
-      {theme === Theme.LIGHT ? <ICONS.ThemeLight /> : <ICONS.ThemeDark />}
+      <Icon Icon={ICONS.ThemeDark} width={40} height={40} inverted />
     </Button>
   )
 })
