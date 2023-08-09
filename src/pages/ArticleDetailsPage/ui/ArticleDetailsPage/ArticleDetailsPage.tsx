@@ -8,9 +8,9 @@ import {
   ReducerList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { ToggleFeature } from '@/shared/lib/features'
-import { Card } from '@/shared/ui/Card'
-import { Loader } from '@/shared/ui/Loader'
-import { VStack } from '@/shared/ui/Stack'
+import { Card } from '@/shared/ui/deprecated/Card'
+import { Loader } from '@/shared/ui/deprecated/Loader'
+import { VStack } from '@/shared/ui/deprecated/Stack'
 import { Page } from '@/widgets/Page'
 import { Suspense, memo } from 'react'
 import { useTranslation } from 'react-i18next'

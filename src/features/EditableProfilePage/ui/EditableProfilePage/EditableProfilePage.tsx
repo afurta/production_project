@@ -8,7 +8,7 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text'
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text'
 import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'

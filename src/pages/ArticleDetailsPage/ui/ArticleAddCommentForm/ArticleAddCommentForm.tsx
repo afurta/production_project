@@ -4,8 +4,8 @@ import { Suspense, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-import { VStack } from '@/shared/ui/Stack'
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text'
+import { VStack } from '@/shared/ui/deprecated/Stack'
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text'
 import {
   getArticleDetailsCommentError,
   getArticleDetailsCommentLoading
@@ -14,7 +14,7 @@ import { addCommentForArticle } from '../../model/service/sendCommentForArticle/
 import { getCommentsSelectors } from '../../model/slice/ArticleDetailsCommentSlice'
 import { fetchCommentsArticleById } from '../../model/service/commentsArticleById/commentsArticleById'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
-import { Loader } from '@/shared/ui/Loader'
+import { Loader } from '@/shared/ui/deprecated/Loader'
 
 interface ArticleAddCommentFormProps {
   className?: string

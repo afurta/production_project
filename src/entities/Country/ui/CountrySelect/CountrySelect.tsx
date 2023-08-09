@@ -1,8 +1,8 @@
 import { Country } from '@/entities/Country/model/country'
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ListBox } from '@/shared/ui/Popups'
-import { Select } from '@/shared/ui/Select'
+import { ListBox } from '@/shared/ui/deprecated/Popups'
+import { Select } from '@/shared/ui/deprecated/Select'
 
 interface CountrySelectProps {
   className?: string

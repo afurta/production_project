@@ -2,12 +2,13 @@ import { NotificationList } from '@/entities/Notification'
 import { ICONS } from '@/shared/assets'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useDetectDevice } from '@/shared/lib/hooks/useDetectDevice'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
-import { Drawer } from '@/shared/ui/Drawer'
-import { Icon } from '@/shared/ui/Icon'
-import { Popover } from '@/shared/ui/Popups'
+
 import { memo, useCallback, useState } from 'react'
 import cls from './NotificationBtn.module.scss'
+import { Drawer } from '@/shared/ui/deprecated/Drawer'
+import { Popover } from '@/shared/ui/deprecated/Popups'
+import { Icon } from '@/shared/ui/deprecated/Icon'
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
 
 interface NotificationBtnProps {
   className?: string

@@ -7,8 +7,8 @@ import {
   ReducerList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
-import { Input } from '@/shared/ui/Input'
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
+import { Input } from '@/shared/ui/deprecated/Input'
 import {
   getCommentFormError,
   getCommentFormText
@@ -18,7 +18,7 @@ import {
   CommentFormReducer
 } from '../../model/slice/CommentFormSlice'
 import cls from './CommentForm.module.scss'
-import { HStack } from '@/shared/ui/Stack'
+import { HStack } from '@/shared/ui/deprecated/Stack'
 
 interface CommentFormProps {
   className?: string

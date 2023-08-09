@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleTextBlockComp.module.scss'
 import { ArticleTextBlock } from '../../model/types/article'
-import { Text, TextAlign } from '@/shared/ui/Text'
+import { Text, TextAlign } from '@/shared/ui/deprecated/Text'
 
 interface ArticleTextBlockCompProps {
   className?: string

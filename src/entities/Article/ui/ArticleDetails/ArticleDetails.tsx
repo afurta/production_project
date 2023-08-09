@@ -5,21 +5,26 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
-import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text'
+import {
+  Text,
+  TextAlign,
+  TextSize,
+  TextTheme
+} from '@/shared/ui/deprecated/Text'
 import {
   DynamicModuleLoader,
   ReducerList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { ArticleDetailsReducer } from '../../model/slice/ArticleDetailsSlice'
-import { Skeleton } from '@/shared/ui/Skeleton'
-import { Avatar } from '@/shared/ui/Avatar'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
+import { Avatar } from '@/shared/ui/deprecated/Avatar'
 import { ICONS } from '@/shared/assets'
-import { Icon } from '@/shared/ui/Icon'
+import { Icon } from '@/shared/ui/deprecated/Icon'
 
 import { ArticleCodeBlockComp } from '../ArticleCodeBlockComp/ArticleCodeBlockComp'
 import { ArticleImageBlockComp } from '../ArticleImageBlockComp/ArticleImageBlockComp'
 import { ArticleTextBlockComp } from '../ArticleTextBlockComp/ArticleTextBlockComp'
-import { HStack, VStack } from '@/shared/ui/Stack'
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack'
 import {
   getArticleDetailsData,
   getArticleDetailsError,

@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 import { ArticleCodeBlock } from '../../model/types/article'
-import { Code } from '@/shared/ui/Code'
+import { Code } from '@/shared/ui/deprecated/Code'
 
 interface ArticleCodeBlockCompProps {
   className?: string

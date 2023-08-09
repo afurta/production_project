@@ -3,8 +3,8 @@ import { saveJsonSettings } from '@/entities/User'
 import { ICONS } from '@/shared/assets'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Theme } from '@/shared/types/theme'
-import { Button, ButtonTheme } from '@/shared/ui/Button'
-import { Icon } from '@/shared/ui/Icon'
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
+import { Icon } from '@/shared/ui/deprecated/Icon'
 import { memo, useCallback } from 'react'
 
 interface ThemeSwitcherProps {

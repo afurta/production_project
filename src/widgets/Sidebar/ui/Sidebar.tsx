@@ -1,15 +1,15 @@
 import { useMemo, useState } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button'
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button'
 import { LanguageSwitcher } from '@/features/LanguageSwitcher'
 import { SidebarItem } from '@/widgets/Sidebar/ui/SidebarItem/SidebarItem'
 import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import cls from './Sidebar.module.scss'
-import { VStack } from '@/shared/ui/Stack'
+import { VStack } from '@/shared/ui/deprecated/Stack'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../selectors/getSidebarItems'
 import { ToggleFeature } from '@/shared/lib/features'
-import { AppLogo } from '@/shared/ui/AppLogo'
+import { AppLogo } from '@/shared/ui/deprecated/AppLogo'
 
 interface SidebarProps {
   className?: string

@@ -1,9 +1,9 @@
 import { NotificationItem } from '../NotificationItem/NotificationItem'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { UseArticleRecomendationsList } from '../../api/notificationList'
-import { VStack } from '@/shared/ui/Stack'
-import { Skeleton } from '@/shared/ui/Skeleton'
-import { Text, TextTheme } from '@/shared/ui/Text'
+import { VStack } from '@/shared/ui/deprecated/Stack'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text'
 import { memo } from 'react'
 
 interface NotificationListProps {
