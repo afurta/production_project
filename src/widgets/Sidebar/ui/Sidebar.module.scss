@@ -33,7 +33,6 @@
   }
   .items {
     align-items: center;
-    margin-left: 0;
   }
   .lang {
     margin-left: 0;
@@ -45,8 +44,51 @@
     width: 220px;
     height: 100%;
     border-radius: 32px;
+    position: relative;
+    overflow: hidden;
+    .appLogo {
+      padding-top: 20px;
+    }
+
+    .itemsRedesigned {
+      margin-top: 40px;
+    }
+    .collapseBtnRedesigned {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: rotate(90deg);
+        cursor: pointer;
+    }
+
+    .switchers {
+        position: absolute;
+        bottom: 40px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 16px;
+    }
 }
 
-.appLogo {
-    padding-top: 20px;
+.collapsedRedesigned {
+    width: 50px;
+
+    .switchers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lang {
+        margin-left: 0;
+    }
+
+    .collapseBtnRedesigned {
+        transform: rotate(-90deg);
+    }
+
+    .switchers {
+        flex-direction: column;
+        align-items: center;
+    }
 }

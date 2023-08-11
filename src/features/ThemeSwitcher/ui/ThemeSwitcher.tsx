@@ -1,10 +1,12 @@
 import { useTheme } from '@/app/providers/ThemeProvider'
 import { saveJsonSettings } from '@/entities/User'
-import { ICONS } from '@/shared/assets'
+import { ICONS, ICONS_NEW } from '@/shared/assets'
+import { ToggleFeature } from '@/shared/lib/features'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Theme } from '@/shared/types/theme'
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
-import { Icon } from '@/shared/ui/deprecated/Icon'
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon'
+import { Icon } from '@/shared/ui/redesigned/Icon'
 import { memo, useCallback } from 'react'
 
 interface ThemeSwitcherProps {
@@ -22,12 +24,23 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   }, [dispatch, toggleTheme])
 
   return (
-    <Button
-      theme={ButtonTheme.CLEAR}
-      onClick={onToggleTheme}
-      data-testid="theme-switcher"
-    >
-      <Icon Icon={ICONS.ThemeDark} width={40} height={40} inverted />
-    </Button>
+    <ToggleFeature
+      feature={'isAppRedesigned'}
+      on={<Icon Svg={ICONS_NEW.Theme} onClick={onToggleTheme} clickable />}
+      off={
+        <Button
+          theme={ButtonTheme.CLEAR}
+          onClick={onToggleTheme}
+          data-testid="theme-switcher"
+        >
+          <IconDeprecated
+            Svg={ICONS.ThemeDark}
+            width={40}
+            height={40}
+            inverted
+          />
+        </Button>
+      }
+    />
   )
 })

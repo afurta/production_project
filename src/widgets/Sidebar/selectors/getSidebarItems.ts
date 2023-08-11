@@ -1,24 +1,33 @@
-import { ICONS } from '@/shared/assets'
 import { getUserAuthData } from '@/entities/User'
+import { ICONS, ICONS_NEW } from '@/shared/assets'
 import {
   getAboutRoute,
   getArticlesRoute,
   getMainRoute,
   getProfileRoute
 } from '@/shared/constants/router'
-import { SidebarItemType } from '../types/SidebarItems'
+import { toggleFeature } from '@/shared/lib/features'
 import { createSelector } from '@reduxjs/toolkit'
+import { SidebarItemType } from '../types/SidebarItems'
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   const sidebarItemsList: SidebarItemType[] = [
     {
       path: getMainRoute(),
-      Icon: ICONS.Main,
+      Icon: toggleFeature({
+        name: 'isAppRedesigned',
+        on: () => ICONS_NEW.Main,
+        off: () => ICONS.Main
+      }),
       text: 'Главная'
     },
     {
       path: getAboutRoute(),
-      Icon: ICONS.AboutUs,
+      Icon: toggleFeature({
+        name: 'isAppRedesigned',
+        on: () => ICONS_NEW.AboutUs,
+        off: () => ICONS.AboutUs
+      }),
       text: 'О сайте'
     }
   ]
@@ -27,13 +36,21 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     sidebarItemsList.push(
       {
         path: getProfileRoute(userData.id),
-        Icon: ICONS.Profile,
+        Icon: toggleFeature({
+          name: 'isAppRedesigned',
+          on: () => ICONS_NEW.Profile,
+          off: () => ICONS.Profile
+        }),
         text: 'Профиль',
         isAutOnly: true
       },
       {
         path: getArticlesRoute(),
-        Icon: ICONS.Articles,
+        Icon: toggleFeature({
+          name: 'isAppRedesigned',
+          on: () => ICONS_NEW.Articles,
+          off: () => ICONS.Articles
+        }),
         text: 'Статьи',
         isAutOnly: true
       }

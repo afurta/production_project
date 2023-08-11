@@ -4,7 +4,7 @@ import React from 'react'
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string
-  Icon: React.VFC<React.SVGProps<SVGSVGElement>>
+  Svg: React.VFC<React.SVGProps<SVGSVGElement>>
   inverted?: boolean
 }
 
@@ -12,10 +12,10 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
  * @deprecated
  */
 export const Icon = (props: IconProps) => {
-  const { className, Icon, inverted, ...othersProps } = props
+  const { className, Svg, inverted, ...othersProps } = props
 
   return (
-    <Icon
+    <Svg
       className={classNames(cls.Icon, { [cls.inverted]: inverted }, [
         className
       ])}

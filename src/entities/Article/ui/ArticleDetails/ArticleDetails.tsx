@@ -106,11 +106,11 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
             size={TextSize.L}
           />
           <HStack align={'start'} justify={'start'} gap={8}>
-            <Icon Icon={ICONS.Eye} className={classNames(cls.icon)} />
+            <Icon Svg={ICONS.Eye} className={classNames(cls.icon)} />
             <Text text={String(data?.views)} />
           </HStack>
           <HStack align={'start'} justify={'start'} gap={8}>
-            <Icon Icon={ICONS.Calendar} className={classNames(cls.icon)} />
+            <Icon Svg={ICONS.Calendar} className={classNames(cls.icon)} />
             <Text text={String(data?.createdAt)} />
           </HStack>
         </VStack>

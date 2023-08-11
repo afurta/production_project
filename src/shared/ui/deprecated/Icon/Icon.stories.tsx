@@ -11,11 +11,11 @@ const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {
-  Icon: ICONS.AboutUs
+  Svg: ICONS.AboutUs
 }
 
 export const Inverted = Template.bind({})
 Inverted.args = {
-  Icon: ICONS.AboutUs,
+  Svg: ICONS.AboutUs,
   inverted: true
 }

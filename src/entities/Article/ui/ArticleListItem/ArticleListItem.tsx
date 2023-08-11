@@ -39,7 +39,7 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
   const views = (
     <>
       <Text text={String(article.views)} className={classNames(cls.views)} />
-      <Icon Icon={ICONS.Eye} />
+      <Icon Svg={ICONS.Eye} />
     </>
   )
 

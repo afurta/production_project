@@ -36,7 +36,7 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
     <Dropdown
       className={classNames('', {}, [className])}
       direction="bottom left"
-      control={<Icon Icon={ICONS.User} width={24} height={24} />}
+      control={<Icon Svg={ICONS.User} width={24} height={24} />}
       items={[
         ...(isAdminPanelAvaliable
           ? [{ href: getAdminPanelRoute(), content: t('Админка') }]

@@ -9,7 +9,9 @@ import { VStack } from '@/shared/ui/deprecated/Stack'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../selectors/getSidebarItems'
 import { ToggleFeature } from '@/shared/lib/features'
-import { AppLogo } from '@/shared/ui/deprecated/AppLogo'
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo'
+import { Icon } from '@/shared/ui/redesigned/Icon'
+import { ICONS_NEW } from '@/shared/assets'
 
 interface SidebarProps {
   className?: string
@@ -36,12 +38,29 @@ export const Sidebar = ({ className }: SidebarProps) => {
         <aside
           className={classNames(
             cls.SidebarRedesigned,
-            { [cls.collapsed]: isCollapsed },
+            { [cls.collapsedRedesigned]: isCollapsed },
             [className]
           )}
           data-testid="sidebar"
         >
-          <AppLogo className={cls.appLogo} />
+          <AppLogo className={cls.appLogo} size={isCollapsed ? 20 : 50} />
+          <VStack
+            role={'navigation'}
+            gap={16}
+            className={classNames(cls.itemsRedesigned, {}, [])}
+          >
+            {RenderSidebarItems}
+          </VStack>
+          <Icon
+            Svg={ICONS_NEW.ArrowIcon}
+            onClick={() => collapsedHandler()}
+            className={cls.collapseBtnRedesigned}
+            clickable
+          />
+          <div className={cls.switchers}>
+            <ThemeSwitcher />
+            <LanguageSwitcher className={cls.lang} isShorten={isCollapsed} />
+          </div>
         </aside>
       }
       off={

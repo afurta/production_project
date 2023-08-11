@@ -38,7 +38,7 @@ export const ArticleViewsSelector: FC<ArticleViewsSelectorProps> = (props) => {
           key={viewType.view}
         >
           <Icon
-            Icon={viewType.Icon}
+            Svg={viewType.Icon}
             className={classNames('', {
               [cls.selected]: viewType.view !== view
             })}
