@@ -10,7 +10,7 @@ import {
 import { ToggleFeature } from '@/shared/lib/features'
 import { Card } from '@/shared/ui/deprecated/Card'
 import { Loader } from '@/shared/ui/deprecated/Loader'
-import { VStack } from '@/shared/ui/deprecated/Stack'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Page } from '@/widgets/Page'
 import { Suspense, memo } from 'react'
 import { useTranslation } from 'react-i18next'

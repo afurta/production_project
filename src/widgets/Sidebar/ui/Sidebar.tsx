@@ -5,7 +5,7 @@ import { LanguageSwitcher } from '@/features/LanguageSwitcher'
 import { SidebarItem } from '@/widgets/Sidebar/ui/SidebarItem/SidebarItem'
 import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import cls from './Sidebar.module.scss'
-import { VStack } from '@/shared/ui/deprecated/Stack'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../selectors/getSidebarItems'
 import { ToggleFeature } from '@/shared/lib/features'
@@ -52,7 +52,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
             {RenderSidebarItems}
           </VStack>
           <Icon
-            Svg={ICONS_NEW.ArrowIcon}
+            Svg={ICONS_NEW.Arrow}
             onClick={() => collapsedHandler()}
             className={cls.collapseBtnRedesigned}
             clickable

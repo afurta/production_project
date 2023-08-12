@@ -1,6 +1,6 @@
 import { IMAGES } from '@/shared/assets'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { HStack } from '@/shared/ui/deprecated/Stack'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 import cls from './AppLogo.module.scss'
 import { memo } from 'react'
 

@@ -1,5 +1,5 @@
 import { EditableProfilePage } from '@/features/EditableProfilePage'
-import { VStack } from '@/shared/ui/deprecated/Stack'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text'
 import { Page } from '@/widgets/Page'
 import { useTranslation } from 'react-i18next'

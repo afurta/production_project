@@ -9,10 +9,14 @@ import { useTranslation } from 'react-i18next'
 import { ICONS } from '@/shared/assets'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-import { Dropdown } from '@/shared/ui/deprecated/Popups'
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups'
 import { getAdminPanelRoute, getProfileRoute } from '@/shared/constants/router'
 import { useSelector } from 'react-redux'
 import { Icon } from '@/shared/ui/deprecated/Icon'
+import { ToggleFeature } from '@/shared/lib/features'
+import { Dropdown } from '@/shared/ui/redesigned/Popups'
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar'
+import { Avatar } from '@/shared/ui/redesigned/Avatar'
 
 interface AvatarDropdownProps {
   className?: string
@@ -32,18 +36,39 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
 
   if (!authData) return null
 
+  const items = [
+    ...(isAdminPanelAvaliable
+      ? [{ href: getAdminPanelRoute(), content: t('Админка') }]
+      : []),
+    { href: getProfileRoute(authData.id), content: t('Профиль') },
+    { onClick: onLogOut, content: t('Выйти') }
+  ]
+
   return (
-    <Dropdown
-      className={classNames('', {}, [className])}
-      direction="bottom left"
-      control={<Icon Svg={ICONS.User} width={24} height={24} />}
-      items={[
-        ...(isAdminPanelAvaliable
-          ? [{ href: getAdminPanelRoute(), content: t('Админка') }]
-          : []),
-        { href: getProfileRoute(authData.id), content: t('Профиль') },
-        { onClick: onLogOut, content: t('Выйти') }
-      ]}
+    <ToggleFeature
+      feature={'isAppRedesigned'}
+      on={
+        <Dropdown
+          className={classNames('', {}, [className])}
+          direction="bottom left"
+          control={<Avatar src={authData.avatar} size={28} />}
+          items={items}
+        />
+      }
+      off={
+        <DropdownDeprecated
+          className={classNames('', {}, [className])}
+          direction="bottom left"
+          control={
+            <AvatarDeprecated
+              src={authData.avatar}
+              size={30}
+              fallbackInverted
+            />
+          }
+          items={items}
+        />
+      }
     />
   )
 }

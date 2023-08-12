@@ -1,0 +1,19 @@
+.menu {
+  position: absolute;
+  z-index: 10000;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid var(--accent-redesigned);
+  border-radius: 8px;
+  background: var(--dark-bg-redesigned);
+}
+.item {
+  width: 100%;
+  padding: 10px 25px;
+  border: none;
+  background: none;
+  color: var(--text-redesigned);
+  cursor: pointer;
+  outline: none;
+}

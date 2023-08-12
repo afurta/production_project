@@ -7,7 +7,7 @@ import {
   getArticlePageView
 } from '../../model/selectors/articlesPageSelectors'
 import { getArticles } from '../../model/slice/articlesPageSlice'
-import { VStack } from '@/shared/ui/deprecated/Stack'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text'
 
 interface ArticleInfiniteListProps {

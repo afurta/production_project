@@ -18,7 +18,7 @@ import {
   CommentFormReducer
 } from '../../model/slice/CommentFormSlice'
 import cls from './CommentForm.module.scss'
-import { HStack } from '@/shared/ui/deprecated/Stack'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 
 interface CommentFormProps {
   className?: string

@@ -4,7 +4,7 @@ import { Suspense, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-import { VStack } from '@/shared/ui/deprecated/Stack'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text'
 import {
   getArticleDetailsCommentError,

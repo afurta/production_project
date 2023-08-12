@@ -1,0 +1,14 @@
+.options {
+  position: absolute;
+  z-index: 10000;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--dark-bg-redesigned);
+  box-shadow: 4px 4px 8px var(--dark-bg-redesigned);
+  & .top {
+    bottom: 100%;
+  }
+}
+.item {
+  padding: 10px 20px;
+}

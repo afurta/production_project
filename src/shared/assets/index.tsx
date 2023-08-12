@@ -20,7 +20,8 @@ import ArticlesNew from './icons/redesigned/Articles.svg'
 import MainNew from './icons/redesigned/Main.svg'
 import ThemeNew from './icons/redesigned/Theme.svg'
 import ProfileNew from './icons/redesigned/Profile.svg'
-import ArrowIcon from './icons/redesigned/ArrowIcon.svg'
+import Arrow from './icons/redesigned/ArrowIcon.svg'
+import NotificationNew from './icons/redesigned/Notification.svg'
 
 // IMAGES
 import AppImage from './images/AppImage.svg'
@@ -52,5 +53,6 @@ export const ICONS_NEW = {
   Main: MainNew,
   Profile: ProfileNew,
   Theme: ThemeNew,
-  ArrowIcon
+  Notification: NotificationNew,
+  Arrow
 }

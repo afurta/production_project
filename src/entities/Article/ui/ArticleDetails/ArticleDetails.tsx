@@ -24,7 +24,7 @@ import { Icon } from '@/shared/ui/deprecated/Icon'
 import { ArticleCodeBlockComp } from '../ArticleCodeBlockComp/ArticleCodeBlockComp'
 import { ArticleImageBlockComp } from '../ArticleImageBlockComp/ArticleImageBlockComp'
 import { ArticleTextBlockComp } from '../ArticleTextBlockComp/ArticleTextBlockComp'
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack'
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 import {
   getArticleDetailsData,
   getArticleDetailsError,

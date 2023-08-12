@@ -120,14 +120,14 @@ const replaceToggleComponent = (node: Node) => {
 files.forEach((file) => {
   file.forEachDescendant((node) => {
     if (node.isKind(SyntaxKind.CallExpression) && isToggleFeature(node)) {
-      replaceToggleFunction(node)
+      return replaceToggleFunction(node)
     }
 
     if (
       node.isKind(SyntaxKind.JsxSelfClosingElement) &&
       isToggleComponent(node)
     ) {
-      replaceToggleComponent(node)
+      return replaceToggleComponent(node)
     }
   })
 })
