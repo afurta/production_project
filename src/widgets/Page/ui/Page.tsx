@@ -31,7 +31,11 @@ export const Page: FC<PageProps> = (props) => {
 
   useInfiniteScroll({
     triggerRef,
-    wrapperRef,
+    wrapperRef: toggleFeature({
+      name: 'isAppRedesigned',
+      on: () => undefined,
+      off: () => wrapperRef
+    }),
     cb: onScrollEnd
   })
 

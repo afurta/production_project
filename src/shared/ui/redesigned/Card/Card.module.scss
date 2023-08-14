@@ -15,6 +15,10 @@
     border: 1px solid var(--accent-redesigned);
 }
 
+.light {
+    background: var(--light-bg-redesigned);
+}
+
 .max {
     width: 100%;
 }
@@ -33,4 +37,13 @@
 
 .gap_24 {
     padding: 24px
+}
+
+
+.normal {
+    border-radius: 12px;
+}
+
+.round {
+    border-radius: 40px;
 }

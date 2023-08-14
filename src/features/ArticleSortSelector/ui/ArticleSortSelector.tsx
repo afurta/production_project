@@ -4,77 +4,102 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { SortOrder } from '@/shared/types/sort'
 import { Select, SelectOption } from '@/shared/ui/deprecated/Select'
 import cls from './ArticleSortSelector.module.scss'
-import { ArticleSortFields, ArticleView } from '@/entities/Article'
+import { ArticleSortFields } from '@/entities/Article'
+import { ToggleFeature } from '@/shared/lib/features'
+import { ListBox } from '@/shared/ui/redesigned/Popups'
+import { VStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 interface ArticleSortSelectorProps {
   className?: string
-  sortField: ArticleSortFields
-  sortOrder: SortOrder
-  view: ArticleView
+  sort: ArticleSortFields
+  order: SortOrder
   onChangeSortField: (SortField: ArticleSortFields) => void
   onChangeSortOrder: (SortOrder: SortOrder) => void
 }
 
 export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
-  const {
-    className,
-    sortField,
-    sortOrder,
-    onChangeSortField,
-    onChangeSortOrder
-  } = props
+  const { className, sort, order, onChangeSortField, onChangeSortOrder } = props
   const { t } = useTranslation()
 
-  const sortOptions = useMemo<SelectOption[]>(
+  const orderOptions = useMemo<SelectOption<SortOrder>[]>(
     () => [
       {
-        text: 'По заголовку',
+        value: 'asc',
+        content: 'возрастанию'
+      },
+      {
+        value: 'desc',
+        content: 'убыванию'
+      }
+    ],
+    []
+  )
+
+  const sortOptions = useMemo<SelectOption<ArticleSortFields>[]>(
+    () => [
+      {
+        content: 'По заголовку',
         value: ArticleSortFields.TITLE
       },
       {
-        text: 'По дате создания',
+        content: 'По дате создания',
         value: ArticleSortFields.CREATED_AT
       },
       {
-        text: 'По просмотрам',
+        content: 'По просмотрам',
         value: ArticleSortFields.VIEWS
       }
     ],
     []
   )
 
-  const orderOptions = useMemo<SelectOption[]>(
-    () => [
-      {
-        value: 'asc',
-        text: 'возрастанию'
-      },
-      {
-        value: 'desc',
-        text: 'убыванию'
-      }
-    ],
-    []
-  )
-
   return (
-    <div className={classNames(cls.articleSortSelector, {}, [className])}>
-      <div className={classNames(cls.selectWrapper)}>
-        <Select
-          className={classNames(cls.fieldSort)}
-          label={'Сортировать ПО'}
-          value={sortField}
-          options={sortOptions}
-          onChange={onChangeSortField}
-        />
-        <Select
-          className={classNames(cls.typeOrderSort)}
-          label={'по'}
-          value={sortOrder}
-          options={orderOptions}
-          onChange={onChangeSortOrder}
-        />
-      </div>
-    </div>
+    <ToggleFeature
+      feature="isAppRedesigned"
+      on={
+        <div
+          className={classNames(cls.articleSortSelectorRedesigned, {}, [
+            className
+          ])}
+        >
+          <VStack gap={8} align="start">
+            <Text text={t('Сортировать по:')} />
+            <ListBox
+              items={sortOptions}
+              defaultValue={t('Выберите нужный фильтр')}
+              value={sort}
+              onChange={onChangeSortField}
+            />
+            <ListBox
+              items={orderOptions}
+              defaultValue={t('Выберите нужный фильтр')}
+              value={order}
+              onChange={onChangeSortOrder}
+            />
+          </VStack>
+        </div>
+      }
+      off={
+        <div className={classNames(cls.articleSortSelector, {}, [className])}>
+          <div className={classNames(cls.selectWrapper)}>
+            <Select
+              className={classNames(cls.fieldSort)}
+              label={'Сортировать ПО'}
+              value={sort}
+              options={sortOptions}
+              onChange={onChangeSortField}
+            />
+            <Select
+              className={classNames(cls.typeOrderSort)}
+              label={'по'}
+              value={order}
+              options={orderOptions}
+              onChange={onChangeSortOrder}
+            />
+          </div>
+        </div>
+      }
+    />
   )
 }

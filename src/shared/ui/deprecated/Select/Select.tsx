@@ -2,15 +2,15 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { ChangeEvent, useMemo } from 'react'
 import cls from './Select.module.scss'
 
-export interface SelectOption {
-  value: string
-  text: string
+export interface SelectOption<T extends string> {
+  value: T
+  content: string
 }
 
 interface SelectProps<T extends string> {
   className?: string
   label?: string
-  options?: SelectOption[]
+  options?: SelectOption<T>[]
   value?: T
   onChange?: (value: T) => void
   readonly?: boolean
@@ -29,7 +29,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     () =>
       options?.map((elem) => (
         <option className={cls.option} value={elem.value} key={elem.value}>
-          {elem.text}
+          {elem.content}
         </option>
       )),
     [options]
