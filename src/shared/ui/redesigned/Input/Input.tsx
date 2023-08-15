@@ -1,5 +1,6 @@
 import React, {
   InputHTMLAttributes,
+  ReactNode,
   memo,
   useEffect,
   useRef,
@@ -21,6 +22,8 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void
   autoFocus?: boolean
   readonly?: boolean
+  iconLeft?: ReactNode
+  iconRight?: ReactNode
 }
 
 export const Input = memo((props: InputProps) => {
@@ -32,21 +35,20 @@ export const Input = memo((props: InputProps) => {
     type = 'text',
     autoFocus,
     readonly,
+    iconLeft,
+    iconRight,
     ...othersProps
   } = props
 
-  const [caretPosition, setCaretPosition] = useState<number>(0)
   const [isFocused, setIsFocused] = useState<boolean>(false)
   const ref = useRef<HTMLInputElement>(null)
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.currentTarget.value)
-    setCaretPosition(e.currentTarget.value.length)
   }
 
   const onFocus = () => setIsFocused(true)
   const onBlur = () => setIsFocused(false)
-  const onSelect = (e: any) => setCaretPosition(e.target.selectionStart || 0)
 
   useEffect(() => {
     if (autoFocus) {
@@ -55,32 +57,28 @@ export const Input = memo((props: InputProps) => {
     }
   }, [autoFocus])
 
+  const mods = {
+    [cls.readonly]: readonly,
+    [cls.focused]: isFocused,
+    [cls.iconLeft]: Boolean(iconLeft),
+    [cls.iconRight]: Boolean(iconRight)
+  }
+
   return (
-    <div className={classNames(cls.InputWrapper, {}, [className])}>
-      {placeholder && (
-        <div className={classNames(cls.InputPlaceholder, {}, [])}>
-          {`${placeholder} >`}
-        </div>
-      )}
-      <div className={classNames(cls.CaretWrapper, {}, [])}>
-        <input
-          className={classNames(cls.Input, {}, [])}
-          type={type}
-          value={value}
-          onChange={onChangeHandler}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          onSelect={onSelect}
-          readOnly={readonly}
-          {...othersProps}
-        />
-        {isFocused && !readonly && (
-          <span
-            className={classNames(cls.Caret, {}, [])}
-            style={{ left: `${caretPosition * 9}px` }}
-          />
-        )}
-      </div>
+    <div className={classNames(cls.InputWrapper, mods, [className])}>
+      <div className={cls.iconLeft}>{iconLeft}</div>
+      <input
+        className={classNames(cls.Input, {}, [])}
+        type={type}
+        value={value}
+        onChange={onChangeHandler}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        readOnly={readonly}
+        placeholder={placeholder}
+        {...othersProps}
+      />
+      <div className={cls.iconRight}>{iconRight}</div>
     </div>
   )
 })

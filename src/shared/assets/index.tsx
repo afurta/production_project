@@ -20,10 +20,11 @@ import ArticlesNew from './icons/redesigned/Articles.svg'
 import MainNew from './icons/redesigned/Main.svg'
 import ThemeNew from './icons/redesigned/Theme.svg'
 import ProfileNew from './icons/redesigned/Profile.svg'
-import Arrow from './icons/redesigned/ArrowIcon.svg'
+import Arrow from './icons/redesigned/Arrow.svg'
 import Tile from './icons/redesigned/Tile.svg'
 import NotificationNew from './icons/redesigned/Notification.svg'
 import Burger from './icons/redesigned/Burger.svg'
+import Search from './icons/redesigned/Search.svg'
 
 // IMAGES
 import AppImage from './images/AppImage.svg'
@@ -58,5 +59,6 @@ export const ICONS_NEW = {
   Notification: NotificationNew,
   Arrow,
   Tile,
-  Burger
+  Burger,
+  Search
 }

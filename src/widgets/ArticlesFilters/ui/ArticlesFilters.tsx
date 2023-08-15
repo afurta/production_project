@@ -9,6 +9,8 @@ import { Input } from '@/shared/ui/redesigned/Input'
 import { Card } from '@/shared/ui/redesigned/Card'
 import { SortOrder } from '@/shared/types/sort'
 import { ArticleSortFields, ArticleType } from '@/entities/Article'
+import { Icon } from '@/shared/ui/redesigned/Icon'
+import { ICONS_NEW } from '@/shared/assets'
 
 interface ArticlesFiltersProps {
   className?: string
@@ -43,7 +45,12 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = (props) => {
       padding={24}
     >
       <VStack gap={32} align="start">
-        <Input placeholder="Поиск" value={search} onChange={onChangeSearch} />
+        <Input
+          iconLeft={<Icon Svg={ICONS_NEW.Search} />}
+          placeholder="Поиск"
+          value={search}
+          onChange={onChangeSearch}
+        />
         <ArticleTypeTabs
           onChangeType={onChangeType}
           value={type}

@@ -8,6 +8,8 @@ import { mapPopupDirection } from '../../styles/consts'
 import popupStyles from '../../styles/popup.module.scss'
 import cls from './ListBox.module.scss'
 import { Button } from '@/shared/ui/redesigned/Button'
+import { Icon } from '@/shared/ui/redesigned/Icon'
+import { ICONS_NEW } from '@/shared/assets'
 
 export interface ListBoxItem<T extends string> {
   value: string
@@ -57,7 +59,11 @@ export const ListBox = <T extends string>(props: HListboxProps<T>) => {
         disabled={readonly}
       >
         <HListbox.Button className={popupStyles.trigger}>
-          <Button variant="filled" disabled={readonly}>
+          <Button
+            variant="filled"
+            disabled={readonly}
+            iconRight={<Icon Svg={ICONS_NEW.Arrow} />}
+          >
             {selectedItem?.content ?? defaultValue}
           </Button>
         </HListbox.Button>

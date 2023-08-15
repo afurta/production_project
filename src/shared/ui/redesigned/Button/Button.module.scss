@@ -2,13 +2,21 @@
   padding: 10px 15px;
   color: var(--text-redesigned);
   cursor: pointer;
+  display: flex;
+  align-items: center;
   &:hover {
     color: var(--accent-redesigned);
     opacity: 0.8;
     stroke-opacity: 0.8;
+
+    .iconLeft svg, .iconRight svg {
+      color: var(--accent-redesigned);
+    }
   }
 }
+
 .clear {
+  padding: 0;
   border: none;
   background: none;
   outline: none;
@@ -21,11 +29,22 @@
 }
 
 .filled {
-    background: var(--light-bg-redesigned);
-    border: none;
-    outline: none;
-    padding: 8px 16px;
-    border-radius: 34px;
+  background: var(--light-bg-redesigned);
+  border: none;
+  outline: none;
+  border-radius: 34px;
+}
+
+.withIcon {
+  padding: 0 16px;
+}
+
+.iconLeft, .iconRight {
+  display: flex;
+}
+
+.iconLeft svg, .iconRight svg {
+  color: var(--hint-redesigned);
 }
 
 .square {
