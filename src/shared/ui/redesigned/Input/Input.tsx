@@ -8,14 +8,19 @@ import React, {
 } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Input.module.scss'
+import { HStack } from '@/shared/ui/redesigned/Stack'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange' | 'readonly'
+  'value' | 'onChange' | 'readonly' | 'size'
 >
+
+type InputSize = 's' | 'm' | 'l'
 
 interface InputProps extends HTMLInputProps {
   className?: string
+  label?: string
   placeholder?: string
   value?: string | number
   type?: string
@@ -24,6 +29,7 @@ interface InputProps extends HTMLInputProps {
   readonly?: boolean
   iconLeft?: ReactNode
   iconRight?: ReactNode
+  size?: InputSize
 }
 
 export const Input = memo((props: InputProps) => {
@@ -31,10 +37,12 @@ export const Input = memo((props: InputProps) => {
     className,
     placeholder,
     value,
+    label,
     onChange,
     type = 'text',
     autoFocus,
     readonly,
+    size = 'm',
     iconLeft,
     iconRight,
     ...othersProps
@@ -64,8 +72,8 @@ export const Input = memo((props: InputProps) => {
     [cls.iconRight]: Boolean(iconRight)
   }
 
-  return (
-    <div className={classNames(cls.InputWrapper, mods, [className])}>
+  const input = (
+    <div className={classNames(cls.InputWrapper, mods, [className, cls[size]])}>
       <div className={cls.iconLeft}>{iconLeft}</div>
       <input
         className={classNames(cls.Input, {}, [])}
@@ -81,4 +89,15 @@ export const Input = memo((props: InputProps) => {
       <div className={cls.iconRight}>{iconRight}</div>
     </div>
   )
+
+  if (label) {
+    return (
+      <HStack max gap={8}>
+        <Text text={label} />
+        {input}
+      </HStack>
+    )
+  }
+
+  return input
 })

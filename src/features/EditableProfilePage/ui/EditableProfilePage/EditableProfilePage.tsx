@@ -1,6 +1,5 @@
 import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
-import { ProfileCard } from '@/entities/ProfileCard'
 import { EditableProfilePageHeader } from '@/features/EditableProfilePage/ui/EditableProfilePageHeader/EditableProfilePageHeader'
 import {
   DynamicModuleLoader,
@@ -20,6 +19,7 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { getReadonlyProfile } from '../../model/selectors/getReadonlyProfile/getReadonlyProfile'
 import { fetchProfileData } from '../../model/service/fetchProfileData/fetchProfileData'
 import { ProfileActions, ProfileReducer } from '../../model/slice/ProfileSlice'
+import { ProfileCard } from '@/entities/ProfileCard'
 
 interface EditableProfilePageProps {
   id: string

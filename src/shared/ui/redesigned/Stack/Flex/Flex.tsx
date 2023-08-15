@@ -5,7 +5,7 @@ import cls from './Flex.module.scss'
 type FlexJustify = 'center' | 'around' | 'between' | 'start' | 'end'
 type FlexAlign = 'center' | 'around' | 'between' | 'start' | 'end'
 export type FlexDirection = 'column' | 'row' | 'reverse-column' | 'reverse-row'
-type FlexGap = 4 | 8 | 16 | 32
+type FlexGap = 4 | 8 | 16 | 24 | 32
 
 const justifyClasses: Record<string, string> = {
   center: cls.justifyCenter,

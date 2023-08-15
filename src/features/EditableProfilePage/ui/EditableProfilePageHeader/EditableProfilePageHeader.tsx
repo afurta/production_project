@@ -44,6 +44,7 @@ export const EditableProfilePageHeader = (
       justify={'between'}
       align={'center'}
       className={classNames('', {}, [className])}
+      max
     >
       <Text title={t('Профиль')} />
       {authData?.id === profileData?.id && (

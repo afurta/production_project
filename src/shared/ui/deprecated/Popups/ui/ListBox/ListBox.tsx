@@ -21,7 +21,7 @@ interface HListboxProps {
   label: string
   defaultValue: string
   readonly?: boolean
-  listItems: IListItem[]
+  items: IListItem[]
   onChange?: (value: string) => void
   direction?: DropdownDirection
 }
@@ -35,7 +35,7 @@ export const ListBox = (props: HListboxProps) => {
     value,
     defaultValue,
     label,
-    listItems,
+    items,
     onChange,
     readonly,
     direction = 'bottom right'
@@ -63,7 +63,7 @@ export const ListBox = (props: HListboxProps) => {
             mapPopupDirection[direction]
           ])}
         >
-          {listItems?.map((item) => (
+          {items?.map((item) => (
             <HListbox.Option
               key={item.value}
               value={item.content}
