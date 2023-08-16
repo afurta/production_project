@@ -1,12 +1,13 @@
-import { FC, HTMLAttributeAnchorTarget } from 'react'
-import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './ArticleList.module.scss'
+import { ToggleFeature } from '@/shared/lib/features'
+import { Text, TextSize } from '@/shared/ui/deprecated/Text'
+import { HStack } from '@/shared/ui/redesigned/Stack'
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react'
+import { ArticleView } from '../../model/consts'
+import { Article } from '../../model/types/article'
 import { ArticleListItem } from '../../ui/ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton'
-import { Text, TextSize } from '@/shared/ui/deprecated/Text'
-import { Article } from '../../model/types/article'
-import { ArticleView } from '../../model/consts'
+import cls from './ArticleList.module.scss'
 
 interface ArticleListProps {
   className?: string
@@ -16,7 +17,14 @@ interface ArticleListProps {
   target?: HTMLAttributeAnchorTarget
 }
 
-export const ArticleList: FC<ArticleListProps> = (props) => {
+const getSkeletons = (view: ArticleView) =>
+  new Array(view === ArticleView.GRID ? 9 : 3)
+    .fill(0)
+    .map((item, index) => (
+      <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
+    ))
+
+export const ArticleList = memo((props: ArticleListProps) => {
   const {
     className,
     isLoading,
@@ -24,17 +32,6 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     view = ArticleView.GRID,
     target
   } = props
-
-  const { t } = useTranslation()
-
-  const renderArticles = (article: Article) => (
-    <ArticleListItem
-      article={article}
-      view={view}
-      key={article.id}
-      target={target}
-    />
-  )
 
   if (!isLoading && !articles.length) {
     return (
@@ -44,23 +41,44 @@ export const ArticleList: FC<ArticleListProps> = (props) => {
     )
   }
   return (
-    <div
-      className={classNames(cls.articleList, {}, [cls[view], className])}
-      data-testid="ArticleList"
-    >
-      {
-        articles.length > 0 && articles.map(renderArticles)
-        // : 'Статей нет'
+    <ToggleFeature
+      feature="isAppRedesigned"
+      on={
+        <HStack
+          wrap="wrap"
+          gap={16}
+          className={classNames(cls.ArticleListRedesigned, {}, [])}
+          data-testid="ArticleList"
+        >
+          {articles.map((item) => (
+            <ArticleListItem
+              article={item}
+              view={view}
+              target={target}
+              key={item.id}
+              className={cls.card}
+            />
+          ))}
+          {isLoading && getSkeletons(view)}
+        </HStack>
       }
-      {isLoading && (
-        <div className={classNames(cls.articleList, {}, [cls[view]])}>
-          {new Array(view === ArticleView.GRID ? 9 : 3)
-            .fill(0)
-            .map((_, index) => (
-              <ArticleListItemSkeleton key={index} view={view} />
-            ))}
+      off={
+        <div
+          className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+          data-testid="ArticleList"
+        >
+          {articles.map((item) => (
+            <ArticleListItem
+              article={item}
+              view={view}
+              target={target}
+              key={item.id}
+              className={cls.card}
+            />
+          ))}
+          {isLoading && getSkeletons(view)}
         </div>
-      )}
-    </div>
+      }
+    />
   )
-}
+})

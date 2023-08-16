@@ -1,9 +1,12 @@
 import { FC } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Card } from '@/shared/ui/deprecated/Card'
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card'
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card'
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton'
 import cls from './ArticleListItem.module.scss'
 import { ArticleView } from '../../model/consts'
+import { toggleFeature } from '@/shared/lib/features'
 
 interface ArticleListItemSkeleton {
   className?: string
@@ -13,11 +16,26 @@ interface ArticleListItemSkeleton {
 export const ArticleListItemSkeleton: FC<ArticleListItemSkeleton> = (props) => {
   const { className, view = ArticleView.GRID } = props
 
+  const mainClass = toggleFeature({
+    name: 'isAppRedesigned',
+    on: () => cls.ArticleListItemRedesigned,
+    off: () => cls.ArticleListItem
+  })
+
+  const Skeleton = toggleFeature({
+    name: 'isAppRedesigned',
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated
+  })
+  const Card = toggleFeature({
+    name: 'isAppRedesigned',
+    on: () => CardRedesigned,
+    off: () => CardDeprecated
+  })
+
   if (view === ArticleView.LIST) {
     return (
-      <div
-        className={classNames(cls.articleListItem, {}, [className, cls[view]])}
-      >
+      <div className={classNames(mainClass, {}, [className, cls[view]])}>
         <Card className={cls.card}>
           <div className={classNames(cls.header)}>
             <Skeleton
@@ -48,9 +66,7 @@ export const ArticleListItemSkeleton: FC<ArticleListItemSkeleton> = (props) => {
   }
 
   return (
-    <div
-      className={classNames(cls.articleListItem, {}, [className, cls[view]])}
-    >
+    <div className={classNames(mainClass, {}, [className, cls[view]])}>
       <Card className={cls.card}>
         <div className={classNames(cls.card)}>
           <div className={classNames(cls.imageWrapper)}>

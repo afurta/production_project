@@ -1,6 +1,21 @@
+.LIST {
+    .card {
+        margin-bottom: 30px;
+    }
+}
+
 .GRID {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    .card {
+        display: inline-flex;
+        height: 300px;
+    }
+
+    .row {
+        display: flex;
+        gap: 30px;
+    }
 }
