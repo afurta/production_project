@@ -10,7 +10,11 @@ import { ICONS } from '@/shared/assets'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups'
-import { getAdminPanelRoute, getProfileRoute } from '@/shared/constants/router'
+import {
+  getAdminPanelRoute,
+  getProfileRoute,
+  getSettignsRoute
+} from '@/shared/constants/router'
 import { useSelector } from 'react-redux'
 import { Icon } from '@/shared/ui/deprecated/Icon'
 import { ToggleFeature } from '@/shared/lib/features'
@@ -41,6 +45,7 @@ export const AvatarDropdown = (props: AvatarDropdownProps) => {
       ? [{ href: getAdminPanelRoute(), content: t('Админка') }]
       : []),
     { href: getProfileRoute(authData.id), content: t('Профиль') },
+    { href: getSettignsRoute(), content: t('Настройки') },
     { onClick: onLogOut, content: t('Выйти') }
   ]
 

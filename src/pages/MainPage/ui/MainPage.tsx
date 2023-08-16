@@ -1,7 +1,5 @@
-import { useTranslation } from 'react-i18next'
 import { Page } from '@/widgets/Page'
-import { StarRating } from '@/shared/ui/deprecated/StarRating'
-import { Rating } from '@/entities/RatingCard'
+import { useTranslation } from 'react-i18next'
 
 const MainPage = () => {
   const { t } = useTranslation()
