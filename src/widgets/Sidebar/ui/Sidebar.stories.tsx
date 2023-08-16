@@ -24,7 +24,7 @@ Light.decorators = [
     user: {
       authData: {
         id: '1',
-        userName: 'username'
+        username: 'username'
       }
     }
   })
@@ -38,7 +38,7 @@ Dark.decorators = [
     user: {
       authData: {
         id: '1',
-        userName: 'username'
+        username: 'username'
       }
     }
   })

@@ -45,7 +45,7 @@ export const EditableProfilePage = (props: EditableProfilePageProps) => {
       'Некорректное значение в Страна'
     ),
     [ValidateProfileError.INCORRECT_CITY]: t('Некорректное значение в Город'),
-    [ValidateProfileError.INCORRECT_USERNAME]: t('Проверьте Username'),
+    [ValidateProfileError.INCORRECT_USERNAME]: t('Проверьте username'),
     [ValidateProfileError.INCORRECT_DATA]: t('Данные не указаны')
   }
 

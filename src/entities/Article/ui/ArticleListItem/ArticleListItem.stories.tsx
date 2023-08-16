@@ -19,7 +19,7 @@ const articles = {
   createdAt: '26.02.2022',
   user: {
     id: '1',
-    userName: 'userName'
+    username: 'username'
   },
   type: ['IT', 'SCIENCE', 'ECONOMIC', 'IT'],
   blocks: [

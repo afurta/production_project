@@ -22,10 +22,12 @@ export const AuthSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(loginByUserName.pending, (state) => {
-      (state.isLoading = true), (state.error = undefined)
+      state.isLoading = true
+      state.error = undefined
     }),
       builder.addCase(loginByUserName.rejected, (state, action) => {
-        (state.isLoading = false), (state.error = action.payload)
+        state.isLoading = false
+        state.error = action.payload
       }),
       builder.addCase(loginByUserName.fulfilled, (state) => {
         state.isLoading = false

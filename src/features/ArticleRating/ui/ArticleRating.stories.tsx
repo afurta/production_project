@@ -20,7 +20,7 @@ Normal.decorators = [
     user: {
       authData: {
         id: '123',
-        userName: 'userName'
+        username: 'username'
       }
     }
   })
@@ -47,7 +47,7 @@ WithoutRate.decorators = [
     user: {
       authData: {
         id: '123',
-        userName: 'userName'
+        username: 'username'
       }
     }
   })

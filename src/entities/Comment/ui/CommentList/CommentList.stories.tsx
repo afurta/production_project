@@ -17,12 +17,12 @@ Normal.args = {
     {
       id: '1',
       text: 'text1',
-      user: { id: '1', userName: 'username1', role: [UserRoles.ADMIN] }
+      user: { id: '1', username: 'username1', role: [UserRoles.ADMIN] }
     },
     {
       id: '2',
       text: '2',
-      user: { id: '2', userName: 'username2', role: [UserRoles.ADMIN] }
+      user: { id: '2', username: 'username2', role: [UserRoles.ADMIN] }
     }
   ],
   isLoading: false

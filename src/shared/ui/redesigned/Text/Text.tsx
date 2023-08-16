@@ -14,6 +14,7 @@ interface TextProps {
   variant?: TextVariant
   align?: TextAlign
   size?: TextSize
+  bold?: boolean
 }
 
 export type HeaderTagType = 'h1' | 'h2' | 'h3'
@@ -37,7 +38,8 @@ export const Text = (props: TextProps) => {
     className,
     align = 'left',
     variant = 'primary',
-    size = 'm'
+    size = 'm',
+    bold
   } = props
 
   const HeaderTag = getHeaderSizeByTag[size]
@@ -46,7 +48,9 @@ export const Text = (props: TextProps) => {
   const additionalClasses = [cls[align], cls[variant], sizeToClass, className]
 
   return (
-    <div className={classNames(cls.Title, {}, additionalClasses)}>
+    <div
+      className={classNames(cls.Title, { [cls.bold]: bold }, additionalClasses)}
+    >
       {title && (
         <HeaderTag className={classNames(cls.title, {}, [])}>{title}</HeaderTag>
       )}

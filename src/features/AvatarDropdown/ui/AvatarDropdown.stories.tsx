@@ -34,7 +34,7 @@ Normal.decorators = [
     user: {
       authData: {
         id: 'string',
-        userName: 'string',
+        username: 'string',
         avatar: 'string',
         role: [UserRoles.ADMIN]
       }
@@ -50,7 +50,7 @@ Dark.decorators = [
     user: {
       authData: {
         id: 'string',
-        userName: 'string',
+        username: 'string',
         avatar: 'string',
         role: [UserRoles.ADMIN]
       }

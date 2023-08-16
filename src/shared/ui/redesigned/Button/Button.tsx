@@ -15,6 +15,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean
   iconLeft?: ReactNode
   iconRight?: ReactNode
+  bold?: boolean
 }
 
 export const Button: React.FC<ButtonProps> = memo((props) => {

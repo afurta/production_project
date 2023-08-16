@@ -4,7 +4,7 @@ import { JsonSettings } from '@/entities/User/model/types/JsonSettings'
 
 export interface User {
   id: string
-  userName: string
+  username: string
   avatar?: string
   role: UserRoles[]
   features?: FeauresFlags

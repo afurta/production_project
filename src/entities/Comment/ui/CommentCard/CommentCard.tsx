@@ -51,7 +51,7 @@ export const CommentCard = (props: CommentCardProps) => {
             src={data.user.avatar}
           />
         ) : null}
-        <Text title={data.user.userName} />
+        <Text title={data.user.username} />
       </AppLink>
       <Text
         text={data.text}

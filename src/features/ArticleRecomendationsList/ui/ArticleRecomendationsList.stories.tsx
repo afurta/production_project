@@ -9,7 +9,7 @@ const article: Article = {
   img: '',
   createdAt: '',
   views: 123,
-  user: { id: '1', userName: '123', role: [UserRoles.ADMIN] },
+  user: { id: '1', username: '123', role: [UserRoles.ADMIN] },
   blocks: [],
   type: [],
   title: '123',

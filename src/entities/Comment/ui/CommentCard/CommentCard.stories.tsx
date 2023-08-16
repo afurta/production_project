@@ -16,7 +16,7 @@ Normal.args = {
   data: {
     id: '1',
     text: 'hello world',
-    user: { id: '1', userName: 'Vasya', role: [UserRoles.ADMIN] }
+    user: { id: '1', username: 'Vasya', role: [UserRoles.ADMIN] }
   },
   isLoading: false
 }
@@ -26,7 +26,7 @@ isLoading.args = {
   data: {
     id: '1',
     text: 'hello world',
-    user: { id: '1', userName: 'Vasya', role: [UserRoles.ADMIN] }
+    user: { id: '1', username: 'Vasya', role: [UserRoles.ADMIN] }
   },
   isLoading: true
 }
