@@ -18,7 +18,7 @@ export const getSettignsRoute = () => `/settings`
 export const getProfileRoute = (id: string) => `/profile/${id}`
 export const getArticlesRoute = () => `/articles`
 export const getArticlesCreateRoute = () => `/articles/new`
-export const getArticlesEditRoute = (id: string) => `/articles/:${id}/edit`
+export const getArticlesEditRoute = (id: string) => `/articles/${id}/edit`
 export const getArticleDetailsRoute = (id: string) => `/articles/${id}`
 export const getAdminPanelRoute = () => `/admin-panel/`
 export const getForbiddenRoute = () => `/forbidden`

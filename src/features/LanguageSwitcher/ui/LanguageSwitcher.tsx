@@ -23,7 +23,7 @@ export const LanguageSwitcher = memo(
       <ToggleFeature
         feature={'isAppRedesigned'}
         on={
-          <Button variant={'clear'}>
+          <Button variant={'clear'} onClick={__changeLanguage}>
             {t(isShorten ? 'Сокращение' : 'Язык')}
           </Button>
         }
