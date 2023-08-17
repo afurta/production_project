@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-color);
   inset: 0;
   opacity: 0;
   pointer-events: none;
@@ -43,5 +42,16 @@
   pointer-events: auto;
   .content {
     transform: scale(0.2);
+  }
+}
+
+.ModalNew{
+  .content {
+    background: var(--light-bg-redesigned);
+  }
+}
+.ModalOld{
+  .content {
+    background: var(--bg-color);
   }
 }

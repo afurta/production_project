@@ -5,6 +5,7 @@ import { Overlay } from '@/shared/ui/redesigned/Overlay'
 import { Portal } from '@/shared/ui/redesigned/Portal'
 import { ReactNode } from 'react'
 import cls from './Modal.module.scss'
+import { toggleFeature } from '@/shared/lib/features'
 
 interface ModalProps {
   className?: string
@@ -15,9 +16,6 @@ interface ModalProps {
 }
 const MODAL_CLOSING_DELAY = 300
 
-/**
- * @deprecated
- */
 export const Modal = (props: ModalProps) => {
   const { className, children, isOpen, onClose, lazy } = props
 
@@ -37,8 +35,18 @@ export const Modal = (props: ModalProps) => {
   if (lazy && !isMounted) return null
 
   return (
-    <Portal>
-      <div className={classNames(cls.modal, mods, [className, theme])}>
+    <Portal root={document.getElementById('app') ?? document.body}>
+      <div
+        className={classNames(cls.modal, mods, [
+          className,
+          theme,
+          toggleFeature({
+            name: 'isAppRedesigned',
+            on: () => cls.ModalNew,
+            off: () => cls.ModalOld
+          })
+        ])}
+      >
         <Overlay clickHandler={close} />
         <div className={classNames(cls.content, {}, [])}>{children}</div>
       </div>

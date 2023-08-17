@@ -58,3 +58,15 @@
   background: var(--bg-color);
   touch-action: none;
 }
+
+
+.DrawerNew{
+  .sheet {
+    background: var(--light-bg-redesigned);
+  }
+}
+.DrawerOld{
+  .sheet  {
+    background: var(--bg-color);
+  }
+}

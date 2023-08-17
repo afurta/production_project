@@ -9,6 +9,7 @@ import {
   AnimationProvider,
   useAnimationLibs
 } from '@/shared/lib/components/AnimationModuleLoader'
+import { toggleFeature } from '@/shared/lib/features'
 
 interface DrawerProps {
   className?: string
@@ -92,12 +93,17 @@ export const DrawerContent = (props: DrawerProps) => {
   const display = y.to((py) => (py < height ? 'block' : 'none'))
 
   return (
-    <Portal>
+    <Portal root={document.getElementById('app') ?? document.body}>
       <div
         className={classNames(cls.Drawer, mods, [
           className,
           theme,
-          'app_drawer'
+          'app_drawer',
+          toggleFeature({
+            name: 'isAppRedesigned',
+            on: () => cls.DrawerNew,
+            off: () => cls.DrawerOld
+          })
         ])}
       >
         <Overlay clickHandler={closeDrawer} />

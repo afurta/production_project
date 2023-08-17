@@ -3,11 +3,10 @@
 @import "themes/light";
 @import "themes/dark";
 @import "themes/orange";
-body {
+
+.app {
   color: var(--primary-color);
   font: var(--font-m);
-}
-.app {
   display: flex;
   min-height: 100vh;
   flex-direction: column;

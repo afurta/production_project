@@ -5,11 +5,11 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/deprecated/Text'
 import { memo, useCallback, useState } from 'react'
 import { StarRating } from '@/shared/ui/deprecated/StarRating'
-import { Modal } from '@/shared/ui/deprecated/Modal'
+import { Modal } from '@/shared/ui/redesigned/Modal'
 import { Input } from '@/shared/ui/deprecated/Input'
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
 import { useDetectDevice } from '@/shared/lib/hooks/useDetectDevice'
-import { Drawer } from '@/shared/ui/deprecated/Drawer'
+import { Drawer } from '@/shared/ui/redesigned/Drawer'
 
 interface RatingCardProps {
   className?: string

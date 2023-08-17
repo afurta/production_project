@@ -1,6 +1,6 @@
 import { saveJsonSettings, useJsonSettings } from '@/entities/User'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-import { Modal } from '@/shared/ui/deprecated/Modal'
+import { Modal } from '@/shared/ui/redesigned/Modal'
 import { memo, useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 

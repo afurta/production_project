@@ -5,7 +5,7 @@ import { useDetectDevice } from '@/shared/lib/hooks/useDetectDevice'
 
 import { memo, useCallback, useState } from 'react'
 import cls from './NotificationBtn.module.scss'
-import { Drawer } from '@/shared/ui/deprecated/Drawer'
+import { Drawer } from '@/shared/ui/redesigned/Drawer'
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups'
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon'
 import {

@@ -4,7 +4,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { ListBox } from '@/shared/ui/redesigned/Popups'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
-import { memo, useMemo } from 'react'
+import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
@@ -27,7 +27,6 @@ export const UiDesignSwitcher = memo(() => {
   const isAppRedesigned = getFeatureFlag('isAppRedesigned')
 
   const onChange = (value: string) => {
-    console.log(value)
     if (authData) {
       dispatch(
         updateFeatureFlags({
