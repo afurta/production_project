@@ -1,1 +1,1 @@
-export { AppImage } from '@/shared/ui/deprecated/AppImage/ui/AppImage'
+export { AppImage } from './ui/AppImage'

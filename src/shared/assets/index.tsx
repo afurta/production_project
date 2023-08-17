@@ -25,6 +25,7 @@ import Tile from './icons/redesigned/Tile.svg'
 import NotificationNew from './icons/redesigned/Notification.svg'
 import Burger from './icons/redesigned/Burger.svg'
 import Search from './icons/redesigned/Search.svg'
+import CopyIconNew from './icons/redesigned/CopyIcon.svg'
 
 // IMAGES
 import AppImage from './images/AppImage.svg'
@@ -57,6 +58,7 @@ export const ICONS_NEW = {
   Profile: ProfileNew,
   Theme: ThemeNew,
   Notification: NotificationNew,
+  CopyIcon: CopyIconNew,
   Arrow,
   Tile,
   Burger,

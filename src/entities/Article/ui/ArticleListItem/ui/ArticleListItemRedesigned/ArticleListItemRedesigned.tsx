@@ -78,7 +78,7 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
       data-testid="ArticleListItem"
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >
-      <Card className={cls.card} border="round">
+      <Card className={cls.card} border="round" padding={0}>
         <AppImage
           fallback={<Skeleton width={200} height={200} />}
           alt={article.title}
