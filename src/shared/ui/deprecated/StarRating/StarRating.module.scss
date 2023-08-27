@@ -1,15 +1,27 @@
 .starRating {
   text-align: center;
+  .hovered {
+    fill: var(--primary-color);
+  }
 }
-.start {
-  cursor: pointer;
+
+.starRatingRedesigned{
+  .normal {
+    fill: none;
+  }
+  .hovered {
+    fill: var(--icon-redesigned);
+  }
 }
+
 .normal {
   fill: none;
 }
-.hovered {
-  fill: var(--primary-color);
+
+.start {
+  cursor: pointer;
 }
+
 .selected {
   cursor: auto;
 }

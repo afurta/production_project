@@ -3,10 +3,16 @@ import { ArticleList } from '@/entities/Article'
 import { UseArticleRecomendationsList } from '../api/recomendationsList'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { VStack } from '@/shared/ui/redesigned/Stack'
-import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text'
+import {
+  Text as TextDeprecated,
+  TextAlign,
+  TextSize
+} from '@/shared/ui/deprecated/Text'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { fetchRecomendationArticle } from '@/pages/ArticleDetailsPage'
+import { ToggleFeature } from '@/shared/lib/features'
+import { Text } from '@/shared/ui/redesigned/Text'
 
 interface ArticleRecomendationsListProps {
   className?: string
@@ -26,7 +32,17 @@ export const ArticleRecomendationsList = (
 
   if (error || isLoading || !articles) {
     return (
-      <Text title={'Статей нет'} align={TextAlign.LEFT} size={TextSize.L} />
+      <ToggleFeature
+        feature="isAppRedesigned"
+        on={<Text title={'Статей нет'} align={TextAlign.LEFT} size="l" />}
+        off={
+          <TextDeprecated
+            title={'Статей нет'}
+            align={TextAlign.LEFT}
+            size={TextSize.L}
+          />
+        }
+      />
     )
   }
 
@@ -36,7 +52,17 @@ export const ArticleRecomendationsList = (
       className={classNames('', {}, [className])}
       data-testid="ArticleRecomendationsList"
     >
-      <Text title={'Рекомендуем'} align={TextAlign.LEFT} size={TextSize.L} />
+      <ToggleFeature
+        feature="isAppRedesigned"
+        on={<Text title={'Рекомендуем'} align={TextAlign.LEFT} size="l" />}
+        off={
+          <TextDeprecated
+            title={'Рекомендуем'}
+            align={TextAlign.LEFT}
+            size={TextSize.L}
+          />
+        }
+      />
       <ArticleList isLoading={false} articles={articles} target={'_blank'} />
     </VStack>
   )

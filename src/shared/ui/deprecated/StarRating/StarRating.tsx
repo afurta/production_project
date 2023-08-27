@@ -1,8 +1,10 @@
 import { ICONS } from '@/shared/assets'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Icon } from '@/shared/ui/deprecated/Icon'
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon'
 import { memo, useState } from 'react'
 import cls from './StarRating.module.scss'
+import { ToggleFeature, toggleFeature } from '@/shared/lib/features'
+import { Icon } from '@/shared/ui/redesigned/Icon'
 
 interface StarRatingProps {
   className?: string
@@ -40,23 +42,58 @@ export const StarRating = memo((props: StarRatingProps) => {
   }
 
   return (
-    <div className={classNames(cls.starRating, {}, [className])}>
-      {star.map((starNumber) => (
-        <Icon
-          className={classNames(cls.start, { [cls.selected]: isSelected }, [
-            currentStartCount >= starNumber ? cls.hovered : cls.normal
-          ])}
-          onMouseEnter={onHover(starNumber)}
-          onMouseLeave={onLeave()}
-          onClick={onClick(starNumber)}
-          Svg={ICONS.Star}
-          key={starNumber}
-          height={size}
-          width={size}
-          data-testid={`StarRating+${starNumber}`}
-          data-selectedItem={currentStartCount >= starNumber}
-        />
-      ))}
+    <div
+      className={classNames(
+        toggleFeature({
+          name: 'isAppRedesigned',
+          on: () => cls.starRatingRedesigned,
+          off: () => cls.starRating
+        }),
+        {},
+        [className]
+      )}
+    >
+      {star.map((starNumber) => {
+        const props = {
+          onMouseEnter: onHover(starNumber),
+          onMouseLeave: onLeave(),
+          onClick: onClick(starNumber),
+          Svg: ICONS.Star,
+          height: size,
+          width: size,
+          'data-testid': `StarRating+${starNumber}`,
+          'data-selectedItem': currentStartCount >= starNumber
+        }
+
+        return (
+          <ToggleFeature
+            feature="isAppRedesigned"
+            on={
+              <Icon
+                clickable={!isSelected}
+                key={starNumber}
+                className={classNames(
+                  cls.start,
+                  { [cls.selected]: isSelected },
+                  [currentStartCount >= starNumber ? cls.hovered : cls.normal]
+                )}
+                {...props}
+              />
+            }
+            off={
+              <IconDeprecated
+                key={starNumber}
+                className={classNames(
+                  cls.start,
+                  { [cls.selected]: isSelected },
+                  [currentStartCount >= starNumber ? cls.hovered : cls.normal]
+                )}
+                {...props}
+              />
+            }
+          />
+        )
+      })}
     </div>
   )
 })

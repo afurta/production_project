@@ -8,6 +8,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Avatar } from '@/shared/ui/deprecated/Avatar'
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon'
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton'
 import {
   TextAlign,
   Text as TextDeprecated,
@@ -20,9 +21,8 @@ import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArt
 import { ArticleDetailsReducer } from '../../model/slice/ArticleDetailsSlice'
 import cls from './ArticleDetails.module.scss'
 
-import { ToggleFeature } from '@/shared/lib/features'
+import { ToggleFeature, toggleFeature } from '@/shared/lib/features'
 import { AppImage } from '@/shared/ui/redesigned/AppImage'
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 import { Text } from '@/shared/ui/redesigned/Text'
 import {
@@ -39,6 +39,24 @@ interface ArticleDetailsProps {
 
 const initialReducers: ReducerList = {
   ArticleDetails: ArticleDetailsReducer
+}
+
+const articleDetailsSkeletons = () => {
+  const Skeleton = toggleFeature({
+    name: 'isAppRedesigned',
+    on: () => SkeletonDeprecated,
+    off: () => SkeletonRedesigned
+  })
+
+  return (
+    <VStack gap={16}>
+      <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+      <Skeleton className={cls.title} width={300} height={32} />
+      <Skeleton className={cls.skeleton} width="100%" height={24} />
+      <Skeleton className={cls.skeleton} width="100%" height={200} />
+      <Skeleton className={cls.skeleton} width="100%" height={200} />
+    </VStack>
+  )
 }
 
 const Deprecated = () => {
@@ -87,7 +105,9 @@ const Redesigned = () => {
       <Text title={article?.title} size="l" bold align="left" />
       <Text title={article?.subtitle} align="left" />
       <AppImage
-        fallback={<Skeleton width="100%" height={420} border="16px" />}
+        fallback={
+          <SkeletonRedesigned width="100%" height={420} border="16px" />
+        }
         src={article?.img}
         className={cls.img}
       />
@@ -113,28 +133,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo((props) => {
   let content
 
   if (articleDetailsIsLoading) {
-    content = (
-      <>
-        <SkeletonDeprecated
-          className={cls.avatar}
-          width={200}
-          height={200}
-          border="50%"
-        />
-        <SkeletonDeprecated className={cls.title} width={300} height={32} />
-        <SkeletonDeprecated className={cls.skeleton} width="100%" height={24} />
-        <SkeletonDeprecated
-          className={cls.skeleton}
-          width="100%"
-          height={200}
-        />
-        <SkeletonDeprecated
-          className={cls.skeleton}
-          width="100%"
-          height={200}
-        />
-      </>
-    )
+    content = articleDetailsSkeletons()
   } else if (articleDetailsError) {
     content = <Text text="articleDetailsIsLoading" variant="error" />
   } else {

@@ -5,7 +5,12 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { VStack } from '@/shared/ui/redesigned/Stack'
-import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text'
+import {
+  Text as TextDeprecated,
+  TextAlign,
+  TextTheme,
+  TextSize
+} from '@/shared/ui/deprecated/Text'
 import {
   getArticleDetailsCommentError,
   getArticleDetailsCommentLoading
@@ -15,6 +20,8 @@ import { getCommentsSelectors } from '../../model/slice/ArticleDetailsCommentSli
 import { fetchCommentsArticleById } from '../../model/service/commentsArticleById/commentsArticleById'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
 import { Loader } from '@/shared/ui/deprecated/Loader'
+import { Text } from '@/shared/ui/redesigned/Text'
+import { ToggleFeature } from '@/shared/lib/features'
 
 interface ArticleAddCommentFormProps {
   className?: string
@@ -42,12 +49,28 @@ export const ArticleAddCommentForm = (props: ArticleAddCommentFormProps) => {
   )
 
   if (error) {
-    return <Text text={t('Ошибка')} theme={TextTheme.ERROR} />
+    return (
+      <ToggleFeature
+        feature="isAppRedesigned"
+        on={<Text text={t('Ошибка')} variant="error" />}
+        off={<TextDeprecated text={t('Ошибка')} theme={TextTheme.ERROR} />}
+      />
+    )
   }
 
   return (
-    <VStack>
-      <Text title={'Комментарии'} align={TextAlign.LEFT} />
+    <VStack max gap={16}>
+      <ToggleFeature
+        feature="isAppRedesigned"
+        on={<Text title={'Комментарии'} align={TextAlign.LEFT} size="l" />}
+        off={
+          <TextDeprecated
+            title={'Комментарии'}
+            align={TextAlign.LEFT}
+            size={TextSize.L}
+          />
+        }
+      />
       <Suspense fallback={<Loader />}>
         <CommentForm onSendComment={onSendComment} />
       </Suspense>
