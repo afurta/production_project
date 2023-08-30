@@ -13,11 +13,19 @@ import {
   ReducerList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text'
+import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
-import { Input } from '@/shared/ui/deprecated/Input'
+import {
+  Button as ButtonDeprecated,
+  ButtonTheme
+} from '@/shared/ui/deprecated/Button'
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input'
 import cls from './LoginForm.module.scss'
+import { ToggleFeature } from '@/shared/lib/features'
+import { Text } from '@/shared/ui/redesigned/Text'
+import { Input } from '@/shared/ui/redesigned/Input'
+import { Button } from '@/shared/ui/redesigned/Button'
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 
 interface LoginFormProps {
   className?: string
@@ -61,28 +69,63 @@ const LoginForm = memo((props: LoginFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount={true}>
-      <div className={classNames(cls.LoginForm, {}, [className])}>
-        <Text title={t('Форма авторизации')} />
-        {error && <Text title="title" theme={TextTheme.ERROR} />}
-        <Input
-          placeholder={t('Введите username')}
-          autoFocus
-          onChange={setUserName}
-          value={username}
-        />
-        <Input
-          placeholder={t('Введите пароль')}
-          onChange={setUserPassword}
-          value={password}
-        />
-        <Button
-          theme={ButtonTheme.OUTLINE}
-          onClick={onLoginClick}
-          disabled={isLoading}
-        >
-          {t('Войти')}
-        </Button>
-      </div>
+      <ToggleFeature
+        feature="isAppRedesigned"
+        on={
+          <VStack
+            className={classNames(cls.LoginForm, {}, [className])}
+            gap={16}
+            align="end"
+          >
+            <HStack justify="center" max>
+              <Text title={t('Форма авторизации')} />
+              {error && <Text title="title" variant="error" />}
+            </HStack>
+            <Input
+              placeholder={t('Введите username')}
+              autoFocus
+              onChange={setUserName}
+              value={username}
+            />
+            <Input
+              placeholder={t('Введите пароль')}
+              onChange={setUserPassword}
+              value={password}
+            />
+            <Button
+              onClick={onLoginClick}
+              disabled={isLoading}
+              variant="outline"
+            >
+              {t('Войти')}
+            </Button>
+          </VStack>
+        }
+        off={
+          <div className={classNames(cls.LoginForm, {}, [className])}>
+            <TextDeprecated title={t('Форма авторизации')} />
+            {error && <TextDeprecated title="title" theme={TextTheme.ERROR} />}
+            <InputDeprecated
+              placeholder={t('Введите username')}
+              autoFocus
+              onChange={setUserName}
+              value={username}
+            />
+            <InputDeprecated
+              placeholder={t('Введите пароль')}
+              onChange={setUserPassword}
+              value={password}
+            />
+            <ButtonDeprecated
+              theme={ButtonTheme.OUTLINE}
+              onClick={onLoginClick}
+              disabled={isLoading}
+            >
+              {t('Войти')}
+            </ButtonDeprecated>
+          </div>
+        }
+      />
     </DynamicModuleLoader>
   )
 })

@@ -59,7 +59,7 @@ export const CommentCard = (props: CommentCardProps) => {
     <ToggleFeature
       feature="isAppRedesigned"
       on={
-        <Card border="round" padding={24} max>
+        <Card border="partial" padding={24} max>
           <VStack
             className={classNames(cls.commentCardRedesigned, {}, [className])}
             gap={8}

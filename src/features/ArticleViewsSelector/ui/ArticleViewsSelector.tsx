@@ -52,7 +52,7 @@ export const ArticleViewsSelector: FC<ArticleViewsSelectorProps> = (props) => {
           className={classNames(cls.articleViewsSelectorRedesigned, {}, [
             className
           ])}
-          border="round"
+          border="partial"
         >
           <HStack gap={8}>
             {viewTypes.map((viewType) => (

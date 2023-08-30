@@ -37,7 +37,7 @@ export const Tabs = (props: TabsProps) => {
               variant={isSelected ? 'light' : 'normal'}
               key={tab.value}
               onClick={clickHandel(tab)}
-              border="round"
+              border="partial"
               className={classNames(cls.tabs, { [cls.selected]: isSelected })}
             >
               {tab.content}
