@@ -32,6 +32,11 @@ const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
       setIsThemeInited(true)
     }
   }, [defaultTheme, isThemeInited])
+
+  useEffect(() => {
+    document.body.className = theme
+  }, [theme])
+
   return (
     <ThemeContext.Provider value={defaultProps}>
       {children}

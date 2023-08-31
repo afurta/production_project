@@ -29,28 +29,33 @@
     font: var(--font-m-redesigned);
     color: var(--text-redesigned);
 }
+
 *::-webkit-scrollbar {
   width: 12px;
-
-  /*ширина scrollbar*/
   height: 8px;
 }
 *::-webkit-scrollbar-track {
-  background: var(--card-bg);
-
-  /*цвет дорожки*/
+  background: var(--light-bg-redesigned);
 }
 *::-webkit-scrollbar-thumb {
+  border: 1px solid var(--accent-redesigned);
+  border-radius: 20px;
+  background-color: var(--icon-redesigned);
+}
 
-  /*закругления плашки*/
+.app *::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+}
+.app *::-webkit-scrollbar-track {
+  background: var(--card-bg);
+}
+.app *::-webkit-scrollbar-thumb {
   border: 2px solid var(--primary-color);
-
-  /*цвет плашки*/
   border-radius: 20px;
   background-color: var(--inverted-primary-color);
-
-  /*padding вокруг плашки*/
 }
+
 a {
   text-decoration: none;
 }
