@@ -1,6 +1,7 @@
 import { AppRouter } from '@/app/providers/AppRouter'
 import { useTheme } from '@/app/providers/ThemeProvider'
 import { getUserInitedState, initAuthData } from '@/entities/User'
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout'
 import { MainLayout } from '@/shared/layouts/MainLayout'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { ToggleFeature } from '@/shared/lib/features'
@@ -21,23 +22,22 @@ export const App = () => {
   }, [dispatch, inited])
 
   if (!inited) {
-    return <PageLoader />
+    return (
+      <ToggleFeature
+        feature="isAppRedesigned"
+        on={
+          <div id="app" className={classNames('app_redesigned', {}, [theme])}>
+            <AppLoaderLayout />
+          </div>
+        }
+        off={<PageLoader />}
+      />
+    )
   }
 
   return (
     <ToggleFeature
       feature={'isAppRedesigned'}
-      off={
-        <div id="app" className={classNames('app', {}, [theme])}>
-          <Suspense fallback={''}>
-            <Navbar />
-            <div className="app-content">
-              <Sidebar />
-              {inited && <AppRouter />}
-            </div>
-          </Suspense>
-        </div>
-      }
       on={
         <div id="app" className={classNames('app_redesigned', {}, [theme])}>
           <Suspense fallback={''}>
@@ -46,6 +46,17 @@ export const App = () => {
               sidebar={<Sidebar />}
               header={<Navbar />}
             />
+          </Suspense>
+        </div>
+      }
+      off={
+        <div id="app" className={classNames('app', {}, [theme])}>
+          <Suspense fallback={''}>
+            <Navbar />
+            <div className="app-content">
+              <Sidebar />
+              {inited && <AppRouter />}
+            </div>
           </Suspense>
         </div>
       }
