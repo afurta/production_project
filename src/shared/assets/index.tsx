@@ -26,6 +26,7 @@ import NotificationNew from './icons/redesigned/Notification.svg'
 import Burger from './icons/redesigned/Burger.svg'
 import Search from './icons/redesigned/Search.svg'
 import CopyIconNew from './icons/redesigned/CopyIcon.svg'
+import CircleUp from './icons/redesigned/CircleUp.svg'
 
 // IMAGES
 import AppImage from './images/AppImage.svg'
@@ -62,5 +63,6 @@ export const ICONS_NEW = {
   Arrow,
   Tile,
   Burger,
-  Search
+  Search,
+  CircleUp
 }

@@ -1,3 +1,4 @@
+import { useAppToolbar } from '@/app/lib/useAppToolbar'
 import { AppRouter } from '@/app/providers/AppRouter'
 import { useTheme } from '@/app/providers/ThemeProvider'
 import { getUserInitedState, initAuthData } from '@/entities/User'
@@ -16,6 +17,7 @@ export const App = () => {
   const { theme } = useTheme()
   const dispatch = useAppDispatch()
   const inited = useSelector(getUserInitedState)
+  const toolbar = useAppToolbar()
 
   useEffect(() => {
     dispatch(initAuthData())
@@ -45,6 +47,7 @@ export const App = () => {
               content={<AppRouter />}
               sidebar={<Sidebar />}
               header={<Navbar />}
+              toolbar={toolbar}
             />
           </Suspense>
         </div>
