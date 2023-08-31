@@ -765,7 +765,7 @@
       ],
       "features": {
         "isArticleRatingEnabled": true,
-        "isAppRedesigned": true
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_orange_theme",
@@ -782,7 +782,8 @@
         "USER"
       ],
       "features": {
-        "isArticleRatingEnabled": false
+        "isArticleRatingEnabled": false,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_orange_theme",

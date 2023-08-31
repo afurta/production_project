@@ -7,10 +7,11 @@ import {
   getProfileRoute
 } from '@/shared/constants/router'
 import { toggleFeature } from '@/shared/lib/features'
-import { createSelector } from '@reduxjs/toolkit'
+import { useSelector } from 'react-redux'
 import { SidebarItemType } from '../types/SidebarItems'
 
-export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+export const useSidebarItems = () => {
+  const userData = useSelector(getUserAuthData)
   const sidebarItemsList: SidebarItemType[] = [
     {
       path: getMainRoute(),
@@ -58,4 +59,4 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   }
 
   return sidebarItemsList
-})
+}

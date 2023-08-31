@@ -26,6 +26,7 @@ import { Text } from '@/shared/ui/redesigned/Text'
 import { Input } from '@/shared/ui/redesigned/Input'
 import { Button } from '@/shared/ui/redesigned/Button'
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate'
 
 interface LoginFormProps {
   className?: string
@@ -47,6 +48,7 @@ const LoginForm = memo((props: LoginFormProps) => {
   const password = useSelector(getAuthPassword)
   const isLoading = useSelector(getAuthIsLoading)
   const error = useSelector(getAuthIsError)
+  const forceUpdate = useForceUpdate()
 
   const setUserName = useCallback(
     (value: string) => {
@@ -64,8 +66,11 @@ const LoginForm = memo((props: LoginFormProps) => {
 
   const onLoginClick = useCallback(async () => {
     const result = await dispatch(loginByUserName({ username, password }))
-    if (result.meta.requestStatus === 'fulfilled') onSuccess()
-  }, [dispatch, username, password, onSuccess])
+    if (result.meta.requestStatus === 'fulfilled') {
+      onSuccess()
+      forceUpdate()
+    }
+  }, [dispatch, onSuccess, forceUpdate, username, password])
 
   return (
     <DynamicModuleLoader reducers={initialReducers} isRemoveAfterUnmount={true}>

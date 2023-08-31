@@ -1,17 +1,16 @@
-import { useMemo, useState } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button'
 import { LanguageSwitcher } from '@/features/LanguageSwitcher'
-import { SidebarItem } from '@/widgets/Sidebar/ui/SidebarItem/SidebarItem'
 import { ThemeSwitcher } from '@/features/ThemeSwitcher'
-import cls from './Sidebar.module.scss'
-import { VStack } from '@/shared/ui/redesigned/Stack'
-import { useSelector } from 'react-redux'
-import { getSidebarItems } from '../selectors/getSidebarItems'
+import { ICONS_NEW } from '@/shared/assets'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { ToggleFeature } from '@/shared/lib/features'
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button'
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo'
 import { Icon } from '@/shared/ui/redesigned/Icon'
-import { ICONS_NEW } from '@/shared/assets'
+import { VStack } from '@/shared/ui/redesigned/Stack'
+import { SidebarItem } from '@/widgets/Sidebar/ui/SidebarItem/SidebarItem'
+import { useMemo, useState } from 'react'
+import { useSidebarItems } from '../selectors/getSidebarItems'
+import cls from './Sidebar.module.scss'
 
 interface SidebarProps {
   className?: string
@@ -19,7 +18,7 @@ interface SidebarProps {
 
 export const Sidebar = ({ className }: SidebarProps) => {
   const [isCollapsed, setCollapes] = useState<boolean>(false)
-  const sidebarItemsList = useSelector(getSidebarItems)
+  const sidebarItemsList = useSidebarItems()
 
   const collapsedHandler = () => setCollapes((prev) => !prev)
 
