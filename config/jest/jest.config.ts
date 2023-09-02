@@ -11,24 +11,25 @@ export default {
   transformIgnorePatterns: ['/node_modules/'],
   modulePaths: ['<rootDir>src'],
   setupFilesAfterEnv: ['<rootDir>config/jest/setupJest.ts'],
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
-    '\\.(s?css)$': 'identity-obj-proxy',
-    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
-  },
   globals: {
     __IS_DEV: true,
     __API__: true,
     __PROJECT__: 'jest'
+  },
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    '^@/(.*)$': '<rootDir>/src/$1'
   },
   reporters: [
     'default',
     [
       'jest-html-reporters',
       {
-        publicPath: '<rootDir>reports/unit',
+        publicPath: '<rootDir>/reports/unit',
         filename: 'report.html',
-        openReport: false
+        // openReport: true,
+        inlineSource: true
       }
     ]
   ],

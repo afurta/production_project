@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { ProfileCard } from './ProfileCard'
 import { Currency } from '@/entities/Currency'
 import { Country } from '@/entities/Country'
-import avatar from '../../../shared/assets/test/storybook.jpg'
+// import avatar from '../../../shared/assets/test/storybook.jpg'
 
 export default {
   title: 'entities/ProfileCard',
@@ -24,7 +24,7 @@ Normal.args = {
     country: Country.Armenia,
     city: 'fdsaf',
     username: 'admin',
-    avatar
+    avatar: ''
   },
   readonly: true
 }

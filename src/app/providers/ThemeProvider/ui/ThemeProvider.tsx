@@ -14,8 +14,6 @@ const fallbackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme
 const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
   const { initialTheme, children } = props
 
-  const { theme: defaultTheme } = useJsonSettings()
-
   const [theme, setTheme] = useState<Theme>(
     initialTheme || fallbackTheme || Theme.LIGHT
   )
@@ -30,11 +28,11 @@ const ThemeProvider: React.FC<ThemeProviderProps> = (props) => {
   )
 
   useEffect(() => {
-    if (!isThemeInited && defaultTheme) {
-      setTheme(defaultTheme)
+    if (!isThemeInited && initialTheme) {
+      setTheme(initialTheme)
       setIsThemeInited(true)
     }
-  }, [defaultTheme, isThemeInited])
+  }, [initialTheme, isThemeInited])
 
   useEffect(() => {
     document.body.className = theme

@@ -1,6 +1,7 @@
 import { useAppToolbar } from '@/app/lib/useAppToolbar'
 import { AppRouter } from '@/app/providers/AppRouter'
 import { useTheme } from '@/app/providers/ThemeProvider'
+import { withTheme } from './providers/ThemeProvider/ui/withTheme'
 import { getUserInitedState, initAuthData } from '@/entities/User'
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout'
 import { MainLayout } from '@/shared/layouts/MainLayout'
@@ -13,7 +14,7 @@ import { Sidebar } from '@/widgets/Sidebar'
 import { Suspense, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-export const App = () => {
+const App = () => {
   const { theme } = useTheme()
   const dispatch = useAppDispatch()
   const inited = useSelector(getUserInitedState)
@@ -66,3 +67,5 @@ export const App = () => {
     />
   )
 }
+
+export default withTheme(App)

@@ -1,13 +1,7 @@
-import {
-  getAboutRoute,
-  getAdminPanelRoute,
-  getMainRoute,
-  getProfileRoute
-} from '@/shared/constants/router'
-import { AppRouter } from './AppRouter'
+import { getAboutRoute, getProfileRoute } from '@/shared/constants/router'
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
 import { screen } from '@testing-library/react'
-import { UserRoles } from '@/entities/User'
+import { AppRouter } from './AppRouter'
 
 describe('AppRouter', () => {
   it('Check page', async () => {
@@ -24,32 +18,10 @@ describe('AppRouter', () => {
     expect(page).toBeInTheDocument()
   })
 
-  // it('Authorized user', async () => {
-  //   componentRender(<AppRouter />, { route: getProfileRoute('1'), initialStore: { _inited: true, autData: {} } })
-
-  //   const page = await screen.findByTestId('ProfilePage')
-  //   expect(page).toBeInTheDocument()
-  // })
-
   it('Not authorized user', async () => {
     componentRender(<AppRouter />, { route: getProfileRoute('1') })
 
     const page = await screen.findByTestId('MainPage')
     expect(page).toBeInTheDocument()
   })
-
-  // TODO
-  // Проверить на запрещенную роль
-  // it('Avaliable user role', async () => {
-  //   componentRender(
-  //     <AppRouter />,
-  //     {
-  //       route: getAdminPanelRoute(),
-  //       initialStore: { _inited: true, autData: { roles: [UserRoles.ADMIN] } }
-  //     }
-  //   )
-
-  //   const page = await screen.findByTestId('AdminPanel')
-  //   expect(page).toBeInTheDocument()
-  // })
 })
