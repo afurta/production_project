@@ -8,6 +8,7 @@ import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button'
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon'
 import { Icon } from '@/shared/ui/redesigned/Icon'
 import { memo, useCallback } from 'react'
+import cls from './ThemeSwitcher.module.scss'
 
 interface ThemeSwitcherProps {
   className?: string
@@ -34,10 +35,10 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
           data-testid="theme-switcher"
         >
           <IconDeprecated
+            className={cls.icon}
             Svg={ICONS.ThemeDark}
             width={40}
             height={40}
-            inverted
           />
         </Button>
       }

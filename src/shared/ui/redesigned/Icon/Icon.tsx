@@ -21,9 +21,16 @@ interface ClickableBaseProps extends IconProps {
 type SvgClickType = NonClickableBaseProps | ClickableBaseProps
 
 export const Icon = (props: SvgClickType) => {
-  const { className, width = 32, height = 32, Svg, ...othersProps } = props
+  const {
+    className,
+    width = 32,
+    height = 32,
+    Svg,
+    clickable,
+    ...othersProps
+  } = props
 
-  if (props.clickable) {
+  if (clickable) {
     return (
       <button style={{ width, height }}>
         <Svg

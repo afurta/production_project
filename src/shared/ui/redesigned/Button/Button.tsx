@@ -1,4 +1,10 @@
-import React, { ButtonHTMLAttributes, ReactNode, memo } from 'react'
+import React, {
+  ButtonHTMLAttributes,
+  ForwardedRef,
+  ReactNode,
+  forwardRef,
+  memo
+} from 'react'
 import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
@@ -20,42 +26,45 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   bold?: boolean
 }
 
-export const Button: React.FC<ButtonProps> = memo((props) => {
-  const {
-    className,
-    children,
-    variant = 'outline',
-    square,
-    color = 'normal',
-    disabled,
-    size = 'm',
-    fullWidth,
-    iconLeft,
-    iconRight,
-    ...otherProps
-  } = props
+export const Button: React.FC<ButtonProps> = forwardRef(
+  (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+    const {
+      className,
+      children,
+      variant = 'outline',
+      square,
+      color = 'normal',
+      disabled,
+      size = 'm',
+      fullWidth,
+      iconLeft,
+      iconRight,
+      ...otherProps
+    } = props
 
-  const mods: Mods = {
-    [cls.square]: square,
-    [cls.fullWidth]: fullWidth,
-    [cls.disabled]: disabled,
-    [cls.withIcon]: Boolean(iconLeft) || Boolean(iconRight)
+    const mods: Mods = {
+      [cls.square]: square,
+      [cls.fullWidth]: fullWidth,
+      [cls.disabled]: disabled,
+      [cls.withIcon]: Boolean(iconLeft) || Boolean(iconRight)
+    }
+
+    return (
+      <button
+        className={classNames(cls.Button, mods, [
+          className,
+          cls[variant],
+          cls[size],
+          cls[color]
+        ])}
+        {...otherProps}
+        disabled={disabled}
+        ref={ref}
+      >
+        <div className={cls.iconLeft}>{iconLeft}</div>
+        {children}
+        <div className={cls.iconRight}>{iconRight}</div>
+      </button>
+    )
   }
-
-  return (
-    <button
-      className={classNames(cls.Button, mods, [
-        className,
-        cls[variant],
-        cls[size],
-        cls[color]
-      ])}
-      {...otherProps}
-      disabled={disabled}
-    >
-      <div className={cls.iconLeft}>{iconLeft}</div>
-      {children}
-      <div className={cls.iconRight}>{iconRight}</div>
-    </button>
-  )
-})
+)

@@ -20,7 +20,7 @@ export const resetProfile = (profileId: string) => {
       currency: 'RUB',
       country: 'Russia',
       city: 'Moscow',
-      username: 'ulbi tv',
+      username: 'admin1111',
       avatar:
         'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg'
     }

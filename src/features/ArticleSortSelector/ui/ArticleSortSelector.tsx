@@ -26,32 +26,32 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
     () => [
       {
         value: 'asc',
-        content: 'возрастанию'
+        content: t('возрастанию')
       },
       {
         value: 'desc',
-        content: 'убыванию'
+        content: t('убыванию')
       }
     ],
-    []
+    [t]
   )
 
   const sortOptions = useMemo<SelectOption<ArticleSortFields>[]>(
     () => [
       {
-        content: 'По заголовку',
+        content: t('По заголовку'),
         value: ArticleSortFields.TITLE
       },
       {
-        content: 'По дате создания',
+        content: t('По дате создания'),
         value: ArticleSortFields.CREATED_AT
       },
       {
-        content: 'По просмотрам',
+        content: t('По просмотрам'),
         value: ArticleSortFields.VIEWS
       }
     ],
-    []
+    [t]
   )
 
   return (
@@ -67,13 +67,13 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
             <Text text={t('Сортировать по:')} />
             <ListBox
               items={sortOptions}
-              defaultValue={t('Выберите нужный фильтр')}
+              defaultValue={t('Фильтр 1')}
               value={sort}
               onChange={onChangeSortField}
             />
             <ListBox
               items={orderOptions}
-              defaultValue={t('Выберите нужный фильтр')}
+              defaultValue={t('Фильтр 2')}
               value={order}
               onChange={onChangeSortOrder}
             />
@@ -85,14 +85,14 @@ export const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
           <div className={classNames(cls.selectWrapper)}>
             <Select
               className={classNames(cls.fieldSort)}
-              label={'Сортировать ПО'}
+              label={t('Сортировать по:')}
               value={sort}
               options={sortOptions}
               onChange={onChangeSortField}
             />
             <Select
               className={classNames(cls.typeOrderSort)}
-              label={'по'}
+              label={t('по') + ':'}
               value={order}
               options={orderOptions}
               onChange={onChangeSortOrder}

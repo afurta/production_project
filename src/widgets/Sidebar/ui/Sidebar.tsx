@@ -74,6 +74,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
             role={'navigation'}
             gap={16}
             className={classNames(cls.items, {}, [])}
+            align="start"
           >
             {RenderSidebarItems}
           </VStack>

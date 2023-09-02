@@ -9,7 +9,7 @@ export default {
 } as ComponentMeta<typeof ArticleEditPage>
 
 const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
-  <ArticleEditPage {...args} />
+  <ArticleEditPage />
 )
 
 export const Normal = Template.bind({})

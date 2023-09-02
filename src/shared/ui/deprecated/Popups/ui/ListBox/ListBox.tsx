@@ -18,8 +18,8 @@ interface IListItem {
 interface HListboxProps {
   className?: string
   value?: string
-  label: string
-  defaultValue: string
+  label?: string
+  defaultValue?: string
   readonly?: boolean
   items: IListItem[]
   onChange?: (value: string) => void
@@ -33,8 +33,8 @@ export const ListBox = (props: HListboxProps) => {
   const {
     className,
     value,
-    defaultValue,
-    label,
+    defaultValue = '',
+    label = '',
     items,
     onChange,
     readonly,
@@ -44,7 +44,7 @@ export const ListBox = (props: HListboxProps) => {
   const { t } = useTranslation()
 
   return (
-    <HStack gap={8} align={'between'}>
+    <HStack gap={8} align={'center'}>
       {label && (
         <span className={classNames(cls.ListBoxLabel)}>{`${label}>`}</span>
       )}

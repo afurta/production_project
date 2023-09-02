@@ -16,7 +16,7 @@ import {
 import { Loader } from '@/shared/ui/deprecated/Loader'
 
 export const ProfileCardDeprecatedError = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('profile')
 
   return (
     <HStack
@@ -60,69 +60,78 @@ export const ProfileCardDeprecated = memo((props: ProfileCardProps) => {
     onChangeCurrency
   } = props
 
-  const { t } = useTranslation()
+  const { t } = useTranslation('profile')
 
   const mods: Mods = {
     [cls.editing]: !readonly
   }
 
   return (
-    <VStack className={classNames(cls.ProfileCard, mods, [className])} gap={16}>
+    <VStack
+      className={classNames(cls.ProfileCard, mods, [className])}
+      gap={16}
+      max
+    >
       {data?.avatar && (
         <HStack justify={'center'}>
           <AvatarDeprecated alt="Avatar" src={data.avatar} />
         </HStack>
       )}
-      <InputDeprecated
-        value={data?.first}
-        readonly={readonly}
-        placeholder={t('Имя')}
-        className={cls.input}
-        onChange={onChangeFirstName}
-        data-testid="ProfileCard.firstname"
-      />
-      <InputDeprecated
-        value={data?.lastname}
-        readonly={readonly}
-        placeholder={t('Фамилия')}
-        className={cls.input}
-        onChange={onChangeLastName}
-        data-testid="ProfileCard.lastname"
-      />
-      <InputDeprecated
-        value={data?.age}
-        readonly={readonly}
-        placeholder={t('Возраст')}
-        className={cls.input}
-        onChange={onChangeAge}
-      />
-
-      <InputDeprecated
-        value={data?.city}
-        readonly={readonly}
-        placeholder={t('Город')}
-        className={cls.input}
-        onChange={onChangeCity}
-      />
-      <CurrencySelect
-        className={cls.input}
-        value={data?.currency}
-        readonly={readonly}
-        onChange={onChangeCurrency}
-      />
-      <CountrySelect
-        className={cls.input}
-        value={data?.country}
-        readonly={readonly}
-        onChange={onChangeCountry}
-      />
-      <InputDeprecated
-        value={data?.avatar}
-        readonly={readonly}
-        placeholder={t('Аватар')}
-        className={cls.input}
-        onChange={onChangeAvatar}
-      />
+      <HStack align="start" gap={32}>
+        <VStack gap={16} justify="start">
+          <InputDeprecated
+            value={data?.first}
+            readonly={readonly}
+            label={t('Имя')}
+            className={cls.input}
+            onChange={onChangeFirstName}
+            data-testid="ProfileCard.firstname"
+          />
+          <InputDeprecated
+            value={data?.lastname}
+            readonly={readonly}
+            label={t('Фамилия')}
+            className={cls.input}
+            onChange={onChangeLastName}
+            data-testid="ProfileCard.lastname"
+          />
+          <InputDeprecated
+            value={data?.age}
+            readonly={readonly}
+            label={t('Возраст')}
+            className={cls.input}
+            onChange={onChangeAge}
+          />
+        </VStack>
+        <VStack gap={16}>
+          <InputDeprecated
+            value={data?.city}
+            readonly={readonly}
+            label={t('Город')}
+            className={cls.input}
+            onChange={onChangeCity}
+          />
+          <CurrencySelect
+            className={cls.input}
+            value={data?.currency}
+            readonly={readonly}
+            onChange={onChangeCurrency}
+          />
+          <CountrySelect
+            className={cls.input}
+            value={data?.country}
+            readonly={readonly}
+            onChange={onChangeCountry}
+          />
+          <InputDeprecated
+            value={data?.avatar}
+            readonly={readonly}
+            label={t('Аватар')}
+            className={cls.input}
+            onChange={onChangeAvatar}
+          />
+        </VStack>
+      </HStack>
     </VStack>
   )
 })

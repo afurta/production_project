@@ -2,7 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import { DropdownDirection } from '@/shared/types/sort'
 import { HStack } from '@/shared/ui/redesigned/Stack'
 import { Listbox as HListbox } from '@headlessui/react'
-import { Fragment, ReactNode, useMemo } from 'react'
+import React, { Fragment, ReactNode, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { mapPopupDirection } from '../../styles/consts'
 import popupStyles from '../../styles/popup.module.scss'
@@ -32,8 +32,8 @@ export const ListBox = <T extends string>(props: HListboxProps<T>) => {
   const {
     className,
     value,
-    defaultValue,
-    label,
+    defaultValue = '',
+    label = '',
     items,
     onChange,
     readonly,
@@ -47,7 +47,7 @@ export const ListBox = <T extends string>(props: HListboxProps<T>) => {
   }, [items, value])
 
   return (
-    <HStack gap={8} align={'between'}>
+    <HStack gap={8} align={'center'}>
       {label && (
         <span className={classNames(cls.ListBoxLabel)}>{`${label}>`}</span>
       )}
@@ -58,7 +58,7 @@ export const ListBox = <T extends string>(props: HListboxProps<T>) => {
         className={classNames(cls.ListBox, {}, [className, popupStyles.popup])}
         disabled={readonly}
       >
-        <HListbox.Button className={popupStyles.trigger}>
+        <HListbox.Button className={popupStyles.trigger} as={Button}>
           <Button
             variant="filled"
             disabled={readonly}

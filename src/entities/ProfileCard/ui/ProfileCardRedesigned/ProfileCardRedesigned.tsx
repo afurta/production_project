@@ -65,7 +65,7 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
     onChangeAvatar,
     onChangeCurrency
   } = props
-  const { t } = useTranslation()
+  const { t } = useTranslation('profile')
 
   return (
     <Card max padding={16} className={className} border="partial">

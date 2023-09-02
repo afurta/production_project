@@ -31,6 +31,9 @@
   animation: blink 0.7s forwards infinite;
   background: var(--primary-color);
 }
+.focused{
+  border-bottom: 1px solid var(--primary-color);
+}
 
 @keyframes blink {
   0% {

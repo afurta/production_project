@@ -4,23 +4,21 @@ import {
   isUserAdmin,
   isUserManager
 } from '@/entities/User'
-import { useCallback } from 'react'
-import { useTranslation } from 'react-i18next'
-import { ICONS } from '@/shared/assets'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
-import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups'
 import {
   getAdminPanelRoute,
   getProfileRoute,
   getSettignsRoute
 } from '@/shared/constants/router'
-import { useSelector } from 'react-redux'
-import { Icon } from '@/shared/ui/deprecated/Icon'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import { ToggleFeature } from '@/shared/lib/features'
-import { Dropdown } from '@/shared/ui/redesigned/Popups'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar'
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups'
 import { Avatar } from '@/shared/ui/redesigned/Avatar'
+import { Dropdown } from '@/shared/ui/redesigned/Popups'
+import { useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 
 interface AvatarDropdownProps {
   className?: string

@@ -38,18 +38,14 @@ export const Input = memo((props: InputProps) => {
     ...othersProps
   } = props
 
-  const [caretPosition, setCaretPosition] = useState<number>(0)
   const [isFocused, setIsFocused] = useState<boolean>(false)
   const ref = useRef<HTMLInputElement>(null)
 
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
     onChange?.(e.currentTarget.value)
-    setCaretPosition(e.currentTarget.value.length)
-  }
 
   const onFocus = () => setIsFocused(true)
   const onBlur = () => setIsFocused(false)
-  const onSelect = (e: any) => setCaretPosition(e.target.selectionStart || 0)
 
   useEffect(() => {
     if (autoFocus) {
@@ -67,22 +63,15 @@ export const Input = memo((props: InputProps) => {
       )}
       <div className={classNames(cls.CaretWrapper, {}, [])}>
         <input
-          className={classNames(cls.Input, {}, [])}
+          className={classNames(cls.Input, { [cls.focused]: isFocused }, [])}
           type={type}
           value={value}
           onChange={onChangeHandler}
           onFocus={onFocus}
           onBlur={onBlur}
-          onSelect={onSelect}
           readOnly={readonly}
           {...othersProps}
         />
-        {isFocused && !readonly && (
-          <span
-            className={classNames(cls.Caret, {}, [])}
-            style={{ left: `${caretPosition * 9}px` }}
-          />
-        )}
       </div>
     </div>
   )

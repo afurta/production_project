@@ -63,6 +63,7 @@ export const ArticleViewsSelector: FC<ArticleViewsSelectorProps> = (props) => {
                 })}
                 clickable
                 onClick={onClick(viewType.view)}
+                key={viewType.view}
               />
             ))}
           </HStack>

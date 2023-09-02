@@ -65,7 +65,7 @@ export const Page: FC<PageProps> = (props) => {
       )}
       ref={wrapperRef}
       onScroll={onScrollEvent}
-      data-testId={props['data-testId'] ?? 'Page'}
+      data-testid={props['data-testId'] ?? 'Page'}
     >
       {children}
       <div ref={triggerRef} className={classNames(cls.triggerRef)} />

@@ -19,5 +19,21 @@
   "Редактировать": "Edit",
   "{{count}} просмотров_zero": "{{count}} views",
   "{{count}} просмотров_one": "{{count}} view",
-  "{{count}} просмотров_other": "{{count}} views"
+  "{{count}} просмотров_other": "{{count}} views",
+  "Читать далее...": "Read more...",
+  "Админка": "AdminUI",
+  "Настройки": "Settings",
+  "Сортировать по:": "Sort by:",
+  "Фильтр 1:": "Filter 1:",
+  "Фильтр 2:": "Filter 2:",
+  "По дате создания": "By created date",
+  "По заголовку": "By name",
+  "По просмотрам": "By views",
+  "возрастанию": "Ascending",
+  "убыванию": "Descending",
+  "Статьи": "Articles",
+  "Укажите валюту": "Choose currency",
+  "Укажите страну": "Choose country",
+  "Создать новую статью": "Create a new article",
+  "по:": "by:"
 }

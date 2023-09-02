@@ -6,6 +6,8 @@ import {
 } from '@/shared/ui/deprecated/Button'
 import { Button } from '@/shared/ui/redesigned/Button'
 import { ToggleFeature } from '@/shared/lib/features'
+import cls from './LanguageSwitcher.module.scss'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 interface LanguageSwitcherProps {
   className?: string
@@ -31,7 +33,7 @@ export const LanguageSwitcher = memo(
           <ButtonDeprecated
             theme={ButtonTheme.CLEAR}
             onClick={__changeLanguage}
-            className={className}
+            className={classNames(cls.LanguageSwitcher, {}, [])}
             data-testid="language-switcher"
           >
             {t(isShorten ? 'Сокращение' : 'Язык')}

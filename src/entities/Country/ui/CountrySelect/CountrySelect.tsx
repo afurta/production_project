@@ -35,8 +35,8 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 
   const listBoxProps = {
     value: value,
-    label: 'Укажите страну',
-    defaultValue: 'Укажите страну',
+    label: t('Укажите страну'),
+    defaultValue: t('Укажите страну'),
     items: options,
     onChange: onChangeHandler,
     readonly: readonly,

@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from 'react'
+import React, { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react'
 import { Mods, classNames } from '@/shared/lib/classNames/classNames'
 import cls from './Button.module.scss'
 
@@ -29,35 +29,38 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * @deprecated
  */
-export const Button: React.FC<ButtonProps> = (props) => {
-  const {
-    className,
-    children,
-    theme = ButtonTheme.OUTLINE,
-    square,
-    disabled,
-    size = ButtonSize.M,
-    fullWidth,
-    ...otherProps
-  } = props
+export const Button: React.FC<ButtonProps> = forwardRef(
+  (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+    const {
+      className,
+      children,
+      theme = ButtonTheme.OUTLINE,
+      square,
+      disabled,
+      size = ButtonSize.M,
+      fullWidth,
+      ...otherProps
+    } = props
 
-  const mods: Mods = {
-    [cls.square]: square,
-    [cls.fullWidth]: fullWidth,
-    [cls.disabled]: disabled
+    const mods: Mods = {
+      [cls.square]: square,
+      [cls.fullWidth]: fullWidth,
+      [cls.disabled]: disabled
+    }
+
+    return (
+      <button
+        className={classNames(cls.Button, mods, [
+          className,
+          cls[theme],
+          cls[size]
+        ])}
+        {...otherProps}
+        disabled={disabled}
+        ref={ref}
+      >
+        {children}
+      </button>
+    )
   }
-
-  return (
-    <button
-      className={classNames(cls.Button, mods, [
-        className,
-        cls[theme],
-        cls[size]
-      ])}
-      {...otherProps}
-      disabled={disabled}
-    >
-      {children}
-    </button>
-  )
-}
+)

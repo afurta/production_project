@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 
 export const UiDesignSwitcher = memo(() => {
-  const { t } = useTranslation()
+  const { t } = useTranslation('settings')
   const dispatch = useAppDispatch()
   const authData = useSelector(getUserAuthData)
 
@@ -40,7 +40,7 @@ export const UiDesignSwitcher = memo(() => {
   }
   return (
     <HStack gap={24}>
-      <Text text={'Вариант интерфейса'} />
+      <Text text={t('Вариант интерфейса')} />
       <ListBox
         items={items}
         onChange={onChange}

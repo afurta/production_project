@@ -110,18 +110,20 @@ const LoginForm = memo((props: LoginFormProps) => {
           <div className={classNames(cls.LoginForm, {}, [className])}>
             <TextDeprecated title={t('Форма авторизации')} />
             {error && <TextDeprecated title="title" theme={TextTheme.ERROR} />}
-            <InputDeprecated
-              placeholder={t('Введите username')}
-              autoFocus
-              onChange={setUserName}
-              value={username}
-            />
-            <InputDeprecated
-              placeholder={t('Введите пароль')}
-              onChange={setUserPassword}
-              value={password}
-            />
+            <VStack gap={16} align="start">
+              <InputDeprecated
+                placeholder={t('Введите username')}
+                onChange={setUserName}
+                value={username}
+              />
+              <InputDeprecated
+                placeholder={t('Введите пароль')}
+                onChange={setUserPassword}
+                value={password}
+              />
+            </VStack>
             <ButtonDeprecated
+              className={cls.sendBtn}
               theme={ButtonTheme.OUTLINE}
               onClick={onLoginClick}
               disabled={isLoading}
