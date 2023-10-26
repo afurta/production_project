@@ -14,7 +14,10 @@ export function buildWebpackConfig(
 
   return {
     mode,
-    entry: paths.entry,
+    entry: {
+      main: paths.entry,
+      sw: paths.sw
+    },
     output: {
       filename: '[name].[contenthash].js',
       path: paths.output,

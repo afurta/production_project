@@ -13,6 +13,7 @@ import { PageLoader } from '@/widgets/PageLoader'
 import { Sidebar } from '@/widgets/Sidebar'
 import { Suspense, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { NetworkWatcher } from '@/app/providers/NetworkProvider'
 
 const App = () => {
   const { theme } = useTheme()
@@ -61,6 +62,7 @@ const App = () => {
               <Sidebar />
               {inited && <AppRouter />}
             </div>
+            <NetworkWatcher />
           </Suspense>
         </div>
       }

@@ -15,7 +15,7 @@ export const buildPlugins = ({
 }: IBuildOptions): WebpackPluginInstance[] => {
   const plugins = [
     new webpack.ProgressPlugin(),
-    new HtmlWebpackPlugin({ template: paths.html }),
+    new HtmlWebpackPlugin({ template: paths.html, excludeChunks: ['sw'] }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css'

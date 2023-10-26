@@ -5,12 +5,12 @@ interface IbuildBabelLoader extends IBuildOptions {
   isTsx: boolean
 }
 
-export function buildBabelLoader ({ isTsx, isDev }: IbuildBabelLoader) {
+export function buildBabelLoader({ isTsx, isDev }: IbuildBabelLoader) {
   const isProd = !isDev
 
   return {
     test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
-    exclude: /node_modules/,
+    exclude: [/node_modules/, /worker\.ts$/],
     use: {
       loader: 'babel-loader',
       options: {

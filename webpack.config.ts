@@ -1,11 +1,12 @@
 import webpack from 'webpack'
 import path from 'path'
 import { BuildPath, IBuildEnv } from './config/webpack/types/config'
-import { buildWebpackConfig } from './config/webpack/buildWebpackConfig' 
+import { buildWebpackConfig } from './config/webpack/buildWebpackConfig'
 
-export default (env:IBuildEnv) => {
-  const webpackPath:BuildPath = {
+export default (env: IBuildEnv) => {
+  const webpackPath: BuildPath = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
+    sw: path.resolve(__dirname, 'src', 'workers', 'service.worker.ts'),
     output: path.resolve(__dirname, 'build'),
     html: './public/index.html',
     src: path.resolve(__dirname, 'src'),

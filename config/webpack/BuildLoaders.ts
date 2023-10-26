@@ -46,8 +46,24 @@ export const buildLoaders = (options: IBuildOptions): RuleSetRule[] => {
     ]
   }
 
+  const workerLoader = {
+    test: /service\.worker\.ts$/i,
+    use: 'ts-loader',
+    type: 'asset/resource',
+    generator: {
+      filename: 'sw.js'
+    }
+  }
+
   const codebabelLoader = buildBabelLoader({ ...options, isTsx: false })
   const tscCodebabelLoader = buildBabelLoader({ ...options, isTsx: true })
 
-  return [fileLoader, svgLoader, codebabelLoader, tscCodebabelLoader, cssLoader]
+  return [
+    fileLoader,
+    svgLoader,
+    tscCodebabelLoader,
+    cssLoader,
+    workerLoader,
+    codebabelLoader
+  ]
 }
